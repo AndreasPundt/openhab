@@ -1,0 +1,105 @@
+/*
+ * All rules for controlling lights
+ */
+ // 0-360; 0=red, 120=green, 240=blue, 360=red(again)
+var DecimalType hue_yellow = new DecimalType(60)
+var DecimalType hue_green = new DecimalType(120)
+var DecimalType hue_blue = new DecimalType(240)
+var DecimalType hue_red = new DecimalType(360)
+// 0-100 %
+var PercentType sat = new PercentType(100)
+// 0-100 %
+var PercentType bright = new PercentType(100)
+// set type
+var HSBType black = new HSBType("0,0,0")
+var HSBType white = new HSBType("0,0,100")
+var HSBType yellow = new HSBType("60,100,50")
+var HSBType green = new HSBType("120,100,50")
+var HSBType blue = new HSBType("240,100,50")
+var HSBType red = new HSBType("360,100,50")
+/*
+ * Controlling lights via CalDav
+ */
+rule "CalDav_BioWaste"
+when
+	Item vHUECaDav_GreenWaste received command
+then
+	if(receivedCommand == ON) {
+		logDebug("Caldav","------ HUE rule Bio start ----------")
+		dSwitch_HUE_FL_L.sendCommand(ON)
+		dSwitch_HUE_FL_R.sendCommand(ON)
+		dColor_HUE_FL_L.sendCommand(green)
+		dColor_HUE_FL_R.sendCommand(green)
+	}
+end
+//
+rule "CalDav_waste_light"
+when
+	Item vHUECalDav_WasteTyp received command
+then
+	logDebug("Caldav","------ HUE rule start ----------")
+	dSwitch_HUE_FL_L.sendCommand(ON)
+	dSwitch_HUE_FL_R.sendCommand(ON)
+	switch(receivedCommand) {
+		case 1 : {
+			logDebug("Caldav","------ HUE CASE 1 ----------")
+			//dColor_HUE_FL_L.sendCommand(light_green)
+			dColor_HUE_FL_R.sendCommand(green)
+		}
+		case 2 : {
+			//dColor_HUE_FL_L.sendCommand(light_blue)
+			dColor_HUE_FL_R.sendCommand(blue)
+		}
+		case 3 : {
+			//dColor_HUE_FL_L.sendCommand(light_red)
+			dColor_HUE_FL_R.sendCommand(red)
+		}
+		case 4 : {
+			dColor_HUE_FL_L.sendCommand(yellow)
+		}
+	}
+end
+/*
+rule "Luminium Color Item"
+	when
+		Item aacc_color received command
+	then
+		 if (receivedCommand instanceof HSBType)
+		 {
+			 val red = receivedCommand.red * 2.55
+			 val green = receivedCommand.green * 2.55
+			 val blue = receivedCommand.blue * 2.55
+				
+				aacc_color_r.sendCommand(red)
+				aacc_color_g.sendCommand(green)
+				aacc_color_b.sendCommand(blue)
+		 }
+		 else if (receivedCommand == ON){
+			 aacc_color.sendCommand(new HSBType("23,60,100"))
+		 }
+		 else if (receivedCommand == OFF){
+			 aacc_mode.sendCommand(0) // Fade-out lights very slowly. Implemented in the device code
+		 }
+end
+var DecimalType hue = new DecimalType(240) // 0-360; 0=red, 120=green, 240=blue, 360=red(again)
+var PercentType sat = new PercentType(100) // 0-100
+var PercentType bright = new PercentType(100) // 0-100
+var HSBType light = new HSBType(hue,sat,bright)
+sendCommand(Light_GF_Lounge_C, light)
+*/
+/* rule "Dimmed Light"
+	 when
+			Item DimmedLight received command
+	 then
+				if ((receivedCommand==INCREASE) || (receivedCommand==DECREASE)) {
+					var Number percent = 0
+					if(DimmedLight.state instanceof DecimalType) percent = DimmedLight.state as DecimalType
+						 
+					if(receivedCommand==INCREASE) percent = percent + 5
+					if(receivedCommand==DECREASE) percent = percent - 5
+		
+					if(percent<0)   percent = 0
+					if(percent>100) percent = 100
+					postUpdate(DimmedLight, percent);
+			 }
+end */

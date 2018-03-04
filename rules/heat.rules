@@ -1,0 +1,143 @@
+/* ---------------------
+ * variable declarations
+ * ---------------------
+ */
+// https://www.lob-services.de/2017/01/openhab-mit-caldav-binding/ */
+var		Number	vSetP_Tmp
+/* ------------------
+ * initialization
+ * ------------------
+ */
+rule "heat_init"
+when
+	System started
+then
+	vSwitchHeating_WZ.sendCommand(ON)
+end
+/* --------------------
+ * heat central on off
+ * --------------------
+ */
+rule "switchHeating_WZ_ON_OFF"
+when
+	Item vSwitchHeating_WZ received command
+then
+	if(receivedCommand == ON) {	
+		vSwitchOpMo_WZ.sendCommand(ON)	// set all operating mode switches to "automatic"
+		dThermostat_EZ.sendCommand(21)
+		dThermostat_WZ.sendCommand(21) 		
+		vSetPointWZ_normal.postUpdate(21)
+		vSetPointWZ_absenken.postUpdate(16)
+		vSetPointWZ_manu.postUpdate(21)
+	}
+	else {
+		vSwitchOpMo_WZ.sendCommand(OFF)		// set all operating mode switches to "manual"
+		dThermostat_EZ.sendCommand(4)
+		dThermostat_WZ.sendCommand(4) 		
+		vSetPointWZ_normal.postUpdate(4)
+		vSetPointWZ_absenken.postUpdate(4)
+		vSetPointWZ_manu.postUpdate(4)
+	}						
+end
+
+rule "switchOpMo_WZ_AUTO_MANU"
+when
+	Item vSwitchOpMo_WZ received command
+then
+	if(receivedCommand == OFF) {				// manueller Betrieb ist eingeschaltet
+		if (vSwitchHeating_WZ.state == ON) {
+			vShowSetPointWZ_manu.sendCommand(ON)
+			vSetPointWZ_manu.sendCommand(21) 		
+		}
+		else {
+			vShowSetPointWZ_manu.sendCommand(OFF)
+		}
+	}
+	else {
+		vShowSetPointWZ_manu.sendCommand(OFF)
+	}						
+end
+/* ----------
+ * livingroom
+ * ----------
+ */
+rule "Heizen Absenken"
+when
+	Item vSwitchHeating_CalDav received command
+then
+	if(receivedCommand == ON && vSwitchHeating_WZ.state == ON) {
+		vSwitchOpMo_WZ.sendCommand(ON)
+		vSetP_Tmp = (vSetPointWZ_normal.state as DecimalType)
+		dThermostat_EZ.sendCommand(vSetP_Tmp)
+		dThermostat_WZ.sendCommand(vSetP_Tmp)
+	}		
+	else if(receivedCommand == OFF) {
+		vSetP_Tmp = (vSetPointWZ_absenken.state as DecimalType)
+		dThermostat_EZ.sendCommand(vSetP_Tmp)
+		dThermostat_WZ.sendCommand(vSetP_Tmp) 					
+		}
+end 
+
+rule "Manueller-Betrieb"
+when
+	Item vSetPointWZ_manu received command
+then {
+	if (vSwitchHeating_WZ.state == ON && vSwitchOpMo_WZ.state == OFF){
+		vSetP_Tmp = vSetPointWZ_manu.state as DecimalType
+		dThermostat_EZ.sendCommand(vSetP_Tmp)
+		dThermostat_WZ.sendCommand(vSetP_Tmp)		
+	}
+}
+end
+
+/*
+rule "Normal-Betrieb"
+when
+	Time cron "0 0 6 ? * MON-FRI *" or			// 'ON' at weekdays:	6:00 
+	Time cron "0 0 16 ? * MON-FRI *" or			// 'ON' at weekdays:	16:00 
+	Time cron "0 30 8 ? * SAT-SUN *" 			// 'ON' at weekend:	8:30
+then	
+	if(vSwitchHeating_WZ.state == ON && vSwitchOpMo_WZ.state == ON) { 
+		vSetP_Tmp = (vSetPointWZ_normal.state as DecimalType)
+		dThermostat_EZ.sendCommand(vSetP_Tmp)
+		dThermostat_WZ.sendCommand(vSetP_Tmp) 		
+	}
+end
+
+rule "Absenk-Betrieb"
+when
+	Time cron "0 0 8 ? * MON-FRI *" or		// 'OFF' at weekdays: 08:00 
+	Time cron "0 30 21 ? * MON-FRI *" or	// 'OFF' at weekdays: 21:30 
+	Time cron "0 0 23 ? * SAT-SUN *"			// 'OFF' at weekend: 23:00
+then	
+	if(vSwitchHeating_WZ.state == ON && vSwitchOpMo_WZ.state == ON ) { 
+		vSetP_Tmp = (vSetPointWZ_absenken.state as DecimalType)
+		dThermostat_EZ.sendCommand(vSetP_Tmp)
+		dThermostat_WZ.sendCommand(vSetP_Tmp) 		
+	}
+end
+
+rule "heat_off_time_window_liv"
+when
+	Item contact_sensor_WZ_window changed
+then
+	logInfo("Heizung", "WZ Heizung Timer Fenster START")
+	if(contact_sensor_WZ_window.state == OPEN && switchOpMo_WZ.state == ON && G_SetP_liv.state != 4)
+		{
+		time_liv = now
+		logInfo("Heizung", "WZ Heizung Timer Fenster ENDE")
+		timer_window_liv = createTimer(now.plusMinutes(15)) [ heat_SetP_liv.sendCommand(4) ]
+		}
+	else				
+		{
+		logInfo("Heizung", "WZ Heizung Timer Fenster ABBRUCH")
+		if(timer_window_liv != null)
+			{
+			timer_window_liv.cancel
+			timer_window_liv = null
+			}
+		heat_SetP_liv.sendCommand(heat_SetP_liv.historicState(time_liv).state))	
+		}
+end
+* 
+*/

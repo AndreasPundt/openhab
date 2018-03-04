@@ -1,0 +1,84 @@
+/*
+ * Alarm rules
+ */
+rule "sirene"
+when
+  Item dAlarmSwitch_FL received command
+then
+	if (dAlarmSwitch_FL.state == ON) {
+		dDimmer_EZ.sendCommand(99)
+		dDimmer_WZ.sendCommand(99)
+		dDimmer_FL.sendCommand(99)
+		pushover("ALARM wurde ausgelöst", 2)
+	}
+end
+// 
+/*
+rule "MotionSensor"
+when
+	Item dMotionSensor_FL changed
+then
+	if (dMotionSensor_FL.state == ON) pushover("Bewegung auf dem Flur", 1)	
+	else if (dMotionSensor_FL.state == OFF) pushover("Keine Bewegung mehr auf dem Flur", 1)	
+end
+
+rule "BalconyDoor"
+when
+  Item dBalconyDoor_WZ changed
+then
+	if (dBalconyDoor_WZ.state == OPEN) {
+		//logDebug("Sonos","------ Pushover Message: dBalconyDoor_WZ.state == OPEN ----------")
+		pushover("Balkontür wurde geöffnet", 1)
+	}
+	else if (dBalconyDoor_WZ.state == CLOSED) {
+		//logDebug("Sonos","------ Pushover Message: dBalconyDoor_WZ.state == CLOSED ----------")
+		pushover("Balkontür wurde geschlossen")
+	}
+end
+*/
+rule "FrontDoor"
+when
+  Item dFrontDoor_FL changed
+then
+	if (dFrontDoor_FL.state == OPEN)
+		pushover("Haustür wurde geöffnet", 2)
+	else if (dFrontDoor_FL.state == CLOSED)
+		pushover("Haustür wurde geschlossen")
+end
+
+rule "fire"
+when
+   Item dSmokeSensor_FL changed or
+   Item dSmokeSensor_EZ changed
+then
+	if (dSmokeSensor_FL.state == ON) {
+		dAlarmSwitch_FL.sendCommand(ON)
+		dDimmer_EZ.sendCommand(99)
+		dDimmer_WZ.sendCommand(99)
+		dDimmer_FL.sendCommand(99)
+		pushover("ALARM - Rauchmelder im Flur", 2)
+	}
+	else if (dSmokeSensor_EZ.state == ON) {
+		dAlarmSwitch_FL.sendCommand(ON)
+		dDimmer_EZ.sendCommand(99)
+		dDimmer_WZ.sendCommand(99)
+		dDimmer_FL.sendCommand(99)
+		pushover("ALARM - Rauchmelder im Esszimmer", 2)
+	}
+end
+
+rule "water"
+when
+  Item dFloodSensor_KU changed
+then
+	if (dFloodSensor_KU.state == ON) {
+		dAlarmSwitch_FL.sendCommand(ON)
+		dDimmer_EZ.sendCommand(99)
+		dDimmer_WZ.sendCommand(99)
+		dDimmer_FL.sendCommand(99)
+		pushover("ALARM - Wasser in der Küche", 2)
+	}
+	else if (dFloodSensor_KU.state == OFF) {
+		pushover("ALARM - Wassermelder - alles i.o.")
+	}
+end
