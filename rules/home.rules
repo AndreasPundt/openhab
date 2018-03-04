@@ -103,6 +103,7 @@ rule "The Button"
 when
   Item dTheButton changed
 then
+	/* replace by node red */
 	if (dTheButton.state == 1.0) {
 		dSonosPLAY11Stop.sendCommand(ON)
 	}

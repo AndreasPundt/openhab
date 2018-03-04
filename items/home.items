@@ -222,7 +222,7 @@ Player vSonosControler			 "Control (virtuell) [%s]"				<receiver>		(gSO)
 String vSonosControlerNEXTPREV			 "Control (virtuell) [%s]"				<receiver>		(gSO)
 // Volume
 // => wird über eine rule an die Items der Channel übergeben - wie oben
-Dimmer vSonosVolume				"Lautstärke (virtuell) [%.1f %%]"		<soundvolume>	(gSO)
+Dimmer vSonosVolume				"Volume (virtuell) [%.1f %%]"		<soundvolume>	(gSO)
 // Mute
 // => wird über eine rule an die Items der Channel übergeben - wie oben
 Switch vSonosMute				"Mute (virtuell) [%s]"			<soundvolume_mute>	(gSO)
@@ -240,33 +240,21 @@ Switch vSonosCalDav_OnOff		"Sonos An / Aus"						<switch>	(gAC)
 //Switch vSonosSnooze				"Sonos: Virtuelle Snooze AN / AUS [%s]"	<switch>	(gAC, gSO)
 /*
  * -----
- * SONOS PLAY:1-1
+ * SONOS ONE
  * -----
  */
-Image dSonosPLAY11CurrentAlbumArt "Album Art" 				<video>					(gSO)
-	{channel="sonos:PLAY1:RINCON_000E58C9A89401400:currentalbumart"}
-String dSonosPLAY11CurrentArtist "Artist [%s]" 				<text>					(gSO)
-	{channel="sonos:PLAY1:RINCON_000E58C9A89401400:currentartist"}
-String dSonosPLAY11CurrentTitle 	"Titel [%s]" 				<text>					(gSO)
-	{channel="sonos:PLAY1:RINCON_000E58C9A89401400:currenttitle"}
-String dSonosPLAY11CurrentAlbum 	"Album [%s]"				<text>					(gSO)
-	{channel="sonos:PLAY1:RINCON_000E58C9A89401400:currentalbum"}
-String dSonosPLAY11PlayList	 	"Play List [%s]"			<text>					(gSO)
-	{channel="sonos:PLAY1:RINCON_000E58C9A89401400:playlist"}
-String dSonosPLAY11PlayRadio	 	"Radio Station [%s]"		<text>					(gSO)
-	{channel="sonos:PLAY1:RINCON_000E58C9A89401400:radio"}
-Player dSonosPLAY11Controler	 	"Control"					<receiver>				(gSO)
-	{channel="sonos:PLAY1:RINCON_000E58C9A89401400:control"}
-Dimmer dSonosPLAY11Volume			"Lautstärke [%.1f %%]"	<soundvolume>			(gSO)
-	{channel="sonos:PLAY1:RINCON_000E58C9A89401400:volume"}
-Switch dSonosPLAY11Mute				"Mute"						<soundvolume_mute>	(gSO)
-	{channel="sonos:PLAY1:RINCON_000E58C9A89401400:mute"}
-Switch dSonosPLAY11AlarmON    	"Alarm [%s]"				<switch>					(gSO)
-	{channel="sonos:PLAY1:RINCON_000E58C9A89401400:alarm"}
-Number dSonosPLAY11Snooze			"Snooze"						<clock>					(gSO)
-	{channel="sonos:PLAY1:RINCON_000E58C9A89401400:snooze"}
-Switch dSonosPLAY11Stop				"Stop"						<switch>					(gSO)
-	{channel="sonos:PLAY1:RINCON_000E58C9A89401400:stop"}
+Image	dSonosONECurrentAlbumArt "Album Art" 				<video>					(gSO) {channel="sonos:One:RINCON_7828CA073F1601400:currentalbumart"}
+String dSonosONECurrentArtist "Artist [%s]" 				<text>					(gSO) {channel="sonos:One:RINCON_7828CA073F1601400:currentartist"}
+String dSonosONECurrentTitle 	"Titel [%s]" 				<text>					(gSO)	{channel="sonos:One:RINCON_7828CA073F1601400:currenttitle"}
+String dSonosONECurrentAlbum 	"Album [%s]"				<text>					(gSO)	{channel="sonos:One:RINCON_7828CA073F1601400:currentalbum"}
+String dSonosONEPlayList	 	"Play List [%s]"			<text>					(gSO)	{channel="sonos:One:RINCON_7828CA073F1601400:playlist"}
+String dSonosONEPlayRadio	 	"Radio Station [%s]"		<text>					(gSO)	{channel="sonos:One:RINCON_7828CA073F1601400:radio"}
+Player dSonosONEControler	 	"Control"					<receiver>				(gSO)	{channel="sonos:One:RINCON_7828CA073F1601400:control"}
+Dimmer dSonosONEVolume			"Volume [%.1f %%]"		<soundvolume>			(gSO)	{channel="sonos:One:RINCON_7828CA073F1601400:volume"}
+Switch dSonosONEMute				"Mute"						<soundvolume_mute>	(gSO)	{channel="sonos:One:RINCON_7828CA073F1601400:mute"}
+Switch dSonosONEAlarmON    	"Alarm [%s]"				<switch>					(gSO)	{channel="sonos:One:RINCON_7828CA073F1601400:alarm"}
+Number dSonosONESnooze			"Snooze"						<clock>					(gSO)	{channel="sonos:One:RINCON_7828CA073F1601400:snooze"}
+Switch dSonosONEStop				"Stop"						<switch>					(gSO)	{channel="sonos:One:RINCON_7828CA073F1601400:stop"}
 /* 
  * Items mit indirektem Bezug zu einem Channel
  * => alle Items beginnen mit v
@@ -284,54 +272,95 @@ Switch dSonosPLAY11Stop				"Stop"						<switch>					(gSO)
  * => alle Items beginnen mit v
  */
 // Item zum Einschalten des Alarms für den Wecker des PLAY:1-1 - Alexa
-Switch vAlarmClockSonosPLAY11				"Wecker im Schlafzimmer [%s]"									<clock>		(gAC)
+Switch vAlarmClockSonosONE				"Wecker im Schlafzimmer [%s]"								<clock>		(gAC)
+// Item zur Auswahl der Play Liste des Weckers über ein HABPanel knob 
+// => wird dann an das Item vSonosONEWeckerPlayList2 übergeben 
+Number vSonosONEWeckerPlayList		"Wecker Play List Schlafzimmer [%d]"					<text>		(gAC)
+String vSonosONEWeckerPlayList2		"Wecker Play List Schlafzimmer [%s]"					<text>		(gAC)
+// Item zur Auswahl der Radio Station des Weckers über ein HABPanel knob 
+// => wird dann an das Item vSonosONEWeckerPlayRadio2 übergeben 
+Number vSonosONEWeckerPlayRadio		"Wecker Radio Station Schlafzimmer [%d]"				<text>		(gAC)
+String vSonosONEWeckerPlayRadio2		"Wecker Radio Station Schlafzimmer [%s]"				<text>		(gAC)
+//Item zum Wechsel zwischen Radio Station und Play List
+// => Switch == ON => Radio Station / Switch == OFF => Play List
+Switch vSonosONEWeckerRadioPlayList "Wecker switch Radio Play List Schlafzimmer [%s]"	<switch>	(gAC)
+// Item zur Festlegung der Snooze Zeit für den Wecker des PLAY1-1
+// => wird in der rule vSonosSnooze benutzt
+// => erhält den Wert von vSonoSnooze
+Number vSonosSnoozeTimeONE				"Virtuelle Snooze Zeit Schlafzimmer [%d]"				<clock>		(gAC)
+// Item zum Einschalten des Snooze für ONE
+// => wird gesetzt wenn (vAlarmClockSonosONE == ON) ist
+Switch vSonosSnoozeONE					"Virtuelles Snooze Schlafzimmer [%d]"					<switch>	(gAC)
+/*
+ * -----
+ * SONOS PLAY:1-1
+ * -----
+ */
+Image dSonosPLAY11CurrentAlbumArt "Album Art" 				<video>					(gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A89401400:currentalbumart"}
+String dSonosPLAY11CurrentArtist "Artist [%s]" 				<text>					(gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A89401400:currentartist"}
+String dSonosPLAY11CurrentTitle 	"Titel [%s]" 				<text>					(gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A89401400:currenttitle"}
+String dSonosPLAY11CurrentAlbum 	"Album [%s]"				<text>					(gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A89401400:currentalbum"}
+String dSonosPLAY11PlayList	 	"Play List [%s]"			<text>					(gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A89401400:playlist"}
+String dSonosPLAY11PlayRadio	 	"Radio Station [%s]"		<text>					(gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A89401400:radio"}
+Player dSonosPLAY11Controler	 	"Control"					<receiver>				(gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A89401400:control"}
+Dimmer dSonosPLAY11Volume			"Volume [%.1f %%]"		<soundvolume>			(gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A89401400:volume"}
+Switch dSonosPLAY11Mute				"Mute"						<soundvolume_mute>	(gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A89401400:mute"}
+Switch dSonosPLAY11AlarmON    	"Alarm [%s]"				<switch>					(gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A89401400:alarm"}
+Number dSonosPLAY11Snooze			"Snooze"						<clock>					(gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A89401400:snooze"}
+Switch dSonosPLAY11Stop				"Stop"						<switch>					(gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A89401400:stop"}
+/* 
+ * Items mit indirektem Bezug zu einem Channel
+ * => alle Items beginnen mit v
+ */
+// Item zur Speicherung der Nummer der Play List
+// => erhält den Wert von vSonosPlayList - über ein HABPAnel knob
+// => in Abhängigkeit von vSonosActivePlayer 
+//Number vSonosPLAY11PlayList	 			"Sonos: Play List [%s]"								<text>		(gSO)
+// Item zur Speicherung der Nummer der Radio Station
+// => erhält den Wert von vSonosPlayRadio - über ein HABPAnel knob
+// => in Abhängigkeit von vSonosActivePlayer 
+//Number vSonosPLAY11PlayRadio	 			"Sonos: Radio Station PLAY11 [%s]"				<text>		(gSO)
+/* 
+ * Items mit indirektem Bezug zu einem Channel die für den Wecker (Alarm Clock) benötigt werden
+ * => alle Items beginnen mit v
+ */
+// Item zum Einschalten des Alarms für den Wecker des PLAY:1-1 - Alexa
+Switch vAlarmClockSonosPLAY11				"Wecker im Schlafzimmer [%s]"								<clock>	(gAC)
 // Item zur Auswahl der Play Liste des Weckers über ein HABPanel knob 
 // => wird dann an das Item vSonosPLAY11WeckerPlayList2 übergeben 
-Number vSonosPLAY11WeckerPlayList		"Wecker Play List Schlafzimmer [%d]"						<text>		(gAC)
-String vSonosPLAY11WeckerPlayList2		"Wecker Play List Schlafzimmer [%s]"				<text>		(gAC)
+Number vSonosPLAY11WeckerPlayList		"Wecker Play List Schlafzimmer [%d]"					<text>	(gAC)
+String vSonosPLAY11WeckerPlayList2		"Wecker Play List Schlafzimmer [%s]"					<text>	(gAC)
 // Item zur Auswahl der Radio Station des Weckers über ein HABPanel knob 
 // => wird dann an das Item vSonosPLAY11WeckerPlayRadio2 übergeben 
-Number vSonosPLAY11WeckerPlayRadio		"Wecker Radio Station Schlafzimmer [%d]"					<text>		(gAC)
-String vSonosPLAY11WeckerPlayRadio2		"Wecker Radio Station Schlafzimmer [%s]"			<text>		(gAC)
+Number vSonosPLAY11WeckerPlayRadio		"Wecker Radio Station Schlafzimmer [%d]"				<text>	(gAC)
+String vSonosPLAY11WeckerPlayRadio2		"Wecker Radio Station Schlafzimmer [%s]"				<text>	(gAC)
 //Item zum Wechsel zwischen Radio Station und Play List
 // => Switch == ON => Radio Station / Switch == OFF => Play List
 Switch vSonosPLAY11WeckerRadioPlayList "Wecker switch Radio Play List Schlafzimmer [%s]"	<switch>	(gAC)
 // Item zur Festlegung der Snooze Zeit für den Wecker des PLAY1-1
 // => wird in der rule vSonosSnooze benutzt
 // => erhält den Wert von vSonoSnooze
-Number vSonosSnoozeTimePLAY11				"Virtuelle Snooze Zeit Schlafzimmer [%d]"		<clock>		(gAC)
+Number vSonosSnoozeTimePLAY11				"Virtuelle Snooze Zeit Schlafzimmer [%d]"				<clock>	(gAC)
 // Item zum Einschalten des Snooze für PLAY1-1
 // => wird gesetzt wenn (vAlarmClockSonosPLAY11 == ON) ist
-Switch vSonosSnoozePLAY11					"Virtuelles Snooze Schlafzimmer [%d]"	<switch>	(gAC)
+Switch vSonosSnoozePLAY11					"Virtuelles Snooze Schlafzimmer [%d]"					<switch>	(gAC)
 /*
  * -----
  * Sonos PLAY:1-2
  * -----
  */
-Image dSonosPLAY12CurrentAlbumArt "Album Art" 				<video>				(gSO)
-	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:currentalbumart"}
-String dSonosPLAY12CurrentArtist "Artist [%s]" 				<text>				(gSO)
-	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:currentartist"}
-String dSonosPLAY12CurrentTitle 	"Titel [%s]" 			<text>				(gSO)
-	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:currenttitle"}
-String dSonosPLAY12CurrentAlbum 	"Album [%s]"			<text>				(gSO)
-	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:currentalbum"}
-String dSonosPLAY12PlayList	 	"Play List [%s]"		<text>				(gSO)
-	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:playlist"}
-String dSonosPLAY12PlayRadio	 	"Radio Station [%s]"		<text>				(gSO)
-	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:radio"}
-Player dSonosPLAY12Controler	 	"Control"			<receiver>			(gSO)
-	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:control"}
-Dimmer dSonosPLAY12Volume			"Lautstärke [%.1f %%]"	<soundvolume>			(gSO)
-	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:volume"}
-Switch dSonosPLAY12Mute				"Mute"			<soundvolume_mute>		(gSO)
-	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:mute"}
-Switch dSonosPLAY12AlarmON    	"Alarm [%s]"				<switch>			(gSO)
-	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:alarm"}
-Number dSonosPLAY12Snooze			"Snooze"		<clock>				(gSO)
-	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:snooze"}
-Switch dSonosPLAY12Stop				"Stop"			<switch>			(gSO)
-	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:stop"}
+Image dSonosPLAY12CurrentAlbumArt "Album Art" 			<video>				(gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:currentalbumart"}
+String dSonosPLAY12CurrentArtist "Artist [%s]" 			<text>				(gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:currentartist"}
+String dSonosPLAY12CurrentTitle 	"Titel [%s]" 			<text>				(gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:currenttitle"}
+String dSonosPLAY12CurrentAlbum 	"Album [%s]"			<text>				(gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:currentalbum"}
+String dSonosPLAY12PlayList	 	"Play List [%s]"		<text>				(gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:playlist"}
+String dSonosPLAY12PlayRadio	 	"Radio Station [%s]"	<text>				(gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:radio"}
+Player dSonosPLAY12Controler	 	"Control"				<receiver>			(gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:control"}
+Dimmer dSonosPLAY12Volume			"Volume [%.1f %%]"	<soundvolume>		(gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:volume"}
+Switch dSonosPLAY12Mute				"Mute"					<soundvolume_mute> (gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:mute"}
+Switch dSonosPLAY12AlarmON    	"Alarm [%s]"			<switch>				(gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:alarm"}
+Number dSonosPLAY12Snooze			"Snooze"					<clock>				(gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:snooze"}
+Switch dSonosPLAY12Stop				"Stop"					<switch>				(gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:stop"}
 /* 
  * Items mit indirektem Bezug zu einem Channel
  * => alle Items beginnen mit v
@@ -349,54 +378,42 @@ Switch dSonosPLAY12Stop				"Stop"			<switch>			(gSO)
  * => alle Items beginnen mit v
  */
 // Item zum Einschalten des Alarms für den Wecker des PLAY1-1
-Switch vAlarmClockSonosPLAY12				"Wecker Sonos PLAY12 ON [%s]"					<clock>		(gAC)
+Switch vAlarmClockSonosPLAY12				"Wecker Sonos PLAY12 ON [%s]"								<clock>		(gAC)
 // Item zur Auswahl der Play Liste des Weckers über ein HABPanel knob 
 // => wird dann an das Item vSonosPLAY12WeckerPlayList2 übergeben 
-Number vSonosPLAY12WeckerPlayList		"Sonos: Wecker Play List PLAY12 [%d]"				<text>		(gAC)
-String vSonosPLAY12WeckerPlayList2		"Sonos: Wecker Play List PLAY12 [%s]"				<text>		(gAC)
+Number vSonosPLAY12WeckerPlayList		"Sonos: Wecker Play List PLAY12 [%d]"					<text>		(gAC)
+String vSonosPLAY12WeckerPlayList2		"Sonos: Wecker Play List PLAY12 [%s]"					<text>		(gAC)
 // Item zur Auswahl der Radio Station des Weckers über ein HABPanel knob 
 // => wird dann an das Item vSonosPLAY12WeckerPlayRadio2 übergeben 
-Number vSonosPLAY12WeckerPlayRadio		"Sonos: Wecker Radio Station PLAY12 [%d]"			<text>		(gAC)
-String vSonosPLAY12WeckerPlayRadio2		"Sonos: Wecker Radio Station PLAY12 [%s]"			<text>		(gAC)
+Number vSonosPLAY12WeckerPlayRadio		"Sonos: Wecker Radio Station PLAY12 [%d]"				<text>		(gAC)
+String vSonosPLAY12WeckerPlayRadio2		"Sonos: Wecker Radio Station PLAY12 [%s]"				<text>		(gAC)
 // Item zum Wechsel zwischen Radio Station und Play List
 // => Switch == ON => Radio Station / Switch == OFF => Play List
 Switch vSonosPLAY12WeckerRadioPlayList "Sonos: Wecker switch Radio Play List PLAY12 [%s]"	<switch>	(gAC)
 // Item zur Festlegung der Snooze Zeit für den Wecker des PLAY1-1
 // => wird in der rule vSonosSnooze benutzt
 // => erhält den Wert von vSonoSnooze
-Number vSonosSnoozeTimePLAY12				"Sonos: Virtuelle Snooze Zeit PLAY12 [%d]"		<clock>		(gAC)
+Number vSonosSnoozeTimePLAY12				"Sonos: Virtuelle Snooze Zeit PLAY12 [%d]"			<clock>		(gAC)
 // Item zum Einschalten des Snooze für PLAY1-1
 // => wird gesetzt wenn (vAlarmClockSonosPLAY12 == ON) ist
-Switch vSonosSnoozePLAY12					"Sonos: Virtuelles Snooze AN/AUS PLAY12 [%d]"	<switch>	(gAC)
+Switch vSonosSnoozePLAY12					"Sonos: Virtuelles Snooze AN/AUS PLAY12 [%d]"		<switch>	(gAC)
 /*
  * -----
  * Sonos CONNECT
  * -----
  */
-Image dSonosCONNECTCurrentAlbumArt "Album Art" 				<video>					(gSO)
-	{channel="sonos:CONNECT:RINCON_B8E93790C2A401400:currentalbumart"}
-String dSonosCONNECTCurrentArtist "Artist [%s]" 				<text>					(gSO)
-	{channel="sonos:CONNECT:RINCON_B8E93790C2A401400:currentartist"}
-String dSonosCONNECTCurrentTitle 	"Titel [%s]" 				<text>					(gSO)
-	{channel="sonos:CONNECT:RINCON_B8E93790C2A401400:currenttitle"}
-String dSonosCONNECTCurrentAlbum 	"Album [%s]"				<text>					(gSO)
-	{channel="sonos:CONNECT:RINCON_B8E93790C2A401400:currentalbum"}
-String dSonosCONNECTPlayList	 	"Play List [%s]"			<text>					(gSO)
-	{channel="sonos:CONNECT:RINCON_B8E93790C2A401400:playlist"}
-String dSonosCONNECTPlayRadio	 	"Radio Station [%s]"		<text>					(gSO)
-	{channel="sonos:CONNECT:RINCON_B8E93790C2A401400:radio"}
-Player dSonosCONNECTControler	 	"Control"					<receiver>				(gSO)
-	{channel="sonos:CONNECT:RINCON_B8E93790C2A401400:control"}
-Dimmer dSonosCONNECTVolume			"Lautstärke [%.1f %%]"	<soundvolume>			(gSO)
-	{channel="sonos:CONNECT:RINCON_B8E93790C2A401400:volume"}
-Switch dSonosCONNECTMute				"Mute"						<soundvolume_mute>	(gSO)
-	{channel="sonos:CONNECT:RINCON_B8E93790C2A401400:mute"}
-Switch dSonosCONNECTAlarmON    	"Alarm [%s]"				<switch>					(gSO)
-	{channel="sonos:CONNECT:RINCON_B8E93790C2A401400:alarm"}
-Number dSonosCONNECTSnooze			"Snooze"						<clock>					(gSO)
-	{channel="sonos:CONNECT:RINCON_B8E93790C2A401400:snooze"}
-Switch dSonosCONNECTStop				"Stop"						<switch>					(gSO)
-	{channel="sonos:CONNECT:RINCON_B8E93790C2A401400:stop"}
+Image dSonosCONNECTCurrentAlbumArt	"Album Art" 			<video>					(gSO)	{channel="sonos:CONNECT:RINCON_B8E93790C2A401400:currentalbumart"}
+String dSonosCONNECTCurrentArtist	"Artist [%s]" 			<text>					(gSO)	{channel="sonos:CONNECT:RINCON_B8E93790C2A401400:currentartist"}
+String dSonosCONNECTCurrentTitle 	"Titel [%s]" 			<text>					(gSO)	{channel="sonos:CONNECT:RINCON_B8E93790C2A401400:currenttitle"}
+String dSonosCONNECTCurrentAlbum 	"Album [%s]"			<text>					(gSO)	{channel="sonos:CONNECT:RINCON_B8E93790C2A401400:currentalbum"}
+String dSonosCONNECTPlayList			"Play List [%s]"		<text>					(gSO)	{channel="sonos:CONNECT:RINCON_B8E93790C2A401400:playlist"}
+String dSonosCONNECTPlayRadio			"Radio Station [%s]"	<text>					(gSO)	{channel="sonos:CONNECT:RINCON_B8E93790C2A401400:radio"}
+Player dSonosCONNECTControler			"Control"				<receiver>				(gSO)	{channel="sonos:CONNECT:RINCON_B8E93790C2A401400:control"}
+Dimmer dSonosCONNECTVolume				"Volume [%.1f %%]"	<soundvolume>			(gSO)	{channel="sonos:CONNECT:RINCON_B8E93790C2A401400:volume"}
+Switch dSonosCONNECTMute				"Mute"					<soundvolume_mute>	(gSO)	{channel="sonos:CONNECT:RINCON_B8E93790C2A401400:mute"}
+Switch dSonosCONNECTAlarmON    		"Alarm [%s]"			<switch>					(gSO)	{channel="sonos:CONNECT:RINCON_B8E93790C2A401400:alarm"}
+Number dSonosCONNECTSnooze				"Snooze"					<clock>					(gSO)	{channel="sonos:CONNECT:RINCON_B8E93790C2A401400:snooze"}
+Switch dSonosCONNECTStop				"Stop"					<switch>					(gSO)	{channel="sonos:CONNECT:RINCON_B8E93790C2A401400:stop"}
 /* 
  * Items mit indirektem Bezug zu einem Channel
  * => alle Items beginnen mit v
@@ -414,8 +431,7 @@ Number vSonosCONNECTPlayRadio	 	"Radio Station [%s]"		<text>					(gSO)
  * date and time
  * -------------
  */
-DateTime dCurrentDate		"Aktuelles Datum  [%1$tA, %1$td.%1$tm.%1$tY]"   <calendar>
-	{channel="ntp:ntp:local:dateTime" }
+DateTime dCurrentDate		"Aktuelles Datum  [%1$tA, %1$td.%1$tm.%1$tY]"   <calendar> {channel="ntp:ntp:local:dateTime" }
 //DateTime dCurrentTime		"Aktuelle Uhrzeit"								<clock>		// {channel="npd:}
 
 /*
@@ -423,32 +439,22 @@ DateTime dCurrentDate		"Aktuelles Datum  [%1$tA, %1$td.%1$tm.%1$tY]"   <calendar
  * astronomy
  * ---------
  */
-DateTime	dSunriseTime   "Sonnenaufgang [%1$tH:%1$tM]"		<sunrise>	(gAS)
-	{channel = "astro:sun:local:rise#start" }
-DateTime	dSunsetTime    "Sonnenuntergang [%1$tH:%1$tM]" 	<sunset>    (gAS)
-	{channel = "astro:sun:local:set#start" }
-DateTime	dMoonriseTime  "Mondaufgang [%1$tH:%1$tM]"		<sunrise>   (gAS)
-	{channel = "astro:moon:local:rise#start" }
-DateTime	dMoonsetTime   "Monduntergang [%1$tH:%1$tM]"		<sunset>    (gAS)
-	{channel = "astro:moon:local:set#start" }
-DateTime	dMoonFull		"Vollmond"								<moon>      (gAS)
-	{channel = "astro:moon:local:phase#full" }
-String	dMoonPhase     "Mond Phase [%s]"						<moon>      (gAS)
-	{channel = "astro:moon:local:phase#name" }
+DateTime	dSunriseTime   "Sonnenaufgang [%1$tH:%1$tM]"		<sunrise>	(gAS)	{channel = "astro:sun:local:rise#start" }
+DateTime	dSunsetTime    "Sonnenuntergang [%1$tH:%1$tM]" 	<sunset>    (gAS)	{channel = "astro:sun:local:set#start" }
+DateTime	dMoonriseTime  "Mondaufgang [%1$tH:%1$tM]"		<sunrise>   (gAS)	{channel = "astro:moon:local:rise#start" }
+DateTime	dMoonsetTime   "Monduntergang [%1$tH:%1$tM]"		<sunset>    (gAS)	{channel = "astro:moon:local:set#start" }
+DateTime	dMoonFull		"Vollmond"								<moon>      (gAS)	{channel = "astro:moon:local:phase#full" }
+String	dMoonPhase     "Mond Phase [%s]"						<moon>      (gAS)	{channel = "astro:moon:local:phase#name" }
 
 /*
  * ------
  * weather
  * ------
  */
-String dCurrentConditions_WU	"Wetterbedingungen"							<sun_clouds>	(gWE)
-	{channel="weatherunderground:weather:b6f874f0:current#conditions"}
-Number dCurrentTemperature_WU	"Temperatur [%.1f °C]"						<temperature>	(gWE)
-	{channel="weatherunderground:weather:b6f874f0:current#temperature"}
-Number dCurrentHumidity_WU		"Luftfeuchtigkeit"							<humidity>		(gWE)
-	{channel="weatherunderground:weather:b6f874f0:current#relativeHumidity"}
-Number dCurrentWindSpeed_WU	"Windgeschwindigkeit [%.1f kM/h]"		<wind>			(gWE)
-	{channel="weatherunderground:weather:b6f874f0:current#windSpeed"}
+String dCurrentConditions_WU	"Wetterbedingungen"						<sun_clouds>	(gWE)	{channel="weatherunderground:weather:b6f874f0:current#conditions"}
+Number dCurrentTemperature_WU	"Temperatur [%.1f °C]"					<temperature>	(gWE)	{channel="weatherunderground:weather:b6f874f0:current#temperature"}
+Number dCurrentHumidity_WU		"Luftfeuchtigkeit"						<humidity>		(gWE)	{channel="weatherunderground:weather:b6f874f0:current#relativeHumidity"}
+Number dCurrentWindSpeed_WU	"Windgeschwindigkeit [%.1f kM/h]"	<wind>			(gWE)	{channel="weatherunderground:weather:b6f874f0:current#windSpeed"}
 /*
  * -------------------------
  * battery status of devices
@@ -460,16 +466,11 @@ Number dCurrentWindSpeed_WU	"Windgeschwindigkeit [%.1f kM/h]"		<wind>			(gWE)
  * network
  * -------
  */
-Switch dAndisHandy		"Andis Handy [%s]"							<network>	(gNetwork)
-	{channel="network:device:192_168_1_9:online"}
-Switch dYarasHandy		"Yaras Handy [%s]"							<network>	(gNetwork)
-	{channel="network:device:192_168_1_16:online"}
-Switch dDLinkDAP2610		"D-Link DAP-2610 WLAN Router [%s]"		<network>	(gNetwork)
-	{channel="network:device:192_168_1_50:online"}
-Switch dNetgearRouter	"Netgear Router [%s]"						<network>	(gNetwork)
-	{channel="network:device:192_168_1_1:online"}
-Switch dNetgearGS108PE	"Netgear GS108PE 8-Port Switch [%s]"	<network>	(gNetwork)
-	{channel="network:device:192_168_1_30:online"}
+Switch dAndisHandy		"Andis Handy [%s]"							<network>	(gNetwork) {channel="network:device:192_168_1_9:online"}
+Switch dYarasHandy		"Yaras Handy [%s]"							<network>	(gNetwork) {channel="network:device:192_168_1_16:online"}
+Switch dDLinkDAP2610		"D-Link DAP-2610 WLAN Router [%s]"		<network>	(gNetwork) {channel="network:device:192_168_1_50:online"}
+Switch dNetgearRouter	"Netgear Router [%s]"						<network>	(gNetwork) {channel="network:device:192_168_1_1:online"}
+Switch dNetgearGS108PE	"Netgear GS108PE 8-Port Switch [%s]"	<network>	(gNetwork) {channel="network:device:192_168_1_30:online"}
  
  
 
