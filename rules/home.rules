@@ -10,7 +10,7 @@ rule "WallMote Quad 2"
 when
   Item dWallMoteQuad2 changed
 then
-	if (dWallMoteQuad2.state == 1.0) {
+	/* if (dWallMoteQuad2.state == 1.0) {
 		logDebug("Sonos","------ Sonos CONNECT ON by WallMot ----------")
 		dPlugSwitch_EZ.sendCommand(ON)
 		dPlugSwitch_WZ.sendCommand(ON)
@@ -35,15 +35,15 @@ then
 		dSwitch_HUE_EZ_L.sendCommand(OFF)
 		dSwitch_HUE_EZ_M.sendCommand(OFF)
 		dSwitch_HUE_EZ_R.sendCommand(OFF)
-	} else if (dWallMoteQuad2.state == 3.0) {
-		dSonosCONNECTControler.sendCommand(PLAY)
-	} else if (dWallMoteQuad2.state == 3.2) {
+	if (dWallMoteQuad2.state == 3.0) {
+		dSonosCONNECTControler.sendCommand(PLAY) */
+	if (dWallMoteQuad2.state == 3.2) {
 		vValueCurrent = (dSonosCONNECTVolume.state as DecimalType).intValue
 		dSonosCONNECTVolume.sendCommand(vValueCurrent + 10)
 		vSonosVolume.postUpdate(vValueCurrent + 10)			
-	} else if (dWallMoteQuad2.state == 4.0) {
+	/*} else if (dWallMoteQuad2.state == 4.0) {
 		dSonosCONNECTControler.sendCommand(PAUSE)
-//		pushover("PAUSE")		
+//		pushover("PAUSE") */		
 	} else if (dWallMoteQuad2.state == 4.2) {
 		vValueCurrent2 = (dSonosCONNECTVolume.state as DecimalType).intValue
 		dSonosCONNECTVolume.sendCommand(vValueCurrent2 - 10)
@@ -98,12 +98,12 @@ then
 		dDimmer_FL.sendCommand(0)
 	} */
 end
-
+/*
 rule "The Button"
 when
   Item dTheButton changed
 then
-	/* replace by node red */
+	// replaced by node red
 	if (dTheButton.state == 1.0) {
 		dSonosPLAY11Stop.sendCommand(ON)
 	}
@@ -125,3 +125,4 @@ then
 		vSonosOnOff.postUpdate(OFF)
 	}
 end
+*/

@@ -88,6 +88,7 @@ then
 		case 1 : vSonosActivePlayer.sendCommand("Schlafzimmer")
 		case 2 : vSonosActivePlayer.sendCommand("Bad")
 		case 3 : vSonosActivePlayer.sendCommand("Wohnzimmer")
+		case 4 : vSonosActivePlayer.sendCommand("Kueche")
 	}
 end	
 
@@ -300,7 +301,7 @@ then
 			dSonosPLAY11Mute.sendCommand(ON)			
 		}
 		// first ON command, so create a timer to switch on sonos
-		if(vTimerSonosSnoozePLAY11 == null) {     									
+		if(vTimerSonosSnoozePLAY11 === null) {     									
 			vSnoozeTimeTmp = (vSonosSnoozeTimePLAY11.state as DecimalType).intValue
 			vTimerSonosSnoozePLAY11 = createTimer(now.plusMinutes(vSnoozeTimeTmp)) [|
 				logDebug("Sonos","------ Snooze trigger execution PLAY11 ----------")
@@ -320,7 +321,7 @@ then
 //	else if (vSonosSnoozePLAY11.state == OFF) {
 		logDebug("Sonos","------ Snooze AUS PLAY11 ----------")
 		// remove any previously scheduled timer
-		if(vTimerSonosSnoozePLAY11 != null) {
+		if(vTimerSonosSnoozePLAY11 !== null) {
 			vTimerSonosSnoozePLAY11.cancel
 			vTimerSonosSnoozePLAY11 = null
 		}
@@ -344,7 +345,7 @@ then
 			dSonosPLAY12Mute.sendCommand(ON)			
 		}
 		// first ON command, so create a timer to switch on sonos
-		if(vTimerSonosSnoozePLAY12 == null) {     									
+		if(vTimerSonosSnoozePLAY12 === null) {     									
 			vSnoozeTimeTmp = (vSonosSnoozeTimePLAY12.state as DecimalType).intValue
 			vTimerSonosSnoozePLAY12 = createTimer(now.plusMinutes(vSnoozeTimeTmp)) [|
 				logDebug("Sonos","------ Snooze trigger execution PLAY12 ----------")
@@ -364,7 +365,7 @@ then
 //	else if (vSonosSnoozePLAY12.state == OFF) {
 		logDebug("Sonos","------ Snooze AUS PLAY12 ----------")
 		// remove any previously scheduled timer
-		if(vTimerSonosSnoozePLAY12 != null) {
+		if(vTimerSonosSnoozePLAY12 !== null) {
 			vTimerSonosSnoozePLAY12.cancel
 			vTimerSonosSnoozePLAY12 = null
 		}
@@ -383,7 +384,7 @@ then
 		logDebug("Sonos","------ Alarm Clock via CalDav AN ----------")
 		if (vAlarmClockSonosPLAY11.state == ON) {
 			// first ON command, so create a timer to switch on sonos
-			if(vTimerSonosPLAY11OnOff == null) {
+			if(vTimerSonosPLAY11OnOff === null) {
 				if (dPlugSwitch_EZ.state == OFF) {
 					dPlugSwitch_WZ.sendCommand(ON)
 					dPlugSwitch_EZ.sendCommand(ON)
@@ -414,7 +415,7 @@ then
 		}
 		if (vAlarmClockSonosPLAY12.state == ON) {
 			// first ON command, so create a timer to switch on sonos
-			if(vTimerSonosPLAY12OnOff == null) {
+			if(vTimerSonosPLAY12OnOff === null) {
 				if (dPlugSwitch_EZ.state == OFF) {
 					dPlugSwitch_WZ.sendCommand(ON)
 					dPlugSwitch_EZ.sendCommand(ON)
@@ -449,11 +450,11 @@ then
 		if (vAlarmClockSonosPLAY11.state == ON) {
 			dSonosPLAY11Stop.sendCommand(ON)
 			// remove any previously scheduled timer
-			if(vTimerSonosSnoozePLAY12 != null) {
+			if(vTimerSonosSnoozePLAY12 !== null) {
 				vTimerSonosSnoozePLAY12.cancel
 				vTimerSonosSnoozePLAY12 = null
 			}
-			if(vTimerSonosPLAY11OnOff != null) {
+			if(vTimerSonosPLAY11OnOff !== null) {
 				vTimerSonosPLAY11OnOff.cancel
 				vTimerSonosPLAY11OnOff = null
 			}
@@ -461,11 +462,11 @@ then
 		if (vAlarmClockSonosPLAY12.state == ON) {
 			dSonosPLAY12Stop.sendCommand(ON)
 			// remove any previously scheduled timer
-			if(vTimerSonosSnoozePLAY12 != null) {
+			if(vTimerSonosSnoozePLAY12 !== null) {
 				vTimerSonosSnoozePLAY12.cancel
 				vTimerSonosSnoozePLAY12 = null
 			}
-			if(vTimerSonosPLAY12OnOff != null) {
+			if(vTimerSonosPLAY12OnOff !== null) {
 				vTimerSonosPLAY12OnOff.cancel
 				vTimerSonosPLAY12OnOff = null
 			}
