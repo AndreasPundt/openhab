@@ -43,7 +43,7 @@ then
 		vSonosVolume.postUpdate(vValueCurrent + 10)			
 	/*} else if (dWallMoteQuad2.state == 4.0) {
 		dSonosCONNECTControler.sendCommand(PAUSE)
-//		pushover("PAUSE") */		
+*/		
 	} else if (dWallMoteQuad2.state == 4.2) {
 		vValueCurrent2 = (dSonosCONNECTVolume.state as DecimalType).intValue
 		dSonosCONNECTVolume.sendCommand(vValueCurrent2 - 10)
