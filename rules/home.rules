@@ -6,8 +6,6 @@ var Timer vTimerSonosCONNECT = null
  * 0-59,*  0-59,*  0-23,* 0-31,*,?     0-11,*  0-6,*,?           
  * 0       0       16     ?            *       MON-FRI       *
  * */
- //
- //
 rule "WallMote Quad 2"
 when
   Item dWallMoteQuad2 changed
