@@ -43,15 +43,12 @@ then
 	switch(receivedCommand) {
 		case 1 : {
 			logDebug("Caldav","------ HUE CASE 1 ----------")
-			//dColor_HUE_FL_L.sendCommand(light_green)
 			dColor_HUE_FL_R.sendCommand(green)
 		}
 		case 2 : {
-			//dColor_HUE_FL_L.sendCommand(light_blue)
 			dColor_HUE_FL_R.sendCommand(blue)
 		}
 		case 3 : {
-			//dColor_HUE_FL_L.sendCommand(light_red)
 			dColor_HUE_FL_R.sendCommand(red)
 		}
 		case 4 : {
