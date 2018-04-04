@@ -88,7 +88,7 @@ then
 		case 1 : vSonosActivePlayer.sendCommand("Schlafzimmer")
 		case 2 : vSonosActivePlayer.sendCommand("Bad")
 		case 3 : vSonosActivePlayer.sendCommand("Wohnzimmer")
-		case 4 : vSonosActivePlayer.sendCommand("Kueche")
+		case 4 : vSonosActivePlayer.sendCommand("Küche")
 	}
 end	
 
@@ -292,10 +292,8 @@ rule "vSonosSnoozePLAY11"
 when
 	// switch for WallMot and HabPanel
 	Item vSonosSnoozePLAY11 received command
-//	Item vSonosSnoozePLAY11 received update
 then
 	if(receivedCommand == ON) {
-//	if (vSonosSnoozePLAY11.state == ON) {
 		logDebug("Sonos","------ Snooze Start PLAY11 ----------")
 		if (dSonosPLAY11Mute.state == OFF) {
 			dSonosPLAY11Mute.sendCommand(ON)			
@@ -318,7 +316,6 @@ then
 		}
 	}	
 	else if(receivedCommand == OFF) {
-//	else if (vSonosSnoozePLAY11.state == OFF) {
 		logDebug("Sonos","------ Snooze AUS PLAY11 ----------")
 		// remove any previously scheduled timer
 		if(vTimerSonosSnoozePLAY11 !== null) {
