@@ -385,23 +385,12 @@ then
 		if (vAlarmClockSonosPLAY11.state == ON) {
 			// first ON command, so create a timer to switch on sonos
 			if(vTimerSonosPLAY11OnOff === null) {
-				if (dPlugSwitch_EZ.state == OFF) {
-					dPlugSwitch_WZ.sendCommand(ON)
-					dPlugSwitch_EZ.sendCommand(ON)
-					dPlugSwitch_BZ.sendCommand(ON)
-					dPlugSwitch_SZ.sendCommand(ON)
-					vSonosOnOff.postUpdate(ON)
-				}
+				dPlugSwitch_SZ.sendCommand(ON)
+				vSonosOnOff.postUpdate(ON)
 				vTimerSonosPLAY11OnOff = createTimer(now.plusMinutes(2)) [|
 					logDebug("Sonos","------PLAY:1-1 Alarm Clock Trigger execution ----------")
-					if (vSonosPLAY11WeckerRadioPlayList.state == ON) {
-			         vRadioPLAY11PlayListTmp = (vSonosPLAY11WeckerPlayRadio2.state as StringType).toString
-			         vRadioPLAY11PlayListTmpNum = (vSonosPLAY11WeckerPlayRadio.state as DecimalType).intValue
-					}
-					else if (vSonosPLAY11WeckerRadioPlayList.state == OFF) {
-						vRadioPLAY11PlayListTmp = (vSonosPLAY11WeckerPlayList2.state as StringType).toString
-						vRadioPLAY11PlayListTmpNum = (vSonosPLAY11WeckerPlayList.state as DecimalType).intValue
-					}				
+					vRadioPLAY11PlayListTmp = (vSonosPLAY11WeckerPlayRadio2.state as StringType).toString
+					vRadioPLAY11PlayListTmpNum = (vSonosPLAY11WeckerPlayRadio.state as DecimalType).intValue
 					dSonosPLAY11Volume.sendCommand(5)
 		         dSonosPLAY11PlayRadio.sendCommand(vRadioPLAY11PlayListTmp)
 		         vSonosPlayRadio.postUpdate(vRadioPLAY11PlayListTmpNum)								
@@ -415,23 +404,12 @@ then
 		if (vAlarmClockSonosPLAY12.state == ON) {
 			// first ON command, so create a timer to switch on sonos
 			if(vTimerSonosPLAY12OnOff === null) {
-				if (dPlugSwitch_EZ.state == OFF) {
-					dPlugSwitch_WZ.sendCommand(ON)
-					dPlugSwitch_EZ.sendCommand(ON)
-					dPlugSwitch_BZ.sendCommand(ON)
-					dPlugSwitch_SZ.sendCommand(ON)
-					vSonosOnOff.postUpdate(ON)
-				}
+				dPlugSwitch_BZ.sendCommand(ON)
+				vSonosOnOff.postUpdate(ON)
 				vTimerSonosPLAY12OnOff = createTimer(now.plusMinutes(2)) [|
 					logDebug("Sonos","------PLAY:1-1 Alarm Clock Trigger execution ----------")
-					if (vSonosPLAY12WeckerRadioPlayList.state == ON) {
-			         vRadioPLAY12PlayListTmp = (vSonosPLAY12WeckerPlayRadio2.state as StringType).toString
-			         vRadioPLAY12PlayListTmpNum = (vSonosPLAY12WeckerPlayRadio.state as DecimalType).intValue
-					}
-					else if (vSonosPLAY12WeckerRadioPlayList.state == OFF) {
-						vRadioPLAY12PlayListTmp = (vSonosPLAY12WeckerPlayList2.state as StringType).toString
-						vRadioPLAY12PlayListTmpNum = (vSonosPLAY12WeckerPlayList.state as DecimalType).intValue
-					}				
+					vRadioPLAY12PlayListTmp = (vSonosPLAY12WeckerPlayRadio2.state as StringType).toString
+					vRadioPLAY12PlayListTmpNum = (vSonosPLAY12WeckerPlayRadio.state as DecimalType).intValue
 					dSonosPLAY12Volume.sendCommand(5)
 		         dSonosPLAY12PlayRadio.sendCommand(vRadioPLAY12PlayListTmp)
 		         vSonosPlayRadio.postUpdate(vRadioPLAY12PlayListTmpNum)								
@@ -469,13 +447,9 @@ then
 				vTimerSonosPLAY12OnOff = null
 			}
 		}
-		if (dPlugSwitch_EZ.state == ON) {
-			dPlugSwitch_WZ.sendCommand(OFF)
-			dPlugSwitch_EZ.sendCommand(OFF)
-			dPlugSwitch_BZ.sendCommand(OFF)
-			dPlugSwitch_SZ.sendCommand(OFF)
-			vSonosOnOff.postUpdate(OFF)			
-		}
+		dPlugSwitch_BZ.sendCommand(OFF)
+		dPlugSwitch_SZ.sendCommand(OFF)
+		vSonosOnOff.postUpdate(OFF)			
 	}
 	logDebug("Sonos","------ Alarm Clock rule finished ----------")
 end
