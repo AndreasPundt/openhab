@@ -2,7 +2,8 @@
  * variable declarations
  * ---------------------
  */
-// https://www.lob-services.de/2017/01/openhab-mit-caldav-binding/ */
+// https://www.lob-services.de/2017/01/openhab-mit-caldav-binding/
+//
 var		Number	vSetP_Tmp
 /* ------------------
  * initialization
