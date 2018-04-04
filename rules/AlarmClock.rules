@@ -1,0 +1,12 @@
+rule "Normal-Betrieb"
+when
+	Time cron "0 0 6 ? * MON-FRI *" or			// 'ON' at weekdays:	6:00 
+	Time cron "0 0 16 ? * MON-FRI *" or			// 'ON' at weekdays:	16:00 
+	Time cron "0 30 8 ? * SAT-SUN *" 			// 'ON' at weekend:	8:30
+then	
+	if(vSwitchHeating_WZ.state == ON && vSwitchOpMo_WZ.state == ON) { 
+		vSetP_Tmp = (vSetPointWZ_normal.state as DecimalType)
+		dThermostat_EZ.sendCommand(vSetP_Tmp)
+		dThermostat_WZ.sendCommand(vSetP_Tmp) 		
+	}
+end
