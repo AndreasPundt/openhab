@@ -49,6 +49,7 @@ Number vNRTime "Weckzeit"
 Number vNRDay "Wochentag"
 Switch vNRSetDuration "Dauerhaft"
 Switch vNRStartAlarmClock "Wecker"
+Switch vNRStartAlarmClockPLAY11 "Wecker"
 /* 
  * --------
  * Calendar

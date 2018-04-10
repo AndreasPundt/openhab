@@ -461,7 +461,49 @@ else if(receivedCommand == OFF) {
 	dPlugSwitch_EZ.sendCommand(OFF)
 	vSonosOnOff.postUpdate(OFF)			
 }
-logDebug("Sonos","------ Alarm Clock NodeRED rule finished ----------")
+logDebug("Sonos","------ Alarm Clock NodeRED ONE rule finished ----------")
+end
+//
+rule "SonosPLAY11-NodeRED Alarm Clock"
+when
+	Item vNRStartAlarmClockPLAY11 received command
+then
+if(receivedCommand == ON) {
+	logDebug("Sonos","------ Alarm Clock via NodeRED PLAY11 ON ----------")
+	// first ON command, so create a timer to switch on sonos
+	if(vTimerSonosPLAY11OnOff === null) {
+		dPlugSwitch_SZ.sendCommand(ON)
+		vSonosOnOff.postUpdate(ON)
+		vTimerSonosPLAY11OnOff = createTimer(now.plusMinutes(2)) [|
+			logDebug("Sonos","------PLAY11 Alarm Clock Trigger execution ----------")
+			vRadioPLAY11PlayListTmp = (vSonosPLAY11WeckerPlayRadio2.state as StringType).toString
+			vRadioPLAY11PlayListTmpNum = (vSonosPLAY11WeckerPlayRadio.state as DecimalType).intValue
+			dSonosPLAY11Volume.sendCommand(4)
+			dSonosPLAY11PlayRadio.sendCommand(vRadioPLAY11PlayListTmp)
+			vSonosPlayRadio.postUpdate(vRadioPLAY11PlayListTmpNum)
+		]
+	} 
+	else {
+		// log:set DEBUG org.eclipse.smarthome.model.script.Sonos
+		logDebug("Sonos","------ Alarm Clock NodeRED PLAY11 no reschedule ----------")
+	}			
+}	
+else if(receivedCommand == OFF) {
+	logDebug("Sonos","------ Alarm Clock NodeRED PLAY11 OFF ----------")
+	dSonosPLAY11Stop.sendCommand(ON)
+	// remove any previously scheduled timer
+	if(vTimerSonosPLAY11OnOff !== null) {
+		vTimerSonosPLAY11OnOff.cancel
+		vTimerSonosPLAY11OnOff = null
+	}
+	if(vTimerSonosSnoozePLAY11 !== null) {
+		vTimerSonosSnoozePLAY11.cancel
+		vTimerSonosSnoozePLAY11 = null
+	}
+	dPlugSwitch_SZ.sendCommand(OFF)
+	vSonosOnOff.postUpdate(OFF)			
+}
+logDebug("Sonos","------ Alarm Clock NodeRED PLAY11 rule finished ----------")
 end
 // 
 rule "Sonos: Alarm Clock CalDav"
