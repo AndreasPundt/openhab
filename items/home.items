@@ -40,6 +40,17 @@ Group:Switch:OR(ON, OFF)			gDevices				"Geräte-Status [%d]"							<status>
 Group:Switch:OR(ON, OFF)			gLightsEZ			"Lampen Esszimmer"							<light>
 /* 
  * --------
+ * Node RED
+ * --------
+ */
+// Alarm Clock
+// Selected in HABPanel for choosing the wake up time
+Number vNRTime "Weckzeit"
+Number vNRDay "Wochentag"
+Switch vNRSetDuration "Dauerhaft"
+Switch vNRStartAlarmClock "Wecker"
+/* 
+ * --------
  * Calendar
  * --------
  */
@@ -228,16 +239,6 @@ Dimmer vSonosVolume				"Volume (virtuell) [%.1f %%]"		<soundvolume>	(gSO)
 Switch vSonosMute				"Mute (virtuell) [%s]"			<soundvolume_mute>	(gSO)
 // Wecker
 Switch vSonosCalDav_OnOff		"Sonos An / Aus"						<switch>	(gAC)
-//Switch vAlarmClockSonos			"Wecker Sonos [%s]"						<switch>	(gAC)
-//Number vSonosWeckerPlayList		"Play List [%s]"						<text>		(gSO)
-//Number vSonosWeckerPlayRadio		"Radio Station [%s]"					<switch>	(gSO)
-// Item zur Festlegung der Snooze Zeit für den Wecker des Players
-// => wird in der rule vSonosSnooze benutzt
-// => erhält den Wert von vSonoSnooze
-//Number vSonosSnoozeTime			"Sonos: Virtuelle Snooze Zeit [%d]"		<clock>		(gAC, gSO)
-// Item zum Einschalten des Snooze für den Player
-// => wird gesetzt wenn (vAlarmClockSonosPLAY11 == ON) ist
-//Switch vSonosSnooze				"Sonos: Virtuelle Snooze AN / AUS [%s]"	<switch>	(gAC, gSO)
 /*
  * -----
  * SONOS ONE

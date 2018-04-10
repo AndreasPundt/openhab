@@ -1,6 +1,13 @@
 /* 
  */
 sitemap home label="Smart Home" {
+	Frame label="Wecker" {
+		Switch item=vAlarmClockSonosONE icon="switch"
+		Switch item=vNRSetDuration icon="switch"
+		Default item=vSonosControler
+		Selection item=vNRTime label="Weckzeit"  icon="clock" mappings=[1='06:00', 2='06:15', 3='06:30', 4='06:45', 5='07:00', 3='07:15']
+		Selection item=vSonosONEWeckerPlayRadio label="Sender" icon="clock" mappings=[1='NDR 2', 2='NDR Info', 3='Deutschlandfunk', 4='ffn', 5='N-Joy Radio', 6='Radio 21']
+	}
 	Frame label="Dashboard" {
 		Default item=dCurrentDate	label="[%1$tH:%1$tM:%1$tS am %1$tA, %1$td.%1$tm.%1$tY]"
 			icon="clock"
