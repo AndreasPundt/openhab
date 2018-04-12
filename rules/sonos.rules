@@ -9,7 +9,6 @@ if ((thingStatusInfo != null) && (thingStatusInfo.getStatus().toString() == "ONL
   * 
   */
 //var Timer vTimer = null
-//var Timer vTimerSnooze = null
 var String vRadioONEPlayListTmp = "NDR 2 (Pop)"
 var Number vRadioONEPlayListTmpNum = 1
 var String vRadioPLAY11PlayListTmp = "NDR 2 (Pop)"
