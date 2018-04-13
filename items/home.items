@@ -48,7 +48,7 @@ Group:Switch:OR(ON, OFF)			gLightsEZ			"Lampen Esszimmer"							<light>
 Number vNRTime "Weckzeit"
 Number vNRDay "Wochentag"
 Switch vNRSetDuration "Dauerhaft"
-Switch vNRStartAlarmClock "Wecker"
+Switch vNRStartAlarmClockONE "Wecker"
 Switch vNRStartAlarmClockPLAY11 "Wecker"
 /* 
  * --------

@@ -299,6 +299,7 @@ then
 			dSonosONEMute.sendCommand(ON)			
 		}
 		// first ON command, so create a timer to switch on sonos
+		logDebug("Sonos","------ Snooze Start Timer ONE ----------")
 		if(vTimerSonosSnoozeONE === null) {     									
 			vSnoozeTimeTmp = (vSonosSnoozeTimeONE.state as DecimalType).intValue
 			vTimerSonosSnoozeONE = createTimer(now.plusMinutes(vSnoozeTimeTmp)) [|
@@ -418,16 +419,16 @@ end
 //
 rule "SonosONE-NodeRED Alarm Clock"
 when
-	Item vNRStartAlarmClock received command
+	Item vNRStartAlarmClockONE received command
 then
 if(receivedCommand == ON) {
-	logDebug("Sonos","------ Alarm Clock via NodeRED ON ----------")
+	logDebug("Sonos","------ Alarm Clock ONE via NodeRED ON ----------")
 	// first ON command, so create a timer to switch on sonos
 	if(vTimerSonosONEOnOff === null) {
 		dPlugSwitch_EZ.sendCommand(ON)
 		vSonosOnOff.postUpdate(ON)
 		vTimerSonosONEOnOff = createTimer(now.plusMinutes(2)) [|
-			logDebug("Sonos","------ONE Alarm Clock Trigger execution ----------")
+			logDebug("Sonos","------ONE Alarm Clock PLAY11 NodeRED Trigger execution ----------")
 			vRadioONEPlayListTmp = (vSonosONEWeckerPlayRadio2.state as StringType).toString
 			vRadioONEPlayListTmpNum = (vSonosONEWeckerPlayRadio.state as DecimalType).intValue
 			dSonosONEVolume.sendCommand(5)
@@ -438,11 +439,11 @@ if(receivedCommand == ON) {
 	} 
 	else {
 		// log:set DEBUG org.eclipse.smarthome.model.script.Sonos
-		logDebug("Sonos","------ Alarm Clock NodeRED no reschedule ----------")
+		logDebug("Sonos","------ Alarm Clock PLAY11 NodeRED no reschedule ----------")
 	}			
 }	
 else if(receivedCommand == OFF) {
-	logDebug("Sonos","------ Alarm Clock NodeRED OFF ----------")
+	logDebug("Sonos","------ Alarm Clock PLAY11 NodeRED OFF ----------")
 	dSonosONEStop.sendCommand(ON)
 	// remove any previously scheduled timer
 	if(vTimerSonosONEOnOff !== null) {
