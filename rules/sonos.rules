@@ -21,11 +21,14 @@ var Timer vTimerSonosSnoozeONE = null
 var Timer vTimerSonosSnoozePLAY11 = null
 var Timer vTimerSonosSnoozePLAY12 = null
 var int vSnoozeTimeTmp = 1
+var int vSonosVolumeAC = 5
 
 rule "Sonos: Initialisierung"
 when
 	System started
 then
+	vSonosPLAY11VolumeAC.postUpdate(5)
+	vSonosONEVolumeAC.postUpdate(5)
 	vSonosVolume.postUpdate(4)
 	// can be changed via UI
 	vSonosActivePlayerNum.postUpdate(3)
@@ -431,7 +434,9 @@ if(receivedCommand == ON) {
 			logDebug("Sonos","------ONE Alarm Clock PLAY11 NodeRED Trigger execution ----------")
 			vRadioONEPlayListTmp = (vSonosONEWeckerPlayRadio2.state as StringType).toString
 			vRadioONEPlayListTmpNum = (vSonosONEWeckerPlayRadio.state as DecimalType).intValue
-			dSonosONEVolume.sendCommand(5)
+			//dSonosONEVolume.sendCommand(5)
+			vSonosVolumeAC = (vSonosONEVolumeAC.state as DecimalType).intValue
+			dSonosONEVolume.sendCommand(vSonosVolumeAC)
 			dSonosONEPlayRadio.sendCommand(vRadioONEPlayListTmp)
 			//dSonosONEPlayRadio.sendCommand("NDR 2")
 			vSonosPlayRadio.postUpdate(vRadioONEPlayListTmpNum)
@@ -474,7 +479,9 @@ if(receivedCommand == ON) {
 			logDebug("Sonos","------PLAY11 Alarm Clock Trigger execution ----------")
 			vRadioPLAY11PlayListTmp = (vSonosPLAY11WeckerPlayRadio2.state as StringType).toString
 			vRadioPLAY11PlayListTmpNum = (vSonosPLAY11WeckerPlayRadio.state as DecimalType).intValue
-			dSonosPLAY11Volume.sendCommand(4)
+			//dSonosPLAY11Volume.sendCommand(4)
+			vSonosVolumeAC = (vSonosPLAY11VolumeAC.state as DecimalType).intValue
+			dSonosPLAY11Volume.sendCommand(vSonosVolumeAC)
 			dSonosPLAY11PlayRadio.sendCommand(vRadioPLAY11PlayListTmp)
 			vSonosPlayRadio.postUpdate(vRadioPLAY11PlayListTmpNum)
 		]

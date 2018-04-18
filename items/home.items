@@ -275,6 +275,7 @@ Switch dSonosONEStop				"Stop"						<switch>					(gSO)	{channel="sonos:One:RINCO
  */
 // Item zum Einschalten des Alarms für den Wecker des PLAY:1-1 - Alexa
 Switch vAlarmClockSonosONE				"Wecker im Schlafzimmer [%s]"								<clock>		(gAC)
+Number vSonosONEVolumeAC				"Wecker Lautstärke"											<text>		(gAC)
 // Item zur Auswahl der Play Liste des Weckers über ein HABPanel knob 
 // => wird dann an das Item vSonosONEWeckerPlayList2 übergeben 
 Number vSonosONEWeckerPlayList		"Wecker Play List Schlafzimmer [%d]"					<text>		(gAC)
@@ -292,7 +293,7 @@ Switch vSonosONEWeckerRadioPlayList "Wecker switch Radio Play List Schlafzimmer 
 Number vSonosSnoozeTimeONE				"Virtuelle Snooze Zeit Schlafzimmer [%d]"				<clock>		(gAC)
 // Item zum Einschalten des Snooze für ONE
 // => wird gesetzt wenn (vAlarmClockSonosONE == ON) ist
-Switch vSonosSnoozeONE					"Virtuelles Snooze Schlafzimmer [%d]"					<switch>	(gAC)
+Switch vSonosSnoozeONE					"Virtuelles Snooze Schlafzimmer [%d]"					<switch>		(gAC)
 /*
  * -----
  * SONOS PLAY:1-1
@@ -328,6 +329,7 @@ Switch dSonosPLAY11Stop				"Stop"						<switch>					(gSO)	{channel="sonos:PLAY1:
  */
 // Item zum Einschalten des Alarms für den Wecker des PLAY:1-1 - Alexa
 Switch vAlarmClockSonosPLAY11				"Wecker im Schlafzimmer [%s]"								<clock>	(gAC)
+Number vSonosPLAY11VolumeAC				"Wecker Lautstärke"											<text>	(gAC)
 // Item zur Auswahl der Play Liste des Weckers über ein HABPanel knob 
 // => wird dann an das Item vSonosPLAY11WeckerPlayList2 übergeben 
 Number vSonosPLAY11WeckerPlayList		"Wecker Play List Schlafzimmer [%d]"					<text>	(gAC)
