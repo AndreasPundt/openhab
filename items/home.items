@@ -242,6 +242,24 @@ Switch vSonosMute				"Mute (virtuell) [%s]"			<soundvolume_mute>	(gSO)
 Switch vSonosCalDav_OnOff		"Sonos An / Aus"						<switch>	(gAC)
 /*
  * -----
+ * SONOS PLAY:1-3
+ * -----
+ */
+Image  dSonosPLAY13CurrentAlbumArt "Album Art" 				<video>					(gSO)	{channel="sonos:PLAY1:RINCON_7828CA6C1C1801400:currentalbumart"}
+String dSonosPLAY13CurrentArtist "Artist [%s]" 				<text>					(gSO)	{channel="sonos:PLAY1:RINCON_7828CA6C1C1801400:currentartist"}
+String dSonosPLAY13CurrentTitle 	"Titel [%s]" 				<text>					(gSO)	{channel="sonos:PLAY1:RINCON_7828CA6C1C1801400:currenttitle"}
+String dSonosPLAY13CurrentAlbum 	"Album [%s]"				<text>					(gSO)	{channel="sonos:PLAY1:RINCON_7828CA6C1C1801400:currentalbum"}
+String dSonosPLAY13PlayList	 	"Play List [%s]"			<text>					(gSO)	{channel="sonos:PLAY1:RINCON_7828CA6C1C1801400:playlist"}
+String dSonosPLAY13PlayRadio	 	"Radio Station [%s]"		<text>					(gSO)	{channel="sonos:PLAY1:RINCON_7828CA6C1C1801400:radio"}
+Player dSonosPLAY13Controler	 	"Control"					<receiver>				(gSO)	{channel="sonos:PLAY1:RINCON_7828CA6C1C1801400:control"}
+Dimmer dSonosPLAY13Volume			"Volume [%.1f %%]"		<soundvolume>			(gSO)	{channel="sonos:PLAY1:RINCON_7828CA6C1C1801400:volume"}
+Switch dSonosPLAY13Mute				"Mute"						<soundvolume_mute>	(gSO)	{channel="sonos:PLAY1:RINCON_7828CA6C1C1801400:mute"}
+Switch dSonosPLAY13AlarmON    	"Alarm [%s]"				<switch>					(gSO)	{channel="sonos:PLAY1:RINCON_7828CA6C1C1801400:alarm"}
+Number dSonosPLAY13Snooze			"Snooze"						<clock>					(gSO)	{channel="sonos:PLAY1:RINCON_7828CA6C1C1801400:snooze"}
+Switch dSonosPLAY13Stop				"Stop"						<switch>					(gSO)	{channel="sonos:PLAY1:RINCON_7828CA6C1C1801400:stop"}
+//
+/*
+ * -----
  * SONOS ONE
  * -----
  */
