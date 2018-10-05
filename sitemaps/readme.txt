@@ -1,3 +1,5 @@
+NEW
+VERY NEW
 Your sitemap definitions go here.
 All sitemap files have to have the ".sitemap" file extension and must follow a special syntax.
 
