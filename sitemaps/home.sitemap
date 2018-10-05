@@ -1,13 +1,6 @@
 /* 
  */
 sitemap home label="Smart Home" {
-	Frame label="Wecker" {
-		Switch item=vAlarmClockSonosONE icon="switch"
-		Switch item=vNRSetDuration icon="switch"
-		Default item=vSonosControler
-		Selection item=vNRTime label="Weckzeit"  icon="clock" mappings=[1='06:00', 2='06:15', 3='06:30', 4='06:45', 5='07:00', 3='07:15']
-		Selection item=vSonosONEWeckerPlayRadio label="Sender" icon="clock" mappings=[1='NDR 2', 2='NDR Info', 3='Deutschlandfunk', 4='ffn', 5='N-Joy Radio', 6='Radio 21']
-	}
 	Frame label="Dashboard" {
 		Default item=dCurrentDate	label="[%1$tH:%1$tM:%1$tS am %1$tA, %1$td.%1$tm.%1$tY]"
 			icon="clock"
@@ -25,28 +18,24 @@ sitemap home label="Smart Home" {
 			valuecolor=[dMotionSensor_FL==ON="red", OFF="green"] labelcolor=[dMotionSensor_FL==ON="red", OFF="green"]
 	}
    Frame label="Räume" {
-   		Group item=gWH
-//   		Group item=gBZ
-//      Group item=gWZ label="Wohnzimmer" icon="sofa"
-      /*{
-         Default  item=dDimmer_WZ		label="Lichtschalter [%d]"
-         Default	item=dBalconyDoor_WZ	label="Terassen tür ist [%d]"
+   	Group item=gBZ
+	   Group item=gWZ label="Wohnzimmer" icon="sofa" {
+   		Default  item=dDimmer_WZ		label="Lichtschalter [%d]"
+      	  Default	item=dBalconyDoor_WZ	label="Terassen tür ist [%d]"
          Default	item=dPlugSwitch_WZ	label="Steckdosenschalter [%d]"
-      } */
-//      Group item=gEZ label="Esszimmer" icon="terrace"
-      /*{
-         Default  item=dDimmer_EZ				label="Dimmer [%d]"
-         Default	item=dTempSmokeSensor_EZ	label="Temperatur [%d]"
-         Default	item=dPlugSwitch_EZ			label="Steckdosenschalter [%d]"
-      } */
-//      Group	item=gFL	label="Flur"		icon="corridor"
-      /*{
+      }
+      Group item=gEZ label="Esszimmer" icon="terrace" {
+   		Default  item=dDimmer_EZ				label="Dimmer [%d]"
+        	Default	item=dTempSmokeSensor_EZ	label="Temperatur [%d]"
+        	Default	item=dPlugSwitch_EZ			label="Steckdosenschalter [%d]"
+      }
+      Group	item=gFL	label="Flur"		icon="corridor" {
          Default  item=dDimmer_FL				label="Dimmer [%d]"
          Default	item=dTempSmokeSensor_FL	label="Temperatur [%d]"
          Default	item=dFrontDoor_FL			label="Haustür ist [%d]"
          Default	item=dMotionSensor_FL		label="Bewegungsmelder [%d]"
-      }*/
-//      Group	item=gKU	label="Küche"		icon="kitchen"
+      }
+      Group	item=gKU	label="Küche"		icon="kitchen"
    }
 	Frame label="Wetter und Heizung" {
 		Group item=gKL
