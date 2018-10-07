@@ -1,6 +1,6 @@
 /* 
  */
-sitemap home label="Smart Home" {
+sitemap old label="Smart Home" {
 	Frame label="Dashboard" {
 		Default item=dCurrentDate	label="[%1$tH:%1$tM:%1$tS am %1$tA, %1$td.%1$tm.%1$tY]"
 			icon="clock"

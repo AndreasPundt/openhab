@@ -37,7 +37,8 @@ Group:Contact:OR(OPEN, CLOSED)	gDoors				"Türen  [%d]"									<door>
 Group:Switch:OR(ON, OFF)			gAlarm				"Alarm"											<siren>
 Group:Switch:OR(ON, OFF) 			gNetwork				"Netzwerk"										<network>
 Group:Switch:OR(ON, OFF)			gDevices				"Geräte-Status [%d]"							<status>
-Group:Switch:OR(ON, OFF)			gLightsEZ			"Lampen Esszimmer"							<light>
+Group:Switch:OR(ON, OFF)			gLightsEZ			"Licht im Esszimmer"							<light>
+Group:Switch:OR(ON, OFF)			gSonos				"Sonos AN / AUS"								<switch>
 /* 
  * --------
  * Node RED
@@ -90,28 +91,29 @@ Number	vSetPointWZ_absenken		"Sollwert Absenken [%s °C]"	<xheating>
 Number	vSetPointWZ_manu			"Sollwert Manu. [%s °C]"		<xheating>	    
 // Thermostate
 Number 	dThermostat_WZ			"Thermostat WZ [%.1f °C]"		<xheating> 	(gWZ, gHZ)	{channel="zwave:device:7b5154ec:node21:thermostat_setpoint_heating"}
-Number 	dThermostat_EZ			"Thermostat EZ [%.1f °C]"		<xheating> 	(gEZ, gHZ)
-	
-	// {channel="zwave:"}
+//Number 	dThermostat_EZ			"Thermostat EZ [%.1f °C]"		<xheating> 	(gEZ, gHZ)
 /* 
  * ------
  * lights
  * ------
  */
 //  - Alexa
-Dimmer dDimmer_EZ		"Esszimmerlicht"	<light>	(gEZ) ["Lighting"]	{channel="zwave:device:7b5154ec:node23:switch_dimmer"}
 Dimmer dDimmer_WZ		"Wohnzimmerlicht"	<light>	(gWZ)	["Lighting"]	{channel="zwave:device:7b5154ec:node22:switch_dimmer"}
 Dimmer dDimmer_FL		"Flurlicht"			<light>	(gFL)	["Lighting"]	{channel="zwave:device:7b5154ec:node29:switch_dimmer"}
 // HUE Esszimmer
-Dimmer	dDimmer_HUE_EZ_L		"EsszimmerdimmerHueL"	<light> 			(gEZ, gLightsEZ)						{ channel="hue:0220:001788678799:6:brightness" }
+Dimmer	vDimmer_HUE_EZ			"Esszimmer-Dimmer"							(gEZ)
+Switch	vSwitch_HUE_EZ			"Esszimmer-Lichtschalter"					(gEZ)
+Dimmer	vColorTemp_HUE_EZ		"Esszimmer-Farbtemperatur"		<colorlight> (gEZ)
+//
+Dimmer	dDimmer_HUE_EZ_L		"EsszimmerdimmerHueL"	<light> 			(gEZ) { channel="hue:0220:001788678799:6:brightness" }
 Switch	dSwitch_HUE_EZ_L		"EsszimmerlichtHueL"		<switch>			(gEZ, gLightsEZ)	["Lighting"]	{ channel="hue:0220:001788678799:6:brightness" }
-Dimmer	dColorTemp_HUE_EZ_L	"ColorTempHueL"			<colorlight> 	(gEZ, gLightsEZ)						{ channel="hue:0220:001788678799:6:color_temperature" }
-Dimmer	dDimmer_HUE_EZ_M		"EsszimmerdimmerHueM"	<light> 			(gEZ, gLightsEZ)						{ channel="hue:0220:001788678799:7:brightness" }
+Dimmer	dColorTemp_HUE_EZ_L	"ColorTempHueL"			<colorlight> 	(gEZ)						{ channel="hue:0220:001788678799:6:color_temperature" }
+Dimmer	dDimmer_HUE_EZ_M		"EsszimmerdimmerHueM"	<light> 			(gEZ)						{ channel="hue:0220:001788678799:7:brightness" }
 Switch	dSwitch_HUE_EZ_M		"EsszimmerlichtHueM"		<switch>			(gEZ, gLightsEZ)	["Lighting"]	{ channel="hue:0220:001788678799:7:brightness" }
-Dimmer	dColorTemp_HUE_EZ_M	"ColorTempHueM"			<colorlight> 	(gEZ, gLightsEZ)						{ channel="hue:0220:001788678799:7:color_temperature" }
-Dimmer	dDimmer_HUE_EZ_R		"EsszimmerdimmerHueR"	<light> 			(gEZ, gLightsEZ)						{ channel="hue:0220:001788678799:8:brightness" }
+Dimmer	dColorTemp_HUE_EZ_M	"ColorTempHueM"			<colorlight> 	(gEZ)						{ channel="hue:0220:001788678799:7:color_temperature" }
+Dimmer	dDimmer_HUE_EZ_R		"EsszimmerdimmerHueR"	<light> 			(gEZ)						{ channel="hue:0220:001788678799:8:brightness" }
 Switch	dSwitch_HUE_EZ_R		"EsszimmerlichtHueR"		<switch>			(gEZ, gLightsEZ)	["Lighting"]	{ channel="hue:0220:001788678799:8:brightness" }
-Dimmer	dColorTemp_HUE_EZ_R	"ColorTempHueR"			<colorlight> 	(gEZ, gLightsEZ)						{ channel="hue:0220:001788678799:8:color_temperature" }
+Dimmer	dColorTemp_HUE_EZ_R	"ColorTempHueR"			<colorlight> 	(gEZ)						{ channel="hue:0220:001788678799:8:color_temperature" }
 // HUE Mila
 Switch	dSwitch_HUE_MZ		"Milalicht"				<switch>				(gMZ)	["Lighting"]	{ channel="hue:0210:001788678799:1:color" }
 Dimmer	dDimmer_HUE_MZ		"Miladimmer"			<light> 				(gMZ)						{ channel="hue:0210:001788678799:1:color" }
@@ -156,13 +158,13 @@ Number dKeyController			"KFOB Scene [%.1f]"								<switch>							{channel="zwav
 Number dKeyController_Battery	"KFOB Battery [%.1f]"							<batterylevel> (gDevices)	{channel="zwave:device:7b5154ec:node32:battery-level"}
 Number dTheButton					"TheButton [%d]"									<switch>							{channel="zwave:device:7b5154ec:node7:scene_number"}
 Number dTheButton_Battery		"TheButton Battery [%.1f]"						<batterylevel> (gDevices)	{channel="zwave:device:7b5154ec:node7:battery-level"}
-Switch dPlugSwitch_SZ 			"Steckdose Schlafzimmer [%s]"					<poweroutlet>	(gSZ, gSO)	{channel="zwave:device:7b5154ec:node35:switch_binary"}
+Switch dPlugSwitch_SZ 			"Steckdosen Schalter Schlafzimmer [%s]"	<poweroutlet>	(gSZ, gSO, gSonos)	{channel="zwave:device:7b5154ec:node35:switch_binary"}
 Number dPlugSwitch_SZ_Power	"Leistung Steckdosenschalter SZ [%.1f]" 	<line>			(gSZ, gSO)	{channel="zwave:device:7b5154ec:node35:meter_watts"}
-Switch dPlugSwitch_WZ 			"Steckdose Wohnzimmer [%s]"					<poweroutlet>	(gWZ, gSO)	{channel="zwave:device:7b5154ec:node6:switch_binary"}
+Switch dPlugSwitch_WZ 			"Steckdosen Schalter Wohnzimmer [%s]"		<poweroutlet>	(gWZ, gSO, gSonos)	{channel="zwave:device:7b5154ec:node6:switch_binary"}
 Number dPlugSwitch_WZ_Power	"Leistung Steckdosenschalter WZ [%.1f]" 	<line>			(gWZ, gSO)	{channel="zwave:device:7b5154ec:node6:meter_watts"}
-Switch dPlugSwitch_EZ 			"Steckdose Esszimmer [%s]" 					<poweroutlet>	(gEZ, gSO)	{channel="zwave:device:7b5154ec:node2:switch_binary"}
+Switch dPlugSwitch_EZ 			"Steckdosen Schalter Esszimmer [%s]" 		<poweroutlet>	(gEZ, gSO, gSonos)	{channel="zwave:device:7b5154ec:node2:switch_binary"}
 Number dPlugSwitch_EZ_Power	"Leistung Steckdosenschalter EZ [%.1f]" 	<line>			(gEZ, gSO)	{channel="zwave:device:7b5154ec:node2:meter_watts"}
-Switch dPlugSwitch_BZ 			"Steckdose Badezimmer [%s]"					<poweroutlet>	(gBZ, gSO)	{channel="zwave:device:7b5154ec:node34:switch_binary"}
+Switch dPlugSwitch_BZ 			"Steckdosen Schalter Badezimmer [%s]"		<poweroutlet>	(gBZ, gSO, gSonos)	{channel="zwave:device:7b5154ec:node34:switch_binary"}
 Number dPlugSwitch_BZ_Power	"Leistung Steckdosenschalter BD [%.1f]" 	<line>			(gBZ, gSO)	{channel="zwave:device:7b5154ec:node34:meter_watts"}
 Switch dWallSwitch_WZ			"Wandschalter WZ [%s]" 							<switch>			(gWZ)			{channel="zwave:device:7b5154ec:node28:switch_binary"}
 Switch dAlarmSwitch_FL			"Sirene [%s]"										<siren>			(gFL, gAlarm)	{channel="zwave:device:7b5154ec:node13:switch_binary"}
@@ -201,7 +203,7 @@ Switch	dFloodSensor_KU				"Wassersensor Küche"								<water>			(gKU, gAlarm)	{
  * -------------------------
  */
 //  Alexa
-Switch vSonosOnOff				"Sonos [%s]"					<switch>		(gSO)	["Switchable"]
+Switch vSonosOnOff				"Sonos [%s]"					<switch>		(gSO, gSonos)	["Switchable"]
 String vSonosDebug				"Sonos: Debug [%s]"			<text>		(gSO)
 // Item zur Festlegung des jeweiligen Players über HABPanel knob
 // => mögliche Werte: 1=Schlafzimmer, 2=Bad, 3=Wohnzimmer

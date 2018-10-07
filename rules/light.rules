@@ -56,6 +56,44 @@ then
 		}
 	}
 end
+//
+rule "HUE lights EZ on-off"
+when
+	Item vSwitch_HUE_EZ received command
+then
+	if(receivedCommand == ON) {
+		dSwitch_HUE_EZ_L.sendCommand(ON)
+		dSwitch_HUE_EZ_M.sendCommand(ON)
+		dSwitch_HUE_EZ_R.sendCommand(ON)
+	}
+	if(receivedCommand == OFF) {
+		dSwitch_HUE_EZ_L.sendCommand(OFF)
+		dSwitch_HUE_EZ_M.sendCommand(OFF)
+		dSwitch_HUE_EZ_R.sendCommand(OFF)
+	}
+end
+//
+rule "HUE lights EZ Dimmer"
+when
+	Item vDimmer_HUE_EZ received command
+then
+	var Number percent = 0
+	if(vDimmer_HUE_EZ.state instanceof DecimalType) percent = vDimmer_HUE_EZ.state as DecimalType	
+	dDimmer_HUE_EZ_L.sendCommand(percent);
+	dDimmer_HUE_EZ_M.sendCommand(percent);
+	dDimmer_HUE_EZ_R.sendCommand(percent);
+end
+//
+rule "HUE lights EZ Color Temp"
+when
+	Item vColorTemp_HUE_EZ received command
+then
+	var Number percent = 0
+	if(vColorTemp_HUE_EZ.state instanceof DecimalType) percent = vColorTemp_HUE_EZ.state as DecimalType	
+	dColorTemp_HUE_EZ_L.sendCommand(percent);
+	dColorTemp_HUE_EZ_M.sendCommand(percent);
+	dColorTemp_HUE_EZ_R.sendCommand(percent);
+end
 /*
 rule "Luminium Color Item"
 	when

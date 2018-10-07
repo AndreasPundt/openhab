@@ -25,7 +25,6 @@ when
 then
 	if(receivedCommand == ON) {	
 		vSwitchOpMo_WZ.sendCommand(ON)	// set all operating mode switches to "automatic"
-		dThermostat_EZ.sendCommand(21)
 		dThermostat_WZ.sendCommand(21) 		
 		vSetPointWZ_normal.postUpdate(21)
 		vSetPointWZ_absenken.postUpdate(16)
@@ -33,7 +32,6 @@ then
 	}
 	else {
 		vSwitchOpMo_WZ.sendCommand(OFF)		// set all operating mode switches to "manual"
-		dThermostat_EZ.sendCommand(4)
 		dThermostat_WZ.sendCommand(4) 		
 		vSetPointWZ_normal.postUpdate(4)
 		vSetPointWZ_absenken.postUpdate(4)
@@ -69,12 +67,10 @@ then
 	if(receivedCommand == ON && vSwitchHeating_WZ.state == ON) {
 		vSwitchOpMo_WZ.sendCommand(ON)
 		vSetP_Tmp = (vSetPointWZ_normal.state as DecimalType)
-		dThermostat_EZ.sendCommand(vSetP_Tmp)
 		dThermostat_WZ.sendCommand(vSetP_Tmp)
 	}		
 	else if(receivedCommand == OFF) {
 		vSetP_Tmp = (vSetPointWZ_absenken.state as DecimalType)
-		dThermostat_EZ.sendCommand(vSetP_Tmp)
 		dThermostat_WZ.sendCommand(vSetP_Tmp) 					
 		}
 end 
@@ -85,7 +81,6 @@ when
 then {
 	if (vSwitchHeating_WZ.state == ON && vSwitchOpMo_WZ.state == OFF){
 		vSetP_Tmp = vSetPointWZ_manu.state as DecimalType
-		dThermostat_EZ.sendCommand(vSetP_Tmp)
 		dThermostat_WZ.sendCommand(vSetP_Tmp)		
 	}
 }

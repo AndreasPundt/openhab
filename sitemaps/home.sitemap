@@ -1,6 +1,7 @@
 /* 
  */
 sitemap home label="Smart Home" {
+	//Webview url="http://www.openhab.org" height=5
 	Frame label="Dashboard" {
 		Default item=dCurrentDate	label="[%1$tH:%1$tM:%1$tS am %1$tA, %1$td.%1$tm.%1$tY]"
 			icon="time"
@@ -14,22 +15,38 @@ sitemap home label="Smart Home" {
    Frame label="Räume" {
    	Group item=gBZ
 	   Group item=gWZ label="Wohnzimmer" icon="sofa" {
-   		Default  item=dDimmer_WZ		label="Lichtschalter [%d]"
-      	  Default	item=dBalconyDoor_WZ	label="Terassen tür ist [%d]"
-         Default	item=dPlugSwitch_WZ	label="Steckdosenschalter [%d]"
+   		Switch	item=dDimmer_WZ		label="Lichtschalter Decke" icon="light" mappings=[100='AN', 0='AUS']
+      	Default	item=dBalconyDoor_WZ	label="Terassen tür ist [%d]"
+         Default	item=dPlugSwitch_WZ
       }
       Group item=gEZ label="Esszimmer" icon="terrace" {
-   		Default  item=dDimmer_EZ				label="Dimmer [%d]"
+			//Group		item=gLightsEZ label="Licht im Esszimmer [%s]"
+			//Switch	item=vSwitch_HUE_EZ label="Lichtschalter [MAP(on-off.map):%s]" icon="light"
+			Switch	item=vSwitch_HUE_EZ label="Lichtschalter" icon="light" mappings=[ON='AN', OFF='AUS']
+			Slider 	item=vDimmer_HUE_EZ label="Dimmer [%s]" icon="slider"
+			//Setpoint	item=vDimmer_HUE_EZ label="Dimmer [%s]" icon="slider" minValue=1 maxValue=100 step=4
+			Slider 	item=vColorTemp_HUE_EZ label="Farbtemperatur [%s]"
+        	Default	item=dPlugSwitch_EZ
         	Default	item=dTempSmokeSensor_EZ	label="Temperatur [%d]"
-        	Default	item=dPlugSwitch_EZ			label="Steckdosenschalter [%d]"
       }
       Group	item=gFL	label="Flur"		icon="corridor" {
-         Default  item=dDimmer_FL				label="Dimmer [%d]"
+			Switch	item=dDimmer_FL		label="Lichtschalter Decke" icon="light" mappings=[0='AUS', 100='AN']
          Default	item=dTempSmokeSensor_FL	label="Temperatur [%d]"
          Default	item=dFrontDoor_FL			label="Haustür ist [%d]"
          Default	item=dMotionSensor_FL		label="Bewegungsmelder [%d]"
       }
       Group	item=gKU	label="Küche"		icon="kitchen"
+   }
+   Frame label="Medien" {
+		Switch item=vSonosOnOff	label="Sonos komplett AN / AUS"
+		Group item=gSonos label="Sonos Räume [%s]" {
+			Frame label="Sonos Räume" {
+				Switch item=dPlugSwitch_BZ	label="Sonos im Bad"
+				Switch item=dPlugSwitch_EZ	label="Sonos im Esszimmer"
+				Switch item=dPlugSwitch_WZ	label="Sonos im Wohnzimmer"
+				Switch item=dPlugSwitch_SZ	label="Sonos im Schlafzimmer"
+			}
+		}
    }
 	Frame label="Wetter und Heizung" {
 		Group item=gKL
@@ -59,9 +76,6 @@ sitemap home label="Smart Home" {
 			}
 	   }
 	}
-   Frame label="Medien" {
-   	Switch item=vSonosOnOff	label="Sonos AN / AUS"
-   }
    Frame label="Infrastruktur" {
 		Group item=gAS
 		Group item=gNetwork
