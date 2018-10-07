@@ -493,6 +493,3 @@ Switch dYarasHandy		"Yaras Handy [%s]"							<network>	(gNetwork) {channel="netw
 Switch dDLinkDAP2610		"D-Link DAP-2610 WLAN Router [%s]"		<network>	(gNetwork) {channel="network:device:192_168_1_50:online"}
 Switch dNetgearRouter	"Netgear Router [%s]"						<network>	(gNetwork) {channel="network:device:192_168_1_1:online"}
 Switch dNetgearGS108PE	"Netgear GS108PE 8-Port Switch [%s]"	<network>	(gNetwork) {channel="network:device:192_168_1_30:online"}
- 
- 
-
