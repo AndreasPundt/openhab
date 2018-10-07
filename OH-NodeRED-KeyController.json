@@ -1,0 +1,1005 @@
+[
+   {
+      "id": "800a2fd2.8a3678",
+      "type": "switch",
+      "z": "756d78f2.85cc08",
+      "name": "switch scene",
+      "property": "payload.payload.value",
+      "propertyType": "msg",
+      "rules": [
+         {
+            "t": "eq",
+            "v": "1.0",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "1.1",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "1.2",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "2.0",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "2.1",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "2.2",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "3.0",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "3.1",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "3.2",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "4.0",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "4.1",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "4.2",
+            "vt": "str"
+         }
+      ],
+      "checkall": "true",
+      "outputs": 12,
+      "x": 510,
+      "y": 520,
+      "wires": [
+         [
+            "c44cfbad.bb299"
+         ],
+         [],
+         [
+            "86417e0a.5c0da"
+         ],
+         [
+            "f5eac0d3.34d538"
+         ],
+         [],
+         [
+            "c8642f51.87ab4"
+         ],
+         [
+            "1243b986.a281d6"
+         ],
+         [],
+         [],
+         [],
+         [],
+         []
+      ]
+   },
+   {
+      "id": "197da30.2844b5d",
+      "type": "change",
+      "z": "756d78f2.85cc08",
+      "name": "WHITE",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "0,0,100",
+            "tot": "str"
+         },
+         {
+            "t": "set",
+            "p": "changecolor",
+            "pt": "flow",
+            "to": "2",
+            "tot": "str"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 890,
+      "y": 320,
+      "wires": [
+         [
+            "5e33f002.cfe98"
+         ]
+      ]
+   },
+   {
+      "id": "99a0ae4a.ec2668",
+      "type": "change",
+      "z": "756d78f2.85cc08",
+      "name": "OFF",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "OFF",
+            "tot": "str"
+         },
+         {
+            "t": "set",
+            "p": "flipflop",
+            "pt": "flow",
+            "to": "1",
+            "tot": "str"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 890,
+      "y": 160,
+      "wires": [
+         [
+            "f20cf4c4.b9e97"
+         ]
+      ]
+   },
+   {
+      "id": "f5eac0d3.34d538",
+      "type": "switch",
+      "z": "756d78f2.85cc08",
+      "name": "color switch",
+      "property": "changecolor",
+      "propertyType": "flow",
+      "rules": [
+         {
+            "t": "eq",
+            "v": "1",
+            "vt": "num"
+         },
+         {
+            "t": "eq",
+            "v": "2",
+            "vt": "num"
+         },
+         {
+            "t": "eq",
+            "v": "3",
+            "vt": "num"
+         },
+         {
+            "t": "eq",
+            "v": "4",
+            "vt": "num"
+         }
+      ],
+      "checkall": "true",
+      "outputs": 4,
+      "x": 710,
+      "y": 380,
+      "wires": [
+         [
+            "197da30.2844b5d"
+         ],
+         [
+            "e9639b14.857918"
+         ],
+         [
+            "40cbb24f.e95f7c"
+         ],
+         [
+            "c8f93005.308a3"
+         ]
+      ]
+   },
+   {
+      "id": "c293b4f3.de91e8",
+      "type": "inject",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "topic": "",
+      "payload": "1",
+      "payloadType": "num",
+      "repeat": "",
+      "crontab": "",
+      "once": true,
+      "x": 90,
+      "y": 60,
+      "wires": [
+         [
+            "63f4d8ee.5cedd"
+         ]
+      ]
+   },
+   {
+      "id": "63f4d8ee.5cedd",
+      "type": "change",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "rules": [
+         {
+            "t": "set",
+            "p": "flipflop",
+            "pt": "flow",
+            "to": "payload",
+            "tot": "msg"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 240,
+      "y": 60,
+      "wires": [
+         []
+      ]
+   },
+   {
+      "id": "e9639b14.857918",
+      "type": "change",
+      "z": "756d78f2.85cc08",
+      "name": "RED",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "360,100,50",
+            "tot": "str"
+         },
+         {
+            "t": "set",
+            "p": "changecolor",
+            "pt": "flow",
+            "to": "3",
+            "tot": "str"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 890,
+      "y": 360,
+      "wires": [
+         [
+            "5e33f002.cfe98"
+         ]
+      ]
+   },
+   {
+      "id": "40cbb24f.e95f7c",
+      "type": "change",
+      "z": "756d78f2.85cc08",
+      "name": "GREEN",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "120,100,50",
+            "tot": "str"
+         },
+         {
+            "t": "set",
+            "p": "changecolor",
+            "pt": "flow",
+            "to": "4",
+            "tot": "str"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 890,
+      "y": 400,
+      "wires": [
+         [
+            "5e33f002.cfe98"
+         ]
+      ]
+   },
+   {
+      "id": "c8f93005.308a3",
+      "type": "change",
+      "z": "756d78f2.85cc08",
+      "name": "BLUE",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "240,100,50",
+            "tot": "str"
+         },
+         {
+            "t": "set",
+            "p": "changecolor",
+            "pt": "flow",
+            "to": "1",
+            "tot": "str"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 890,
+      "y": 440,
+      "wires": [
+         [
+            "5e33f002.cfe98"
+         ]
+      ]
+   },
+   {
+      "id": "4d83931c.8d2f9c",
+      "type": "inject",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "topic": "",
+      "payload": "1",
+      "payloadType": "num",
+      "repeat": "",
+      "crontab": "",
+      "once": true,
+      "x": 90,
+      "y": 100,
+      "wires": [
+         [
+            "83f25959.87f028"
+         ]
+      ]
+   },
+   {
+      "id": "83f25959.87f028",
+      "type": "change",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "rules": [
+         {
+            "t": "set",
+            "p": "changecolor",
+            "pt": "flow",
+            "to": "payload",
+            "tot": "msg"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 260,
+      "y": 100,
+      "wires": [
+         []
+      ]
+   },
+   {
+      "id": "c44cfbad.bb299",
+      "type": "switch",
+      "z": "756d78f2.85cc08",
+      "name": "toggle switch",
+      "property": "flipflop",
+      "propertyType": "flow",
+      "rules": [
+         {
+            "t": "eq",
+            "v": "0",
+            "vt": "num"
+         },
+         {
+            "t": "eq",
+            "v": "1",
+            "vt": "num"
+         }
+      ],
+      "checkall": "true",
+      "outputs": 2,
+      "x": 710,
+      "y": 180,
+      "wires": [
+         [
+            "99a0ae4a.ec2668"
+         ],
+         [
+            "6aa1e021.3f8018"
+         ]
+      ]
+   },
+   {
+      "id": "6aa1e021.3f8018",
+      "type": "change",
+      "z": "756d78f2.85cc08",
+      "name": "ON",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "ON",
+            "tot": "str"
+         },
+         {
+            "t": "set",
+            "p": "flipflop",
+            "pt": "flow",
+            "to": "0",
+            "tot": "str"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 890,
+      "y": 200,
+      "wires": [
+         [
+            "f20cf4c4.b9e97"
+         ]
+      ]
+   },
+   {
+      "id": "1f18dd52.8f151b",
+      "type": "comment",
+      "z": "756d78f2.85cc08",
+      "name": "Initialisation",
+      "info": "set the values in the context of the flow for:\n- flipflop\n- changecolcor\nthey are of type string",
+      "x": 90,
+      "y": 20,
+      "wires": []
+   },
+   {
+      "id": "7c0f8b09.2d0c9c",
+      "type": "comment",
+      "z": "756d78f2.85cc08",
+      "name": "Publish to que and subcribe to get the values",
+      "info": "",
+      "x": 190,
+      "y": 240,
+      "wires": []
+   },
+   {
+      "id": "b49f0601.9416c8",
+      "type": "comment",
+      "z": "756d78f2.85cc08",
+      "name": "Rules to set colors and the toggle switch",
+      "info": "",
+      "x": 820,
+      "y": 100,
+      "wires": []
+   },
+   {
+      "id": "410c38a5.168d8",
+      "type": "openhab2-in",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dSwitch_HUE_WZ",
+      "x": 1330,
+      "y": 180,
+      "wires": [
+         [],
+         []
+      ],
+      "outputLabels": [
+         "state event",
+         "raw event"
+      ]
+   },
+   {
+      "id": "80121dfd.53d408",
+      "type": "openhab2-in",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dKeyController",
+      "x": 100,
+      "y": 500,
+      "wires": [
+         [],
+         [
+            "41cf785c.e47ab8",
+            "bd373584.098198"
+         ]
+      ]
+   },
+   {
+      "id": "f20cf4c4.b9e97",
+      "type": "openhab2-out",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dSwitch_HUE_WZ",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1130,
+      "y": 180,
+      "wires": []
+   },
+   {
+      "id": "41cf785c.e47ab8",
+      "type": "switch",
+      "z": "756d78f2.85cc08",
+      "name": "switch scene",
+      "property": "payload.type",
+      "propertyType": "msg",
+      "rules": [
+         {
+            "t": "eq",
+            "v": "ItemStateEvent",
+            "vt": "str"
+         }
+      ],
+      "checkall": "true",
+      "outputs": 1,
+      "x": 310,
+      "y": 520,
+      "wires": [
+         [
+            "800a2fd2.8a3678"
+         ]
+      ]
+   },
+   {
+      "id": "5e33f002.cfe98",
+      "type": "openhab2-out",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dColor_HUE_WZ",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1130,
+      "y": 380,
+      "wires": []
+   },
+   {
+      "id": "1dddae06.6ea5da",
+      "type": "openhab2-in",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dColor_HUE_WZ",
+      "x": 1320,
+      "y": 380,
+      "wires": [
+         [],
+         []
+      ],
+      "outputLabels": [
+         "state event",
+         "raw event"
+      ]
+   },
+   {
+      "id": "4919ba86.d519ec",
+      "type": "inject",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "topic": "",
+      "payload": "50",
+      "payloadType": "num",
+      "repeat": "",
+      "crontab": "",
+      "once": true,
+      "x": 90,
+      "y": 140,
+      "wires": [
+         [
+            "aa5789e8.001c38"
+         ]
+      ]
+   },
+   {
+      "id": "aa5789e8.001c38",
+      "type": "change",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "rules": [
+         {
+            "t": "set",
+            "p": "dimmer",
+            "pt": "flow",
+            "to": "payload",
+            "tot": "msg"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 240,
+      "y": 140,
+      "wires": [
+         []
+      ]
+   },
+   {
+      "id": "bd373584.098198",
+      "type": "debug",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "active": false,
+      "console": "false",
+      "complete": "payload",
+      "x": 310,
+      "y": 480,
+      "wires": []
+   },
+   {
+      "id": "86417e0a.5c0da",
+      "type": "function",
+      "z": "756d78f2.85cc08",
+      "name": "Dimmer Up",
+      "func": "var dim = flow.get('dimmer');\nvar newMsg = {payload: 0};\ndim = dim + 4;\nif (dim < 100) {\n    newMsg.payload = dim;\n    //context.set('dim',dim);\n    flow.set('dimmer',dim);\n} else {\n    newMsg.payload = 100;\n    //context.set('dim',3);\n    //flow.set('dim',0);\n}\nreturn newMsg;",
+      "outputs": 1,
+      "noerr": 0,
+      "x": 710,
+      "y": 260,
+      "wires": [
+         [
+            "3729d310.67f3fc"
+         ]
+      ]
+   },
+   {
+      "id": "3729d310.67f3fc",
+      "type": "openhab2-out",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dDimmer_HUE_WZ",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1130,
+      "y": 260,
+      "wires": []
+   },
+   {
+      "id": "3c9f54c4.b78a0c",
+      "type": "inject",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "topic": "",
+      "payload": "1",
+      "payloadType": "num",
+      "repeat": "",
+      "crontab": "",
+      "once": true,
+      "x": 90,
+      "y": 180,
+      "wires": [
+         [
+            "df74535.c4340b"
+         ]
+      ]
+   },
+   {
+      "id": "df74535.c4340b",
+      "type": "change",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "rules": [
+         {
+            "t": "set",
+            "p": "flipflop2",
+            "pt": "flow",
+            "to": "payload",
+            "tot": "msg"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 240,
+      "y": 180,
+      "wires": [
+         []
+      ]
+   },
+   {
+      "id": "8ca394b9.e44578",
+      "type": "change",
+      "z": "756d78f2.85cc08",
+      "name": "OFF",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "OFF",
+            "tot": "str"
+         },
+         {
+            "t": "set",
+            "p": "flipflop2",
+            "pt": "flow",
+            "to": "1",
+            "tot": "str"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 890,
+      "y": 580,
+      "wires": [
+         [
+            "31a0143c.3ead2c",
+            "69b28fb2.5c99d",
+            "7d8de64a.9d21f8",
+            "9ae8b369.7cf6d"
+         ]
+      ]
+   },
+   {
+      "id": "1243b986.a281d6",
+      "type": "switch",
+      "z": "756d78f2.85cc08",
+      "name": "toggle switch",
+      "property": "flipflop2",
+      "propertyType": "flow",
+      "rules": [
+         {
+            "t": "eq",
+            "v": "0",
+            "vt": "num"
+         },
+         {
+            "t": "eq",
+            "v": "1",
+            "vt": "num"
+         }
+      ],
+      "checkall": "true",
+      "outputs": 2,
+      "x": 710,
+      "y": 600,
+      "wires": [
+         [
+            "8ca394b9.e44578"
+         ],
+         [
+            "c6fbcd81.98c16"
+         ]
+      ]
+   },
+   {
+      "id": "c6fbcd81.98c16",
+      "type": "change",
+      "z": "756d78f2.85cc08",
+      "name": "ON",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "ON",
+            "tot": "str"
+         },
+         {
+            "t": "set",
+            "p": "flipflop2",
+            "pt": "flow",
+            "to": "0",
+            "tot": "str"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 890,
+      "y": 620,
+      "wires": [
+         [
+            "31a0143c.3ead2c",
+            "69b28fb2.5c99d",
+            "7d8de64a.9d21f8",
+            "9ae8b369.7cf6d"
+         ]
+      ]
+   },
+   {
+      "id": "f921807e.9c8ef",
+      "type": "openhab2-in",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dPlugSwitch_BZ",
+      "x": 1320,
+      "y": 540,
+      "wires": [
+         [],
+         []
+      ],
+      "outputLabels": [
+         "state event",
+         "raw event"
+      ]
+   },
+   {
+      "id": "31a0143c.3ead2c",
+      "type": "openhab2-out",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dPlugSwitch_BZ",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1120,
+      "y": 540,
+      "wires": []
+   },
+   {
+      "id": "69b28fb2.5c99d",
+      "type": "openhab2-out",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dPlugSwitch_EZ",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1120,
+      "y": 600,
+      "wires": []
+   },
+   {
+      "id": "7d8de64a.9d21f8",
+      "type": "openhab2-out",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dPlugSwitch_SZ",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1120,
+      "y": 660,
+      "wires": []
+   },
+   {
+      "id": "9ae8b369.7cf6d",
+      "type": "openhab2-out",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dPlugSwitch_WZ",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1130,
+      "y": 720,
+      "wires": []
+   },
+   {
+      "id": "84055229.d9e1b",
+      "type": "openhab2-in",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dPlugSwitch_EZ",
+      "x": 1320,
+      "y": 600,
+      "wires": [
+         [],
+         []
+      ],
+      "outputLabels": [
+         "state event",
+         "raw event"
+      ]
+   },
+   {
+      "id": "caf267b4.186bf8",
+      "type": "openhab2-in",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dPlugSwitch_SZ",
+      "x": 1320,
+      "y": 660,
+      "wires": [
+         [],
+         []
+      ],
+      "outputLabels": [
+         "state event",
+         "raw event"
+      ]
+   },
+   {
+      "id": "e5feed3f.b09b9",
+      "type": "openhab2-in",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dPlugSwitch_WZ",
+      "x": 1320,
+      "y": 720,
+      "wires": [
+         [],
+         []
+      ],
+      "outputLabels": [
+         "state event",
+         "raw event"
+      ]
+   },
+   {
+      "id": "c8642f51.87ab4",
+      "type": "function",
+      "z": "756d78f2.85cc08",
+      "name": "Dimmer Down",
+      "func": "var dim = flow.get('dimmer');\nvar newMsg = {payload: 0};\ndim = dim - 4;\nif (dim > 0) {\n    newMsg.payload = dim;\n    //context.set('dim',dim);\n    flow.set('dimmer',dim);\n} else {\n    newMsg.payload = 0;\n    //context.set('dim',3);\n    //flow.set('dim',3);\n}\nreturn newMsg;",
+      "outputs": 1,
+      "noerr": 0,
+      "x": 720,
+      "y": 480,
+      "wires": [
+         [
+            "394b09de.14da06"
+         ]
+      ]
+   },
+   {
+      "id": "394b09de.14da06",
+      "type": "openhab2-out",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dDimmer_HUE_WZ",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1140,
+      "y": 480,
+      "wires": []
+   },
+   {
+      "id": "4d377d6b.eec334",
+      "type": "openhab2-controller",
+      "z": "",
+      "name": "openhab",
+      "protocol": "http",
+      "host": "192.168.1.18",
+      "port": "8080",
+      "path": "",
+      "username": "",
+      "password": ""
+   }
+]
