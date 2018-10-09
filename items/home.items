@@ -106,43 +106,43 @@ Switch	vSwitch_HUE_EZ			"Esszimmer-Lichtschalter"					(gEZ)
 Dimmer	vColorTemp_HUE_EZ		"Esszimmer-Farbtemperatur"		<colorlight> (gEZ)
 //
 Dimmer	dDimmer_HUE_EZ_L		"EsszimmerdimmerHueL"	<light> 			(gEZ) { channel="hue:0220:001788678799:6:brightness" }
-Switch	dSwitch_HUE_EZ_L		"EsszimmerlichtHueL"		<switch>			(gEZ, gLightsEZ)	["Lighting"]	{ channel="hue:0220:001788678799:6:brightness" }
+Switch	dSwitch_HUE_EZ_L		"EsszimmerlichtHueL"		<switch>			(gEZ, gLightsEZ)	{ channel="hue:0220:001788678799:6:brightness" }
 Dimmer	dColorTemp_HUE_EZ_L	"ColorTempHueL"			<colorlight> 	(gEZ)						{ channel="hue:0220:001788678799:6:color_temperature" }
 Dimmer	dDimmer_HUE_EZ_M		"EsszimmerdimmerHueM"	<light> 			(gEZ)						{ channel="hue:0220:001788678799:7:brightness" }
-Switch	dSwitch_HUE_EZ_M		"EsszimmerlichtHueM"		<switch>			(gEZ, gLightsEZ)	["Lighting"]	{ channel="hue:0220:001788678799:7:brightness" }
+Switch	dSwitch_HUE_EZ_M		"EsszimmerlichtHueM"		<switch>			(gEZ, gLightsEZ)		{ channel="hue:0220:001788678799:7:brightness" }
 Dimmer	dColorTemp_HUE_EZ_M	"ColorTempHueM"			<colorlight> 	(gEZ)						{ channel="hue:0220:001788678799:7:color_temperature" }
 Dimmer	dDimmer_HUE_EZ_R		"EsszimmerdimmerHueR"	<light> 			(gEZ)						{ channel="hue:0220:001788678799:8:brightness" }
-Switch	dSwitch_HUE_EZ_R		"EsszimmerlichtHueR"		<switch>			(gEZ, gLightsEZ)	["Lighting"]	{ channel="hue:0220:001788678799:8:brightness" }
+Switch	dSwitch_HUE_EZ_R		"EsszimmerlichtHueR"		<switch>			(gEZ, gLightsEZ)		{ channel="hue:0220:001788678799:8:brightness" }
 Dimmer	dColorTemp_HUE_EZ_R	"ColorTempHueR"			<colorlight> 	(gEZ)						{ channel="hue:0220:001788678799:8:color_temperature" }
 // HUE Mila
-Switch	dSwitch_HUE_MZ		"Milalicht"				<switch>				(gMZ)	["Lighting"]	{ channel="hue:0210:001788678799:1:color" }
-Dimmer	dDimmer_HUE_MZ		"Miladimmer"			<light> 				(gMZ)						{ channel="hue:0210:001788678799:1:color" }
-Color		dColor_HUE_MZ 		"ColorPicker"			<colorpicker> 		(gMZ)						{ channel="hue:0210:001788678799:1:color" }
-Dimmer	dColorTemp_HUE_MZ "ColorTemp"				<colorlight> 		(gMZ)						{ channel="hue:0210:001788678799:1:color_temperature" }
-String	dAlert_HUE_MZ		"Alert"					<switch> 			(gMZ)						{ channel="hue:0210:001788678799:1:alert" }
-Switch	dEffect_HUE_MZ		"Effect"					<switch> 			(gMZ)						{ channel="hue:0210:001788678799:1:effect" }
+Switch	dSwitch_HUE_MZ		"Milalicht"				<switch>				(gMZ)    	{ channel="hue:0210:001788678799:1:color" }
+Dimmer	dDimmer_HUE_MZ		"Miladimmer"			<light> 				(gMZ)			{ channel="hue:0210:001788678799:1:color" }
+Color		dColor_HUE_MZ 		"ColorPicker"			<colorpicker> 		(gMZ)			{ channel="hue:0210:001788678799:1:color" }
+Dimmer	dColorTemp_HUE_MZ "ColorTemp"				<colorlight> 		(gMZ)			{ channel="hue:0210:001788678799:1:color_temperature" }
+String	dAlert_HUE_MZ		"Alert"					<switch> 			(gMZ)			{ channel="hue:0210:001788678799:1:alert" }
+Switch	dEffect_HUE_MZ		"Effect"					<switch> 			(gMZ)			{ channel="hue:0210:001788678799:1:effect" }
 // HUE Schlafzimmer
-Switch	dSwitch_HUE_SZ		"Schlafzimmerlicht"	<switch>				(gSZ)	["Lighting"]	{ channel="hue:0220:001788678799:5:brightness" }
-Dimmer	dDimmer_HUE_SZ		"Schlafzimmerdimmer"	<light> 	(gSZ)									{ channel="hue:0220:001788678799:5:brightness" }
-Dimmer	dColorTemp_HUE_SZ "ColorTempHueSZ"		<colorlight> 		(gSZ)						{ channel="hue:0220:001788678799:5:color_temperature" }
+Switch	dSwitch_HUE_SZ		"Schlafzimmerlicht"	<switch>				(gSZ)		{ channel="hue:0220:001788678799:5:brightness" }
+Dimmer	dDimmer_HUE_SZ		"Schlafzimmerdimmer"	<light> 	(gSZ)					{ channel="hue:0220:001788678799:5:brightness" }
+Dimmer	dColorTemp_HUE_SZ "ColorTempHueSZ"		<colorlight> 		(gSZ)		{ channel="hue:0220:001788678799:5:color_temperature" }
 // HUE Iris Wohnzimmer
-Switch	dSwitch_HUE_WZ		"Iris Wohnzimmer"		<switch>				(gWZ)	["Lighting"]	{ channel="hue:0200:001788678799:4:color" }
-Dimmer	dDimmer_HUE_WZ		"Iris Dimmer"			<light> 	(gWZ)									{ channel="hue:0200:001788678799:4:color" }
-Color		dColor_HUE_WZ 		"ColorPickerHueWZ"	<colorpicker> 		(gWZ)						{ channel="hue:0200:001788678799:4:color" }
+Switch	dSwitch_HUE_WZ		"Iris Wohnzimmer"		<switch>				(gWZ)		{ channel="hue:0200:001788678799:4:color" }
+Dimmer	dDimmer_HUE_WZ		"Iris Dimmer"			<light> 	(gWZ)					{ channel="hue:0200:001788678799:4:color" }
+Color		dColor_HUE_WZ 		"ColorPickerHueWZ"	<colorpicker> 		(gWZ)		{ channel="hue:0200:001788678799:4:color" }
 // HUE Flur links
-Switch	dSwitch_HUE_FL_L		"Flurlicht L"		<switch>				(gFL)	["Lighting"]	{ channel="hue:0210:001788678799:2:color" }
-Dimmer	dDimmer_HUE_FL_L		"Flurdimmer L" 	<light>	(gFL)									{ channel="hue:0210:001788678799:2:color" }
-Color		dColor_HUE_FL_L		"ColorPicker L"	<colorpicker>		(gFL)						{ channel="hue:0210:001788678799:2:color" }
-Dimmer	dColorTemp_HUE_FL_L	"ColorTemp L"		<colorlight>		(gFL)						{ channel="hue:0210:001788678799:2:color_temperature" }
-String	dAlert_HUE_FL_L		"Alert L"			<switch>				(gFL)						{ channel="hue:0210:001788678799:2:alert" }
-Switch	dEffect_HUE_FL_L		"Effect L"			<switch>				(gFL)						{ channel="hue:0210:001788678799:2:effect" }
+Switch	dSwitch_HUE_FL_L		"Flurlicht L"		<switch>				(gFL)		{ channel="hue:0210:001788678799:2:color" }
+Dimmer	dDimmer_HUE_FL_L		"Flurdimmer L" 	<light>	(gFL)					{ channel="hue:0210:001788678799:2:color" }
+Color		dColor_HUE_FL_L		"ColorPicker L"	<colorpicker>		(gFL)		{ channel="hue:0210:001788678799:2:color" }
+Dimmer	dColorTemp_HUE_FL_L	"ColorTemp L"		<colorlight>		(gFL)		{ channel="hue:0210:001788678799:2:color_temperature" }
+String	dAlert_HUE_FL_L		"Alert L"			<switch>				(gFL)		{ channel="hue:0210:001788678799:2:alert" }
+Switch	dEffect_HUE_FL_L		"Effect L"			<switch>				(gFL)		{ channel="hue:0210:001788678799:2:effect" }
 // HUE Flur rechts
-Switch	dSwitch_HUE_FL_R		"Flurlicht R"		<switch>				(gFL)	["Lighting"]	{ channel="hue:0210:001788678799:3:color" }
-Dimmer	dDimmer_HUE_FL_R		"Flurdimmer R" 	<light>	(gFL)									{ channel="hue:0210:001788678799:3:color" }
-Color		dColor_HUE_FL_R		"ColorPicker R"	<colorpicker>		(gFL)						{ channel="hue:0210:001788678799:3:color" }
-Dimmer	dColorTemp_HUE_FL_R	"ColorTemp R"		<colorlight>		(gFL)						{ channel="hue:0210:001788678799:3:color_temperature" }
-String	dAlert_HUE_FL_R		"Alert R"			<switch>				(gFL)						{ channel="hue:0210:001788678799:3:alert" }
-Switch	dEffect_HUE_FL_R		"Effect R"			<switch>				(gFL)						{ channel="hue:0210:001788678799:3:effect" }
+Switch	dSwitch_HUE_FL_R		"Flurlicht R"		<switch>				(gFL)		{ channel="hue:0210:001788678799:3:color" }
+Dimmer	dDimmer_HUE_FL_R		"Flurdimmer R" 	<light>	(gFL)					{ channel="hue:0210:001788678799:3:color" }
+Color		dColor_HUE_FL_R		"ColorPicker R"	<colorpicker>		(gFL)		{ channel="hue:0210:001788678799:3:color" }
+Dimmer	dColorTemp_HUE_FL_R	"ColorTemp R"		<colorlight>		(gFL)		{ channel="hue:0210:001788678799:3:color_temperature" }
+String	dAlert_HUE_FL_R		"Alert R"			<switch>				(gFL)		{ channel="hue:0210:001788678799:3:alert" }
+Switch	dEffect_HUE_FL_R		"Effect R"			<switch>				(gFL)		{ channel="hue:0210:001788678799:3:effect" }
 // HUE variables
 Switch vHUECalDav_MZ_OnOff	"Milas Licht"			<switch>
 Number vHUECalDav_WasteTyp	"Abfallart"				<switch>
@@ -182,8 +182,7 @@ Number	dFrontDoor_FL_Batt	"Eingangstür Battery [%.1f]"			<batterylevel> (gDevic
 Switch	dSmokeSensor_FL		"Rauchmelder FL [%s]"					<smoke>			(gFL, gAlarm)			{channel="zwave:device:7b5154ec:node41:alarm_smoke"}
 Number	dSmokeSensor_FL_Battery	"Rauchmelder FL Battery [%.1f]"	<batterylevel> (gDevices)				{channel="zwave:device:7b5154ec:node41:battery-level"}
 Switch	dSmokeSensor_FL_Battery_Alarm	"Rauchmelder FL Battery Alarm [%s]"	<batterylevel>	(gDevices)	{channel="zwave:device:7b5154ec:node41:alarm_battery"}
-// Alexa
-Number	dTempSmokeSensor_FL	"Flur Temperatur [%.1f °C]"		<temperature>	(gFL, gHZ)					{channel="zwave:device:7b5154ec:node41:sensor_temperature"}
+Number	dTempSmokeSensor_FL	"Flur Temperatur [%.1f °C]"		   <temperature>	(gFL, gHZ)					{channel="zwave:device:7b5154ec:node41:sensor_temperature"}
 // Smoke Sensor Esszimmer
 Switch	dSmokeSensor_EZ		"Rauchmelder EZ [%s]"					<smoke>			(gEZ, gAlarm)			{channel="zwave:device:7b5154ec:node16:alarm_smoke"}
 Number 	dSmokeSensor_EZ_Battery	"Rauchmelder EZ Battery [%.1f]"	<batterylevel> (gDevices)				{channel="zwave:device:7b5154ec:node16:battery-level"}
@@ -191,9 +190,9 @@ Switch 	dSmokeSensor_EZ_Battery_Alarm	"Rauchmelder EZ Battery Alarm [%s]"	<batte
 // Alexa
 Number 	dTempSmokeSensor_EZ	"Esszimmer Temperatur [%.1f °C]"						<temperature>	(gEZ, gHZ)	{channel="zwave:device:7b5154ec:node16:sensor_temperature"}
 // Motion Sensor
-Switch	dMotionSensor_FL				"Bewegungsmelder [%s]"							<motion>			(gFL, gAlarm)	{channel="zwave:device:7b5154ec:node8:alarm_motion"}
-Number	dMotionSensor_FL_Temp		"Bewegungsmelder Temperatur [%.1f °C]"		<temperature>	(gFL, gAlarm)	{channel="zwave:device:7b5154ec:node8:sensor_temperature"}
-Number	dMotionSensor_FL_Lumi		"Bewegungsmelder Helligkeit [%.1f]"			<lightbulb>		(gFL, gAlarm)	{channel="zwave:device:7b5154ec:node8:sensor_luminance"}
+Switch	dMotionSensor_FL				"Bewegungsmelder [%s]"							<motion>			(gFL)	{channel="zwave:device:7b5154ec:node8:alarm_motion"}
+Number	dMotionSensor_FL_Temp		"Bewegungsmelder Temperatur [%.1f °C]"		<temperature>	(gFL)	{channel="zwave:device:7b5154ec:node8:sensor_temperature"}
+Number	dMotionSensor_FL_Lumi		"Bewegungsmelder Helligkeit [%.1f]"			<lightbulb>		(gFL)	{channel="zwave:device:7b5154ec:node8:sensor_luminance"}
 Number	dMotionSensor_FL_Battery	"Bewegungsmelder Battery [%.1f]"				<batterylevel> (gDevices)	{channel="zwave:device:7b5154ec:node8:battery-level"}
 // Wassermelder
 Switch	dFloodSensor_KU				"Wassersensor Küche"								<water>			(gKU, gAlarm)	{channel="zwave:device:7b5154ec:node4:alarm_flood"}
