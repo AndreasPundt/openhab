@@ -5,6 +5,7 @@ rule "sirene"
 when
   Item dAlarmSwitch_FL received command
 then
+
 	if (dAlarmSwitch_FL.state == ON) {
 		dDimmer_WZ.sendCommand(99)
 		dDimmer_FL.sendCommand(99)

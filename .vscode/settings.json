@@ -1,4 +1,6 @@
 {
     "openhab.host": "192.168.1.18",
-    "editor.tabSize": 3
+    "editor.tabSize": 3,
+    "openhab.paperInBrowser": true,
+    "openhab.paperPath": "ui"
 }
