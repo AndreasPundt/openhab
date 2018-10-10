@@ -187,7 +187,6 @@ Number	dTempSmokeSensor_FL	"Flur Temperatur [%.1f °C]"		   <temperature>	(gFL, 
 Switch	dSmokeSensor_EZ		"Rauchmelder EZ [%s]"					<smoke>			(gEZ, gAlarm)			{channel="zwave:device:7b5154ec:node16:alarm_smoke"}
 Number 	dSmokeSensor_EZ_Battery	"Rauchmelder EZ Battery [%.1f]"	<batterylevel> (gDevices)				{channel="zwave:device:7b5154ec:node16:battery-level"}
 Switch 	dSmokeSensor_EZ_Battery_Alarm	"Rauchmelder EZ Battery Alarm [%s]"	<batterylevel> (gDevices)	{channel="zwave:device:7b5154ec:node16:alarm_battery"}
-// Alexa
 Number 	dTempSmokeSensor_EZ	"Esszimmer Temperatur [%.1f °C]"						<temperature>	(gEZ, gHZ)	{channel="zwave:device:7b5154ec:node16:sensor_temperature"}
 // Motion Sensor
 Switch	dMotionSensor_FL				"Bewegungsmelder [%s]"							<motion>			(gFL)	{channel="zwave:device:7b5154ec:node8:alarm_motion"}
