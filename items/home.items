@@ -56,21 +56,10 @@ Switch vNRStartAlarmClockPLAY11 "Wecker"
  * Calendar
  * --------
  */
-// Heating events
-DateTime dCalDav_StartHeating "Beginn [%1$td.%1$tm.%1$tY]"	<calendar> (gKL)			{caldavPersonal="calendar:heizung type:EVENT eventNr:1 value:START" }
-DateTime dCalDav_EndHeating 	"Ende [%1$td.%1$tm.%1$tY]"		<calendar> (gKL)			{caldavPersonal="calendar:heizung type:EVENT eventNr:1 value:END" }
-String	dCalDav_heizung_NextEvent "H1[%s]"						<calendar> (gKL, gHZ)	{caldavPersonal="calendar:heizung type:EVENT eventNr:1 value:NAMEANDTIME" }
-String	dCalDav_heizung_NextEvent2 "H2[%s]"						<calendar> (gKL, gHZ)	{caldavPersonal="calendar:heizung type:EVENT eventNr:2 value:NAMEANDTIME" }
-String	dCalDav_heizung_NextEvent3 "H3[%s]"						<calendar> (gKL, gHZ)	{caldavPersonal="calendar:heizung type:EVENT eventNr:3 value:NAMEANDTIME" }
 // Alarm Clock events
 String	dCalDav_Wecker_NextEvent "W1[%s]"		<calendar>	(gAC, gKL)				{caldavPersonal="calendar:Wecker type:EVENT eventNr:1 value:NAMEANDTIME" }
 String	dCalDav_Wecker_NextEvent2 "W2[%s]"		<calendar>	(gAC, gKL)				{caldavPersonal="calendar:Wecker type:EVENT eventNr:2 value:NAMEANDTIME" }
 String	dCalDav_Wecker_NextEvent3 "W3[%s]"		<calendar>	(gAC, gKL)				{caldavPersonal="calendar:Wecker type:EVENT eventNr:3 value:NAMEANDTIME" }
-//
-String	dCalDav_Familie_NextEvent "F1[%s]"		<calendar>	(gKL)						{caldavPersonal="calendar:Familie type:EVENT eventNr:1 value:NAMEANDTIME" }
-String	dCalDav_Familie_NextEvent2 "F2[%s]"		<calendar>	(gKL)						{caldavPersonal="calendar:Familie type:EVENT eventNr:2 value:NAMEANDTIME" }
-String	dCalDav_Familie_NextEvent3 "F3[%s]"		<calendar>	(gKL)						{caldavPersonal="calendar:Familie type:EVENT eventNr:3 value:NAMEANDTIME" }
-String	dCalDav_Test_NextEvent "T1[%s]"  		<calendar>								{caldavPersonal="calendar:Test type:EVENT eventNr:1 value:NAMEANDTIME" }
 /* 
  * -------
  * heating

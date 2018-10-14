@@ -54,9 +54,6 @@ sitemap home label="Smart Home" {
 		Group item=gHZ {
     		Frame label="Allgemein" {
 				Default	item=vSwitchHeating_WZ
-				Default	item=dCalDav_heizung_NextEvent
-				Default	item=dCalDav_heizung_NextEvent2
-				Default	item=dCalDav_heizung_NextEvent3
 				Text		item=dThermostat_WZ			label="Solltemperatur WZ [%.1f °C]"
 					valuecolor=[>22="red",>20="orange",>17="green",<=17="aqua"]
 				Text		item=dThermostat_EZ			label="Solltemperatur EZ [%.1f °C]"
