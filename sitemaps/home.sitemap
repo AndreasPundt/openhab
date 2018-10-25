@@ -16,8 +16,9 @@ sitemap home label="Smart Home" {
    	Group item=gBZ
 	   Group item=gWZ label="Wohnzimmer" icon="sofa" {
    		Switch	item=dDimmer_WZ		label="Lichtschalter Decke" icon="light" mappings=[100='AN', 0='AUS']
-      	Default	item=dBalconyDoor_WZ	label="Terassen tür ist [%d]" icon="door" mappings=[ON='OPEN', OFF='CLOSED']
+      	Switch	item=dBalconyDoor_WZ	label="Terassen tür ist [%d]" icon="door" mappings=[ON='OPEN', OFF='CLOSED']
          Default	item=dPlugSwitch_WZ
+			Default	item=dWallSwitch_WZ	label="Schalter für Medien"
       }
       Group item=gEZ label="Esszimmer" icon="terrace" {
 			//Group		item=gLightsEZ label="Licht im Esszimmer [%s]"
