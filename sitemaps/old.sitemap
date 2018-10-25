@@ -21,7 +21,7 @@ sitemap old label="Old Smart Home" {
    	Group item=gBZ
 	   Group item=gWZ label="Wohnzimmer" icon="sofa" {
    		Default  item=dDimmer_WZ		label="Lichtschalter [%d]"
-      	  Default	item=dBalconyDoor_WZ	label="Terassen tür ist [%d]"
+      	Default	item=dBalconyDoor_WZ	label="Terassen tür ist [%d]"
          Default	item=dPlugSwitch_WZ	label="Steckdosenschalter [%d]"
       }
       Group item=gEZ label="Esszimmer" icon="terrace" {

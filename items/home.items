@@ -163,8 +163,9 @@ Switch dAlarmSwitch_FL			"Sirene [%s]"										<siren>			(gFL, gAlarm)	{channel
  * -------
  */
 // Tür- Fenster Sonsoren
-Contact	dBalconyDoor_WZ		"Balkontür [%s]"							<contact>		(gDoors, gWZ)			{channel="zwave:device:7b5154ec:node15:sensor_door"}
-Number	dBalconyDoor_WZ_Batt	"Balkontür Battery [%.1f]"				<batterylevel> (gDevices)				{channel="zwave:device:7b5154ec:node15:battery-level"}
+Switch	dBalconyDoor_WZ		"Balkontür [%s]"							<contact>		(gDoors, gWZ)			{channel="zwave:device:7b5154ec:node44:sensor_binary"}
+// zwave:device:7b5154ec:node15:sensor_door
+Number	dBalconyDoor_WZ_Batt	"Balkontür Battery [%.1f]"				<batterylevel> (gDevices)				{channel="zwave:device:7b5154ec:node44:battery-level"}
 Contact	dFrontDoor_FL			"Eingangstür [%s]"						<frontdoor>		(gDoors, gFL)			{channel="zwave:device:7b5154ec:node27:sensor_door"}
 Number	dFrontDoor_FL_Batt	"Eingangstür Battery [%.1f]"			<batterylevel> (gDevices)				{channel="zwave:device:7b5154ec:node27:battery-level"}
 // Smoke Sensor Flur
