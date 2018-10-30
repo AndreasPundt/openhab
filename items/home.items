@@ -471,10 +471,11 @@ String	dMoonPhase     "Mond Phase [%s]"						<moon>      (gAS)	{channel = "astro
  * weather
  * ------
  */
-String dCurrentConditions_WU	"Wetterbedingungen"						<sun_clouds>	(gWE)	{channel="weatherunderground:weather:b6f874f0:current#conditions"}
-Number dCurrentTemperature_WU	"Temperatur [%.1f °C]"					<temperature>	(gWE)	{channel="weatherunderground:weather:b6f874f0:current#temperature"}
-Number dCurrentHumidity_WU		"Luftfeuchtigkeit"						<humidity>		(gWE)	{channel="weatherunderground:weather:b6f874f0:current#relativeHumidity"}
-Number dCurrentWindSpeed_WU	"Windgeschwindigkeit [%.1f kM/h]"	<wind>			(gWE)	{channel="weatherunderground:weather:b6f874f0:current#windSpeed"}
+String dCurrentConditions_WU	   "Wetterbedingungen"						<sun_clouds>	(gWE)	{channel="weatherunderground:weather:b6f874f0:current#conditions"}
+Number dCurrentTemperature_WU	   "Temperatur [%.1f °C]"					<temperature>	(gWE)	{channel="weatherunderground:weather:b6f874f0:current#temperature"}
+Number dCurrentHumidity_WU		   "Luftfeuchtigkeit"						<humidity>		(gWE)	{channel="weatherunderground:weather:b6f874f0:current#relativeHumidity"}
+Number dCurrentWindSpeed_WU	   "Windgeschwindigkeit [%.1f kM/h]"	<wind>			(gWE)	{channel="weatherunderground:weather:b6f874f0:current#windSpeed"}
+String dObservationLocation_WU   "Location [%s]"                     <vacation>     (gWE) {channel="weatherunderground:weather:api:paris:current#location"}
 /*
  * -------------------------
  * battery status of devices
