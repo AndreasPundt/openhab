@@ -24,7 +24,7 @@ when
 	Item vSwitchHeating_WZ received command
 then
 	if(receivedCommand == ON) {	
-		vSwitchOpMo_WZ.sendCommand(ON)	// set all operating mode switches to "automatic"
+		vSwitchOpMo_WZ.sendCommand(OFF)	// set all operating mode switches to "manual" - automtic switched off
 		dThermostat_WZ.sendCommand(21) 		
 		vSetPointWZ_normal.postUpdate(21)
 		vSetPointWZ_absenken.postUpdate(16)

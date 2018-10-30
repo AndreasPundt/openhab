@@ -12,6 +12,42 @@ sitemap home label="Smart Home" {
 		Text item=dMotionSensor_FL
 			valuecolor=[dMotionSensor_FL==ON="red", OFF="green"] labelcolor=[dMotionSensor_FL==ON="red", OFF="green"]
 	}
+	Frame label="Wetter und Heizung" {
+		Group item=gWE
+		Group item=gHZ {
+    		Frame label="Allgemein" {
+				Default	item=vSwitchHeating_WZ
+				Text		item=dThermostat_WZ			label="Solltemperatur WZ [%.1f °C]"
+					valuecolor=[>22="red",>20="orange",>17="green",<=17="aqua"]
+				Text 		item=dTempSmokeSensor_EZ	label="Temperatur EZ [%.1f °C]"
+					valuecolor=[>22="red",>20="orange",>17="green",<=17="aqua"]
+			}
+			Frame label="Einstellungen" visibility=[vSwitchHeating_WZ == ON] {		
+				Switch	item=vSwitchOpMo_WZ			label="Betriebsart:"		mappings=[OFF='HAND', ON='AUTO']
+					visibility=[vSwitchHeating_WZ == ON]	
+				Switch	item=vSetPointWZ_manu		label="Manuell"			mappings=[15='eco', 21='warm', 23='hot']
+					visibility=[vShowSetPointWZ_manu == ON]
+				Setpoint	item=vSetPointWZ_normal		label="Normal"				minValue=15 maxValue=25 step=1
+					visibility=[vSwitchOpMo_WZ == ON]
+				Setpoint	item=vSetPointWZ_absenken 	label="Absenken"			minValue=15 maxValue=25 step=1
+					visibility=[vSwitchOpMo_WZ == ON]
+			}
+	   }
+		Group item=gKL {
+    		Frame label="1. Termin" {
+				Text		item=dCalDav_Wecker_Event_Name			label="Name[%s]"
+				Text 		item=dCalDav_Wecker_Event_Start			label="Datum[%s]"
+			}
+			Frame label="2. Termin" {		
+				Text		item=dCalDav_Wecker_Event2_Name			label="Name[%s]"
+				Text 		item=dCalDav_Wecker_Event2_Start			label="Datum[%s]"
+			}
+			Frame label="3. Termin" {		
+				Text		item=dCalDav_Wecker_Event3_Name			label="Name[%s]"
+				Text 		item=dCalDav_Wecker_Event3_Start			label="Datum[%s]"
+			}
+		}
+	}
    Frame label="Räume" {
    	Group item=gBZ
 	   Group item=gWZ label="Wohnzimmer" icon="sofa" {
@@ -49,31 +85,6 @@ sitemap home label="Smart Home" {
 			}
 		}
    }
-	Frame label="Wetter und Heizung" {
-		Group item=gKL
-		Group item=gWE
-		Group item=gHZ {
-    		Frame label="Allgemein" {
-				Default	item=vSwitchHeating_WZ
-				Text		item=dThermostat_WZ			label="Solltemperatur WZ [%.1f °C]"
-					valuecolor=[>22="red",>20="orange",>17="green",<=17="aqua"]
-				Text		item=dThermostat_EZ			label="Solltemperatur EZ [%.1f °C]"
-					valuecolor=[>22="red",>20="orange",>17="green",<=17="aqua"]
-				Text 		item=dTempSmokeSensor_EZ	label="Temperatur EZ [%.1f °C]"
-					valuecolor=[>22="red",>20="orange",>17="green",<=17="aqua"]
-			}
-			Frame label="Einstellungen" visibility=[vSwitchHeating_WZ == ON] {		
-				Switch	item=vSwitchOpMo_WZ			label="Betriebsart:"		mappings=[OFF='HAND', ON='AUTO']
-					visibility=[vSwitchHeating_WZ == ON]	
-				Switch	item=vSetPointWZ_manu		label="Manuell"			mappings=[18='eco', 21='warm', 23='hot']
-					visibility=[vShowSetPointWZ_manu == ON]
-				Setpoint	item=vSetPointWZ_normal		label="Normal"				minValue=15 maxValue=25 step=1
-					visibility=[vSwitchOpMo_WZ == ON]
-				Setpoint	item=vSetPointWZ_absenken 	label="Absenken"			minValue=15 maxValue=25 step=1
-					visibility=[vSwitchOpMo_WZ == ON]
-			}
-	   }
-	}
    Frame label="Infrastruktur" {
 		Group item=gAS
 		Group item=gNetwork

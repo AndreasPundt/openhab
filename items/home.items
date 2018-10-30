@@ -57,9 +57,16 @@ Switch vNRStartAlarmClockPLAY11 "Wecker"
  * --------
  */
 // Alarm Clock events
-String	dCalDav_Wecker_NextEvent "W1[%s]"		<calendar>	(gAC, gKL)				{caldavPersonal="calendar:Wecker type:EVENT eventNr:1 value:NAMEANDTIME" }
-String	dCalDav_Wecker_NextEvent2 "W2[%s]"		<calendar>	(gAC, gKL)				{caldavPersonal="calendar:Wecker type:EVENT eventNr:2 value:NAMEANDTIME" }
-String	dCalDav_Wecker_NextEvent3 "W3[%s]"		<calendar>	(gAC, gKL)				{caldavPersonal="calendar:Wecker type:EVENT eventNr:3 value:NAMEANDTIME" }
+String	dCalDav_Wecker_NextEvent      "W1[%s]"		   <calendar>	(gAC, gKL)				{caldavPersonal="calendar:Wecker type:EVENT eventNr:1 value:NAMEANDTIME" }
+String	dCalDav_Wecker_Event_Name     "Termin[%s]"   <calendar>	(gAC, gKL)				{caldavPersonal="calendar:Wecker type:EVENT eventNr:1 value:NAME" }
+DateTime	dCalDav_Wecker_Event_Start    "Begin[%s]"	   <calendar>	(gAC, gKL)				{caldavPersonal="calendar:Wecker type:EVENT eventNr:1 value:START" }
+// DateTime	dCalDav_Wecker_Event_End   "Ende[%s]"  	<calendar>	(gAC, gKL)				{caldavPersonal="calendar:Wecker type:EVENT eventNr:1 value:END" }
+String	dCalDav_Wecker_NextEvent2     "W2[%s]"		   <calendar>	(gAC, gKL)				{caldavPersonal="calendar:Wecker type:EVENT eventNr:2 value:NAMEANDTIME" }
+String	dCalDav_Wecker_Event2_Name    "Termin[%s]"   <calendar>	(gAC, gKL)				{caldavPersonal="calendar:Wecker type:EVENT eventNr:2 value:NAME" }
+DateTime	dCalDav_Wecker_Event2_Start   "Begin[%s]"	   <calendar>	(gAC, gKL)				{caldavPersonal="calendar:Wecker type:EVENT eventNr:2 value:START" }
+String	dCalDav_Wecker_NextEvent3     "W3[%s]"		   <calendar>	(gAC, gKL)				{caldavPersonal="calendar:Wecker type:EVENT eventNr:3 value:NAMEANDTIME" }
+String	dCalDav_Wecker_Event3_Name    "Termin[%s]"   <calendar>	(gAC, gKL)				{caldavPersonal="calendar:Wecker type:EVENT eventNr:3 value:NAME" }
+DateTime	dCalDav_Wecker_Event3_Start   "Begin[%s]"	   <calendar>	(gAC, gKL)				{caldavPersonal="calendar:Wecker type:EVENT eventNr:3 value:START" }
 /* 
  * -------
  * heating
@@ -79,7 +86,8 @@ Number	vSetPointWZ_normal		"Sollwert Heizen [%s °C]"		<xheating>
 Number	vSetPointWZ_absenken		"Sollwert Absenken [%s °C]"	<xheating>		    
 Number	vSetPointWZ_manu			"Sollwert Manu. [%s °C]"		<xheating>	    
 // Thermostate
-Number 	dThermostat_WZ			"Thermostat WZ [%.1f °C]"		<xheating> 	(gWZ, gHZ)	{channel="zwave:device:7b5154ec:node21:thermostat_setpoint_heating"}
+Number 	dThermostat_WZ			"Thermostat WZ [%.1f °C]"		   <xheating> 	(gWZ, gHZ)	   {channel="zwave:device:7b5154ec:node21:thermostat_setpoint_heating"}
+Number   dThermostat_WZ_Batt  "Thermostat WZ Battery [%.1f] "  <batterylevel> (gDevices)	{channel="zwave:device:7b5154ec:node21:battery-level"}
 //Number 	dThermostat_EZ			"Thermostat EZ [%.1f °C]"		<xheating> 	(gEZ, gHZ)
 /* 
  * ------
@@ -171,12 +179,12 @@ Number	dFrontDoor_FL_Batt	"Eingangstür Battery [%.1f]"			<batterylevel> (gDevic
 // Smoke Sensor Flur
 Switch	dSmokeSensor_FL		"Rauchmelder FL [%s]"					<smoke>			(gFL, gAlarm)			{channel="zwave:device:7b5154ec:node41:alarm_smoke"}
 Number	dSmokeSensor_FL_Battery	"Rauchmelder FL Battery [%.1f]"	<batterylevel> (gDevices)				{channel="zwave:device:7b5154ec:node41:battery-level"}
-Switch	dSmokeSensor_FL_Battery_Alarm	"Rauchmelder FL Battery Alarm [%s]"	<batterylevel>	(gDevices)	{channel="zwave:device:7b5154ec:node41:alarm_battery"}
+// Switch	dSmokeSensor_FL_Battery_Alarm	"Rauchmelder FL Battery Alarm [%s]"	<batterylevel>	(gDevices)	{channel="zwave:device:7b5154ec:node41:alarm_battery"}
 Number	dTempSmokeSensor_FL	"Flur Temperatur [%.1f °C]"		   <temperature>	(gFL, gHZ)					{channel="zwave:device:7b5154ec:node41:sensor_temperature"}
 // Smoke Sensor Esszimmer
 Switch	dSmokeSensor_EZ		"Rauchmelder EZ [%s]"					<smoke>			(gEZ, gAlarm)			{channel="zwave:device:7b5154ec:node16:alarm_smoke"}
 Number 	dSmokeSensor_EZ_Battery	"Rauchmelder EZ Battery [%.1f]"	<batterylevel> (gDevices)				{channel="zwave:device:7b5154ec:node16:battery-level"}
-Switch 	dSmokeSensor_EZ_Battery_Alarm	"Rauchmelder EZ Battery Alarm [%s]"	<batterylevel> (gDevices)	{channel="zwave:device:7b5154ec:node16:alarm_battery"}
+// Switch 	dSmokeSensor_EZ_Battery_Alarm	"Rauchmelder EZ Battery Alarm [%s]"	<batterylevel> (gDevices)	{channel="zwave:device:7b5154ec:node16:alarm_battery"}
 Number 	dTempSmokeSensor_EZ	"Esszimmer Temperatur [%.1f °C]"						<temperature>	(gEZ, gHZ)	{channel="zwave:device:7b5154ec:node16:sensor_temperature"}
 // Motion Sensor
 Switch	dMotionSensor_FL				"Bewegungsmelder [%s]"							<motion>			(gFL)	{channel="zwave:device:7b5154ec:node8:alarm_motion"}
