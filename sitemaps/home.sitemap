@@ -23,7 +23,7 @@ sitemap home label="Smart Home" {
 					valuecolor=[>22="red",>20="orange",>17="green",<=17="aqua"]
 			}
 			Frame label="Einstellungen" visibility=[vSwitchHeating_WZ == ON] {		
-				Switch	item=vSwitchOpMo_WZ			label="Betriebsart:"		mappings=[OFF='HAND', ON='AUTO']
+				Switch	item=vSwitchOpMo_WZ			label="Betriebsart:"		mappings=[OFF='Manuell', ON='Zeitsteuerung']
 					visibility=[vSwitchHeating_WZ == ON]	
 				Switch	item=vSetPointWZ_manu		label="Manuell"			mappings=[15='eco', 21='warm', 23='hot']
 					visibility=[vShowSetPointWZ_manu == ON]

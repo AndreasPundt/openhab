@@ -77,7 +77,7 @@ Switch	vSwitchHeating_CalDav	"Heizung über Google Kalender steuern" <switch>
 // Switch zum Einschalter der Heizung im WZ
 Switch	vSwitchHeating_WZ			"Heizung AN/AUS"					<switch>
 // Switch zum Umschalten zwischen auto. und manu. Betrieb im WZ
-Switch	vSwitchOpMo_WZ				"manueller/autom. Betrieb"		<clock>	
+Switch	vSwitchOpMo_WZ				"manueller/autom. Betrieb"		<settings>	
 // Item für die Steuerung der Anzeige (sitemap) für den manuellen Modus	      
 Switch	vShowSetPointWZ_manu		"Sollwert - Anzeige"				<xheating>			
 // Steuerung für den manuellen und automatischen Betrieb
