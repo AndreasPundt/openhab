@@ -123,9 +123,9 @@ Switch	dSwitch_HUE_SZ		"Schlafzimmerlicht"	<switch>				(gSZ)		{ channel="hue:022
 Dimmer	dDimmer_HUE_SZ		"Schlafzimmerdimmer"	<light> 	(gSZ)					{ channel="hue:0220:001788678799:5:brightness" }
 Dimmer	dColorTemp_HUE_SZ "ColorTempHueSZ"		<colorlight> 		(gSZ)		{ channel="hue:0220:001788678799:5:color_temperature" }
 // HUE Iris Wohnzimmer
-Switch	dSwitch_HUE_WZ		"Iris Wohnzimmer"		<switch>				(gWZ)		{ channel="hue:0200:001788678799:4:color" }
-Dimmer	dDimmer_HUE_WZ		"Iris Dimmer"			<light> 	(gWZ)					{ channel="hue:0200:001788678799:4:color" }
-Color		dColor_HUE_WZ 		"ColorPickerHueWZ"	<colorpicker> 		(gWZ)		{ channel="hue:0200:001788678799:4:color" }
+Switch	dSwitch_HUE_WZ		"Iris Wohnzimmer"		<switch>				(gWZ)		{ channel="hue:0200:001788678799:16:color" }
+Dimmer	dDimmer_HUE_WZ		"Iris Dimmer"			<light> 	(gWZ)					{ channel="hue:0200:001788678799:16:color" }
+Color		dColor_HUE_WZ 		"ColorPickerHueWZ"	<colorpicker> 		(gWZ)		{ channel="hue:0200:001788678799:16:color" }
 // HUE Flur links
 Switch	dSwitch_HUE_FL_L		"Flurlicht L"		<switch>				(gFL)		{ channel="hue:0210:001788678799:2:color" }
 Dimmer	dDimmer_HUE_FL_L		"Flurdimmer L" 	<light>	(gFL)					{ channel="hue:0210:001788678799:2:color" }
