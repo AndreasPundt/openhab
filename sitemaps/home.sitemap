@@ -14,6 +14,7 @@ sitemap home label="Smart Home" {
 	}
 	Frame label="Wetter und Heizung" {
 		Group item=gWE
+		/*
 		Group item=gHZ {
     		Frame label="Allgemein" {
 				Default	item=vSwitchHeating_WZ
@@ -33,6 +34,7 @@ sitemap home label="Smart Home" {
 					visibility=[vSwitchOpMo_WZ == ON]
 			}
 	   }
+		*/
 		Group item=gKL {
     		Frame label="1. Termin" {
 				Text		item=dCalDav_Wecker_Event_Name			label="Name[%s]"

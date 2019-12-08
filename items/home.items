@@ -72,6 +72,7 @@ DateTime	dCalDav_Wecker_Event3_Start   "Begin[%s]"	   <calendar>	(gAC, gKL)				{
  * heating
  * -------
  */
+ /*
 // Setzen der Heiz- und Absenkperioden über den Google Kalender
 Switch	vSwitchHeating_CalDav	"Heizung über Google Kalender steuern" <switch>
 // Switch zum Einschalter der Heizung im WZ
@@ -89,14 +90,15 @@ Number	vSetPointWZ_manu			"Sollwert Manu. [%s °C]"		<xheating>
 Number 	dThermostat_WZ			"Thermostat WZ [%.1f °C]"		   <xheating> 	(gWZ, gHZ)	   {channel="zwave:device:7b5154ec:node21:thermostat_setpoint_heating"}
 Number   dThermostat_WZ_Batt  "Thermostat WZ Battery [%.1f] "  <batterylevel> (gDevices)	{channel="zwave:device:7b5154ec:node21:battery-level"}
 //Number 	dThermostat_EZ			"Thermostat EZ [%.1f °C]"		<xheating> 	(gEZ, gHZ)
+*/
 /* 
  * ------
  * lights
  * ------
  */
 //  - Alexa
-Dimmer dDimmer_WZ		"Wohnzimmerlicht"	<light>	(gWZ)	["Lighting"]	{channel="zwave:device:7b5154ec:node22:switch_dimmer"}
-Dimmer dDimmer_FL		"Flurlicht"			<light>	(gFL)	["Lighting"]	{channel="zwave:device:7b5154ec:node29:switch_dimmer"}
+Dimmer dDimmer_WZ		"Wohnzimmerlicht"	<light>	(gWZ)	["Lighting"]	{channel="zwave:device:7b5154ec:node22:switch_dimmer1"}
+Dimmer dDimmer_FL		"Flurlicht"			<light>	(gFL)	["Lighting"]	{channel="zwave:device:7b5154ec:node29:switch_dimmer1"}
 // HUE Esszimmer
 Dimmer	vDimmer_HUE_EZ			"Esszimmer-Dimmer"							(gEZ)
 Switch	vSwitch_HUE_EZ			"Esszimmer-Lichtschalter"					(gEZ)

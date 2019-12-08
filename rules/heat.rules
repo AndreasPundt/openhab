@@ -4,41 +4,45 @@
  */
 // https://www.lob-services.de/2017/01/openhab-mit-caldav-binding/
 //
-var		Number	vSetP_Tmp
+// var		Number	vSetP_Tmp
 /* ------------------
  * initialization
  * ------------------
  */
+ /*
 rule "heat_init"
 when
 	System started
 then
 	vSwitchHeating_WZ.sendCommand(ON)
 end
+*/
 /* --------------------
  * heat central on off
  * --------------------
  */
+ /*
 rule "switchHeating_WZ_ON_OFF"
 when
 	Item vSwitchHeating_WZ received command
 then
 	if(receivedCommand == ON) {	
 		vSwitchOpMo_WZ.sendCommand(OFF)	// set all operating mode switches to "manual" - automtic switched off
-		dThermostat_WZ.sendCommand(21) 		
+		//dThermostat_WZ.sendCommand(21) 		
 		vSetPointWZ_normal.postUpdate(21)
 		vSetPointWZ_absenken.postUpdate(16)
 		vSetPointWZ_manu.postUpdate(21)
 	}
 	else {
 		vSwitchOpMo_WZ.sendCommand(OFF)		// set all operating mode switches to "manual"
-		dThermostat_WZ.sendCommand(4) 		
+		//dThermostat_WZ.sendCommand(4) 		
 		vSetPointWZ_normal.postUpdate(4)
 		vSetPointWZ_absenken.postUpdate(4)
 		vSetPointWZ_manu.postUpdate(4)
 	}						
 end
-
+*/
+/*
 rule "switchOpMo_WZ_AUTO_MANU"
 when
 	Item vSwitchOpMo_WZ received command
@@ -56,10 +60,12 @@ then
 		vShowSetPointWZ_manu.sendCommand(OFF)
 	}						
 end
+*/
 /* ----------
  * livingroom
  * ----------
  */
+ /*
 rule "Heizen Absenken"
 when
 	Item vSwitchHeating_CalDav received command
@@ -74,7 +80,8 @@ then
 		dThermostat_WZ.sendCommand(vSetP_Tmp) 					
 		}
 end 
-
+*/
+/*
 rule "Manueller-Betrieb"
 when
 	Item vSetPointWZ_manu received command
@@ -85,7 +92,7 @@ then {
 	}
 }
 end
-
+*/
 /*
 rule "Normal-Betrieb"
 when
@@ -99,7 +106,8 @@ then
 		dThermostat_WZ.sendCommand(vSetP_Tmp) 		
 	}
 end
-
+*/
+/*
 rule "Absenk-Betrieb"
 when
 	Time cron "0 0 8 ? * MON-FRI *" or		// 'OFF' at weekdays: 08:00 
@@ -112,7 +120,8 @@ then
 		dThermostat_WZ.sendCommand(vSetP_Tmp) 		
 	}
 end
-
+*/
+/*
 rule "heat_off_time_window_liv"
 when
 	Item contact_sensor_WZ_window changed
