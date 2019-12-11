@@ -157,14 +157,14 @@ Number dKeyController			"KFOB Scene [%.1f]"								<switch>							{channel="zwav
 Number dKeyController_Battery	"KFOB Battery [%.1f]"							<batterylevel> (gDevices)	{channel="zwave:device:7b5154ec:node32:battery-level"}
 Number dTheButton					"TheButton [%d]"									<switch>							{channel="zwave:device:7b5154ec:node7:scene_number"}
 Number dTheButton_Battery		"TheButton Battery [%.1f]"						<batterylevel> (gDevices)	{channel="zwave:device:7b5154ec:node7:battery-level"}
-Switch dPlugSwitch_SZ 			"Steckdosen Schalter Schlafzimmer [%s]"	<poweroutlet_eu>	(gSZ, gSO, gSonos)	{channel="zwave:device:7b5154ec:node35:switch_binary"}
-Number dPlugSwitch_SZ_Power	"Leistung Steckdosenschalter SZ [%.1f]" 	<line>			(gSZ, gSO)	{channel="zwave:device:7b5154ec:node35:meter_watts"}
+Switch dPlugSwitch_SZ 			"Steckdosen-Schalter Schlafzimmer [%s]"	<poweroutlet_eu>	(gSZ, gSO, gSonos)	{channel="zwave:device:7b5154ec:node35:switch_binary"}
+Number dPlugSwitch_SZ_Power	"Leistung Steckdosen-Schalter SZ [%.1f]" 	<line>			(gSZ, gSO)	{channel="zwave:device:7b5154ec:node35:meter_watts"}
 Switch dPlugSwitch_WZ 			"Steckdosen Schalter Wohnzimmer [%s]"		<poweroutlet_eu>	(gWZ, gSO, gSonos)	{channel="zwave:device:7b5154ec:node6:switch_binary"}
 Number dPlugSwitch_WZ_Power	"Leistung Steckdosenschalter WZ [%.1f]" 	<line>			(gWZ, gSO)	{channel="zwave:device:7b5154ec:node6:meter_watts"}
-Switch dPlugSwitch_EZ 			"Steckdosen Schalter Esszimmer [%s]" 		<poweroutlet_eu>	(gEZ, gSO, gSonos)	{channel="zwave:device:7b5154ec:node2:switch_binary"}
+Switch dPlugSwitch_EZ 			"Steckdosen-Schalter Esszimmer [%s]" 		<poweroutlet_eu>	(gEZ, gSO, gSonos)	{channel="zwave:device:7b5154ec:node2:switch_binary"}
 Number dPlugSwitch_EZ_Power	"Leistung Steckdosenschalter EZ [%.1f]" 	<line>			(gEZ, gSO)	{channel="zwave:device:7b5154ec:node2:meter_watts"}
-Switch dPlugSwitch_BZ 			"Steckdosen Schalter Badezimmer [%s]"		<poweroutlet_eu>	(gBZ, gSO, gSonos)	{channel="zwave:device:7b5154ec:node34:switch_binary"}
-Number dPlugSwitch_BZ_Power	"Leistung Steckdosenschalter BD [%.1f]" 	<line>			(gBZ, gSO)	{channel="zwave:device:7b5154ec:node34:meter_watts"}
+Switch dPlugSwitch_BZ 			"Steckdosen-Schalter Badezimmer [%s]"		<poweroutlet_eu>	(gBZ, gSO, gSonos)	{channel="zwave:device:7b5154ec:node34:switch_binary"}
+Number dPlugSwitch_BZ_Power	"Leistung Steckdosen-Schalter BD [%.1f]" 	<line>			(gBZ, gSO)	{channel="zwave:device:7b5154ec:node34:meter_watts"}
 Switch dWallSwitch_WZ			"Wandschalter WZ [%s]" 							<wallswitch>	(gWZ)			{channel="zwave:device:7b5154ec:node28:switch_binary"}
 Switch dAlarmSwitch_FL			"Sirene [%s]"										<siren>			(gFL, gAlarm)	{channel="zwave:device:7b5154ec:node13:switch_binary"}
 /* 
@@ -173,7 +173,7 @@ Switch dAlarmSwitch_FL			"Sirene [%s]"										<siren>			(gFL, gAlarm)	{channel
  * -------
  */
 // Tür- Fenster Sonsoren
-Switch	dBalconyDoor_WZ		"Balkontür [%s]"							<door>		(gDoors, gWZ)			{channel="zwave:device:7b5154ec:node44:sensor_binary"}
+Contact	dBalconyDoor_WZ		"Balkontür [%s]"							<door>		   (gDoors, gWZ)			{channel="zwave:device:7b5154ec:node44:sensor_door"}
 // zwave:device:7b5154ec:node15:sensor_door
 Number	dBalconyDoor_WZ_Batt	"Balkontür Battery [%.1f]"				<batterylevel> (gDevices)				{channel="zwave:device:7b5154ec:node44:battery-level"}
 Contact	dFrontDoor_FL			"Eingangstür [%s]"						<frontdoor>		(gDoors, gFL)			{channel="zwave:device:7b5154ec:node27:sensor_door"}
