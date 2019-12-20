@@ -37,9 +37,9 @@ Group:Contact:OR(OPEN, CLOSED)	gDoors				"Türen  [%d]"									<door>
 Group:Switch:OR(ON, OFF)			gAlarm				"Alarm"											<siren>
 Group:Switch:OR(ON, OFF) 			gNetwork				"Netzwerk"										<network>
 Group:Switch:OR(ON, OFF)			gDevices				"Geräte-Status [%d]"							<status>
-Group:Switch:OR(ON, OFF)			gLights			   "Alle Lampen"     							<light>
+Group:Switch:OR(ON, OFF)			gLights			   "Alle Lampen [%d]"     						<light>
 Group:Switch:OR(ON, OFF)			gSonos				"Sonos AN / AUS"								<switch>
-/* 
+/*
  * --------
  * Node RED
  * --------
@@ -98,7 +98,7 @@ Number   dThermostat_WZ_Batt  "Thermostat WZ Battery [%.1f] "  <batterylevel> (g
  */
 //  - Alexa
 Dimmer dDimmer_WZ		"Wohnzimmerlicht"	<light>	(gWZ)	         ["Lighting"]	{channel="zwave:device:7b5154ec:node22:switch_dimmer1"}
-Switch dSwitch_WZ		"Wohnzimmerlicht"	<switch>	(gWZ, gLights)	["Lighting"]	{channel="zwave:device:7b5154ec:node22:switch_dimmer1"}
+Switch dSwitch_WZ		"Wohnzimmerlampe Decke"	<switch>	(gWZ, gLights)	["Lighting"]	{channel="zwave:device:7b5154ec:node22:switch_dimmer1"}
 Dimmer dDimmer_FL		"Flurlicht"			<light>	(gFL)	         ["Lighting"]	{channel="zwave:device:7b5154ec:node29:switch_dimmer1"}
 Switch dSwitch_FL		"Flurlicht"			<switch>	(gFL)       	["Lighting"]	{channel="zwave:device:7b5154ec:node29:switch_dimmer1"}
 // HUE Esszimmer
