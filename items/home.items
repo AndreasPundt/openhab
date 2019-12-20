@@ -97,14 +97,14 @@ Number   dThermostat_WZ_Batt  "Thermostat WZ Battery [%.1f] "  <batterylevel> (g
  * ------
  */
 //  - Alexa
-Dimmer dDimmer_WZ		"Wohnzimmerlicht"	<light>	(gWZ)	         ["Lighting"]	{channel="zwave:device:7b5154ec:node22:switch_dimmer1"}
-Switch dSwitch_WZ		"Wohnzimmerlampe Decke"	<switch>	(gWZ, gLights)	["Lighting"]	{channel="zwave:device:7b5154ec:node22:switch_dimmer1"}
-Dimmer dDimmer_FL		"Flurlicht"			<light>	(gFL)	         ["Lighting"]	{channel="zwave:device:7b5154ec:node29:switch_dimmer1"}
-Switch dSwitch_FL		"Flurlicht"			<switch>	(gFL)       	["Lighting"]	{channel="zwave:device:7b5154ec:node29:switch_dimmer1"}
+Dimmer dDimmer_WZ		"Wohnzimmerlicht"	                              <light>	(gWZ)	         ["Lighting"]	{channel="zwave:device:7b5154ec:node22:switch_dimmer1"}
+Switch dSwitch_WZ		"Wohnzimmer-Licht (Decke) [MAP(on-off.map):%s]"	<switch>	(gWZ, gLights)	["Lighting"]	{channel="zwave:device:7b5154ec:node22:switch_dimmer1"}
+Dimmer dDimmer_FL		"Flurlicht"			                              <light>	(gFL)	         ["Lighting"]	{channel="zwave:device:7b5154ec:node29:switch_dimmer1"}
+Switch dSwitch_FL		"Flurlicht"			                              <switch>	(gFL)       	["Lighting"]	{channel="zwave:device:7b5154ec:node29:switch_dimmer1"}
 // HUE Esszimmer
 // Variablen um die einzelnen Lampen im EZ zusammenzufassen
 Dimmer	vDimmer_HUE_EZ			"Esszimmer-Dimmer"							      (gEZ)
-Switch	vSwitch_HUE_EZ			"Esszimmerlicht"					               (gEZ, gLights)
+Switch	vSwitch_HUE_EZ			"Esszimmer-Licht [MAP(on-off.map):%s]"			(gEZ, gLights)
 Dimmer	vColorTemp_HUE_EZ		"Esszimmer-Farbtemperatur"		<colorlight>   (gEZ)
 //
 Dimmer	dDimmer_HUE_EZ_L		"EsszimmerdimmerHueL"	<light> 			(gEZ) { channel="hue:0220:001788678799:6:brightness" }
@@ -117,25 +117,25 @@ Dimmer	dDimmer_HUE_EZ_R		"EsszimmerdimmerHueR"	<light> 			(gEZ)	{ channel="hue:0
 Switch	dSwitch_HUE_EZ_R		"EsszimmerlichtHueR"		<switch>			(gEZ)	{ channel="hue:0220:001788678799:8:brightness" }
 Dimmer	dColorTemp_HUE_EZ_R	"ColorTempHueR"			<colorlight> 	(gEZ)	{ channel="hue:0220:001788678799:8:color_temperature" }
 // HUE Mila
-Switch	dSwitch_HUE_MZ		"Milalicht"				<switch>				(gMZ, gLights)    	{ channel="hue:0210:001788678799:1:color" }
-Dimmer	dDimmer_HUE_MZ		"Miladimmer"			<light> 				(gMZ)			{ channel="hue:0210:001788678799:1:color" }
-Color		dColor_HUE_MZ 		"ColorPicker"			<colorpicker> 		(gMZ)			{ channel="hue:0210:001788678799:1:color" }
-Dimmer	dColorTemp_HUE_MZ "ColorTemp"				<colorlight> 		(gMZ)			{ channel="hue:0210:001788678799:1:color_temperature" }
-String	dAlert_HUE_MZ		"Alert"					<switch> 			(gMZ)			{ channel="hue:0210:001788678799:1:alert" }
-Switch	dEffect_HUE_MZ		"Effect"					<switch> 			(gMZ)			{ channel="hue:0210:001788678799:1:effect" }
+Switch	dSwitch_HUE_MZ		"Milas Licht [MAP(on-off.map):%s]"	<switch>				(gMZ, gLights) { channel="hue:0210:001788678799:1:color" }
+Dimmer	dDimmer_HUE_MZ		"Miladimmer"			               <light> 				(gMZ)		      { channel="hue:0210:001788678799:1:color" }
+Color		dColor_HUE_MZ 		"ColorPicker"			               <colorpicker> 		(gMZ)			   { channel="hue:0210:001788678799:1:color" }
+Dimmer	dColorTemp_HUE_MZ "ColorTemp"				               <colorlight> 		(gMZ)			   { channel="hue:0210:001788678799:1:color_temperature" }
+String	dAlert_HUE_MZ		"Alert"					               <switch> 			(gMZ)			   { channel="hue:0210:001788678799:1:alert" }
+Switch	dEffect_HUE_MZ		"Effect"					               <switch> 			(gMZ)			   { channel="hue:0210:001788678799:1:effect" }
 // HUE Schlafzimmer
-Switch	dSwitch_HUE_SZ		"Schlafzimmerlicht"	<switch>				(gSZ, gLights)		{ channel="hue:0220:001788678799:5:brightness" }
-Dimmer	dDimmer_HUE_SZ		"Schlafzimmerdimmer"	<light> 	(gSZ)					{ channel="hue:0220:001788678799:5:brightness" }
-Dimmer	dColorTemp_HUE_SZ "ColorTempHueSZ"		<colorlight> 		(gSZ)		{ channel="hue:0220:001788678799:5:color_temperature" }
+Switch	dSwitch_HUE_SZ		"Schlafzimmer-Licht [MAP(on-off.map):%s]"	<switch>			(gSZ, gLights)		{ channel="hue:0220:001788678799:5:brightness" }
+Dimmer	dDimmer_HUE_SZ		"Schlafzimmerdimmer"	                     <light> 	      (gSZ)					{ channel="hue:0220:001788678799:5:brightness" }
+Dimmer	dColorTemp_HUE_SZ "ColorTempHueSZ"		                     <colorlight>   (gSZ)		         { channel="hue:0220:001788678799:5:color_temperature" }
 // HUE Iris Wohnzimmer
-Switch	dSwitch_HUE_WZ		"Iris Wohnzimmer"		<switch>				(gWZ, gLights)		{ channel="hue:0200:001788678799:16:color" }
-Dimmer	dDimmer_HUE_WZ		"Iris Dimmer"			<light> 	(gWZ)					{ channel="hue:0200:001788678799:16:color" }
-Color		dColor_HUE_WZ 		"ColorPickerHueWZ"	<colorpicker> 		(gWZ)		{ channel="hue:0200:001788678799:16:color" }
+Switch	dSwitch_HUE_WZ		"Iris Wohnzimmer [MAP(on-off.map):%s]"		<switch>			(gWZ, gLights)		{ channel="hue:0200:001788678799:16:color" }
+Dimmer	dDimmer_HUE_WZ		"Iris Dimmer"			                     <light> 	      (gWZ)					{ channel="hue:0200:001788678799:16:color" }
+Color		dColor_HUE_WZ 		"ColorPickerHueWZ"	                     <colorpicker> 	(gWZ)		         { channel="hue:0200:001788678799:16:color" }
 // Flur Wandlampen
 // Variablen um die einzelnen Lampen im Flur an der Wand zusammenzufassen => light.rules
-Dimmer	vDimmer_HUE_FL_Wall			"Flur Dimmer Wand"						         (gEZ)
-Switch	vSwitch_HUE_FL_Wall			"Flur Schalter Wand"	                        (gEZ, gLights)
-Dimmer	vColorTemp_FL_Wall	   	"Flur Farbtemperatur Wand"	   <colorlight>   (gEZ)
+Dimmer	vDimmer_HUE_FL_Wall			"Flur Dimmer Wand"						                     (gEZ)
+Switch	vSwitch_HUE_FL_Wall			"Flur-Licht (Wand) [MAP(on-off.map):%s]"	               (gEZ, gLights)
+Dimmer	vColorTemp_FL_Wall	   	"Flur Farbtemperatur Wand"	               <colorlight>   (gEZ)
 // HUE Flur links
 Switch	dSwitch_HUE_FL_L		"Flurlicht L"		<switch>				(gFL)		{ channel="hue:0210:001788678799:2:color" }
 Dimmer	dDimmer_HUE_FL_L		"Flurdimmer L" 	<light>	         (gFL)		{ channel="hue:0210:001788678799:2:color" }
@@ -157,9 +157,9 @@ Switch vHUECaDav_GreenWaste "Biomuell"				<switch>
 //
 // HUE Flur (Decke)
 // Variablen um die einzelnen Lampen im Flur (Decke) zusammenzufassen => light.rules
-Dimmer	vDimmer_HUE_FL_Ceiling			"Flur Dimmer Decke"							         (gEZ)
-Switch	vSwitch_HUE_FL_Ceiling			"Flur Schalter Decke"					            (gEZ, gLights)
-Dimmer	vColorTemp_HUE_FL_Ceiling		"Flur Farbtemperatur Decke"		<colorlight>   (gEZ)
+Dimmer	vDimmer_HUE_FL_Ceiling			"Flur Dimmer Decke"							                  (gEZ)
+Switch	vSwitch_HUE_FL_Ceiling			"Flur-Licht (Decke) [MAP(on-off.map):%s]"					   (gEZ, gLights)
+Dimmer	vColorTemp_HUE_FL_Ceiling		"Flur Farbtemperatur Decke"		         <colorlight>   (gEZ)
 //
 Dimmer	dDimmer_HUE_FL_Ceiling_H_L		"Flur Dimmer Decke vorne"	         <light> 			(gEZ) { channel="hue:0220:001788678799:11:brightness" }
 Switch	dSwitch_HUE_FL_Ceiling_H_L		"Flur Schalter Decke vorne"		   <switch>			(gEZ)	{ channel="hue:0220:001788678799:11:brightness" }

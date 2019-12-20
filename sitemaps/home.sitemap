@@ -11,7 +11,7 @@ sitemap home label="Smart Home" {
       	valuecolor=[OPEN="red", CLOSED="green"] labelcolor=[gDoors==OPEN="red", CLOSED="green"]
 		Text item=dMotionSensor_FL
 			valuecolor=[dMotionSensor_FL==ON="red", OFF="green"] labelcolor=[dMotionSensor_FL==ON="red", OFF="green"]
-		Group item=gLights
+		Group item=gLights			label="Es sind [%d Lampen an]"
 			valuecolor=[ON="red", OFF="green"] labelcolor=[gLights==ON="red", OFF="green"]
 	}
 	Frame label="Wetter und Heizung" {
