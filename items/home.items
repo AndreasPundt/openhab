@@ -97,10 +97,10 @@ Number   dThermostat_WZ_Batt  "Thermostat WZ Battery [%.1f] "  <batterylevel> (g
  * ------
  */
 //  - Alexa
-Dimmer dDimmer_WZ		"Wohnzimmerlicht"	                              <light>	(gWZ)	         ["Lighting"]	{channel="zwave:device:7b5154ec:node22:switch_dimmer1"}
-Switch dSwitch_WZ		"Wohnzimmer-Licht (Decke) [MAP(on-off.map):%s]"	<switch>	(gWZ, gLights)	["Lighting"]	{channel="zwave:device:7b5154ec:node22:switch_dimmer1"}
-Dimmer dDimmer_FL		"Flurlicht"			                              <light>	(gFL)	         ["Lighting"]	{channel="zwave:device:7b5154ec:node29:switch_dimmer1"}
-Switch dSwitch_FL		"Flurlicht"			                              <switch>	(gFL)       	["Lighting"]	{channel="zwave:device:7b5154ec:node29:switch_dimmer1"}
+Dimmer dDimmer_WZ		"Wohnzimmer-Licht"	                              <light>	(gWZ)	         ["Lighting"]	{channel="zwave:device:31a6fa50:node22:switch_dimmer1"}
+Switch dSwitch_WZ		"Wohnzimmer-Licht (Decke) [MAP(on-off.map):%s]"	   <switch>	(gWZ, gLights)	["Lighting"]	{channel="zwave:device:31a6fa50:node22:switch_dimmer1"}
+Dimmer dDimmer_FL		"Flur-Licht"			                              <light>	(gFL)	         ["Lighting"]	{channel="zwave:device:31a6fa50:node29:switch_dimmer1"}
+Switch dSwitch_FL		"Flur-Licht (Decke) [MAP(on-off.map):%s]"          <switch>	(gFL)       	["Lighting"]	{channel="zwave:device:31a6fa50:node29:switch_dimmer1"}
 // HUE Esszimmer
 // Variablen um die einzelnen Lampen im EZ zusammenzufassen
 Dimmer	vDimmer_HUE_EZ			"Esszimmer-Dimmer"							      (gEZ)
@@ -178,50 +178,47 @@ Dimmer	dColorTemp_HUE_FL_Ceiling_V_R	"Flur Farbtemperatur Decke hinten"	<colorli
  * switches
  * --------
  */
-Number dWallMoteQuad2			"WallMote Quad [%.1f]"							<switch>							{channel="zwave:device:7b5154ec:node42:scene_number"}
-Number dWallMoteQuad2_Battery	"WallMote Quad Battery [%.1f]"				<batterylevel> (gDevices)	{channel="zwave:device:7b5154ec:node42:battery-level"}
-Number dKeyController			"KFOB Scene [%.1f]"								<switch>							{channel="zwave:device:7b5154ec:node32:scene_number"}
-Number dKeyController_Battery	"KFOB Battery [%.1f]"							<batterylevel> (gDevices)	{channel="zwave:device:7b5154ec:node32:battery-level"}
-Number dTheButton					"TheButton [%d]"									<switch>							{channel="zwave:device:7b5154ec:node7:scene_number"}
-Number dTheButton_Battery		"TheButton Battery [%.1f]"						<batterylevel> (gDevices)	{channel="zwave:device:7b5154ec:node7:battery-level"}
-Switch dPlugSwitch_SZ 			"Steckdosen-Schalter Schlafzimmer [%s]"	<poweroutlet_eu>	(gSZ, gSO, gSonos)	{channel="zwave:device:7b5154ec:node35:switch_binary"}
-Number dPlugSwitch_SZ_Power	"Leistung Steckdosen-Schalter SZ [%.1f]" 	<line>			(gSZ, gSO)	{channel="zwave:device:7b5154ec:node35:meter_watts"}
-Switch dPlugSwitch_WZ 			"Steckdosen Schalter Wohnzimmer [%s]"		<poweroutlet_eu>	(gWZ, gSO, gSonos)	{channel="zwave:device:7b5154ec:node6:switch_binary"}
-Number dPlugSwitch_WZ_Power	"Leistung Steckdosenschalter WZ [%.1f]" 	<line>			(gWZ, gSO)	{channel="zwave:device:7b5154ec:node6:meter_watts"}
-Switch dPlugSwitch_EZ 			"Steckdosen-Schalter Esszimmer [%s]" 		<poweroutlet_eu>	(gEZ, gSO, gSonos)	{channel="zwave:device:7b5154ec:node2:switch_binary"}
-Number dPlugSwitch_EZ_Power	"Leistung Steckdosenschalter EZ [%.1f]" 	<line>			(gEZ, gSO)	{channel="zwave:device:7b5154ec:node2:meter_watts"}
-Switch dPlugSwitch_BZ 			"Steckdosen-Schalter Badezimmer [%s]"		<poweroutlet_eu>	(gBZ, gSO, gSonos)	{channel="zwave:device:7b5154ec:node34:switch_binary"}
-Number dPlugSwitch_BZ_Power	"Leistung Steckdosen-Schalter BD [%.1f]" 	<line>			(gBZ, gSO)	{channel="zwave:device:7b5154ec:node34:meter_watts"}
-Switch dWallSwitch_WZ			"Wandschalter WZ [%s]" 							<wallswitch>	(gWZ)			{channel="zwave:device:7b5154ec:node28:switch_binary"}
-Switch dAlarmSwitch_FL			"Sirene [%s]"										<siren>			(gFL, gAlarm)	{channel="zwave:device:7b5154ec:node13:switch_binary"}
+Number dWallMoteQuad2			"WallMote Quad [%.1f]"							<switch>							            {channel="zwave:device:31a6fa50:node42:scene_number"}
+Number dWallMoteQuad2_Battery	"WallMote Quad Battery [%.1f]"				<batterylevel>    (gDevices)	         {channel="zwave:device:31a6fa50:node42:battery-level"}
+Number dKeyController			"KFOB Scene [%.1f]"								<switch>						   	         {channel="zwave:device:31a6fa50:node45:scene_number"}
+Number dKeyController_Battery	"KFOB Battery [%.1f]"							<batterylevel>    (gDevices)	         {channel="zwave:device:31a6fa50:node45:battery-level"}
+Number dTheButton					"TheButton [%d]"									<switch>						   	         {channel="zwave:device:31a6fa50:node7:scene_number"}
+Number dTheButton_Battery		"TheButton Battery [%.1f]"						<batterylevel>    (gDevices)	         {channel="zwave:device:31a6fa50:node7:battery-level"}
+Switch dPlugSwitch_SZ 			"Steckdosen-Schalter Schlafzimmer [%s]"	<poweroutlet_eu>	(gSZ, gSO, gSonos)	{channel="zwave:device:31a6fa50:node35:switch_binary"}
+Number dPlugSwitch_SZ_Power	"Leistung Steckdosen-Schalter SZ [%.1f]" 	<line>			   (gSZ, gSO)  	      {channel="zwave:device:31a6fa50:node35:meter_watts"}
+Switch dPlugSwitch_WZ 			"Steckdosen Schalter Wohnzimmer [%s]"		<poweroutlet_eu>	(gWZ, gSO, gSonos)	{channel="zwave:device:31a6fa50:node6:switch_binary"}
+Number dPlugSwitch_WZ_Power	"Leistung Steckdosenschalter WZ [%.1f]" 	<line>			   (gWZ, gSO)	         {channel="zwave:device:31a6fa50:node6:meter_watts"}
+Switch dPlugSwitch_EZ 			"Steckdosen-Schalter Esszimmer [%s]" 		<poweroutlet_eu>	(gEZ, gSO, gSonos)	{channel="zwave:device:31a6fa50:node2:switch_binary"}
+Number dPlugSwitch_EZ_Power	"Leistung Steckdosenschalter EZ [%.1f]" 	<line>			   (gEZ, gSO)	         {channel="zwave:device:31a6fa50:node2:meter_watts"}
+Switch dPlugSwitch_BZ 			"Steckdosen-Schalter Badezimmer [%s]"		<poweroutlet_eu>	(gBZ, gSO, gSonos)	{channel="zwave:device:31a6fa50:node34:switch_binary"}
+Number dPlugSwitch_BZ_Power	"Leistung Steckdosen-Schalter BD [%.1f]" 	<line>			   (gBZ, gSO)  	      {channel="zwave:device:31a6fa50:node34:meter_watts"}
+Switch dWallSwitch_WZ			"Wandschalter WZ [%s]" 							<wallswitch>	   (gWZ)			         {channel="zwave:device:31a6fa50:node28:switch_binary"}
+Switch dAlarmSwitch_FL			"Sirene [%s]"										<siren>			   (gFL, gAlarm)     	{channel="zwave:device:31a6fa50:node13:switch_binary"}
 /* 
  * -------
  * sensors
  * -------
  */
 // Tür- Fenster Sonsoren
-Contact	dBalconyDoor_WZ		"Balkontür [%s]"							<door>		   (gDoors, gWZ)			{channel="zwave:device:7b5154ec:node44:sensor_door"}
-// zwave:device:7b5154ec:node15:sensor_door
-Number	dBalconyDoor_WZ_Batt	"Balkontür Battery [%.1f]"				<batterylevel> (gDevices)				{channel="zwave:device:7b5154ec:node44:battery-level"}
-Contact	dFrontDoor_FL			"Eingangstür [%s]"						<frontdoor>		(gDoors, gFL)			{channel="zwave:device:7b5154ec:node27:sensor_door"}
-Number	dFrontDoor_FL_Batt	"Eingangstür Battery [%.1f]"			<batterylevel> (gDevices)				{channel="zwave:device:7b5154ec:node27:battery-level"}
+Contact	dBalconyDoor_WZ		"Balkontür [%s]"							             <door>		   (gDoors, gWZ)		{channel="zwave:device:31a6fa50:node44:sensor_door"}
+Number	dBalconyDoor_WZ_Batt	"Balkontür Battery [%.1f]"				            <batterylevel> (gDevices)			{channel="zwave:device:31a6fa50:node44:battery-level"}
+Contact	dFrontDoor_FL			"Eingangstür [%s]"						            <frontdoor>		(gDoors, gFL)		{channel="zwave:device:31a6fa50:node27:sensor_door"}
+Number	dFrontDoor_FL_Batt	"Eingangstür Battery [%.1f]"			            <batterylevel> (gDevices)			{channel="zwave:device:31a6fa50:node27:battery-level"}
 // Smoke Sensor Flur
-Switch	dSmokeSensor_FL		"Rauchmelder FL [%s]"					<smoke>			(gFL, gAlarm)			{channel="zwave:device:7b5154ec:node41:alarm_smoke"}
-Number	dSmokeSensor_FL_Battery	"Rauchmelder FL Battery [%.1f]"	<batterylevel> (gDevices)				{channel="zwave:device:7b5154ec:node41:battery-level"}
-// Switch	dSmokeSensor_FL_Battery_Alarm	"Rauchmelder FL Battery Alarm [%s]"	<batterylevel>	(gDevices)	{channel="zwave:device:7b5154ec:node41:alarm_battery"}
-Number	dTempSmokeSensor_FL	"Flur Temperatur [%.1f °C]"		   <temperature>	(gFL, gHZ)					{channel="zwave:device:7b5154ec:node41:sensor_temperature"}
+Switch	dSmokeSensor_FL		"Rauchmelder FL [%s]"					            <smoke>			(gFL, gAlarm)		{channel="zwave:device:31a6fa50:node41:alarm_smoke"}
+Number	dSmokeSensor_FL_Battery	"Rauchmelder FL Battery [%.1f]"	            <batterylevel> (gDevices)			{channel="zwave:device:31a6fa50:node41:battery-level"}
+Number	dTempSmokeSensor_FL	"Flur Temperatur [%.1f °C]"		               <temperature>	(gFL, gHZ)			{channel="zwave:device:31a6fa50:node41:sensor_temperature"}
 // Smoke Sensor Esszimmer
-Switch	dSmokeSensor_EZ		"Rauchmelder EZ [%s]"					<smoke>			(gEZ, gAlarm)			{channel="zwave:device:7b5154ec:node16:alarm_smoke"}
-Number 	dSmokeSensor_EZ_Battery	"Rauchmelder EZ Battery [%.1f]"	<batterylevel> (gDevices)				{channel="zwave:device:7b5154ec:node16:battery-level"}
-// Switch 	dSmokeSensor_EZ_Battery_Alarm	"Rauchmelder EZ Battery Alarm [%s]"	<batterylevel> (gDevices)	{channel="zwave:device:7b5154ec:node16:alarm_battery"}
-Number 	dTempSmokeSensor_EZ	"Esszimmer Temperatur [%.1f °C]"						<temperature>	(gEZ, gHZ)	{channel="zwave:device:7b5154ec:node16:sensor_temperature"}
+Switch	dSmokeSensor_EZ		"Rauchmelder EZ [%s]"					            <smoke>			(gEZ, gAlarm)		{channel="zwave:device:31a6fa50:node16:alarm_smoke"}
+Number 	dSmokeSensor_EZ_Battery	"Rauchmelder EZ Battery [%.1f]"	            <batterylevel> (gDevices)		   {channel="zwave:device:31a6fa50:node16:battery-level"}
+Number 	dTempSmokeSensor_EZ	"Esszimmer Temperatur [%.1f °C]"						<temperature>	(gEZ, gHZ)	      {channel="zwave:device:31a6fa50:node16:sensor_temperature"}
 // Motion Sensor
-Switch	dMotionSensor_FL				"Bewegungsmelder [%s]"							<motion>			(gFL)	{channel="zwave:device:7b5154ec:node8:alarm_motion"}
-Number	dMotionSensor_FL_Temp		"Bewegungsmelder Temperatur [%.1f °C]"		<temperature>	(gFL)	{channel="zwave:device:7b5154ec:node8:sensor_temperature"}
-Number	dMotionSensor_FL_Lumi		"Bewegungsmelder Helligkeit [%.1f]"			<lightbulb>		(gFL)	{channel="zwave:device:7b5154ec:node8:sensor_luminance"}
-Number	dMotionSensor_FL_Battery	"Bewegungsmelder Battery [%.1f]"				<batterylevel> (gDevices)	{channel="zwave:device:7b5154ec:node8:battery-level"}
+Switch	dMotionSensor_FL				"Bewegungsmelder [%s]"							<motion>			(gFL)             {channel="zwave:device:31a6fa50:node8:alarm_motion"}      
+Number	dMotionSensor_FL_Temp		"Bewegungsmelder Temperatur [%.1f °C]"		<temperature>	(gFL)             {channel="zwave:device:31a6fa50:node8:sensor_temperature"}      
+Number	dMotionSensor_FL_Lumi		"Bewegungsmelder Helligkeit [%.1f]"			<lightbulb>		(gFL)             {channel="zwave:device:31a6fa50:node8:sensor_luminance"}     
+Number	dMotionSensor_FL_Battery	"Bewegungsmelder Battery [%.1f]"				<batterylevel> (gDevices)     	{channel="zwave:device:31a6fa50:node8:battery-level"}
 // Wassermelder
-Switch	dFloodSensor_KU				"Wassersensor Küche"								<water>			(gKU, gAlarm)	{channel="zwave:device:7b5154ec:node4:alarm_flood"}
+Switch	dFloodSensor_KU				"Wassersensor Küche"								<water>			(gKU, gAlarm)     {channel="zwave:device:31a6fa50:node4:alarm_flood"}
 /* 
  * -------------------------
  * SONOS Items zur Steuerung
