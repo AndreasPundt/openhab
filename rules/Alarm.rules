@@ -70,9 +70,9 @@ when
   Item dFloodSensor_KU changed
 then
 	if (dFloodSensor_KU.state == ON) {
-		dAlarmSwitch_FL.sendCommand(ON)
+		//dAlarmSwitch_FL.sendCommand(ON)
 		dDimmer_WZ.sendCommand(99)
-		dDimmer_FL.sendCommand(99)
+		vSwitch_HUE_FL_Ceiling.sendCommand(ON)
 		pushover("ALARM - Wasser in der Küche", 2)
 	}
 	else if (dFloodSensor_KU.state == OFF) {
