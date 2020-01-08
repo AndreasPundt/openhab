@@ -205,13 +205,13 @@ Number	dBalconyDoor_WZ_Batt	      "Balkontür Battery [%.1f]"				      <batteryl
 Contact	dFrontDoor_FL			      "Eingangstür [%s]"						      <frontdoor>		(gDoors, gFL)		{channel="zwave:device:31a6fa50:node27:sensor_door"}
 Number	dFrontDoor_FL_Batt	      "Eingangstür Battery [%.1f]"			      <batterylevel> (gDevices)			{channel="zwave:device:31a6fa50:node27:battery-level"}
 // Smoke Sensor Flur
-//Switch	dSmokeSensor_FL		      "Rauchmelder FL"					      <smoke>			(gFL, gAlarm)		{channel="zwave:device:31a6fa50:node41:alarm_smoke"}
-Number	dSmokeSensor_FL_Battery	   "Rauchmelder FL Battery [%.1f]"	         <batterylevel> (gDevices)			{channel="zwave:device:31a6fa50:node41:battery-level"}
-Number	dTempSmokeSensor_FL	      "Flur Temperatur [%.1f °C]"		         <temperature>	(gFL, gHZ)			{channel="zwave:device:31a6fa50:node41:sensor_temperature"}
+Switch	dSmokeSensor_FL		      "Rauchmelder FL"                          <smoke>			(gFL, gAlarm)		{channel="zwave:device:31a6fa50:node16:alarm_smoke"}
+Number	dSmokeSensor_FL_Battery	   "Rauchmelder FL Battery [%.1f]"	         <batterylevel> (gDevices)			{channel="zwave:device:31a6fa50:node16:battery-level"}
+Number	dTempSmokeSensor_FL	      "Flur Temperatur [%.1f °C]"		         <temperature>	(gFL, gHZ)			{channel="zwave:device:31a6fa50:node16:sensor_temperature"}
 // Smoke Sensor Esszimmer
-//Switch	dSmokeSensor_EZ            "Rauchmelder EZ"                     <smoke>			(gEZ, gAlarm)		{channel="zwave:device:31a6fa50:node16:alarm_smoke"}
-Number 	dSmokeSensor_EZ_Battery	   "Rauchmelder EZ Battery [%.1f]"           <batterylevel> (gDevices)		   {channel="zwave:device:31a6fa50:node16:battery-level"}
-Number 	dTempSmokeSensor_EZ        "Esszimmer Temperatur [%.1f °C]"				<temperature>	(gEZ, gHZ)	      {channel="zwave:device:31a6fa50:node16:sensor_temperature"}
+Switch	dSmokeSensor_EZ            "Rauchmelder EZ"                          <smoke>			(gEZ, gAlarm)		{channel="zwave:device:31a6fa50:node46:alarm_smoke"}
+Number 	dSmokeSensor_EZ_Battery	   "Rauchmelder EZ Battery [%.1f]"           <batterylevel> (gDevices)		   {channel="zwave:device:31a6fa50:node46:battery-level"}
+Number 	dTempSmokeSensor_EZ        "Esszimmer Temperatur [%.1f °C]"				<temperature>	(gEZ, gHZ)	      {channel="zwave:device:31a6fa50:node46:sensor_temperature"}
 // Motion Sensor
 Switch	dMotionSensor_FL			   "Bewegungsmelder [%s]"							<motion>			(gFL)             {channel="zwave:device:31a6fa50:node8:alarm_motion"}      
 Number	dMotionSensor_FL_Temp	   "Bewegungsmelder Temperatur [%.1f °C]"	   <temperature>	(gFL)             {channel="zwave:device:31a6fa50:node8:sensor_temperature"}      
