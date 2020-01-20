@@ -392,21 +392,21 @@ Number vSonosSnoozeTimePLAY11				"Virtuelle Snooze Zeit Schlafzimmer [%d]"				<c
 Switch vSonosSnoozePLAY11					"Virtuelles Snooze Schlafzimmer [%d]"					<switch>	(gAC)
 /*
  * -----
- * Sonos PLAY:1-2
+ * Sonos PLAY:1-2 im Bad
  * -----
  */
-Image dSonosPLAY12CurrentAlbumArt "Album Art" 			<video>				(gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:currentalbumart"}
-String dSonosPLAY12CurrentArtist "Artist [%s]" 			<text>				(gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:currentartist"}
-String dSonosPLAY12CurrentTitle 	"Titel [%s]" 			<text>				(gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:currenttitle"}
-String dSonosPLAY12CurrentAlbum 	"Album [%s]"			<text>				(gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:currentalbum"}
-String dSonosPLAY12PlayList	 	"Play List [%s]"		<text>				(gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:playlist"}
-String dSonosPLAY12PlayRadio	 	"Radio Station [%s]"	<text>				(gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:radio"}
-Player dSonosPLAY12Controler	 	"Control"				<receiver>			(gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:control"}
-Dimmer dSonosPLAY12Volume			"Volume [%.1f %%]"	<soundvolume>		(gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:volume"}
+Image dSonosPLAY12CurrentAlbumArt "Album Art" 			<video>				 (gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:currentalbumart"}
+String dSonosPLAY12CurrentArtist "Artist [%s]" 			<text>				 (gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:currentartist"}
+String dSonosPLAY12CurrentTitle 	"Titel [%s]" 			<text>				 (gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:currenttitle"}
+String dSonosPLAY12CurrentAlbum 	"Album [%s]"			<text>				 (gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:currentalbum"}
+String dSonosPLAY12PlayList	 	"Play List [%s]"		<text>				 (gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:playlist"}
+String dSonosPLAY12PlayRadio	 	"Radio Station [%s]"	<text>				 (gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:radio"}
+Player dSonosPLAY12Controler	 	"Control"				<receiver>			 (gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:control"}
+Dimmer dSonosPLAY12Volume			"Volume [%.1f %%]"	<soundvolume>      (gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:volume"}
 Switch dSonosPLAY12Mute				"Mute"					<soundvolume_mute> (gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:mute"}
-Switch dSonosPLAY12AlarmON    	"Alarm [%s]"			<switch>				(gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:alarm"}
-Number dSonosPLAY12Snooze			"Snooze"					<clock>				(gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:snooze"}
-Switch dSonosPLAY12Stop				"Stop"					<switch>				(gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:stop"}
+Switch dSonosPLAY12AlarmON    	"Alarm [%s]"			<switch>				 (gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:alarm"}
+Number dSonosPLAY12Snooze			"Snooze"					<clock>				 (gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:snooze"}
+Switch dSonosPLAY12Stop				"Stop"					<switch>				 (gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:stop"}
 /* 
  * Items mit indirektem Bezug zu einem Channel
  * => alle Items beginnen mit v
