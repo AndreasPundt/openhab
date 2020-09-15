@@ -9,7 +9,7 @@ then
 	if (dAlarmSwitch_FL.state == ON) {
 		dDimmer_WZ.sendCommand(99)
 		dDimmer_FL.sendCommand(99)
-		pushover("ALARM wurde ausgelöst", 2)
+//		pushover("ALARM wurde ausgelöst", 2)
 	}
 end
 // 
@@ -55,7 +55,7 @@ then
 		dAlarmSwitch_FL.sendCommand(ON)
 		dDimmer_WZ.sendCommand(99)
 		dDimmer_FL.sendCommand(99)
-		pushover("ALARM - Rauchmelder im Flur", 2)
+//		pushover("ALARM - Rauchmelder im Flur", 2)
 	}
 	else if (dSmokeSensor_EZ.state == ON) {
 		dAlarmSwitch_FL.sendCommand(ON)
