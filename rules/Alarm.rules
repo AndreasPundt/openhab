@@ -1,6 +1,7 @@
 /*
  * Alarm rules
  */
+ /*
 rule "sirene"
 when
   Item dAlarmSwitch_FL received command
@@ -13,7 +14,7 @@ then
 	}
 end
 // 
-/*
+
 rule "MotionSensor"
 when
 	Item dMotionSensor_FL changed
@@ -35,7 +36,7 @@ then
 		pushover("Balkontür wurde geschlossen")
 	}
 end
-*/
+
 rule "FrontDoor"
 when
   Item dFrontDoor_FL changed
@@ -45,7 +46,7 @@ then
 	else if (dFrontDoor_FL.state == CLOSED)
 		pushover("Haustür wurde geschlossen")
 end
-
+*/
 rule "fire"
 when
    Item dSmokeSensor_FL changed or
