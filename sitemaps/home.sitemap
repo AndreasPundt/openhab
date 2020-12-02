@@ -52,7 +52,7 @@ sitemap home label="Smart Home" {
    	Group item=gBZ
 	   Group item=gWZ label="Wohnzimmer" icon="sofa" {
    		Default	item=dSwitch_WZ		label="Lichtschalter Decke [MAP(on-off.map):%s]" icon="switch" //mappings=[100='AN', 0='AUS']
-      	Default	item=dBalconyDoor_WZ	label="Balkontür ist" // mappings=[ON='OPEN', OFF='CLOSED']
+      	// Default	item=dBalconyDoor_WZ	label="Balkontür ist" // mappings=[ON='OPEN', OFF='CLOSED']
          Default	item=dPlugSwitch_WZ
 			Default	item=dWallSwitch_WZ	label="Schalter für Medien"
       }
@@ -68,7 +68,7 @@ sitemap home label="Smart Home" {
       }
       Group	item=gFL	label="Flur"		icon="corridor" {
 			Default	item=dSwitch_FL		label="Lichtschalter Decke [MAP(on-off.map):%s]" icon="switch" //mappings=[0='AUS', 100='AN']
-         Default	item=dTempSmokeSensor_FL	label="Temperatur [%d]"
+         // Default	item=dTempSmokeSensor_FL	label="Temperatur [%d]"
          Default	item=dFrontDoor_FL			label="Haustür ist"
          Text		item=dMotionSensor_FL		valuecolor=[dMotionSensor_FL==ON="red", OFF="green"] labelcolor=[dMotionSensor_FL==ON="red", OFF="green"]
       }
