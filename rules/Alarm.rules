@@ -47,6 +47,7 @@ then
 		pushover("Haustür wurde geschlossen")
 end
 */
+/*
 rule "fire"
 when
    Item dSmokeSensor_FL changed or
@@ -80,3 +81,4 @@ then
 		pushover("ALARM - Wassermelder - alles i.o.")
 	}
 end
+*/
