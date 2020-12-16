@@ -4,11 +4,11 @@ sitemap home label="Smart Home" {
 	//Webview url="http://www.openhab.org" height=5
 	Frame label="Dashboard" {
 		Default item=dCurrentDate	label="[%1$tH:%1$tM:%1$tS am %1$tA, %1$td.%1$tm.%1$tY]"	icon="time"
-//	   Group item=gAlarm				label="Rauch / Feuer / Wasser [%s]" 				      	valuecolor=[ON="red", OFF="green"] labelcolor=[gAlarm==ON="red", OFF="green"]
-	   Group item=gAlarm				label="Rauch / Feuer / Wasser [%s]" 				      	valuecolor=[ON="red", OFF="green"] labelcolor=[ON="red", OFF="green"]
-      Group item=gDoors				label="Türen / Fenster [%s]"										valuecolor=[OPEN="red", CLOSED="green"] labelcolor=[OPEN="red", CLOSED="green"]
-		Text item=dMotionSensor_FL																				valuecolor=[ON="red", OFF="green"] labelcolor=[ON="red", OFF="green"]
-		Group item=gLights			label="Es sind [%d Lampen an]"									valuecolor=[ON="red", OFF="green"] labelcolor=[ON="red", OFF="green"]
+//	   Group item=gAlarm				label="Rauch / Feuer / Wasser [%s]" 	valuecolor=[ON="red", OFF="green"] labelcolor=[gAlarm==ON="red", OFF="green"]
+	   Group item=gAlarm				label="Rauch / Feuer / Wasser [%s]" 	valuecolor=[ON="red", OFF="green"] labelcolor=[ON="red", OFF="green"]
+      Group item=gDoors				label="Türen / Fenster [%s]"				valuecolor=[OPEN="red", CLOSED="green"] labelcolor=[OPEN="red", CLOSED="green"]
+		Text item=dMotionSensor_FL														valuecolor=[ON="red", OFF="green"] labelcolor=[ON="red", OFF="green"]
+		Group item=gLights			label="Es sind [%d Lampen an]"			valuecolor=[ON="red", OFF="green"] labelcolor=[ON="red", OFF="green"]
 	}
 	Frame label="Wetter und Heizung" {
 		Group item=gWE
@@ -33,7 +33,7 @@ sitemap home label="Smart Home" {
 			}
 	   }
 		*/
-		/*
+		/* */
 		Group item=gKL {
     		Frame label="1. Termin" {
 				Text		item=dCalDav_Wecker_Event_Name			label="Name[%s]"
@@ -48,7 +48,6 @@ sitemap home label="Smart Home" {
 				Text 		item=dCalDav_Wecker_Event3_Start			label="Datum[%s]"
 			}
 		}
-		*/
 	}
    Frame label="Räume" {
    	Group item=gBZ
