@@ -20,6 +20,7 @@ var HSBType red = new HSBType("360,100,50")
 /*
  * Controlling lights via CalDav
  */
+ /*
 rule "CalDav_BioWaste"
 when
 	Item vHUECaDav_GreenWaste received command
@@ -174,6 +175,7 @@ then
 	dColorTemp_HUE_FL_Ceiling_V_R.sendCommand(percent);
 	dColorTemp_HUE_FL_Ceiling_H_R.sendCommand(percent);
 end
+*/
 /*
 rule "Luminium Color Item"
 	when

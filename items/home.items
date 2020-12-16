@@ -57,6 +57,7 @@ Switch vNRStartAlarmClockPLAY11 "Wecker"
  * --------
  */
 // Alarm Clock events
+/*
 String	dCalDav_Wecker_NextEvent      "W1[%s]"		   <calendar>	(gAC, gKL)				{caldavPersonal="calendar:Wecker type:EVENT eventNr:1 value:NAMEANDTIME" }
 String	dCalDav_Wecker_Event_Name     "Termin[%s]"   <calendar>	(gAC, gKL)				{caldavPersonal="calendar:Wecker type:EVENT eventNr:1 value:NAME" }
 DateTime	dCalDav_Wecker_Event_Start    "Begin[%s]"	   <calendar>	(gAC, gKL)				{caldavPersonal="calendar:Wecker type:EVENT eventNr:1 value:START" }
@@ -67,6 +68,7 @@ DateTime	dCalDav_Wecker_Event2_Start   "Begin[%s]"	   <calendar>	(gAC, gKL)				{
 String	dCalDav_Wecker_NextEvent3     "W3[%s]"		   <calendar>	(gAC, gKL)				{caldavPersonal="calendar:Wecker type:EVENT eventNr:3 value:NAMEANDTIME" }
 String	dCalDav_Wecker_Event3_Name    "Termin[%s]"   <calendar>	(gAC, gKL)				{caldavPersonal="calendar:Wecker type:EVENT eventNr:3 value:NAME" }
 DateTime	dCalDav_Wecker_Event3_Start   "Begin[%s]"	   <calendar>	(gAC, gKL)				{caldavPersonal="calendar:Wecker type:EVENT eventNr:3 value:START" }
+*/
 /* 
  * -------
  * heating
@@ -96,17 +98,13 @@ Number   dThermostat_WZ_Batt  "Thermostat WZ Battery [%.1f] "  <batterylevel> (g
  * lights
  * ------
  */
-//  - Alexa
-Dimmer dDimmer_WZ		"Wohnzimmer-Licht"	                              <light>	(gWZ)	         ["Lighting"]	{channel="zwave:device:31a6fa50:node22:switch_dimmer1"}
-Switch dSwitch_WZ		"Wohnzimmer-Licht (Decke) [MAP(on-off.map):%s]"	   <switch>	(gWZ, gLights)	["Lighting"]	{channel="zwave:device:31a6fa50:node22:switch_dimmer1"}
-Dimmer dDimmer_FL		"Flur-Licht"			                              <light>	(gFL)	         ["Lighting"]	{channel="zwave:device:31a6fa50:node29:switch_dimmer1"}
-Switch dSwitch_FL		"Flur-Licht (Decke) [MAP(on-off.map):%s]"          <switch>	(gFL)       	["Lighting"]	{channel="zwave:device:31a6fa50:node29:switch_dimmer1"}
 // HUE Esszimmer
 // Variablen um die einzelnen Lampen im EZ zusammenzufassen
 Dimmer	vDimmer_HUE_EZ			"Esszimmer-Dimmer"							      (gEZ)
 Switch	vSwitch_HUE_EZ			"Esszimmer-Licht [MAP(on-off.map):%s]"			(gEZ, gLights)
 Dimmer	vColorTemp_HUE_EZ		"Esszimmer-Farbtemperatur"		<colorlight>   (gEZ)
 //
+/*
 Dimmer	dDimmer_HUE_EZ_L		"EsszimmerdimmerHueL"	<light> 			(gEZ) { channel="hue:0220:001788678799:6:brightness" }
 Switch	dSwitch_HUE_EZ_L		"EsszimmerlichtHueL"		<switch>			(gEZ)	{ channel="hue:0220:001788678799:6:brightness" }
 Dimmer	dColorTemp_HUE_EZ_L	"ColorTempHueL"			<colorlight> 	(gEZ)	{ channel="hue:0220:001788678799:6:color_temperature" }
@@ -116,14 +114,18 @@ Dimmer	dColorTemp_HUE_EZ_M	"ColorTempHueM"			<colorlight> 	(gEZ)	{ channel="hue:
 Dimmer	dDimmer_HUE_EZ_R		"EsszimmerdimmerHueR"	<light> 			(gEZ)	{ channel="hue:0220:001788678799:8:brightness" }
 Switch	dSwitch_HUE_EZ_R		"EsszimmerlichtHueR"		<switch>			(gEZ)	{ channel="hue:0220:001788678799:8:brightness" }
 Dimmer	dColorTemp_HUE_EZ_R	"ColorTempHueR"			<colorlight> 	(gEZ)	{ channel="hue:0220:001788678799:8:color_temperature" }
+*/
 // HUE Mila
+/*
 Switch	dSwitch_HUE_MZ		"Milas Licht [MAP(on-off.map):%s]"	<switch>				(gMZ, gLights) { channel="hue:0210:001788678799:1:color" }
 Dimmer	dDimmer_HUE_MZ		"Miladimmer"			               <light> 				(gMZ)		      { channel="hue:0210:001788678799:1:color" }
 Color		dColor_HUE_MZ 		"ColorPicker"			               <colorpicker> 		(gMZ)			   { channel="hue:0210:001788678799:1:color" }
 Dimmer	dColorTemp_HUE_MZ "ColorTemp"				               <colorlight> 		(gMZ)			   { channel="hue:0210:001788678799:1:color_temperature" }
 String	dAlert_HUE_MZ		"Alert"					               <switch> 			(gMZ)			   { channel="hue:0210:001788678799:1:alert" }
 Switch	dEffect_HUE_MZ		"Effect"					               <switch> 			(gMZ)			   { channel="hue:0210:001788678799:1:effect" }
+*/
 // HUE Schlafzimmer
+/*
 Switch	dSwitch_HUE_SZ		"Schlafzimmer-Licht [MAP(on-off.map):%s]"	<switch>			(gSZ, gLights)		{ channel="hue:0220:001788678799:5:brightness" }
 Dimmer	dDimmer_HUE_SZ		"Schlafzimmerdimmer"	                     <light> 	      (gSZ)					{ channel="hue:0220:001788678799:5:brightness" }
 Dimmer	dColorTemp_HUE_SZ "ColorTempHueSZ"		                     <colorlight>   (gSZ)		         { channel="hue:0220:001788678799:5:color_temperature" }
@@ -131,12 +133,14 @@ Dimmer	dColorTemp_HUE_SZ "ColorTempHueSZ"		                     <colorlight>   (
 Switch	dSwitch_HUE_WZ		"Iris Wohnzimmer [MAP(on-off.map):%s]"		<switch>			(gWZ, gLights)		{ channel="hue:0200:001788678799:16:color" }
 Dimmer	dDimmer_HUE_WZ		"Iris Dimmer"			                     <light> 	      (gWZ)					{ channel="hue:0200:001788678799:16:color" }
 Color		dColor_HUE_WZ 		"ColorPickerHueWZ"	                     <colorpicker> 	(gWZ)		         { channel="hue:0200:001788678799:16:color" }
+*/
 // Flur Wandlampen
 // Variablen um die einzelnen Lampen im Flur an der Wand zusammenzufassen => light.rules
 Dimmer	vDimmer_HUE_FL_Wall			"Flur Dimmer Wand"						                     (gEZ)
 Switch	vSwitch_HUE_FL_Wall			"Flur-Licht (Wand) [MAP(on-off.map):%s]"	               (gEZ, gLights)
 Dimmer	vColorTemp_FL_Wall	   	"Flur Farbtemperatur Wand"	               <colorlight>   (gEZ)
 // HUE Flur links
+/*
 Switch	dSwitch_HUE_FL_L		"Flurlicht L"		<switch>				(gFL)		{ channel="hue:0210:001788678799:2:color" }
 Dimmer	dDimmer_HUE_FL_L		"Flurdimmer L" 	<light>	         (gFL)		{ channel="hue:0210:001788678799:2:color" }
 Color		dColor_HUE_FL_L		"ColorPicker L"	<colorpicker>		(gFL)		{ channel="hue:0210:001788678799:2:color" }
@@ -150,6 +154,7 @@ Color		dColor_HUE_FL_R		"ColorPicker R"	<colorpicker>		(gFL)		{ channel="hue:021
 Dimmer	dColorTemp_HUE_FL_R	"ColorTemp R"		<colorlight>		(gFL)		{ channel="hue:0210:001788678799:3:color_temperature" }
 String	dAlert_HUE_FL_R		"Alert R"			<switch>				(gFL)		{ channel="hue:0210:001788678799:3:alert" }
 Switch	dEffect_HUE_FL_R		"Effect R"			<switch>				(gFL)		{ channel="hue:0210:001788678799:3:effect" }
+*/
 // HUE variables
 Switch vHUECalDav_MZ_OnOff	"Milas Licht"			<switch>
 Number vHUECalDav_WasteTyp	"Abfallart"				<switch>
@@ -161,6 +166,7 @@ Dimmer	vDimmer_HUE_FL_Ceiling			"Flur Dimmer Decke"							                  (gEZ
 Switch	vSwitch_HUE_FL_Ceiling			"Flur-Licht (Decke) [MAP(on-off.map):%s]"					   (gEZ, gLights)
 Dimmer	vColorTemp_HUE_FL_Ceiling		"Flur Farbtemperatur Decke"		         <colorlight>   (gEZ)
 //
+/*
 Dimmer	dDimmer_HUE_FL_Ceiling_H_L		"Flur Dimmer Decke vorne"	         <light> 			(gEZ) { channel="hue:0220:001788678799:11:brightness" }
 Switch	dSwitch_HUE_FL_Ceiling_H_L		"Flur Schalter Decke vorne"		   <switch>			(gEZ)	{ channel="hue:0220:001788678799:11:brightness" }
 Dimmer	dColorTemp_HUE_FL_Ceiling_H_L	"Flur Farbtemperatur Decke vorne"	<colorlight> 	(gEZ)	{ channel="hue:0220:001788678799:11:color_temperature" }
@@ -173,11 +179,13 @@ Dimmer	dColorTemp_HUE_FL_Ceiling_V_L	"Flur Farbtemperatur Decke vorne"	<colorlig
 Dimmer	dDimmer_HUE_FL_Ceiling_V_R		"Flur Dimmer Decke hinten"	         <light> 			(gEZ)	{ channel="hue:0220:001788678799:12:brightness" }
 Switch	dSwitch_HUE_FL_Ceiling_V_R		"Flur Schalter Decke hinten"		   <switch>			(gEZ)	{ channel="hue:0220:001788678799:12:brightness" }
 Dimmer	dColorTemp_HUE_FL_Ceiling_V_R	"Flur Farbtemperatur Decke hinten"	<colorlight> 	(gEZ)	{ channel="hue:0220:001788678799:12:color_temperature" }
+*/
 /* 
  * --------
  * switches
  * --------
  */
+/*
 Number dWallMoteQuad2			"WallMote Quad [%.1f]"							<switch>							            {channel="zwave:device:31a6fa50:node42:scene_number"}
 Number dWallMoteQuad2_Battery	"WallMote Quad Battery [%.1f]"				<batterylevel>    (gDevices)	         {channel="zwave:device:31a6fa50:node42:battery-level"}
 //Number dKeyController			"KFOB Scene [%.1f]"								<switch>						   	         {channel="zwave:device:31a6fa50:node45:scene_number"}
@@ -194,6 +202,7 @@ Switch dPlugSwitch_BZ 			"Steckdosen-Schalter Badezimmer [%s]"		<poweroutlet_eu>
 Number dPlugSwitch_BZ_Power	"Leistung Steckdosen-Schalter BD [%.1f]" 	<line>			   (gBZ, gSO)  	      {channel="zwave:device:31a6fa50:node34:meter_watts"}
 //Switch dWallSwitch_WZ			"Wandschalter WZ [%s]" 							<wallswitch>	   (gWZ)			         {channel="zwave:device:31a6fa50:node28:switch_binary"}
 //Switch dAlarmSwitch_FL			"Sirene [%s]"										<siren>			   (gFL, gAlarm)     	{channel="zwave:device:31a6fa50:node13:switch_binary"}
+*/
 /* 
  * -------
  * sensors
@@ -205,6 +214,7 @@ Number dPlugSwitch_BZ_Power	"Leistung Steckdosen-Schalter BD [%.1f]" 	<line>			 
 // Contact	dFrontDoor_FL			      "Eingangstür [%s]"						      <frontdoor>		(gDoors, gFL)		{channel="zwave:device:31a6fa50:node27:sensor_door"}
 // Number	dFrontDoor_FL_Batt	      "Eingangstür Battery [%.1f]"			      <batterylevel> (gDevices)			{channel="zwave:device:31a6fa50:node27:battery-level"}
 // Smoke Sensor Flur
+/*
 Switch	dSmokeSensor_FL		      "Rauchmelder FL"                          <smoke>			(gFL, gAlarm)		{channel="zwave:device:31a6fa50:node16:alarm_smoke"}
 Number	dSmokeSensor_FL_Battery	   "Rauchmelder FL Battery [%.1f]"	         <batterylevel> (gDevices)			{channel="zwave:device:31a6fa50:node16:battery-level"}
 Number	dTempSmokeSensor_FL	      "Flur Temperatur [%.1f °C]"		         <temperature>	(gFL, gHZ)			{channel="zwave:device:31a6fa50:node16:sensor_temperature"}
@@ -219,6 +229,7 @@ Number	dMotionSensor_FL_Lumi	   "Bewegungsmelder Helligkeit [%.1f]"			<lightbulb
 Number	dMotionSensor_FL_Battery   "Bewegungsmelder Battery [%.1f]"				<batterylevel> (gDevices)     	{channel="zwave:device:31a6fa50:node8:battery-level"}
 // Wassermelder
 Switch	dFloodSensor_KU				"Wassersensor Küche"								<water>			(gKU, gAlarm)     {channel="zwave:device:31a6fa50:node4:alarm_flood"}
+*/
 /* 
  * -------------------------
  * SONOS Items zur Steuerung
@@ -269,6 +280,7 @@ Switch vSonosCalDav_OnOff		"Sonos An / Aus"						<switch>	(gAC)
  * SONOS PLAY:1-3
  * -----
  */
+ /*
 Image  dSonosPLAY13CurrentAlbumArt "Album Art" 				<video>					(gSO)	{channel="sonos:PLAY1:RINCON_7828CA6C1C1801400:currentalbumart"}
 String dSonosPLAY13CurrentArtist "Artist [%s]" 				<text>					(gSO)	{channel="sonos:PLAY1:RINCON_7828CA6C1C1801400:currentartist"}
 String dSonosPLAY13CurrentTitle 	"Titel [%s]" 				<text>					(gSO)	{channel="sonos:PLAY1:RINCON_7828CA6C1C1801400:currenttitle"}
@@ -281,12 +293,13 @@ Switch dSonosPLAY13Mute				"Mute"						<soundvolume_mute>	(gSO)	{channel="sonos:
 Switch dSonosPLAY13AlarmON    	"Alarm [%s]"				<switch>					(gSO)	{channel="sonos:PLAY1:RINCON_7828CA6C1C1801400:alarm"}
 Number dSonosPLAY13Snooze			"Snooze"						<clock>					(gSO)	{channel="sonos:PLAY1:RINCON_7828CA6C1C1801400:snooze"}
 Switch dSonosPLAY13Stop				"Stop"						<switch>					(gSO)	{channel="sonos:PLAY1:RINCON_7828CA6C1C1801400:stop"}
-//
+*/
 /*
  * -----
  * SONOS ONE
  * -----
  */
+ /*
 Image	dSonosONECurrentAlbumArt "Album Art" 				<video>					(gSO) {channel="sonos:One:RINCON_7828CA073F1601400:currentalbumart"}
 String dSonosONECurrentArtist "Artist [%s]" 				<text>					(gSO) {channel="sonos:One:RINCON_7828CA073F1601400:currentartist"}
 String dSonosONECurrentTitle 	"Titel [%s]" 				<text>					(gSO)	{channel="sonos:One:RINCON_7828CA073F1601400:currenttitle"}
@@ -299,6 +312,7 @@ Switch dSonosONEMute				"Mute"						<soundvolume_mute>	(gSO)	{channel="sonos:One
 Switch dSonosONEAlarmON    	"Alarm [%s]"				<switch>					(gSO)	{channel="sonos:One:RINCON_7828CA073F1601400:alarm"}
 Number dSonosONESnooze			"Snooze"						<clock>					(gSO)	{channel="sonos:One:RINCON_7828CA073F1601400:snooze"}
 Switch dSonosONEStop				"Stop"						<switch>					(gSO)	{channel="sonos:One:RINCON_7828CA073F1601400:stop"}
+*/
 /* 
  * Items mit indirektem Bezug zu einem Channel
  * => alle Items beginnen mit v
@@ -315,6 +329,7 @@ Switch dSonosONEStop				"Stop"						<switch>					(gSO)	{channel="sonos:One:RINCO
  * Items mit indirektem Bezug zu einem Channel die für den Wecker (Alarm Clock) benötigt werden
  * => alle Items beginnen mit v
  */
+ /*
 // Item zum Einschalten des Alarms für den Wecker des PLAY:1-1 - Alexa
 Switch vAlarmClockSonosONE				"Wecker im Schlafzimmer [%s]"								<clock>		(gAC)
 Number vSonosONEVolumeAC				"Wecker Lautstärke"											<text>		(gAC)
@@ -336,11 +351,13 @@ Number vSonosSnoozeTimeONE				"Virtuelle Snooze Zeit Schlafzimmer [%d]"				<cloc
 // Item zum Einschalten des Snooze für ONE
 // => wird gesetzt wenn (vAlarmClockSonosONE == ON) ist
 Switch vSonosSnoozeONE					"Virtuelles Snooze Schlafzimmer [%d]"					<switch>		(gAC)
+*/
 /*
  * -----
  * SONOS PLAY:1-1
  * -----
  */
+ /*
 Image dSonosPLAY11CurrentAlbumArt "Album Art" 				<video>					(gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A89401400:currentalbumart"}
 String dSonosPLAY11CurrentArtist "Artist [%s]" 				<text>					(gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A89401400:currentartist"}
 String dSonosPLAY11CurrentTitle 	"Titel [%s]" 				<text>					(gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A89401400:currenttitle"}
@@ -353,6 +370,7 @@ Switch dSonosPLAY11Mute				"Mute"						<soundvolume_mute>	(gSO)	{channel="sonos:
 Switch dSonosPLAY11AlarmON    	"Alarm [%s]"				<switch>					(gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A89401400:alarm"}
 Number dSonosPLAY11Snooze			"Snooze"						<clock>					(gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A89401400:snooze"}
 Switch dSonosPLAY11Stop				"Stop"						<switch>					(gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A89401400:stop"}
+*/
 /* 
  * Items mit indirektem Bezug zu einem Channel
  * => alle Items beginnen mit v
@@ -369,6 +387,7 @@ Switch dSonosPLAY11Stop				"Stop"						<switch>					(gSO)	{channel="sonos:PLAY1:
  * Items mit indirektem Bezug zu einem Channel die für den Wecker (Alarm Clock) benötigt werden
  * => alle Items beginnen mit v
  */
+ /*
 // Item zum Einschalten des Alarms für den Wecker des PLAY:1-1 - Alexa
 Switch vAlarmClockSonosPLAY11				"Wecker im Schlafzimmer [%s]"								<clock>	(gAC)
 Number vSonosPLAY11VolumeAC				"Wecker Lautstärke"											<text>	(gAC)
@@ -390,11 +409,13 @@ Number vSonosSnoozeTimePLAY11				"Virtuelle Snooze Zeit Schlafzimmer [%d]"				<c
 // Item zum Einschalten des Snooze für PLAY1-1
 // => wird gesetzt wenn (vAlarmClockSonosPLAY11 == ON) ist
 Switch vSonosSnoozePLAY11					"Virtuelles Snooze Schlafzimmer [%d]"					<switch>	(gAC)
+*/
 /*
  * -----
  * Sonos PLAY:1-2 im Bad
  * -----
  */
+ /*
 Image dSonosPLAY12CurrentAlbumArt "Album Art" 			<video>				 (gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:currentalbumart"}
 String dSonosPLAY12CurrentArtist "Artist [%s]" 			<text>				 (gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:currentartist"}
 String dSonosPLAY12CurrentTitle 	"Titel [%s]" 			<text>				 (gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:currenttitle"}
@@ -407,6 +428,7 @@ Switch dSonosPLAY12Mute				"Mute"					<soundvolume_mute> (gSO)	{channel="sonos:P
 Switch dSonosPLAY12AlarmON    	"Alarm [%s]"			<switch>				 (gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:alarm"}
 Number dSonosPLAY12Snooze			"Snooze"					<clock>				 (gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:snooze"}
 Switch dSonosPLAY12Stop				"Stop"					<switch>				 (gSO)	{channel="sonos:PLAY1:RINCON_000E58C9A86201400:stop"}
+*/
 /* 
  * Items mit indirektem Bezug zu einem Channel
  * => alle Items beginnen mit v
@@ -448,6 +470,7 @@ Switch vSonosSnoozePLAY12					"Sonos: Virtuelles Snooze AN/AUS PLAY12 [%d]"		<sw
  * Sonos CONNECT
  * -----
  */
+ /*
 Image dSonosCONNECTCurrentAlbumArt	"Album Art" 			<video>					(gSO)	{channel="sonos:CONNECT:RINCON_B8E93790C2A401400:currentalbumart"}
 String dSonosCONNECTCurrentArtist	"Artist [%s]" 			<text>					(gSO)	{channel="sonos:CONNECT:RINCON_B8E93790C2A401400:currentartist"}
 String dSonosCONNECTCurrentTitle 	"Titel [%s]" 			<text>					(gSO)	{channel="sonos:CONNECT:RINCON_B8E93790C2A401400:currenttitle"}
@@ -460,6 +483,7 @@ Switch dSonosCONNECTMute				"Mute"					<soundvolume_mute>	(gSO)	{channel="sonos:
 Switch dSonosCONNECTAlarmON    		"Alarm [%s]"			<switch>					(gSO)	{channel="sonos:CONNECT:RINCON_B8E93790C2A401400:alarm"}
 Number dSonosCONNECTSnooze				"Snooze"					<clock>					(gSO)	{channel="sonos:CONNECT:RINCON_B8E93790C2A401400:snooze"}
 Switch dSonosCONNECTStop				"Stop"					<switch>					(gSO)	{channel="sonos:CONNECT:RINCON_B8E93790C2A401400:stop"}
+*/
 /* 
  * Items mit indirektem Bezug zu einem Channel
  * => alle Items beginnen mit v
@@ -477,7 +501,7 @@ Number vSonosCONNECTPlayRadio	 	"Radio Station [%s]"		<text>					(gSO)
  * date and time
  * -------------
  */
-DateTime dCurrentDate		"Aktuelles Datum  [%1$tA, %1$td.%1$tm.%1$tY]"   <calendar> {channel="ntp:ntp:local:dateTime" }
+//DateTime dCurrentDate		"Aktuelles Datum  [%1$tA, %1$td.%1$tm.%1$tY]"   <calendar> {channel="ntp:ntp:local:dateTime" }
 //DateTime dCurrentTime		"Aktuelle Uhrzeit"								<clock>		// {channel="npd:}
 
 /*
@@ -485,23 +509,26 @@ DateTime dCurrentDate		"Aktuelles Datum  [%1$tA, %1$td.%1$tm.%1$tY]"   <calendar
  * astronomy
  * ---------
  */
+ /*
 DateTime	dSunriseTime   "Sonnenaufgang [%1$tH:%1$tM]"		<sunrise>	(gAS)	{channel = "astro:sun:local:rise#start" }
 DateTime	dSunsetTime    "Sonnenuntergang [%1$tH:%1$tM]" 	<sunset>    (gAS)	{channel = "astro:sun:local:set#start" }
 DateTime	dMoonriseTime  "Mondaufgang [%1$tH:%1$tM]"		<sunrise>   (gAS)	{channel = "astro:moon:local:rise#start" }
 DateTime	dMoonsetTime   "Monduntergang [%1$tH:%1$tM]"		<sunset>    (gAS)	{channel = "astro:moon:local:set#start" }
 DateTime	dMoonFull		"Vollmond"								<moon>      (gAS)	{channel = "astro:moon:local:phase#full" }
 String	dMoonPhase     "Mond Phase [%s]"						<moon>      (gAS)	{channel = "astro:moon:local:phase#name" }
-
+*/
 /*
  * ------
  * weather
  * ------
  */
+ /*
 String dCurrentConditions_WU	   "Wetterbedingungen"						<sun_clouds>	(gWE)	{channel="weatherunderground:weather:b6f874f0:current#conditions"}
 Number dCurrentTemperature_WU	   "Temperatur [%.1f °C]"					<temperature>	(gWE)	{channel="weatherunderground:weather:b6f874f0:current#temperature"}
 Number dCurrentHumidity_WU		   "Luftfeuchtigkeit"						<humidity>		(gWE)	{channel="weatherunderground:weather:b6f874f0:current#relativeHumidity"}
 Number dCurrentWindSpeed_WU	   "Windgeschwindigkeit [%.1f kM/h]"	<wind>			(gWE)	{channel="weatherunderground:weather:b6f874f0:current#windSpeed"}
 String dObservationLocation_WU   "Location [%s]"                     <vacation>     (gWE) {channel="weatherunderground:weather:api:paris:current#location"}
+*/
 /*
  * -------------------------
  * battery status of devices
@@ -513,8 +540,10 @@ String dObservationLocation_WU   "Location [%s]"                     <vacation> 
  * network
  * -------
  */
+ /*
 Switch dAndisHandy		"Andis Handy [%s]"							<network>	(gNetwork) {channel="network:device:192_168_1_9:online"}
 Switch dYarasHandy		"Yaras Handy [%s]"							<network>	(gNetwork) {channel="network:device:192_168_1_16:online"}
 Switch dDLinkDAP2610		"D-Link DAP-2610 WLAN Router [%s]"		<network>	(gNetwork) {channel="network:device:192_168_1_50:online"}
 Switch dNetgearRouter	"Netgear Router [%s]"						<network>	(gNetwork) {channel="network:device:192_168_1_1:online"}
 Switch dNetgearGS108PE	"Netgear GS108PE 8-Port Switch [%s]"	<network>	(gNetwork) {channel="network:device:192_168_1_30:online"}
+*/
