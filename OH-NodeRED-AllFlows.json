@@ -1,0 +1,4932 @@
+[
+   {
+      "id": "bde9e35a.0d056",
+      "type": "tab",
+      "label": "Timer M & P",
+      "disabled": false,
+      "info": ""
+   },
+   {
+      "id": "29f10efb.e75212",
+      "type": "tab",
+      "label": "Timer Esszimmer",
+      "disabled": false,
+      "info": ""
+   },
+   {
+      "id": "756d78f2.85cc08",
+      "type": "tab",
+      "label": "KeyController",
+      "disabled": false,
+      "info": ""
+   },
+   {
+      "id": "229f32a0.bf2f2e",
+      "type": "tab",
+      "label": "TheButton Switch",
+      "disabled": false,
+      "info": ""
+   },
+   {
+      "id": "63a1ca3b.87b724",
+      "type": "tab",
+      "label": "WallMote",
+      "disabled": false,
+      "info": ""
+   },
+   {
+      "id": "f5351430.0b7fb8",
+      "type": "tab",
+      "label": "Azure IoT hub",
+      "disabled": false,
+      "info": ""
+   },
+   {
+      "id": "618b6cae.f84134",
+      "type": "tab",
+      "label": "Flow 1"
+   },
+   {
+      "id": "e3fa46c.79248b8",
+      "type": "ui_base",
+      "theme": {
+         "name": "theme-custom",
+         "lightTheme": {
+            "default": "#0094CE",
+            "baseColor": "#0094CE",
+            "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+            "edited": true,
+            "reset": false
+         },
+         "darkTheme": {
+            "default": "#097479",
+            "baseColor": "#097479",
+            "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+            "edited": true,
+            "reset": false
+         },
+         "customTheme": {
+            "name": "Theme 01",
+            "default": "#4B7930",
+            "baseColor": "#408080",
+            "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+            "reset": false
+         },
+         "themeState": {
+            "base-color": {
+               "default": "#4B7930",
+               "value": "#4B7930",
+               "edited": false
+            },
+            "page-titlebar-backgroundColor": {
+               "value": "#408080",
+               "edited": false
+            },
+            "page-backgroundColor": {
+               "value": "#fafafa",
+               "edited": false
+            },
+            "page-sidebar-backgroundColor": {
+               "value": "#ffffff",
+               "edited": false
+            },
+            "group-textColor": {
+               "value": "#5eaeae",
+               "edited": false
+            },
+            "group-borderColor": {
+               "value": "#ffffff",
+               "edited": false
+            },
+            "group-backgroundColor": {
+               "value": "#ffffff",
+               "edited": false
+            },
+            "widget-textColor": {
+               "value": "#111111",
+               "edited": false
+            },
+            "widget-backgroundColor": {
+               "value": "#408080",
+               "edited": false
+            },
+            "widget-borderColor": {
+               "value": "#ffffff",
+               "edited": false
+            },
+            "base-font": {
+               "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            }
+         }
+      },
+      "site": {
+         "name": "Node-RED Dashboard",
+         "hideToolbar": "false",
+         "allowSwipe": "true",
+         "dateFormat": "DD/MM/YYYY",
+         "sizes": {
+            "sx": 48,
+            "sy": 48,
+            "gx": 6,
+            "gy": 6,
+            "cx": 6,
+            "cy": 6,
+            "px": 16,
+            "py": 6
+         }
+      }
+   },
+   {
+      "id": "4d377d6b.eec334",
+      "type": "openhab2-controller",
+      "z": "",
+      "name": "openhab",
+      "protocol": "http",
+      "host": "192.168.1.18",
+      "port": "8080",
+      "path": "",
+      "username": "",
+      "password": ""
+   },
+   {
+      "id": "8c43fdbb.2e8dc",
+      "type": "mqtt-broker",
+      "z": "756d78f2.85cc08",
+      "broker": "localhost",
+      "port": "1883",
+      "clientid": "",
+      "usetls": false,
+      "verifyservercert": true,
+      "compatmode": true,
+      "keepalive": "60",
+      "cleansession": true,
+      "willTopic": "",
+      "willQos": "0",
+      "willRetain": null,
+      "willPayload": "",
+      "birthTopic": "",
+      "birthQos": "0",
+      "birthRetain": null,
+      "birthPayload": ""
+   },
+   {
+      "id": "29f64e49.0df68a",
+      "type": "mqtt-broker",
+      "z": "",
+      "broker": "broker.hivemq.com",
+      "port": "1883",
+      "clientid": "",
+      "usetls": false,
+      "compatmode": true,
+      "keepalive": "60",
+      "cleansession": true,
+      "willTopic": "",
+      "willQos": "0",
+      "willPayload": "",
+      "birthTopic": "",
+      "birthQos": "0",
+      "birthPayload": ""
+   },
+   {
+      "id": "4f071a52.b66304",
+      "type": "mqtt-broker",
+      "z": "",
+      "broker": "localhost",
+      "port": "1883",
+      "clientid": "",
+      "usetls": false,
+      "compatmode": true,
+      "keepalive": "60",
+      "cleansession": true,
+      "willTopic": "",
+      "willQos": "0",
+      "willPayload": "",
+      "birthTopic": "",
+      "birthQos": "0",
+      "birthPayload": ""
+   },
+   {
+      "id": "338633f3.b9395c",
+      "type": "ui_tab",
+      "z": "",
+      "name": "Wecker",
+      "icon": "dashboard",
+      "order": 1
+   },
+   {
+      "id": "603153c1.6b6e94",
+      "type": "ui_group",
+      "z": "",
+      "name": "Einschalten",
+      "tab": "338633f3.b9395c",
+      "order": 1,
+      "disp": true,
+      "width": "6"
+   },
+   {
+      "id": "475afa4b.dd353c",
+      "type": "ui_tab",
+      "z": "",
+      "name": "Esszimmer",
+      "icon": "dashboard",
+      "order": 3
+   },
+   {
+      "id": "e8e666f4.a047a",
+      "type": "ui_group",
+      "z": "",
+      "name": "Sonos ONE",
+      "tab": "475afa4b.dd353c",
+      "order": 1,
+      "disp": true,
+      "width": "6"
+   },
+   {
+      "id": "a493ba89.519f78",
+      "type": "ui_group",
+      "z": "",
+      "name": "Weitere Einstellungen",
+      "tab": "338633f3.b9395c",
+      "order": 2,
+      "disp": true,
+      "width": "6"
+   },
+   {
+      "id": "800a2fd2.8a3678",
+      "type": "switch",
+      "z": "756d78f2.85cc08",
+      "name": "switch scene",
+      "property": "payload.payload.value",
+      "propertyType": "msg",
+      "rules": [
+         {
+            "t": "eq",
+            "v": "1.0",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "1.1",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "1.2",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "2.0",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "2.1",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "2.2",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "3.0",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "3.1",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "3.2",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "4.0",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "4.1",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "4.2",
+            "vt": "str"
+         }
+      ],
+      "checkall": "true",
+      "outputs": 12,
+      "x": 510,
+      "y": 520,
+      "wires": [
+         [
+            "c44cfbad.bb299"
+         ],
+         [],
+         [
+            "86417e0a.5c0da"
+         ],
+         [
+            "f5eac0d3.34d538"
+         ],
+         [],
+         [
+            "c8642f51.87ab4"
+         ],
+         [
+            "1243b986.a281d6"
+         ],
+         [],
+         [],
+         [],
+         [],
+         []
+      ]
+   },
+   {
+      "id": "197da30.2844b5d",
+      "type": "change",
+      "z": "756d78f2.85cc08",
+      "name": "WHITE",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "0,0,100",
+            "tot": "str"
+         },
+         {
+            "t": "set",
+            "p": "changecolor",
+            "pt": "flow",
+            "to": "2",
+            "tot": "str"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 890,
+      "y": 320,
+      "wires": [
+         [
+            "5e33f002.cfe98"
+         ]
+      ]
+   },
+   {
+      "id": "99a0ae4a.ec2668",
+      "type": "change",
+      "z": "756d78f2.85cc08",
+      "name": "OFF",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "OFF",
+            "tot": "str"
+         },
+         {
+            "t": "set",
+            "p": "flipflop",
+            "pt": "flow",
+            "to": "1",
+            "tot": "str"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 890,
+      "y": 160,
+      "wires": [
+         [
+            "f20cf4c4.b9e97"
+         ]
+      ]
+   },
+   {
+      "id": "f5eac0d3.34d538",
+      "type": "switch",
+      "z": "756d78f2.85cc08",
+      "name": "color switch",
+      "property": "changecolor",
+      "propertyType": "flow",
+      "rules": [
+         {
+            "t": "eq",
+            "v": "1",
+            "vt": "num"
+         },
+         {
+            "t": "eq",
+            "v": "2",
+            "vt": "num"
+         },
+         {
+            "t": "eq",
+            "v": "3",
+            "vt": "num"
+         },
+         {
+            "t": "eq",
+            "v": "4",
+            "vt": "num"
+         }
+      ],
+      "checkall": "true",
+      "outputs": 4,
+      "x": 710,
+      "y": 380,
+      "wires": [
+         [
+            "197da30.2844b5d"
+         ],
+         [
+            "e9639b14.857918"
+         ],
+         [
+            "40cbb24f.e95f7c"
+         ],
+         [
+            "c8f93005.308a3"
+         ]
+      ]
+   },
+   {
+      "id": "c293b4f3.de91e8",
+      "type": "inject",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "topic": "",
+      "payload": "1",
+      "payloadType": "num",
+      "repeat": "",
+      "crontab": "",
+      "once": true,
+      "x": 90,
+      "y": 60,
+      "wires": [
+         [
+            "63f4d8ee.5cedd"
+         ]
+      ]
+   },
+   {
+      "id": "63f4d8ee.5cedd",
+      "type": "change",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "rules": [
+         {
+            "t": "set",
+            "p": "flipflop",
+            "pt": "flow",
+            "to": "payload",
+            "tot": "msg"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 240,
+      "y": 60,
+      "wires": [
+         []
+      ]
+   },
+   {
+      "id": "e9639b14.857918",
+      "type": "change",
+      "z": "756d78f2.85cc08",
+      "name": "RED",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "360,100,50",
+            "tot": "str"
+         },
+         {
+            "t": "set",
+            "p": "changecolor",
+            "pt": "flow",
+            "to": "3",
+            "tot": "str"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 890,
+      "y": 360,
+      "wires": [
+         [
+            "5e33f002.cfe98"
+         ]
+      ]
+   },
+   {
+      "id": "40cbb24f.e95f7c",
+      "type": "change",
+      "z": "756d78f2.85cc08",
+      "name": "GREEN",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "120,100,50",
+            "tot": "str"
+         },
+         {
+            "t": "set",
+            "p": "changecolor",
+            "pt": "flow",
+            "to": "4",
+            "tot": "str"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 890,
+      "y": 400,
+      "wires": [
+         [
+            "5e33f002.cfe98"
+         ]
+      ]
+   },
+   {
+      "id": "c8f93005.308a3",
+      "type": "change",
+      "z": "756d78f2.85cc08",
+      "name": "BLUE",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "240,100,50",
+            "tot": "str"
+         },
+         {
+            "t": "set",
+            "p": "changecolor",
+            "pt": "flow",
+            "to": "1",
+            "tot": "str"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 890,
+      "y": 440,
+      "wires": [
+         [
+            "5e33f002.cfe98"
+         ]
+      ]
+   },
+   {
+      "id": "4d83931c.8d2f9c",
+      "type": "inject",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "topic": "",
+      "payload": "1",
+      "payloadType": "num",
+      "repeat": "",
+      "crontab": "",
+      "once": true,
+      "x": 90,
+      "y": 100,
+      "wires": [
+         [
+            "83f25959.87f028"
+         ]
+      ]
+   },
+   {
+      "id": "83f25959.87f028",
+      "type": "change",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "rules": [
+         {
+            "t": "set",
+            "p": "changecolor",
+            "pt": "flow",
+            "to": "payload",
+            "tot": "msg"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 260,
+      "y": 100,
+      "wires": [
+         []
+      ]
+   },
+   {
+      "id": "c44cfbad.bb299",
+      "type": "switch",
+      "z": "756d78f2.85cc08",
+      "name": "toggle switch",
+      "property": "flipflop",
+      "propertyType": "flow",
+      "rules": [
+         {
+            "t": "eq",
+            "v": "0",
+            "vt": "num"
+         },
+         {
+            "t": "eq",
+            "v": "1",
+            "vt": "num"
+         }
+      ],
+      "checkall": "true",
+      "outputs": 2,
+      "x": 710,
+      "y": 180,
+      "wires": [
+         [
+            "99a0ae4a.ec2668"
+         ],
+         [
+            "6aa1e021.3f8018"
+         ]
+      ]
+   },
+   {
+      "id": "6aa1e021.3f8018",
+      "type": "change",
+      "z": "756d78f2.85cc08",
+      "name": "ON",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "ON",
+            "tot": "str"
+         },
+         {
+            "t": "set",
+            "p": "flipflop",
+            "pt": "flow",
+            "to": "0",
+            "tot": "str"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 890,
+      "y": 200,
+      "wires": [
+         [
+            "f20cf4c4.b9e97"
+         ]
+      ]
+   },
+   {
+      "id": "1f18dd52.8f151b",
+      "type": "comment",
+      "z": "756d78f2.85cc08",
+      "name": "Initialisation",
+      "info": "set the values in the context of the flow for:\n- flipflop\n- changecolcor\nthey are of type string",
+      "x": 90,
+      "y": 20,
+      "wires": []
+   },
+   {
+      "id": "7c0f8b09.2d0c9c",
+      "type": "comment",
+      "z": "756d78f2.85cc08",
+      "name": "Publish to que and subcribe to get the values",
+      "info": "",
+      "x": 190,
+      "y": 240,
+      "wires": []
+   },
+   {
+      "id": "b49f0601.9416c8",
+      "type": "comment",
+      "z": "756d78f2.85cc08",
+      "name": "Rules to set colors and the toggle switch",
+      "info": "",
+      "x": 820,
+      "y": 100,
+      "wires": []
+   },
+   {
+      "id": "410c38a5.168d8",
+      "type": "openhab2-in",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dSwitch_HUE_WZ",
+      "x": 1330,
+      "y": 180,
+      "wires": [
+         [],
+         []
+      ],
+      "outputLabels": [
+         "state event",
+         "raw event"
+      ]
+   },
+   {
+      "id": "80121dfd.53d408",
+      "type": "openhab2-in",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dKeyController",
+      "x": 100,
+      "y": 500,
+      "wires": [
+         [],
+         [
+            "41cf785c.e47ab8",
+            "bd373584.098198"
+         ]
+      ]
+   },
+   {
+      "id": "f20cf4c4.b9e97",
+      "type": "openhab2-out",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dSwitch_HUE_WZ",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1130,
+      "y": 180,
+      "wires": []
+   },
+   {
+      "id": "41cf785c.e47ab8",
+      "type": "switch",
+      "z": "756d78f2.85cc08",
+      "name": "switch scene",
+      "property": "payload.type",
+      "propertyType": "msg",
+      "rules": [
+         {
+            "t": "eq",
+            "v": "ItemStateEvent",
+            "vt": "str"
+         }
+      ],
+      "checkall": "true",
+      "outputs": 1,
+      "x": 310,
+      "y": 520,
+      "wires": [
+         [
+            "800a2fd2.8a3678"
+         ]
+      ]
+   },
+   {
+      "id": "823efce1.28e4f8",
+      "type": "inject",
+      "z": "618b6cae.f84134",
+      "name": "",
+      "topic": "",
+      "payload": "2.0",
+      "payloadType": "str",
+      "repeat": "",
+      "crontab": "",
+      "once": false,
+      "x": 90,
+      "y": 40,
+      "wires": [
+         [
+            "2d93ce48.078602"
+         ]
+      ]
+   },
+   {
+      "id": "2d93ce48.078602",
+      "type": "mqtt out",
+      "z": "618b6cae.f84134",
+      "name": "",
+      "topic": "andreas-node-red/sensors/in",
+      "qos": "0",
+      "retain": "",
+      "broker": "29f64e49.0df68a",
+      "x": 310,
+      "y": 20,
+      "wires": []
+   },
+   {
+      "id": "19f9b20d.22577e",
+      "type": "mqtt in",
+      "z": "618b6cae.f84134",
+      "name": "",
+      "topic": "andreas-node-red/sensors/in",
+      "qos": "2",
+      "broker": "29f64e49.0df68a",
+      "x": 300,
+      "y": 100,
+      "wires": [
+         []
+      ]
+   },
+   {
+      "id": "c91fc6f3.5e1a58",
+      "type": "inject",
+      "z": "618b6cae.f84134",
+      "name": "",
+      "topic": "",
+      "payload": "1.0",
+      "payloadType": "str",
+      "repeat": "",
+      "crontab": "",
+      "once": false,
+      "x": 90,
+      "y": 80,
+      "wires": [
+         [
+            "2d93ce48.078602"
+         ]
+      ]
+   },
+   {
+      "id": "5e33f002.cfe98",
+      "type": "openhab2-out",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dColor_HUE_WZ",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1130,
+      "y": 380,
+      "wires": []
+   },
+   {
+      "id": "1dddae06.6ea5da",
+      "type": "openhab2-in",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dColor_HUE_WZ",
+      "x": 1320,
+      "y": 380,
+      "wires": [
+         [],
+         []
+      ],
+      "outputLabels": [
+         "state event",
+         "raw event"
+      ]
+   },
+   {
+      "id": "4919ba86.d519ec",
+      "type": "inject",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "topic": "",
+      "payload": "50",
+      "payloadType": "num",
+      "repeat": "",
+      "crontab": "",
+      "once": true,
+      "x": 90,
+      "y": 140,
+      "wires": [
+         [
+            "aa5789e8.001c38"
+         ]
+      ]
+   },
+   {
+      "id": "aa5789e8.001c38",
+      "type": "change",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "rules": [
+         {
+            "t": "set",
+            "p": "dimmer",
+            "pt": "flow",
+            "to": "payload",
+            "tot": "msg"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 240,
+      "y": 140,
+      "wires": [
+         []
+      ]
+   },
+   {
+      "id": "bd373584.098198",
+      "type": "debug",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "active": false,
+      "console": "false",
+      "complete": "payload",
+      "x": 310,
+      "y": 480,
+      "wires": []
+   },
+   {
+      "id": "8861960d.ca18a8",
+      "type": "openhab2-in",
+      "z": "229f32a0.bf2f2e",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dTheButton",
+      "x": 90,
+      "y": 360,
+      "wires": [
+         [
+            "c528a5ce.7615e8"
+         ],
+         [
+            "c528a5ce.7615e8",
+            "1a8b4d3f.56fdb3"
+         ]
+      ]
+   },
+   {
+      "id": "c528a5ce.7615e8",
+      "type": "debug",
+      "z": "229f32a0.bf2f2e",
+      "name": "",
+      "active": true,
+      "console": "false",
+      "complete": "payload",
+      "x": 290,
+      "y": 340,
+      "wires": []
+   },
+   {
+      "id": "1a8b4d3f.56fdb3",
+      "type": "switch",
+      "z": "229f32a0.bf2f2e",
+      "name": "switch scene",
+      "property": "payload.type",
+      "propertyType": "msg",
+      "rules": [
+         {
+            "t": "eq",
+            "v": "ItemStateEvent",
+            "vt": "str"
+         }
+      ],
+      "checkall": "true",
+      "outputs": 1,
+      "x": 290,
+      "y": 380,
+      "wires": [
+         [
+            "ba445ebf.b48b7"
+         ]
+      ]
+   },
+   {
+      "id": "ba445ebf.b48b7",
+      "type": "switch",
+      "z": "229f32a0.bf2f2e",
+      "name": "switch scene",
+      "property": "payload.payload.value",
+      "propertyType": "msg",
+      "rules": [
+         {
+            "t": "eq",
+            "v": "1.0",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "1.2",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "1.1",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "1.3",
+            "vt": "str"
+         }
+      ],
+      "checkall": "true",
+      "outputs": 4,
+      "x": 490,
+      "y": 380,
+      "wires": [
+         [
+            "653ab677.b44c38"
+         ],
+         [
+            "f41592b7.c708"
+         ],
+         [
+            "c2f68652.070298"
+         ],
+         [
+            "4b3092a2.63b1dc"
+         ]
+      ]
+   },
+   {
+      "id": "fd0761d.92861a",
+      "type": "change",
+      "z": "229f32a0.bf2f2e",
+      "name": "SinglePress PLAY",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "PLAY",
+            "tot": "str"
+         },
+         {
+            "t": "set",
+            "p": "SwitchTheButton",
+            "pt": "flow",
+            "to": "1",
+            "tot": "str"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 950,
+      "y": 280,
+      "wires": [
+         [
+            "e5f46836.3095a8",
+            "9776a4b6.7b3b78"
+         ]
+      ]
+   },
+   {
+      "id": "f41592b7.c708",
+      "type": "change",
+      "z": "229f32a0.bf2f2e",
+      "name": "PressHold",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "Press & Hold",
+            "tot": "str"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 930,
+      "y": 360,
+      "wires": [
+         [
+            "e5f46836.3095a8"
+         ]
+      ]
+   },
+   {
+      "id": "c2f68652.070298",
+      "type": "change",
+      "z": "229f32a0.bf2f2e",
+      "name": "PressRelease",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "Press & Release",
+            "tot": "str"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 940,
+      "y": 400,
+      "wires": [
+         [
+            "e5f46836.3095a8"
+         ]
+      ]
+   },
+   {
+      "id": "e5f46836.3095a8",
+      "type": "debug",
+      "z": "229f32a0.bf2f2e",
+      "name": "",
+      "active": true,
+      "console": "false",
+      "complete": "payload",
+      "x": 1190,
+      "y": 460,
+      "wires": []
+   },
+   {
+      "id": "9776a4b6.7b3b78",
+      "type": "openhab2-out",
+      "z": "229f32a0.bf2f2e",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dSonosPLAY11Controler",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1210,
+      "y": 300,
+      "wires": []
+   },
+   {
+      "id": "653ab677.b44c38",
+      "type": "switch",
+      "z": "229f32a0.bf2f2e",
+      "name": "toggle switch",
+      "property": "SwitchTheButton",
+      "propertyType": "flow",
+      "rules": [
+         {
+            "t": "eq",
+            "v": "0",
+            "vt": "num"
+         },
+         {
+            "t": "eq",
+            "v": "1",
+            "vt": "num"
+         }
+      ],
+      "checkall": "true",
+      "outputs": 2,
+      "x": 710,
+      "y": 300,
+      "wires": [
+         [
+            "fd0761d.92861a",
+            "a31523f5.9b1dd"
+         ],
+         [
+            "47ff69b4.bfec58",
+            "a31523f5.9b1dd"
+         ]
+      ]
+   },
+   {
+      "id": "47ff69b4.bfec58",
+      "type": "change",
+      "z": "229f32a0.bf2f2e",
+      "name": "SinglePress PAUSE",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "PAUSE",
+            "tot": "str"
+         },
+         {
+            "t": "set",
+            "p": "SwitchTheButton",
+            "pt": "flow",
+            "to": "0",
+            "tot": "str"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 960,
+      "y": 320,
+      "wires": [
+         [
+            "e5f46836.3095a8",
+            "9776a4b6.7b3b78"
+         ]
+      ]
+   },
+   {
+      "id": "e3ccf9fd.2cfff8",
+      "type": "openhab2-in",
+      "z": "229f32a0.bf2f2e",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dSonosPLAY11Controler",
+      "x": 1210,
+      "y": 360,
+      "wires": [
+         [],
+         []
+      ]
+   },
+   {
+      "id": "a31523f5.9b1dd",
+      "type": "debug",
+      "z": "229f32a0.bf2f2e",
+      "name": "",
+      "active": true,
+      "console": "false",
+      "complete": "payload",
+      "x": 750,
+      "y": 160,
+      "wires": []
+   },
+   {
+      "id": "6c147a0d.770b74",
+      "type": "inject",
+      "z": "229f32a0.bf2f2e",
+      "name": "",
+      "topic": "",
+      "payload": "1",
+      "payloadType": "num",
+      "repeat": "",
+      "crontab": "",
+      "once": true,
+      "x": 90,
+      "y": 60,
+      "wires": [
+         [
+            "164c9ccc.5bafb3"
+         ]
+      ]
+   },
+   {
+      "id": "164c9ccc.5bafb3",
+      "type": "change",
+      "z": "229f32a0.bf2f2e",
+      "name": "",
+      "rules": [
+         {
+            "t": "set",
+            "p": "SwitchTheButton",
+            "pt": "flow",
+            "to": "payload",
+            "tot": "msg"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 270,
+      "y": 60,
+      "wires": [
+         []
+      ]
+   },
+   {
+      "id": "2f828cd8.7df1c4",
+      "type": "inject",
+      "z": "618b6cae.f84134",
+      "name": "RED",
+      "topic": "",
+      "payload": "360,100,50",
+      "payloadType": "str",
+      "repeat": "",
+      "crontab": "",
+      "once": false,
+      "x": 830,
+      "y": 120,
+      "wires": [
+         [
+            "10940eb1.476c51"
+         ]
+      ]
+   },
+   {
+      "id": "7e1d7023.ad961",
+      "type": "inject",
+      "z": "618b6cae.f84134",
+      "name": "BLUE",
+      "topic": "",
+      "payload": "240,100,50",
+      "payloadType": "str",
+      "repeat": "",
+      "crontab": "",
+      "once": false,
+      "x": 830,
+      "y": 80,
+      "wires": [
+         [
+            "10940eb1.476c51"
+         ]
+      ]
+   },
+   {
+      "id": "f6a234c9.2a22e8",
+      "type": "inject",
+      "z": "618b6cae.f84134",
+      "name": "WHITE",
+      "topic": "",
+      "payload": "0,0,100",
+      "payloadType": "str",
+      "repeat": "",
+      "crontab": "",
+      "once": false,
+      "x": 830,
+      "y": 40,
+      "wires": [
+         [
+            "10940eb1.476c51"
+         ]
+      ]
+   },
+   {
+      "id": "10940eb1.476c51",
+      "type": "mqtt out",
+      "z": "618b6cae.f84134",
+      "name": "",
+      "topic": "/openHAB/sub/dColor_HUE_WZ/command",
+      "qos": "2",
+      "retain": "",
+      "broker": "4f071a52.b66304",
+      "x": 1130,
+      "y": 80,
+      "wires": []
+   },
+   {
+      "id": "a8184d14.a7cd",
+      "type": "mqtt in",
+      "z": "618b6cae.f84134",
+      "name": "",
+      "topic": "/openHAB/sub/dColor_HUE_WZ/command",
+      "qos": "2",
+      "broker": "4f071a52.b66304",
+      "x": 840,
+      "y": 220,
+      "wires": [
+         [
+            "387ce78f.1e1f2"
+         ]
+      ]
+   },
+   {
+      "id": "adb88874.9d5ee8",
+      "type": "openhab2-in",
+      "z": "63a1ca3b.87b724",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dWallMoteQuad2",
+      "x": 100,
+      "y": 440,
+      "wires": [
+         [],
+         [
+            "7c07eb8b.7b0544",
+            "a6380034.2a076"
+         ]
+      ]
+   },
+   {
+      "id": "7c07eb8b.7b0544",
+      "type": "switch",
+      "z": "63a1ca3b.87b724",
+      "name": "switch payload type",
+      "property": "payload.type",
+      "propertyType": "msg",
+      "rules": [
+         {
+            "t": "eq",
+            "v": "ItemStateEvent",
+            "vt": "str"
+         }
+      ],
+      "checkall": "true",
+      "outputs": 1,
+      "x": 310,
+      "y": 480,
+      "wires": [
+         [
+            "b9179493.805b08"
+         ]
+      ]
+   },
+   {
+      "id": "b9179493.805b08",
+      "type": "switch",
+      "z": "63a1ca3b.87b724",
+      "name": "switch scene",
+      "property": "payload.payload.value",
+      "propertyType": "msg",
+      "rules": [
+         {
+            "t": "eq",
+            "v": "1.0",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "1.1",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "1.2",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "2.0",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "2.1",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "2.2",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "3.0",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "3.1",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "3.2",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "4.0",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "4.1",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "4.2",
+            "vt": "str"
+         }
+      ],
+      "checkall": "true",
+      "outputs": 12,
+      "x": 510,
+      "y": 480,
+      "wires": [
+         [
+            "8a6ec0ed.f4cb4"
+         ],
+         [],
+         [
+            "91271fa5.68d26"
+         ],
+         [
+            "831a6e9a.1e3a9"
+         ],
+         [],
+         [
+            "28d2556e.775bba"
+         ],
+         [
+            "75cd47e8.88d578"
+         ],
+         [],
+         [
+            "ca99836f.41595"
+         ],
+         [
+            "3eedccec.7238c4"
+         ],
+         [],
+         [
+            "d4054616.92f968"
+         ]
+      ]
+   },
+   {
+      "id": "d892f2b4.9b38d",
+      "type": "change",
+      "z": "63a1ca3b.87b724",
+      "name": "PlugSwitches ON",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "ON",
+            "tot": "str"
+         },
+         {
+            "t": "set",
+            "p": "AllPlug",
+            "pt": "flow",
+            "to": "0",
+            "tot": "str"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 970,
+      "y": 680,
+      "wires": [
+         [
+            "cd56edbe.50a4e",
+            "10824a7b.f96b26"
+         ]
+      ]
+   },
+   {
+      "id": "3eedccec.7238c4",
+      "type": "switch",
+      "z": "63a1ca3b.87b724",
+      "name": "FourthTouchButton",
+      "property": "AllPlug",
+      "propertyType": "flow",
+      "rules": [
+         {
+            "t": "eq",
+            "v": "0",
+            "vt": "num"
+         },
+         {
+            "t": "eq",
+            "v": "1",
+            "vt": "num"
+         }
+      ],
+      "checkall": "true",
+      "outputs": 2,
+      "x": 730,
+      "y": 660,
+      "wires": [
+         [
+            "dd0ae4b9.3cf988"
+         ],
+         [
+            "d892f2b4.9b38d"
+         ]
+      ]
+   },
+   {
+      "id": "dd0ae4b9.3cf988",
+      "type": "change",
+      "z": "63a1ca3b.87b724",
+      "name": "PlugSwitches OFF",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "OFF",
+            "tot": "str"
+         },
+         {
+            "t": "set",
+            "p": "AllPlug",
+            "pt": "flow",
+            "to": "1",
+            "tot": "str"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 970,
+      "y": 640,
+      "wires": [
+         [
+            "10824a7b.f96b26",
+            "cd56edbe.50a4e"
+         ]
+      ]
+   },
+   {
+      "id": "5ec4eba4.3eb764",
+      "type": "inject",
+      "z": "63a1ca3b.87b724",
+      "name": "",
+      "topic": "",
+      "payload": "0",
+      "payloadType": "num",
+      "repeat": "",
+      "crontab": "",
+      "once": true,
+      "x": 90,
+      "y": 40,
+      "wires": [
+         [
+            "dd5f4aa2.b9b678"
+         ]
+      ]
+   },
+   {
+      "id": "dd5f4aa2.b9b678",
+      "type": "change",
+      "z": "63a1ca3b.87b724",
+      "name": "",
+      "rules": [
+         {
+            "t": "set",
+            "p": "AllPlug",
+            "pt": "flow",
+            "to": "payload",
+            "tot": "msg"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 240,
+      "y": 40,
+      "wires": [
+         []
+      ]
+   },
+   {
+      "id": "e701da3b.0df8d8",
+      "type": "change",
+      "z": "63a1ca3b.87b724",
+      "name": "",
+      "rules": [
+         {
+            "t": "set",
+            "p": "HueEZ",
+            "pt": "flow",
+            "to": "payload",
+            "tot": "msg"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 240,
+      "y": 80,
+      "wires": [
+         []
+      ]
+   },
+   {
+      "id": "831a6e9a.1e3a9",
+      "type": "switch",
+      "z": "63a1ca3b.87b724",
+      "name": "SecondTouchButton",
+      "property": "HueWZ",
+      "propertyType": "flow",
+      "rules": [
+         {
+            "t": "eq",
+            "v": "0",
+            "vt": "num"
+         },
+         {
+            "t": "eq",
+            "v": "1",
+            "vt": "num"
+         }
+      ],
+      "checkall": "true",
+      "outputs": 2,
+      "x": 740,
+      "y": 340,
+      "wires": [
+         [
+            "aaf86370.f95cc"
+         ],
+         [
+            "fd4f169c.47b428"
+         ]
+      ]
+   },
+   {
+      "id": "e723a91.d12ae58",
+      "type": "change",
+      "z": "63a1ca3b.87b724",
+      "name": "HUE_EZ ON",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "ON",
+            "tot": "str"
+         },
+         {
+            "t": "set",
+            "p": "HueEZ",
+            "pt": "flow",
+            "to": "0",
+            "tot": "str"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 970,
+      "y": 100,
+      "wires": [
+         [
+            "c1b0263d.9e2198",
+            "aebfb5fe.2e5c98",
+            "886542ea.cae78"
+         ]
+      ]
+   },
+   {
+      "id": "6fa0d805.2696a8",
+      "type": "change",
+      "z": "63a1ca3b.87b724",
+      "name": "HUE_EZ OFF",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "OFF",
+            "tot": "str"
+         },
+         {
+            "t": "set",
+            "p": "HueEZ",
+            "pt": "flow",
+            "to": "1",
+            "tot": "str"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 980,
+      "y": 60,
+      "wires": [
+         [
+            "c1b0263d.9e2198",
+            "aebfb5fe.2e5c98",
+            "886542ea.cae78"
+         ]
+      ]
+   },
+   {
+      "id": "c1b0263d.9e2198",
+      "type": "openhab2-out",
+      "z": "63a1ca3b.87b724",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dSwitch_HUE_EZ_L",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1240,
+      "y": 40,
+      "wires": []
+   },
+   {
+      "id": "aebfb5fe.2e5c98",
+      "type": "openhab2-out",
+      "z": "63a1ca3b.87b724",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dSwitch_HUE_EZ_M",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1240,
+      "y": 80,
+      "wires": []
+   },
+   {
+      "id": "886542ea.cae78",
+      "type": "openhab2-out",
+      "z": "63a1ca3b.87b724",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dSwitch_HUE_EZ_R",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1240,
+      "y": 120,
+      "wires": []
+   },
+   {
+      "id": "cd56edbe.50a4e",
+      "type": "openhab2-out",
+      "z": "63a1ca3b.87b724",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dPlugSwitch_WZ",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1230,
+      "y": 640,
+      "wires": []
+   },
+   {
+      "id": "10824a7b.f96b26",
+      "type": "openhab2-out",
+      "z": "63a1ca3b.87b724",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dPlugSwitch_BZ",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1220,
+      "y": 680,
+      "wires": []
+   },
+   {
+      "id": "d4a9995f.cc6c18",
+      "type": "openhab2-in",
+      "z": "63a1ca3b.87b724",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dPlugSwitch_BZ",
+      "x": 1500,
+      "y": 700,
+      "wires": [
+         [],
+         []
+      ]
+   },
+   {
+      "id": "9a81f762.04ad68",
+      "type": "openhab2-in",
+      "z": "63a1ca3b.87b724",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dPlugSwitch_WZ",
+      "x": 1500,
+      "y": 640,
+      "wires": [
+         [],
+         []
+      ]
+   },
+   {
+      "id": "56ac00bf.18317",
+      "type": "openhab2-out",
+      "z": "63a1ca3b.87b724",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dSwitch_HUE_WZ",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1230,
+      "y": 340,
+      "wires": []
+   },
+   {
+      "id": "2131e12c.9e9cbe",
+      "type": "openhab2-in",
+      "z": "63a1ca3b.87b724",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dSwitch_HUE_WZ",
+      "x": 1510,
+      "y": 340,
+      "wires": [
+         [],
+         []
+      ]
+   },
+   {
+      "id": "49dfed31.ce8e34",
+      "type": "change",
+      "z": "63a1ca3b.87b724",
+      "name": "",
+      "rules": [
+         {
+            "t": "set",
+            "p": "dimWZ",
+            "pt": "flow",
+            "to": "payload",
+            "tot": "msg"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 240,
+      "y": 200,
+      "wires": [
+         []
+      ]
+   },
+   {
+      "id": "204fa2db.43617e",
+      "type": "inject",
+      "z": "63a1ca3b.87b724",
+      "name": "",
+      "topic": "",
+      "payload": "20",
+      "payloadType": "num",
+      "repeat": "",
+      "crontab": "",
+      "once": true,
+      "x": 90,
+      "y": 200,
+      "wires": [
+         [
+            "49dfed31.ce8e34"
+         ]
+      ]
+   },
+   {
+      "id": "d30f03c4.27cf4",
+      "type": "openhab2-in",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "vAlarmClockSonosPLAY11",
+      "x": 130,
+      "y": 180,
+      "wires": [
+         [
+            "aa74afd0.403b",
+            "545b3d0e.e83e94"
+         ],
+         []
+      ]
+   },
+   {
+      "id": "d4421367.a09548",
+      "type": "openhab2-out",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "vAlarmClockSonosPLAY11",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1020,
+      "y": 420,
+      "wires": []
+   },
+   {
+      "id": "b2ed0f85.56506",
+      "type": "openhab2-out",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dSonosPLAY11Controler",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 490,
+      "y": 620,
+      "wires": []
+   },
+   {
+      "id": "d35226ab.edd5e",
+      "type": "openhab2-out",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dSonosPLAY11Volume",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 480,
+      "y": 800,
+      "wires": []
+   },
+   {
+      "id": "e24c2307.5778a8",
+      "type": "openhab2-out",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "vSonosSnoozePLAY11",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 480,
+      "y": 680,
+      "wires": []
+   },
+   {
+      "id": "5fa7365b.ba4fb8",
+      "type": "openhab2-out",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "vSonosSnoozeTimePLAY11",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 500,
+      "y": 740,
+      "wires": []
+   },
+   {
+      "id": "bdb1cc9e.f22a8",
+      "type": "openhab2-in",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "vSonosSnoozeTimePLAY11",
+      "x": 820,
+      "y": 740,
+      "wires": [
+         [
+            "e0c4529c.f10d9"
+         ],
+         []
+      ]
+   },
+   {
+      "id": "b0de2f11.ea8b38",
+      "type": "openhab2-in",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dSonosPLAY11Controler",
+      "x": 810,
+      "y": 620,
+      "wires": [
+         [],
+         []
+      ]
+   },
+   {
+      "id": "4b0623a5.f52db4",
+      "type": "openhab2-in",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "vSonosPLAY11WeckerPlayRadio2",
+      "x": 840,
+      "y": 560,
+      "wires": [
+         [],
+         []
+      ]
+   },
+   {
+      "id": "9ed98630.f8465",
+      "type": "openhab2-out",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "vSonosPLAY11WeckerPlayRadio",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 520,
+      "y": 560,
+      "wires": []
+   },
+   {
+      "id": "d0f1e30.706052",
+      "type": "openhab2-out",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "vNRStartAlarmClockPLAY11",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1020,
+      "y": 120,
+      "wires": []
+   },
+   {
+      "id": "9241e1e1.565cf8",
+      "type": "openhab2-in",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "vNRStartAlarmClockPLAY11",
+      "x": 1020,
+      "y": 180,
+      "wires": [
+         [
+            "b6a8b717.7dcae8"
+         ],
+         []
+      ]
+   },
+   {
+      "id": "a6ebe4d4.4bf368",
+      "type": "delay",
+      "z": "618b6cae.f84134",
+      "name": "",
+      "pauseType": "delayv",
+      "timeout": "5",
+      "timeoutUnits": "seconds",
+      "rate": "1",
+      "nbRateUnits": "1",
+      "rateUnits": "second",
+      "randomFirst": "1",
+      "randomLast": "5",
+      "randomUnits": "seconds",
+      "drop": false,
+      "x": 440,
+      "y": 160,
+      "wires": [
+         [
+            "dae71ea3.aa69"
+         ]
+      ]
+   },
+   {
+      "id": "d1c28082.63287",
+      "type": "inject",
+      "z": "618b6cae.f84134",
+      "name": "",
+      "topic": "",
+      "payload": "3000",
+      "payloadType": "num",
+      "repeat": "",
+      "crontab": "",
+      "once": true,
+      "x": 90,
+      "y": 160,
+      "wires": [
+         [
+            "ac444d4d.d1166"
+         ]
+      ]
+   },
+   {
+      "id": "dae71ea3.aa69",
+      "type": "debug",
+      "z": "618b6cae.f84134",
+      "name": "",
+      "active": false,
+      "console": "false",
+      "complete": "true",
+      "x": 590,
+      "y": 160,
+      "wires": []
+   },
+   {
+      "id": "ac444d4d.d1166",
+      "type": "change",
+      "z": "618b6cae.f84134",
+      "name": "",
+      "rules": [
+         {
+            "t": "set",
+            "p": "delay",
+            "pt": "msg",
+            "to": "payload",
+            "tot": "msg"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 260,
+      "y": 160,
+      "wires": [
+         [
+            "a6ebe4d4.4bf368"
+         ]
+      ]
+   },
+   {
+      "id": "74ae586c.039188",
+      "type": "function",
+      "z": "618b6cae.f84134",
+      "name": "keyFobSwitch",
+      "func": "var changecolor = context.get('changecolor')||1;\nvar flipflop = context.get('flipflop')||0;\n//var newMsg = {payload: msg.payload};\n//var newMsgColor = {payload: msg.payload};\n//var newMsgToggle = {payload: msg.payload};\n// toggle switch function\nif (msg.payload == 2) {\n    if (flipflop === 0) {\n        flipflop = 1;\n        msg = {payload: \"OFF\"};\n    } else if (flipflop === 1) {\n        flipflop = 0;\n        msg = {payload: \"ON\"};\n    }\n    context.set('flipflop',flipflop);\n    msg.isDevice = \"flipflop\";\n    msg.flipflop = flipflop;\n    return msg;\n} else if (msg.payload == 1) {\n    if (changecolor === 1) {\n        changecolor = 2;\n        msg = {payload: \"WHITE\"};\n    } else if (changecolor === 2) {\n        changecolor = 3;\n        msg = {payload: \"RED\"};\n    } else if (changecolor === 3) {\n        changecolor = 4;\n        msg = {payload: \"GREEN\"};\n    } else if (changecolor === 4) {\n        changecolor = 1;\n        msg = {payload: \"BLUE\"};\n    }\n    context.set('changecolor',changecolor);\n    msg.isDevice = \"changecolor\";\n    msg.changecolor = changecolor;\n    return msg;\n} else msg = {payload: \"other scene\"};\nreturn msg;",
+      "outputs": "1",
+      "noerr": 0,
+      "x": 260,
+      "y": 240,
+      "wires": [
+         []
+      ],
+      "inputLabels": [
+         "MQTT input"
+      ],
+      "outputLabels": [
+         "newMsgx"
+      ]
+   },
+   {
+      "id": "a1ac87c7.717798",
+      "type": "openhab2-out",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "vSonosPLAY11VolumeAC",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 490,
+      "y": 860,
+      "wires": []
+   },
+   {
+      "id": "80392413.48dec8",
+      "type": "openhab2-in",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "vSonosPLAY11VolumeAC",
+      "x": 810,
+      "y": 860,
+      "wires": [
+         [
+            "e0551591.dbe488"
+         ],
+         []
+      ]
+   },
+   {
+      "id": "1be08d8f.760322",
+      "type": "ui_numeric",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "label": "Lautstärke",
+      "group": "a493ba89.519f78",
+      "order": 8,
+      "width": "3",
+      "height": "2",
+      "passthru": true,
+      "topic": "",
+      "format": "{{value}}",
+      "min": 0,
+      "max": "60",
+      "step": "5",
+      "x": 250,
+      "y": 800,
+      "wires": [
+         [
+            "d35226ab.edd5e"
+         ]
+      ]
+   },
+   {
+      "id": "e0551591.dbe488",
+      "type": "ui_gauge",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "group": "a493ba89.519f78",
+      "order": 5,
+      "width": "3",
+      "height": "2",
+      "gtype": "gage",
+      "title": "",
+      "label": "%",
+      "format": "{{value}} %",
+      "min": 0,
+      "max": "20",
+      "colors": [
+         "#00b500",
+         "#e6e600",
+         "#ca3838"
+      ],
+      "seg1": "",
+      "seg2": "",
+      "x": 1030,
+      "y": 860,
+      "wires": []
+   },
+   {
+      "id": "8c88b313.191b4",
+      "type": "openhab2-in",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "vSonosSnoozePLAY11",
+      "x": 800,
+      "y": 680,
+      "wires": [
+         [],
+         []
+      ]
+   },
+   {
+      "id": "fb863f5b.83a94",
+      "type": "openhab2-in",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dSonosPLAY11Volume",
+      "x": 800,
+      "y": 800,
+      "wires": [
+         [
+            "96430b1b.0d6388"
+         ],
+         []
+      ]
+   },
+   {
+      "id": "5577bf05.dd1de",
+      "type": "ui_button",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "group": "a493ba89.519f78",
+      "order": 2,
+      "width": "3",
+      "height": "1",
+      "passthru": false,
+      "label": "Pause",
+      "color": "",
+      "bgcolor": "",
+      "icon": "",
+      "payload": "PAUSE",
+      "payloadType": "str",
+      "topic": "",
+      "x": 230,
+      "y": 640,
+      "wires": [
+         [
+            "b2ed0f85.56506"
+         ]
+      ]
+   },
+   {
+      "id": "3269e4e8.fd6a5c",
+      "type": "ui_button",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "group": "a493ba89.519f78",
+      "order": 3,
+      "width": "3",
+      "height": "1",
+      "passthru": false,
+      "label": "Play",
+      "color": "",
+      "bgcolor": "",
+      "icon": "",
+      "payload": "PLAY",
+      "payloadType": "str",
+      "topic": "",
+      "x": 230,
+      "y": 600,
+      "wires": [
+         [
+            "b2ed0f85.56506"
+         ]
+      ]
+   },
+   {
+      "id": "5149cad1.f6c3a4",
+      "type": "ui_button",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "group": "603153c1.6b6e94",
+      "order": 8,
+      "width": "0",
+      "height": "0",
+      "passthru": true,
+      "label": "Snooze",
+      "color": "",
+      "bgcolor": "",
+      "icon": "",
+      "payload": "ON",
+      "payloadType": "str",
+      "topic": "",
+      "x": 240,
+      "y": 680,
+      "wires": [
+         [
+            "e24c2307.5778a8"
+         ]
+      ]
+   },
+   {
+      "id": "2df2a621.b8adaa",
+      "type": "inject",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "topic": "",
+      "payload": "5",
+      "payloadType": "num",
+      "repeat": "",
+      "crontab": "",
+      "once": true,
+      "x": 90,
+      "y": 740,
+      "wires": [
+         [
+            "d72c614a.b5f77"
+         ]
+      ]
+   },
+   {
+      "id": "ea59ca3d.7654c8",
+      "type": "ui_dropdown",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "label": "Sender einstellen",
+      "place": "Select option",
+      "group": "a493ba89.519f78",
+      "order": 1,
+      "width": "0",
+      "height": "0",
+      "passthru": true,
+      "options": [
+         {
+            "label": "NDR 2",
+            "value": 1,
+            "type": "num"
+         },
+         {
+            "label": "NDR Info 98.5",
+            "value": 2,
+            "type": "num"
+         },
+         {
+            "label": "Deutschlandfunk",
+            "value": 3,
+            "type": "num"
+         },
+         {
+            "label": "radio ffn",
+            "value": 4,
+            "type": "num"
+         },
+         {
+            "label": "N-JOY",
+            "value": "5",
+            "type": "str"
+         },
+         {
+            "label": "Radio 21",
+            "value": "6",
+            "type": "str"
+         }
+      ],
+      "payload": "",
+      "topic": "",
+      "x": 270,
+      "y": 560,
+      "wires": [
+         [
+            "9ed98630.f8465"
+         ]
+      ]
+   },
+   {
+      "id": "2584eedc.417882",
+      "type": "inject",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "topic": "",
+      "payload": "1",
+      "payloadType": "num",
+      "repeat": "",
+      "crontab": "",
+      "once": true,
+      "x": 90,
+      "y": 560,
+      "wires": [
+         [
+            "ea59ca3d.7654c8"
+         ]
+      ]
+   },
+   {
+      "id": "d72c614a.b5f77",
+      "type": "ui_numeric",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "label": "Snooze Dauer",
+      "group": "a493ba89.519f78",
+      "order": 6,
+      "width": "3",
+      "height": "2",
+      "passthru": true,
+      "topic": "",
+      "format": "{{value}}",
+      "min": 0,
+      "max": "20",
+      "step": "5",
+      "x": 260,
+      "y": 740,
+      "wires": [
+         [
+            "5fa7365b.ba4fb8"
+         ]
+      ]
+   },
+   {
+      "id": "e0c4529c.f10d9",
+      "type": "ui_gauge",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "group": "a493ba89.519f78",
+      "order": 7,
+      "width": "3",
+      "height": "2",
+      "gtype": "wave",
+      "title": "",
+      "label": "min",
+      "format": "{{value}} %",
+      "min": 0,
+      "max": "20",
+      "colors": [
+         "#00b500",
+         "#e6e600",
+         "#ca3838"
+      ],
+      "seg1": "",
+      "seg2": "",
+      "x": 1030,
+      "y": 740,
+      "wires": []
+   },
+   {
+      "id": "25cdf22d.08353e",
+      "type": "ui_switch",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "label": "Einschalten",
+      "group": "603153c1.6b6e94",
+      "order": 1,
+      "width": "0",
+      "height": "0",
+      "passthru": true,
+      "decouple": "false",
+      "topic": "",
+      "style": "",
+      "onvalue": "ON",
+      "onvalueType": "str",
+      "onicon": "",
+      "oncolor": "",
+      "offvalue": "OFF",
+      "offvalueType": "str",
+      "officon": "",
+      "offcolor": "",
+      "x": 730,
+      "y": 420,
+      "wires": [
+         [
+            "d4421367.a09548"
+         ]
+      ]
+   },
+   {
+      "id": "63a6ca56.3c0a64",
+      "type": "ui_text_input",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "label": "Weckzeit einstellen",
+      "group": "603153c1.6b6e94",
+      "order": 3,
+      "width": "3",
+      "height": "1",
+      "passthru": true,
+      "mode": "time",
+      "delay": "300",
+      "topic": "",
+      "x": 270,
+      "y": 360,
+      "wires": [
+         [
+            "8d7aa79a.17fb68",
+            "b6c9977e.eb7658",
+            "e23affcc.34646"
+         ]
+      ]
+   },
+   {
+      "id": "c40b2310.42f91",
+      "type": "ui_button",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "group": "603153c1.6b6e94",
+      "order": 9,
+      "width": "0",
+      "height": "0",
+      "passthru": false,
+      "label": "Aus",
+      "color": "",
+      "bgcolor": "",
+      "icon": "",
+      "payload": "off",
+      "payloadType": "str",
+      "topic": "",
+      "x": 230,
+      "y": 320,
+      "wires": [
+         [
+            "a131c778.3b4068"
+         ]
+      ]
+   },
+   {
+      "id": "918001cb.3e925",
+      "type": "comment",
+      "z": "bde9e35a.0d056",
+      "name": "Weckzeit",
+      "info": "Weckzeit muss um eine Stunde zurückgerechnet werden.\nVermutlich ist die Angabe in UTC seit Mitternacht in Millisekunden.",
+      "x": 120,
+      "y": 40,
+      "wires": []
+   },
+   {
+      "id": "156cf825.78ddb8",
+      "type": "ui_switch",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "label": "Dauerhaft",
+      "group": "603153c1.6b6e94",
+      "order": 2,
+      "width": "0",
+      "height": "0",
+      "passthru": true,
+      "decouple": "false",
+      "topic": "",
+      "style": "",
+      "onvalue": "ON",
+      "onvalueType": "str",
+      "onicon": "",
+      "oncolor": "",
+      "offvalue": "OFF",
+      "offvalueType": "str",
+      "officon": "",
+      "offcolor": "",
+      "x": 240,
+      "y": 520,
+      "wires": [
+         [
+            "813cac64.ba109"
+         ]
+      ]
+   },
+   {
+      "id": "c8ae4086.8a1c7",
+      "type": "function",
+      "z": "bde9e35a.0d056",
+      "name": "set timer",
+      "func": "var calc = 1000 * 60;\nvar sec = (msg.payload / 1000);\nvar minute = (msg.payload / calc) + 60;\nmsg.payload = \"on_override\" + \" \" + minute;\n//Umrechnung in Stunden, Minuten, Sekunden\n//var minute = Math.floor(sec/60);\n//sec %= 60;\nvar hour = Math.floor(minute/60);\nminute %= 60;\nmsg.time = hour + \":\" + minute;\nreturn msg;",
+      "outputs": "1",
+      "noerr": 0,
+      "x": 640,
+      "y": 360,
+      "wires": [
+         [
+            "a131c778.3b4068",
+            "d3f58eab.32477"
+         ]
+      ],
+      "inputLabels": [
+         "MQTT input"
+      ],
+      "outputLabels": [
+         "newMsgx"
+      ]
+   },
+   {
+      "id": "813cac64.ba109",
+      "type": "change",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "rules": [
+         {
+            "t": "set",
+            "p": "durable",
+            "pt": "flow",
+            "to": "payload",
+            "tot": "msg"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 460,
+      "y": 520,
+      "wires": [
+         []
+      ]
+   },
+   {
+      "id": "43580ce0.469144",
+      "type": "switch",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "property": "payload",
+      "propertyType": "msg",
+      "rules": [
+         {
+            "t": "eq",
+            "v": "ON",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "OFF",
+            "vt": "str"
+         }
+      ],
+      "checkall": "true",
+      "outputs": 2,
+      "x": 930,
+      "y": 240,
+      "wires": [
+         [
+            "db4ee632.001408"
+         ],
+         []
+      ]
+   },
+   {
+      "id": "db4ee632.001408",
+      "type": "switch",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "property": "durable",
+      "propertyType": "flow",
+      "rules": [
+         {
+            "t": "eq",
+            "v": "ON",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "OFF",
+            "vt": "str"
+         }
+      ],
+      "checkall": "true",
+      "outputs": 2,
+      "x": 930,
+      "y": 280,
+      "wires": [
+         [],
+         [
+            "daec38ec.214ae8"
+         ]
+      ]
+   },
+   {
+      "id": "daec38ec.214ae8",
+      "type": "delay",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "pauseType": "delay",
+      "timeout": "1920000",
+      "timeoutUnits": "milliseconds",
+      "rate": "1",
+      "nbRateUnits": "1",
+      "rateUnits": "second",
+      "randomFirst": "1",
+      "randomLast": "5",
+      "randomUnits": "seconds",
+      "drop": false,
+      "x": 990,
+      "y": 320,
+      "wires": [
+         [
+            "ca47e3de.11c0d"
+         ]
+      ]
+   },
+   {
+      "id": "ca47e3de.11c0d",
+      "type": "change",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "OFF",
+            "tot": "str"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 980,
+      "y": 380,
+      "wires": [
+         [
+            "25cdf22d.08353e"
+         ]
+      ]
+   },
+   {
+      "id": "98657388.df7f2",
+      "type": "ui_gauge",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "group": "603153c1.6b6e94",
+      "order": 6,
+      "width": "3",
+      "height": "3",
+      "gtype": "donut",
+      "title": "Wecker an",
+      "label": "",
+      "format": "{{payload}}",
+      "min": 0,
+      "max": "1",
+      "colors": [
+         "#00b500",
+         "#e6e600",
+         "#ca3838"
+      ],
+      "seg1": "",
+      "seg2": "",
+      "x": 710,
+      "y": 120,
+      "wires": []
+   },
+   {
+      "id": "c2afac4c.0e0c2",
+      "type": "change",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "1",
+            "tot": "num"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 520,
+      "y": 100,
+      "wires": [
+         [
+            "98657388.df7f2"
+         ]
+      ]
+   },
+   {
+      "id": "8fd3849a.1f2378",
+      "type": "change",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "0",
+            "tot": "num"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 520,
+      "y": 140,
+      "wires": [
+         [
+            "98657388.df7f2"
+         ]
+      ]
+   },
+   {
+      "id": "45372bcc.c00734",
+      "type": "ui_gauge",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "group": "603153c1.6b6e94",
+      "order": 7,
+      "width": "3",
+      "height": "3",
+      "gtype": "donut",
+      "title": "Alarm aktiv",
+      "label": "",
+      "format": "{{payload}}",
+      "min": 0,
+      "max": "1",
+      "colors": [
+         "#00b500",
+         "#e6e600",
+         "#ca3838"
+      ],
+      "seg1": "",
+      "seg2": "",
+      "x": 1410,
+      "y": 200,
+      "wires": []
+   },
+   {
+      "id": "aa6f05ed.635be8",
+      "type": "change",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "1",
+            "tot": "num"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 1300,
+      "y": 140,
+      "wires": [
+         [
+            "45372bcc.c00734"
+         ]
+      ]
+   },
+   {
+      "id": "b6a8b717.7dcae8",
+      "type": "switch",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "property": "payload",
+      "propertyType": "msg",
+      "rules": [
+         {
+            "t": "eq",
+            "v": "ON",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "OFF",
+            "vt": "str"
+         }
+      ],
+      "checkall": "true",
+      "outputs": 2,
+      "x": 1230,
+      "y": 200,
+      "wires": [
+         [
+            "aa6f05ed.635be8"
+         ],
+         [
+            "a0c6efab.605d5"
+         ]
+      ]
+   },
+   {
+      "id": "a0c6efab.605d5",
+      "type": "change",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "0",
+            "tot": "num"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 1300,
+      "y": 260,
+      "wires": [
+         [
+            "45372bcc.c00734"
+         ]
+      ]
+   },
+   {
+      "id": "a131c778.3b4068",
+      "type": "bigtimer",
+      "z": "bde9e35a.0d056",
+      "outtopic": "",
+      "outpayload1": "ON",
+      "outpayload2": "OFF",
+      "name": "Big Timer",
+      "lat": "52.373920",
+      "lon": "9.735603",
+      "starttime": "0",
+      "endtime": "10030",
+      "startoff": "0",
+      "endoff": 0,
+      "offs": "0",
+      "outtext1": "",
+      "outtext2": "",
+      "timeout": 1440,
+      "sun": true,
+      "mon": true,
+      "tue": true,
+      "wed": true,
+      "thu": true,
+      "fri": true,
+      "sat": true,
+      "jan": true,
+      "feb": true,
+      "mar": true,
+      "apr": true,
+      "may": true,
+      "jun": true,
+      "jul": true,
+      "aug": true,
+      "sep": true,
+      "oct": true,
+      "nov": true,
+      "dec": true,
+      "day1": 0,
+      "month1": 0,
+      "day2": 0,
+      "month2": 0,
+      "day3": 0,
+      "month3": 0,
+      "day4": 0,
+      "month4": 0,
+      "day5": 0,
+      "month5": 0,
+      "d1": 0,
+      "w1": 0,
+      "d2": 0,
+      "w2": 0,
+      "d3": 0,
+      "w3": 0,
+      "d4": 0,
+      "w4": 0,
+      "d5": 0,
+      "w5": 0,
+      "suspend": false,
+      "random": false,
+      "repeat": false,
+      "atstart": false,
+      "odd": false,
+      "even": false,
+      "x": 760,
+      "y": 220,
+      "wires": [
+         [
+            "d0f1e30.706052",
+            "43580ce0.469144"
+         ],
+         [],
+         []
+      ]
+   },
+   {
+      "id": "545b3d0e.e83e94",
+      "type": "change",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "rules": [
+         {
+            "t": "set",
+            "p": "alarmClock",
+            "pt": "flow",
+            "to": "payload",
+            "tot": "msg"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 530,
+      "y": 40,
+      "wires": [
+         []
+      ]
+   },
+   {
+      "id": "aa74afd0.403b",
+      "type": "switch",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "property": "payload",
+      "propertyType": "msg",
+      "rules": [
+         {
+            "t": "eq",
+            "v": "ON",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "OFF",
+            "vt": "str"
+         }
+      ],
+      "checkall": "true",
+      "outputs": 2,
+      "x": 330,
+      "y": 180,
+      "wires": [
+         [
+            "c2afac4c.0e0c2",
+            "b85678ca.67ce48"
+         ],
+         [
+            "3e500e0f.b056f2",
+            "8fd3849a.1f2378"
+         ]
+      ]
+   },
+   {
+      "id": "3e500e0f.b056f2",
+      "type": "change",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "stop",
+            "tot": "str"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 520,
+      "y": 240,
+      "wires": [
+         [
+            "a131c778.3b4068"
+         ]
+      ]
+   },
+   {
+      "id": "b85678ca.67ce48",
+      "type": "change",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "default",
+            "tot": "str"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 520,
+      "y": 200,
+      "wires": [
+         [
+            "a131c778.3b4068"
+         ]
+      ]
+   },
+   {
+      "id": "814e61a8.4a0c7",
+      "type": "ui_numeric",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "label": "Wecker Lautstärke",
+      "group": "a493ba89.519f78",
+      "order": 4,
+      "width": "3",
+      "height": "2",
+      "passthru": true,
+      "topic": "",
+      "format": "{{value}}",
+      "min": 0,
+      "max": "20",
+      "step": "2",
+      "x": 270,
+      "y": 860,
+      "wires": [
+         [
+            "a1ac87c7.717798"
+         ]
+      ]
+   },
+   {
+      "id": "96430b1b.0d6388",
+      "type": "ui_gauge",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "group": "a493ba89.519f78",
+      "order": 9,
+      "width": "3",
+      "height": "2",
+      "gtype": "gage",
+      "title": "",
+      "label": "%",
+      "format": "{{value}} %",
+      "min": 0,
+      "max": "60",
+      "colors": [
+         "#00b500",
+         "#e6e600",
+         "#ca3838"
+      ],
+      "seg1": "",
+      "seg2": "",
+      "x": 1030,
+      "y": 800,
+      "wires": []
+   },
+   {
+      "id": "a3b1775a.da04d8",
+      "type": "inject",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "topic": "",
+      "payload": "6",
+      "payloadType": "num",
+      "repeat": "",
+      "crontab": "",
+      "once": true,
+      "x": 90,
+      "y": 840,
+      "wires": [
+         [
+            "1be08d8f.760322",
+            "814e61a8.4a0c7"
+         ]
+      ]
+   },
+   {
+      "id": "b6c9977e.eb7658",
+      "type": "change",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "ON",
+            "tot": "str"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 520,
+      "y": 420,
+      "wires": [
+         [
+            "25cdf22d.08353e"
+         ]
+      ]
+   },
+   {
+      "id": "8d7aa79a.17fb68",
+      "type": "delay",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "pauseType": "delay",
+      "timeout": "1",
+      "timeoutUnits": "seconds",
+      "rate": "1",
+      "nbRateUnits": "1",
+      "rateUnits": "second",
+      "randomFirst": "1",
+      "randomLast": "5",
+      "randomUnits": "seconds",
+      "drop": false,
+      "x": 500,
+      "y": 360,
+      "wires": [
+         [
+            "c8ae4086.8a1c7"
+         ]
+      ]
+   },
+   {
+      "id": "387ce78f.1e1f2",
+      "type": "mqtt out",
+      "z": "618b6cae.f84134",
+      "name": "",
+      "topic": "andreas-node-red/sensors",
+      "qos": "0",
+      "retain": "",
+      "broker": "29f64e49.0df68a",
+      "x": 860,
+      "y": 300,
+      "wires": []
+   },
+   {
+      "id": "aadd8e86.8d0ca",
+      "type": "azureiothubregistry",
+      "z": "f5351430.0b7fb8",
+      "name": "Azure IoT Hub Registry",
+      "x": 370,
+      "y": 120,
+      "wires": [
+         [
+            "76d6ae4a.c3239"
+         ]
+      ]
+   },
+   {
+      "id": "f6cdb8a3.672438",
+      "type": "inject",
+      "z": "f5351430.0b7fb8",
+      "name": "Register Payload",
+      "topic": "",
+      "payload": "{\"deviceId\":\"NodeRED-Test\"}",
+      "payloadType": "json",
+      "repeat": "",
+      "crontab": "",
+      "once": false,
+      "x": 140,
+      "y": 120,
+      "wires": [
+         [
+            "aadd8e86.8d0ca"
+         ]
+      ]
+   },
+   {
+      "id": "76d6ae4a.c3239",
+      "type": "debug",
+      "z": "f5351430.0b7fb8",
+      "name": "Log",
+      "active": true,
+      "console": "false",
+      "complete": "true",
+      "x": 650,
+      "y": 120,
+      "wires": []
+   },
+   {
+      "id": "49e44f8f.87567",
+      "type": "debug",
+      "z": "f5351430.0b7fb8",
+      "name": "Log",
+      "active": true,
+      "console": "false",
+      "complete": "payload",
+      "x": 650,
+      "y": 60,
+      "wires": []
+   },
+   {
+      "id": "a4e83571.930368",
+      "type": "azureiothub",
+      "z": "f5351430.0b7fb8",
+      "name": "Azure IoT Hub",
+      "protocol": "mqtt",
+      "x": 340,
+      "y": 60,
+      "wires": [
+         [
+            "49e44f8f.87567"
+         ]
+      ]
+   },
+   {
+      "id": "3ce3c9b9.8e1fa6",
+      "type": "inject",
+      "z": "f5351430.0b7fb8",
+      "name": "Send Payload",
+      "topic": "",
+      "payload": "{\"deviceId\":\"NodeRED-Test\",\"key\":\"AfvmmPJG1XG//JUHUk3vjNnnPyhax3DcPn3ba9tXvfg=\",\"protocol\":\"mqtt\",\"data\":\"{tem: 25, wind: 20}\"}",
+      "payloadType": "json",
+      "repeat": "",
+      "crontab": "",
+      "once": false,
+      "x": 130,
+      "y": 60,
+      "wires": [
+         [
+            "a4e83571.930368"
+         ]
+      ]
+   },
+   {
+      "id": "b680cabb.1313e8",
+      "type": "azureiothubreceiver",
+      "z": "f5351430.0b7fb8",
+      "name": "Azure IoT Hub Receiver",
+      "x": 360,
+      "y": 220,
+      "wires": [
+         [
+            "50070823.2a3428"
+         ]
+      ]
+   },
+   {
+      "id": "198379ba.4e4d36",
+      "type": "azureiothubdevicetwin",
+      "z": "f5351430.0b7fb8",
+      "name": "Azure IoT Hub Device Twin",
+      "x": 380,
+      "y": 320,
+      "wires": [
+         [
+            "33bc311f.21174e"
+         ]
+      ]
+   },
+   {
+      "id": "50070823.2a3428",
+      "type": "debug",
+      "z": "f5351430.0b7fb8",
+      "name": "Log",
+      "active": true,
+      "console": "false",
+      "complete": "payload",
+      "x": 650,
+      "y": 220,
+      "wires": []
+   },
+   {
+      "id": "33bc311f.21174e",
+      "type": "debug",
+      "z": "f5351430.0b7fb8",
+      "name": "Log",
+      "active": true,
+      "console": "false",
+      "complete": "true",
+      "x": 650,
+      "y": 320,
+      "wires": []
+   },
+   {
+      "id": "15e8394f.dc9da7",
+      "type": "inject",
+      "z": "f5351430.0b7fb8",
+      "name": "Send DeviceId",
+      "topic": "",
+      "payload": "NodeRED-Test",
+      "payloadType": "str",
+      "repeat": "",
+      "crontab": "",
+      "once": false,
+      "x": 140,
+      "y": 320,
+      "wires": [
+         [
+            "198379ba.4e4d36"
+         ]
+      ]
+   },
+   {
+      "id": "5ae36ab7.5af874",
+      "type": "bigtimer",
+      "z": "29f10efb.e75212",
+      "outtopic": "",
+      "outpayload1": "ON",
+      "outpayload2": "OFF",
+      "name": "Big Timer",
+      "lat": "52.53051",
+      "lon": "9.75191",
+      "starttime": "360",
+      "endtime": "1320",
+      "startoff": "0",
+      "endoff": "0",
+      "offs": 0,
+      "outtext1": "",
+      "outtext2": "",
+      "timeout": 1440,
+      "sun": true,
+      "mon": true,
+      "tue": true,
+      "wed": true,
+      "thu": true,
+      "fri": true,
+      "sat": true,
+      "jan": true,
+      "feb": true,
+      "mar": true,
+      "apr": true,
+      "may": true,
+      "jun": true,
+      "jul": true,
+      "aug": true,
+      "sep": true,
+      "oct": true,
+      "nov": true,
+      "dec": true,
+      "day1": 0,
+      "month1": 0,
+      "day2": 0,
+      "month2": 0,
+      "day3": 0,
+      "month3": 0,
+      "day4": 0,
+      "month4": 0,
+      "day5": 0,
+      "month5": 0,
+      "d1": 0,
+      "w1": 0,
+      "d2": 0,
+      "w2": 0,
+      "d3": 0,
+      "w3": 0,
+      "d4": 0,
+      "w4": 0,
+      "d5": 0,
+      "w5": 0,
+      "suspend": false,
+      "random": false,
+      "repeat": false,
+      "atstart": false,
+      "odd": false,
+      "even": false,
+      "x": 300,
+      "y": 60,
+      "wires": [
+         [
+            "97263ad3.d2ff68"
+         ],
+         [],
+         []
+      ]
+   },
+   {
+      "id": "97263ad3.d2ff68",
+      "type": "openhab2-out",
+      "z": "29f10efb.e75212",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dPlugSwitch_EZ",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 480,
+      "y": 60,
+      "wires": []
+   },
+   {
+      "id": "27af03d8.0941ec",
+      "type": "ui_dropdown",
+      "z": "29f10efb.e75212",
+      "name": "",
+      "label": "Sonos über Timer",
+      "place": "Select option",
+      "group": "e8e666f4.a047a",
+      "order": 5,
+      "width": 0,
+      "height": 0,
+      "passthru": true,
+      "options": [
+         {
+            "label": "manual",
+            "value": "manual",
+            "type": "str"
+         },
+         {
+            "label": "default",
+            "value": "default",
+            "type": "str"
+         },
+         {
+            "label": "on",
+            "value": "on",
+            "type": "str"
+         },
+         {
+            "label": "off",
+            "value": "off",
+            "type": "str"
+         },
+         {
+            "label": "stop",
+            "value": "stop",
+            "type": "str"
+         }
+      ],
+      "payload": "",
+      "topic": "",
+      "x": 130,
+      "y": 60,
+      "wires": [
+         [
+            "5ae36ab7.5af874"
+         ]
+      ]
+   },
+   {
+      "id": "d3f58eab.32477",
+      "type": "ui_text",
+      "z": "bde9e35a.0d056",
+      "group": "603153c1.6b6e94",
+      "order": 5,
+      "width": "3",
+      "height": "1",
+      "name": "",
+      "label": "Weckzeit",
+      "format": "{{msg.time}}",
+      "layout": "row-spread",
+      "x": 800,
+      "y": 360,
+      "wires": []
+   },
+   {
+      "id": "5e3ce0b6.37c46",
+      "type": "openhab2-out",
+      "z": "63a1ca3b.87b724",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dDimmer_HUE_EZ_L",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1240,
+      "y": 180,
+      "wires": []
+   },
+   {
+      "id": "193bec7.9d48114",
+      "type": "inject",
+      "z": "63a1ca3b.87b724",
+      "name": "",
+      "topic": "",
+      "payload": "0",
+      "payloadType": "num",
+      "repeat": "",
+      "crontab": "",
+      "once": true,
+      "x": 90,
+      "y": 80,
+      "wires": [
+         [
+            "e701da3b.0df8d8"
+         ]
+      ]
+   },
+   {
+      "id": "2f98c0f6.399d7",
+      "type": "openhab2-out",
+      "z": "63a1ca3b.87b724",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dDimmer_HUE_EZ_M",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1240,
+      "y": 220,
+      "wires": []
+   },
+   {
+      "id": "b7aff813.f8c4c8",
+      "type": "openhab2-out",
+      "z": "63a1ca3b.87b724",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dDimmer_HUE_EZ_R",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1240,
+      "y": 260,
+      "wires": []
+   },
+   {
+      "id": "91271fa5.68d26",
+      "type": "function",
+      "z": "63a1ca3b.87b724",
+      "name": "Dimmer - UP EZ",
+      "func": "var dim = flow.get('dim');\nvar newMsg = {payload: 0};\ndim = dim + 4;\nif (dim < 100) {\n    newMsg.payload = dim;\n    //context.set('dim',dim);\n    flow.set('dim',dim);\n} else {\n    newMsg.payload = 100;\n    //context.set('dim',3);\n    //flow.set('dim',0);\n}\nreturn newMsg;",
+      "outputs": 1,
+      "noerr": 0,
+      "x": 720,
+      "y": 220,
+      "wires": [
+         [
+            "5e3ce0b6.37c46",
+            "2f98c0f6.399d7",
+            "b7aff813.f8c4c8"
+         ]
+      ]
+   },
+   {
+      "id": "a6380034.2a076",
+      "type": "debug",
+      "z": "63a1ca3b.87b724",
+      "name": "",
+      "active": true,
+      "console": "false",
+      "complete": "true",
+      "x": 270,
+      "y": 420,
+      "wires": []
+   },
+   {
+      "id": "3db7b20e.3362ce",
+      "type": "openhab2-in",
+      "z": "63a1ca3b.87b724",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dDimmer_HUE_EZ_L",
+      "x": 1520,
+      "y": 200,
+      "wires": [
+         [],
+         []
+      ]
+   },
+   {
+      "id": "86417e0a.5c0da",
+      "type": "function",
+      "z": "756d78f2.85cc08",
+      "name": "Dimmer Up",
+      "func": "var dim = flow.get('dimmer');\nvar newMsg = {payload: 0};\ndim = dim + 4;\nif (dim < 100) {\n    newMsg.payload = dim;\n    //context.set('dim',dim);\n    flow.set('dimmer',dim);\n} else {\n    newMsg.payload = 100;\n    //context.set('dim',3);\n    //flow.set('dim',0);\n}\nreturn newMsg;",
+      "outputs": 1,
+      "noerr": 0,
+      "x": 710,
+      "y": 260,
+      "wires": [
+         [
+            "3729d310.67f3fc"
+         ]
+      ]
+   },
+   {
+      "id": "3729d310.67f3fc",
+      "type": "openhab2-out",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dDimmer_HUE_WZ",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1130,
+      "y": 260,
+      "wires": []
+   },
+   {
+      "id": "8a6ec0ed.f4cb4",
+      "type": "switch",
+      "z": "63a1ca3b.87b724",
+      "name": "FirstTouchButton",
+      "property": "HueEZ",
+      "propertyType": "flow",
+      "rules": [
+         {
+            "t": "eq",
+            "v": "0",
+            "vt": "num"
+         },
+         {
+            "t": "eq",
+            "v": "1",
+            "vt": "num"
+         }
+      ],
+      "checkall": "true",
+      "outputs": 2,
+      "x": 730,
+      "y": 80,
+      "wires": [
+         [
+            "6fa0d805.2696a8"
+         ],
+         [
+            "e723a91.d12ae58"
+         ]
+      ]
+   },
+   {
+      "id": "c71173ae.f21ff",
+      "type": "openhab2-out",
+      "z": "63a1ca3b.87b724",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dDimmer_HUE_EZ_L",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1240,
+      "y": 740,
+      "wires": []
+   },
+   {
+      "id": "150b84f2.bb18bb",
+      "type": "openhab2-out",
+      "z": "63a1ca3b.87b724",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dDimmer_HUE_EZ_M",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1240,
+      "y": 780,
+      "wires": []
+   },
+   {
+      "id": "8b07a26a.5978",
+      "type": "openhab2-out",
+      "z": "63a1ca3b.87b724",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dDimmer_HUE_EZ_R",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1240,
+      "y": 820,
+      "wires": []
+   },
+   {
+      "id": "ca99836f.41595",
+      "type": "function",
+      "z": "63a1ca3b.87b724",
+      "name": "Dimmer - DOWN EZ",
+      "func": "var dim = flow.get('dim');\nvar newMsg = {payload: 0};\ndim = dim - 4;\nif (dim > 0) {\n    newMsg.payload = dim;\n    //context.set('dim',dim);\n    flow.set('dim',dim);\n} else {\n    newMsg.payload = 0;\n    //context.set('dim',3);\n    //flow.set('dim',3);\n}\nreturn newMsg;",
+      "outputs": 1,
+      "noerr": 0,
+      "x": 740,
+      "y": 780,
+      "wires": [
+         [
+            "c71173ae.f21ff",
+            "150b84f2.bb18bb",
+            "8b07a26a.5978"
+         ]
+      ]
+   },
+   {
+      "id": "4e7f9b8b.cb1334",
+      "type": "change",
+      "z": "63a1ca3b.87b724",
+      "name": "",
+      "rules": [
+         {
+            "t": "set",
+            "p": "dim",
+            "pt": "flow",
+            "to": "payload",
+            "tot": "msg"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 230,
+      "y": 240,
+      "wires": [
+         []
+      ]
+   },
+   {
+      "id": "1cc6d91.d19c227",
+      "type": "inject",
+      "z": "63a1ca3b.87b724",
+      "name": "",
+      "topic": "",
+      "payload": "50",
+      "payloadType": "num",
+      "repeat": "",
+      "crontab": "",
+      "once": true,
+      "x": 90,
+      "y": 240,
+      "wires": [
+         [
+            "4e7f9b8b.cb1334"
+         ]
+      ]
+   },
+   {
+      "id": "384a99c.a76be66",
+      "type": "change",
+      "z": "63a1ca3b.87b724",
+      "name": "",
+      "rules": [
+         {
+            "t": "set",
+            "p": "HueWZ",
+            "pt": "flow",
+            "to": "payload",
+            "tot": "msg"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 240,
+      "y": 160,
+      "wires": [
+         []
+      ]
+   },
+   {
+      "id": "80b8c2a5.3bc3e",
+      "type": "inject",
+      "z": "63a1ca3b.87b724",
+      "name": "",
+      "topic": "",
+      "payload": "0",
+      "payloadType": "num",
+      "repeat": "",
+      "crontab": "",
+      "once": true,
+      "x": 90,
+      "y": 160,
+      "wires": [
+         [
+            "384a99c.a76be66"
+         ]
+      ]
+   },
+   {
+      "id": "aaf86370.f95cc",
+      "type": "change",
+      "z": "63a1ca3b.87b724",
+      "name": "HUE_WZ OFF",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "OFF",
+            "tot": "str"
+         },
+         {
+            "t": "set",
+            "p": "HueWZ",
+            "pt": "flow",
+            "to": "1",
+            "tot": "str"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 980,
+      "y": 320,
+      "wires": [
+         [
+            "56ac00bf.18317"
+         ]
+      ]
+   },
+   {
+      "id": "fd4f169c.47b428",
+      "type": "change",
+      "z": "63a1ca3b.87b724",
+      "name": "HUE_WZ ON",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "ON",
+            "tot": "str"
+         },
+         {
+            "t": "set",
+            "p": "HueWZ",
+            "pt": "flow",
+            "to": "0",
+            "tot": "str"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 980,
+      "y": 360,
+      "wires": [
+         [
+            "56ac00bf.18317"
+         ]
+      ]
+   },
+   {
+      "id": "e23affcc.34646",
+      "type": "change",
+      "z": "bde9e35a.0d056",
+      "name": "",
+      "rules": [
+         {
+            "t": "set",
+            "p": "time",
+            "pt": "flow",
+            "to": "payload",
+            "tot": "msg"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 510,
+      "y": 460,
+      "wires": [
+         []
+      ]
+   },
+   {
+      "id": "3c9f54c4.b78a0c",
+      "type": "inject",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "topic": "",
+      "payload": "1",
+      "payloadType": "num",
+      "repeat": "",
+      "crontab": "",
+      "once": true,
+      "x": 90,
+      "y": 180,
+      "wires": [
+         [
+            "df74535.c4340b"
+         ]
+      ]
+   },
+   {
+      "id": "df74535.c4340b",
+      "type": "change",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "rules": [
+         {
+            "t": "set",
+            "p": "flipflop2",
+            "pt": "flow",
+            "to": "payload",
+            "tot": "msg"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 240,
+      "y": 180,
+      "wires": [
+         []
+      ]
+   },
+   {
+      "id": "8ca394b9.e44578",
+      "type": "change",
+      "z": "756d78f2.85cc08",
+      "name": "OFF",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "OFF",
+            "tot": "str"
+         },
+         {
+            "t": "set",
+            "p": "flipflop2",
+            "pt": "flow",
+            "to": "1",
+            "tot": "str"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 890,
+      "y": 580,
+      "wires": [
+         [
+            "31a0143c.3ead2c",
+            "69b28fb2.5c99d",
+            "7d8de64a.9d21f8",
+            "9ae8b369.7cf6d"
+         ]
+      ]
+   },
+   {
+      "id": "1243b986.a281d6",
+      "type": "switch",
+      "z": "756d78f2.85cc08",
+      "name": "toggle switch",
+      "property": "flipflop2",
+      "propertyType": "flow",
+      "rules": [
+         {
+            "t": "eq",
+            "v": "0",
+            "vt": "num"
+         },
+         {
+            "t": "eq",
+            "v": "1",
+            "vt": "num"
+         }
+      ],
+      "checkall": "true",
+      "outputs": 2,
+      "x": 710,
+      "y": 600,
+      "wires": [
+         [
+            "8ca394b9.e44578"
+         ],
+         [
+            "c6fbcd81.98c16"
+         ]
+      ]
+   },
+   {
+      "id": "c6fbcd81.98c16",
+      "type": "change",
+      "z": "756d78f2.85cc08",
+      "name": "ON",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "ON",
+            "tot": "str"
+         },
+         {
+            "t": "set",
+            "p": "flipflop2",
+            "pt": "flow",
+            "to": "0",
+            "tot": "str"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 890,
+      "y": 620,
+      "wires": [
+         [
+            "31a0143c.3ead2c",
+            "69b28fb2.5c99d",
+            "7d8de64a.9d21f8",
+            "9ae8b369.7cf6d"
+         ]
+      ]
+   },
+   {
+      "id": "f921807e.9c8ef",
+      "type": "openhab2-in",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dPlugSwitch_BZ",
+      "x": 1320,
+      "y": 540,
+      "wires": [
+         [],
+         []
+      ],
+      "outputLabels": [
+         "state event",
+         "raw event"
+      ]
+   },
+   {
+      "id": "31a0143c.3ead2c",
+      "type": "openhab2-out",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dPlugSwitch_BZ",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1120,
+      "y": 540,
+      "wires": []
+   },
+   {
+      "id": "69b28fb2.5c99d",
+      "type": "openhab2-out",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dPlugSwitch_EZ",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1120,
+      "y": 600,
+      "wires": []
+   },
+   {
+      "id": "7d8de64a.9d21f8",
+      "type": "openhab2-out",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dPlugSwitch_SZ",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1120,
+      "y": 660,
+      "wires": []
+   },
+   {
+      "id": "9ae8b369.7cf6d",
+      "type": "openhab2-out",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dPlugSwitch_WZ",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1130,
+      "y": 720,
+      "wires": []
+   },
+   {
+      "id": "84055229.d9e1b",
+      "type": "openhab2-in",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dPlugSwitch_EZ",
+      "x": 1320,
+      "y": 600,
+      "wires": [
+         [],
+         []
+      ],
+      "outputLabels": [
+         "state event",
+         "raw event"
+      ]
+   },
+   {
+      "id": "caf267b4.186bf8",
+      "type": "openhab2-in",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dPlugSwitch_SZ",
+      "x": 1320,
+      "y": 660,
+      "wires": [
+         [],
+         []
+      ],
+      "outputLabels": [
+         "state event",
+         "raw event"
+      ]
+   },
+   {
+      "id": "e5feed3f.b09b9",
+      "type": "openhab2-in",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dPlugSwitch_WZ",
+      "x": 1320,
+      "y": 720,
+      "wires": [
+         [],
+         []
+      ],
+      "outputLabels": [
+         "state event",
+         "raw event"
+      ]
+   },
+   {
+      "id": "af0a0559.aa8488",
+      "type": "change",
+      "z": "229f32a0.bf2f2e",
+      "name": "OFF",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "OFF",
+            "tot": "str"
+         },
+         {
+            "t": "set",
+            "p": "flipflop2",
+            "pt": "flow",
+            "to": "1",
+            "tot": "str"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 790,
+      "y": 500,
+      "wires": [
+         [
+            "1378cbc7.8c6e64",
+            "e887713f.e4204",
+            "20573b88.237ff4",
+            "5fa1a9b2.c4d348"
+         ]
+      ]
+   },
+   {
+      "id": "4b3092a2.63b1dc",
+      "type": "switch",
+      "z": "229f32a0.bf2f2e",
+      "name": "toggle switch",
+      "property": "flipflop2",
+      "propertyType": "flow",
+      "rules": [
+         {
+            "t": "eq",
+            "v": "0",
+            "vt": "num"
+         },
+         {
+            "t": "eq",
+            "v": "1",
+            "vt": "num"
+         }
+      ],
+      "checkall": "true",
+      "outputs": 2,
+      "x": 610,
+      "y": 520,
+      "wires": [
+         [
+            "af0a0559.aa8488"
+         ],
+         [
+            "55684985.5553c8"
+         ]
+      ]
+   },
+   {
+      "id": "55684985.5553c8",
+      "type": "change",
+      "z": "229f32a0.bf2f2e",
+      "name": "ON",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "ON",
+            "tot": "str"
+         },
+         {
+            "t": "set",
+            "p": "flipflop2",
+            "pt": "flow",
+            "to": "0",
+            "tot": "str"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 790,
+      "y": 540,
+      "wires": [
+         [
+            "1378cbc7.8c6e64",
+            "e887713f.e4204",
+            "20573b88.237ff4",
+            "5fa1a9b2.c4d348"
+         ]
+      ]
+   },
+   {
+      "id": "c5c51775.6127b8",
+      "type": "openhab2-in",
+      "z": "229f32a0.bf2f2e",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dPlugSwitch_BZ",
+      "x": 1220,
+      "y": 520,
+      "wires": [
+         [],
+         []
+      ],
+      "outputLabels": [
+         "state event",
+         "raw event"
+      ]
+   },
+   {
+      "id": "1378cbc7.8c6e64",
+      "type": "openhab2-out",
+      "z": "229f32a0.bf2f2e",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dPlugSwitch_BZ",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1020,
+      "y": 520,
+      "wires": []
+   },
+   {
+      "id": "e887713f.e4204",
+      "type": "openhab2-out",
+      "z": "229f32a0.bf2f2e",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dPlugSwitch_EZ",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1020,
+      "y": 580,
+      "wires": []
+   },
+   {
+      "id": "20573b88.237ff4",
+      "type": "openhab2-out",
+      "z": "229f32a0.bf2f2e",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dPlugSwitch_SZ",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1020,
+      "y": 640,
+      "wires": []
+   },
+   {
+      "id": "5fa1a9b2.c4d348",
+      "type": "openhab2-out",
+      "z": "229f32a0.bf2f2e",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dPlugSwitch_WZ",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1030,
+      "y": 700,
+      "wires": []
+   },
+   {
+      "id": "ce511b6a.4e3798",
+      "type": "openhab2-in",
+      "z": "229f32a0.bf2f2e",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dPlugSwitch_EZ",
+      "x": 1220,
+      "y": 580,
+      "wires": [
+         [],
+         []
+      ],
+      "outputLabels": [
+         "state event",
+         "raw event"
+      ]
+   },
+   {
+      "id": "35f75172.24a4ae",
+      "type": "openhab2-in",
+      "z": "229f32a0.bf2f2e",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dPlugSwitch_SZ",
+      "x": 1220,
+      "y": 640,
+      "wires": [
+         [],
+         []
+      ],
+      "outputLabels": [
+         "state event",
+         "raw event"
+      ]
+   },
+   {
+      "id": "47abdb3e.717fb4",
+      "type": "openhab2-in",
+      "z": "229f32a0.bf2f2e",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dPlugSwitch_WZ",
+      "x": 1220,
+      "y": 700,
+      "wires": [
+         [],
+         []
+      ],
+      "outputLabels": [
+         "state event",
+         "raw event"
+      ]
+   },
+   {
+      "id": "92e097ce.94de88",
+      "type": "inject",
+      "z": "229f32a0.bf2f2e",
+      "name": "",
+      "topic": "",
+      "payload": "1",
+      "payloadType": "num",
+      "repeat": "",
+      "crontab": "",
+      "once": true,
+      "x": 90,
+      "y": 100,
+      "wires": [
+         [
+            "b545c2d8.7af4f"
+         ]
+      ]
+   },
+   {
+      "id": "b545c2d8.7af4f",
+      "type": "change",
+      "z": "229f32a0.bf2f2e",
+      "name": "",
+      "rules": [
+         {
+            "t": "set",
+            "p": "flipflop2",
+            "pt": "flow",
+            "to": "payload",
+            "tot": "msg"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 240,
+      "y": 100,
+      "wires": [
+         []
+      ]
+   },
+   {
+      "id": "c8642f51.87ab4",
+      "type": "function",
+      "z": "756d78f2.85cc08",
+      "name": "Dimmer Down",
+      "func": "var dim = flow.get('dimmer');\nvar newMsg = {payload: 0};\ndim = dim - 4;\nif (dim > 0) {\n    newMsg.payload = dim;\n    //context.set('dim',dim);\n    flow.set('dimmer',dim);\n} else {\n    newMsg.payload = 0;\n    //context.set('dim',3);\n    //flow.set('dim',3);\n}\nreturn newMsg;",
+      "outputs": 1,
+      "noerr": 0,
+      "x": 720,
+      "y": 480,
+      "wires": [
+         [
+            "394b09de.14da06"
+         ]
+      ]
+   },
+   {
+      "id": "394b09de.14da06",
+      "type": "openhab2-out",
+      "z": "756d78f2.85cc08",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dDimmer_HUE_WZ",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1140,
+      "y": 480,
+      "wires": []
+   },
+   {
+      "id": "ef0a8c19.f1421",
+      "type": "change",
+      "z": "63a1ca3b.87b724",
+      "name": "Licht_WZ ON",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "ON",
+            "tot": "str"
+         },
+         {
+            "t": "set",
+            "p": "LichtWZ",
+            "pt": "flow",
+            "to": "0",
+            "tot": "str"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 1000,
+      "y": 580,
+      "wires": [
+         [
+            "57e0f830.a6fe88"
+         ]
+      ]
+   },
+   {
+      "id": "9658dc68.9bcce",
+      "type": "change",
+      "z": "63a1ca3b.87b724",
+      "name": "Licht_WZ OFF",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "OFF",
+            "tot": "str"
+         },
+         {
+            "t": "set",
+            "p": "LichtWZ",
+            "pt": "flow",
+            "to": "1",
+            "tot": "str"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 1000,
+      "y": 540,
+      "wires": [
+         [
+            "57e0f830.a6fe88"
+         ]
+      ]
+   },
+   {
+      "id": "75cd47e8.88d578",
+      "type": "switch",
+      "z": "63a1ca3b.87b724",
+      "name": "ThirdTouchButton",
+      "property": "LichtWZ",
+      "propertyType": "flow",
+      "rules": [
+         {
+            "t": "eq",
+            "v": "0",
+            "vt": "num"
+         },
+         {
+            "t": "eq",
+            "v": "1",
+            "vt": "num"
+         }
+      ],
+      "checkall": "true",
+      "outputs": 2,
+      "x": 750,
+      "y": 560,
+      "wires": [
+         [
+            "9658dc68.9bcce"
+         ],
+         [
+            "ef0a8c19.f1421"
+         ]
+      ]
+   },
+   {
+      "id": "97e9bee0.51d22",
+      "type": "change",
+      "z": "63a1ca3b.87b724",
+      "name": "",
+      "rules": [
+         {
+            "t": "set",
+            "p": "LichtWZ",
+            "pt": "flow",
+            "to": "payload",
+            "tot": "msg"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 240,
+      "y": 120,
+      "wires": [
+         []
+      ]
+   },
+   {
+      "id": "f6a8b850.aa0a58",
+      "type": "inject",
+      "z": "63a1ca3b.87b724",
+      "name": "",
+      "topic": "",
+      "payload": "0",
+      "payloadType": "num",
+      "repeat": "",
+      "crontab": "",
+      "once": true,
+      "x": 90,
+      "y": 120,
+      "wires": [
+         [
+            "97e9bee0.51d22"
+         ]
+      ]
+   },
+   {
+      "id": "57e0f830.a6fe88",
+      "type": "openhab2-out",
+      "z": "63a1ca3b.87b724",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dDimmer_WZ",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1220,
+      "y": 560,
+      "wires": []
+   },
+   {
+      "id": "c7cd4d6f.0f0f2",
+      "type": "openhab2-in",
+      "z": "63a1ca3b.87b724",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dDimmer_WZ",
+      "x": 1490,
+      "y": 560,
+      "wires": [
+         [],
+         []
+      ]
+   },
+   {
+      "id": "94d06435.fd65e8",
+      "type": "openhab2-out",
+      "z": "63a1ca3b.87b724",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dDimmer_HUE_WZ",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1240,
+      "y": 460,
+      "wires": []
+   },
+   {
+      "id": "28d2556e.775bba",
+      "type": "function",
+      "z": "63a1ca3b.87b724",
+      "name": "Dimmer - UP WZ",
+      "func": "var dim = flow.get('dimWZ');\nvar newMsg = {payload: 0};\ndim = dim + 4;\nif (dim < 100) {\n    newMsg.payload = dim;\n    //context.set('dimWZ',dim);\n    flow.set('dimWZ',dim);\n} else {\n    newMsg.payload = 100;\n    //context.set('dimWZ',3);\n    //flow.set('dimWZ',0);\n}\nreturn newMsg;",
+      "outputs": 1,
+      "noerr": 0,
+      "x": 730,
+      "y": 460,
+      "wires": [
+         [
+            "94d06435.fd65e8"
+         ]
+      ]
+   },
+   {
+      "id": "750de7bd.a89728",
+      "type": "openhab2-in",
+      "z": "63a1ca3b.87b724",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dDimmer_HUE_WZ",
+      "x": 1510,
+      "y": 460,
+      "wires": [
+         [],
+         []
+      ]
+   },
+   {
+      "id": "2fcba81e.aab2b8",
+      "type": "openhab2-out",
+      "z": "63a1ca3b.87b724",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dDimmer_HUE_WZ",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1240,
+      "y": 900,
+      "wires": []
+   },
+   {
+      "id": "d4054616.92f968",
+      "type": "function",
+      "z": "63a1ca3b.87b724",
+      "name": "Dimmer - DOWN WZ",
+      "func": "var dim = flow.get('dimWZ');\nvar newMsg = {payload: 0};\ndim = dim - 4;\nif (dim > 0) {\n    newMsg.payload = dim;\n    flow.set('dimWZ',dim);\n} else {\n    newMsg.payload = 0;\n}\nreturn newMsg;",
+      "outputs": 1,
+      "noerr": 0,
+      "x": 740,
+      "y": 900,
+      "wires": [
+         [
+            "2fcba81e.aab2b8"
+         ]
+      ]
+   },
+   {
+      "id": "3f7f88bf.e1f858",
+      "type": "openhab2-in",
+      "z": "63a1ca3b.87b724",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dDimmer_HUE_WZ",
+      "x": 1510,
+      "y": 900,
+      "wires": [
+         [],
+         []
+      ]
+   }
+]

@@ -1,0 +1,13 @@
+1,0=Licht im Esszimmer AN
+5,0=Licht im Esszimmer AUS
+2,0=Licht im Wohnzimmer AN
+6,0=Licht im Wohnzimmer AUS
+3,0=Licht im Flur AN
+7,0=Licht im Flur AUS
+4,0=Sonos AN
+8,0=Sonos AUS
+1,1=Alle Lichter AN
+1,2=Alle Lichter AN
+2,1=Alle Lichter AUS
+2,2=Alle Lichter AUS
+-=kein Wert

@@ -1,0 +1,644 @@
+[
+   {
+      "id": "8861960d.ca18a8",
+      "type": "openhab2-in",
+      "z": "229f32a0.bf2f2e",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dTheButton",
+      "x": 90,
+      "y": 360,
+      "wires": [
+         [
+            "c528a5ce.7615e8"
+         ],
+         [
+            "c528a5ce.7615e8",
+            "1a8b4d3f.56fdb3"
+         ]
+      ]
+   },
+   {
+      "id": "c528a5ce.7615e8",
+      "type": "debug",
+      "z": "229f32a0.bf2f2e",
+      "name": "",
+      "active": true,
+      "console": "false",
+      "complete": "payload",
+      "x": 290,
+      "y": 340,
+      "wires": []
+   },
+   {
+      "id": "1a8b4d3f.56fdb3",
+      "type": "switch",
+      "z": "229f32a0.bf2f2e",
+      "name": "switch scene",
+      "property": "payload.type",
+      "propertyType": "msg",
+      "rules": [
+         {
+            "t": "eq",
+            "v": "ItemStateEvent",
+            "vt": "str"
+         }
+      ],
+      "checkall": "true",
+      "outputs": 1,
+      "x": 290,
+      "y": 380,
+      "wires": [
+         [
+            "ba445ebf.b48b7"
+         ]
+      ]
+   },
+   {
+      "id": "ba445ebf.b48b7",
+      "type": "switch",
+      "z": "229f32a0.bf2f2e",
+      "name": "switch scene",
+      "property": "payload.payload.value",
+      "propertyType": "msg",
+      "rules": [
+         {
+            "t": "eq",
+            "v": "1.0",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "1.2",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "1.1",
+            "vt": "str"
+         },
+         {
+            "t": "eq",
+            "v": "1.3",
+            "vt": "str"
+         }
+      ],
+      "checkall": "true",
+      "outputs": 4,
+      "x": 490,
+      "y": 380,
+      "wires": [
+         [
+            "653ab677.b44c38"
+         ],
+         [
+            "f41592b7.c708"
+         ],
+         [
+            "c2f68652.070298"
+         ],
+         [
+            "4b3092a2.63b1dc"
+         ]
+      ]
+   },
+   {
+      "id": "fd0761d.92861a",
+      "type": "change",
+      "z": "229f32a0.bf2f2e",
+      "name": "SinglePress PLAY",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "PLAY",
+            "tot": "str"
+         },
+         {
+            "t": "set",
+            "p": "SwitchTheButton",
+            "pt": "flow",
+            "to": "1",
+            "tot": "str"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 950,
+      "y": 280,
+      "wires": [
+         [
+            "e5f46836.3095a8",
+            "9776a4b6.7b3b78"
+         ]
+      ]
+   },
+   {
+      "id": "f41592b7.c708",
+      "type": "change",
+      "z": "229f32a0.bf2f2e",
+      "name": "PressHold",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "Press & Hold",
+            "tot": "str"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 930,
+      "y": 360,
+      "wires": [
+         [
+            "e5f46836.3095a8"
+         ]
+      ]
+   },
+   {
+      "id": "c2f68652.070298",
+      "type": "change",
+      "z": "229f32a0.bf2f2e",
+      "name": "PressRelease",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "Press & Release",
+            "tot": "str"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 940,
+      "y": 400,
+      "wires": [
+         [
+            "e5f46836.3095a8"
+         ]
+      ]
+   },
+   {
+      "id": "e5f46836.3095a8",
+      "type": "debug",
+      "z": "229f32a0.bf2f2e",
+      "name": "",
+      "active": true,
+      "console": "false",
+      "complete": "payload",
+      "x": 1190,
+      "y": 460,
+      "wires": []
+   },
+   {
+      "id": "9776a4b6.7b3b78",
+      "type": "openhab2-out",
+      "z": "229f32a0.bf2f2e",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dSonosPLAY11Controler",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1210,
+      "y": 300,
+      "wires": []
+   },
+   {
+      "id": "653ab677.b44c38",
+      "type": "switch",
+      "z": "229f32a0.bf2f2e",
+      "name": "toggle switch",
+      "property": "SwitchTheButton",
+      "propertyType": "flow",
+      "rules": [
+         {
+            "t": "eq",
+            "v": "0",
+            "vt": "num"
+         },
+         {
+            "t": "eq",
+            "v": "1",
+            "vt": "num"
+         }
+      ],
+      "checkall": "true",
+      "outputs": 2,
+      "x": 710,
+      "y": 300,
+      "wires": [
+         [
+            "fd0761d.92861a",
+            "a31523f5.9b1dd"
+         ],
+         [
+            "47ff69b4.bfec58",
+            "a31523f5.9b1dd"
+         ]
+      ]
+   },
+   {
+      "id": "47ff69b4.bfec58",
+      "type": "change",
+      "z": "229f32a0.bf2f2e",
+      "name": "SinglePress PAUSE",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "PAUSE",
+            "tot": "str"
+         },
+         {
+            "t": "set",
+            "p": "SwitchTheButton",
+            "pt": "flow",
+            "to": "0",
+            "tot": "str"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 960,
+      "y": 320,
+      "wires": [
+         [
+            "e5f46836.3095a8",
+            "9776a4b6.7b3b78"
+         ]
+      ]
+   },
+   {
+      "id": "e3ccf9fd.2cfff8",
+      "type": "openhab2-in",
+      "z": "229f32a0.bf2f2e",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dSonosPLAY11Controler",
+      "x": 1210,
+      "y": 360,
+      "wires": [
+         [],
+         []
+      ]
+   },
+   {
+      "id": "a31523f5.9b1dd",
+      "type": "debug",
+      "z": "229f32a0.bf2f2e",
+      "name": "",
+      "active": true,
+      "console": "false",
+      "complete": "payload",
+      "x": 750,
+      "y": 160,
+      "wires": []
+   },
+   {
+      "id": "6c147a0d.770b74",
+      "type": "inject",
+      "z": "229f32a0.bf2f2e",
+      "name": "",
+      "topic": "",
+      "payload": "1",
+      "payloadType": "num",
+      "repeat": "",
+      "crontab": "",
+      "once": true,
+      "x": 90,
+      "y": 60,
+      "wires": [
+         [
+            "164c9ccc.5bafb3"
+         ]
+      ]
+   },
+   {
+      "id": "164c9ccc.5bafb3",
+      "type": "change",
+      "z": "229f32a0.bf2f2e",
+      "name": "",
+      "rules": [
+         {
+            "t": "set",
+            "p": "SwitchTheButton",
+            "pt": "flow",
+            "to": "payload",
+            "tot": "msg"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 270,
+      "y": 60,
+      "wires": [
+         []
+      ]
+   },
+   {
+      "id": "af0a0559.aa8488",
+      "type": "change",
+      "z": "229f32a0.bf2f2e",
+      "name": "OFF",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "OFF",
+            "tot": "str"
+         },
+         {
+            "t": "set",
+            "p": "flipflop2",
+            "pt": "flow",
+            "to": "1",
+            "tot": "str"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 790,
+      "y": 500,
+      "wires": [
+         [
+            "1378cbc7.8c6e64",
+            "e887713f.e4204",
+            "20573b88.237ff4",
+            "5fa1a9b2.c4d348"
+         ]
+      ]
+   },
+   {
+      "id": "4b3092a2.63b1dc",
+      "type": "switch",
+      "z": "229f32a0.bf2f2e",
+      "name": "toggle switch",
+      "property": "flipflop2",
+      "propertyType": "flow",
+      "rules": [
+         {
+            "t": "eq",
+            "v": "0",
+            "vt": "num"
+         },
+         {
+            "t": "eq",
+            "v": "1",
+            "vt": "num"
+         }
+      ],
+      "checkall": "true",
+      "outputs": 2,
+      "x": 610,
+      "y": 520,
+      "wires": [
+         [
+            "af0a0559.aa8488"
+         ],
+         [
+            "55684985.5553c8"
+         ]
+      ]
+   },
+   {
+      "id": "55684985.5553c8",
+      "type": "change",
+      "z": "229f32a0.bf2f2e",
+      "name": "ON",
+      "rules": [
+         {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "ON",
+            "tot": "str"
+         },
+         {
+            "t": "set",
+            "p": "flipflop2",
+            "pt": "flow",
+            "to": "0",
+            "tot": "str"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 790,
+      "y": 540,
+      "wires": [
+         [
+            "1378cbc7.8c6e64",
+            "e887713f.e4204",
+            "20573b88.237ff4",
+            "5fa1a9b2.c4d348"
+         ]
+      ]
+   },
+   {
+      "id": "c5c51775.6127b8",
+      "type": "openhab2-in",
+      "z": "229f32a0.bf2f2e",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dPlugSwitch_BZ",
+      "x": 1220,
+      "y": 520,
+      "wires": [
+         [],
+         []
+      ],
+      "outputLabels": [
+         "state event",
+         "raw event"
+      ]
+   },
+   {
+      "id": "1378cbc7.8c6e64",
+      "type": "openhab2-out",
+      "z": "229f32a0.bf2f2e",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dPlugSwitch_BZ",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1020,
+      "y": 520,
+      "wires": []
+   },
+   {
+      "id": "e887713f.e4204",
+      "type": "openhab2-out",
+      "z": "229f32a0.bf2f2e",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dPlugSwitch_EZ",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1020,
+      "y": 580,
+      "wires": []
+   },
+   {
+      "id": "20573b88.237ff4",
+      "type": "openhab2-out",
+      "z": "229f32a0.bf2f2e",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dPlugSwitch_SZ",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1020,
+      "y": 640,
+      "wires": []
+   },
+   {
+      "id": "5fa1a9b2.c4d348",
+      "type": "openhab2-out",
+      "z": "229f32a0.bf2f2e",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dPlugSwitch_WZ",
+      "topic": "ItemCommand",
+      "payload": "",
+      "x": 1030,
+      "y": 700,
+      "wires": []
+   },
+   {
+      "id": "ce511b6a.4e3798",
+      "type": "openhab2-in",
+      "z": "229f32a0.bf2f2e",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dPlugSwitch_EZ",
+      "x": 1220,
+      "y": 580,
+      "wires": [
+         [],
+         []
+      ],
+      "outputLabels": [
+         "state event",
+         "raw event"
+      ]
+   },
+   {
+      "id": "35f75172.24a4ae",
+      "type": "openhab2-in",
+      "z": "229f32a0.bf2f2e",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dPlugSwitch_SZ",
+      "x": 1220,
+      "y": 640,
+      "wires": [
+         [],
+         []
+      ],
+      "outputLabels": [
+         "state event",
+         "raw event"
+      ]
+   },
+   {
+      "id": "47abdb3e.717fb4",
+      "type": "openhab2-in",
+      "z": "229f32a0.bf2f2e",
+      "name": "",
+      "controller": "4d377d6b.eec334",
+      "itemname": "dPlugSwitch_WZ",
+      "x": 1220,
+      "y": 700,
+      "wires": [
+         [],
+         []
+      ],
+      "outputLabels": [
+         "state event",
+         "raw event"
+      ]
+   },
+   {
+      "id": "92e097ce.94de88",
+      "type": "inject",
+      "z": "229f32a0.bf2f2e",
+      "name": "",
+      "topic": "",
+      "payload": "1",
+      "payloadType": "num",
+      "repeat": "",
+      "crontab": "",
+      "once": true,
+      "x": 90,
+      "y": 100,
+      "wires": [
+         [
+            "b545c2d8.7af4f"
+         ]
+      ]
+   },
+   {
+      "id": "b545c2d8.7af4f",
+      "type": "change",
+      "z": "229f32a0.bf2f2e",
+      "name": "",
+      "rules": [
+         {
+            "t": "set",
+            "p": "flipflop2",
+            "pt": "flow",
+            "to": "payload",
+            "tot": "msg"
+         }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 240,
+      "y": 100,
+      "wires": [
+         []
+      ]
+   },
+   {
+      "id": "4d377d6b.eec334",
+      "type": "openhab2-controller",
+      "z": "",
+      "name": "openhab",
+      "protocol": "http",
+      "host": "192.168.1.18",
+      "port": "8080",
+      "path": "",
+      "username": "",
+      "password": ""
+   }
+]

@@ -1,0 +1,686 @@
+ /*
+  * var thingStatusInfo = getThingStatusInfo("zwave:device:c5155aa4:node2")
+
+if ((thingStatusInfo != null) && (thingStatusInfo.getStatus().toString() == "ONLINE")) {
+    logInfo("ThingStatus", "The thing is online.")
+} else {
+    logError("ThingStatus", "The thing is offline or doesn't exist.")
+}
+  * 
+  */
+  /*
+var String vRadioONEPlayListTmp = "NDR 2 (Pop)"
+var Number vRadioONEPlayListTmpNum = 1
+var String vRadioPLAY11PlayListTmp = "NDR 2 (Pop)"
+var Number vRadioPLAY11PlayListTmpNum = 1
+var String vRadioPLAY12PlayListTmp = "NDR 2 (Pop)"
+var Number vRadioPLAY12PlayListTmpNum = 1
+var Timer vTimerSonosONEOnOff = null
+var Timer vTimerSonosPLAY12OnOff = null
+var Timer vTimerSonosPLAY11OnOff = null
+var Timer vTimerSonosSnoozeONE = null
+var Timer vTimerSonosSnoozePLAY11 = null
+var Timer vTimerSonosSnoozePLAY12 = null
+var int vSnoozeTimeTmp = 1
+var int vSonosVolumeAC = 5
+
+rule "Sonos: Initialisierung"
+when
+	System started
+then
+	vSonosPLAY11VolumeAC.postUpdate(5)
+	vSonosONEVolumeAC.postUpdate(5)
+	vSonosVolume.postUpdate(4)
+	// can be changed via UI
+	vSonosActivePlayerNum.postUpdate(3)
+	vSonosActivePlayer.postUpdate("Wohnzimmer")
+	vSonosPlayList.postUpdate(1)
+	vSonosPlayRadio.postUpdate(1)
+	vSonosVolume.postUpdate(10)
+	// alarm clock
+	vSonosPLAY11WeckerRadioPlayList.sendCommand(ON)
+	vSonosPLAY12WeckerRadioPlayList.sendCommand(ON)
+	// PLAY11
+//	vSonosPLAY11PlayRadio.postUpdate(1)
+//	vSonosPLAY11PlayList.postUpdate(1)
+	// PLAY11 - Wecker
+	vSonosPLAY11WeckerPlayRadio.postUpdate(1)
+	vSonosPLAY11WeckerPlayRadio2.postUpdate("NDR 2 (Pop)")
+	vSonosPLAY11WeckerPlayList.postUpdate(1)
+	vSonosPLAY11WeckerPlayList2.postUpdate("Andi")
+	// PLAY12
+//	vSonosPLAY12PlayRadio.postUpdate(1)
+//	vSonosPLAY12PlayList.postUpdate(1)
+	// PLAY12 - Wecker
+	vSonosPLAY12WeckerPlayRadio.postUpdate(1)
+	vSonosPLAY12WeckerPlayRadio2.postUpdate("NDR 2 (Pop)")
+	vSonosPLAY12WeckerPlayList.postUpdate(1)
+	vSonosPLAY12WeckerPlayList2.postUpdate("Andi")
+	// CONNECT
+//	vSonosCONNECTPlayRadio.postUpdate(1)
+//	vSonosCONNECTPlayList.postUpdate(1)
+	// Wecker
+//	vSonosSnoozeTime.postUpdate(1)
+//	vSonosSnooze.postUpdate(OFF)
+end
+
+rule "Sonos An/Aus"
+when
+	Item vSonosOnOff received command
+then
+	logDebug("Sonos","------ vSonosOnOff ----------")
+	if (vSonosOnOff.state == ON) {
+		dPlugSwitch_EZ.sendCommand(ON)
+		dPlugSwitch_WZ.sendCommand(ON)
+		dPlugSwitch_BZ.sendCommand(ON)
+		dPlugSwitch_SZ.sendCommand(ON)			
+	}
+	if (vSonosOnOff.state == OFF) {
+		dPlugSwitch_EZ.sendCommand(OFF)
+		dPlugSwitch_WZ.sendCommand(OFF)
+		dPlugSwitch_BZ.sendCommand(OFF)
+		dPlugSwitch_SZ.sendCommand(OFF)
+	}
+end
+
+rule "vSonosActivePlayerNum"
+when
+	Item vSonosActivePlayerNum received command
+then
+	switch(receivedCommand) {
+		case 1 : vSonosActivePlayer.sendCommand("Schlafzimmer")
+		case 2 : vSonosActivePlayer.sendCommand("Bad")
+		case 3 : vSonosActivePlayer.sendCommand("Wohnzimmer")
+		case 4 : vSonosActivePlayer.sendCommand("Küche")
+	}
+end	
+
+rule "vSonosPlayList"
+when
+	Item vSonosPlayList received command
+then
+	logDebug("Sonos","------ vSonosPlayList ----------")
+	if (vSonosActivePlayer.state == "Schlafzimmer") {
+		switch(receivedCommand) {
+			case 1 : dSonosPLAY11PlayList.sendCommand("Andi")
+			case 2 : dSonosPLAY11PlayList.sendCommand("Mila")
+			case 3 : dSonosPLAY11PlayList.sendCommand("Nicki")
+			case 4 : dSonosPLAY11PlayList.sendCommand("Yara")
+		}		
+	}
+	if (vSonosActivePlayer.state == "Bad") {
+		switch(receivedCommand) {
+			case 1 : dSonosPLAY12PlayList.sendCommand("Andi")
+			case 2 : dSonosPLAY12PlayList.sendCommand("Mila")
+			case 3 : dSonosPLAY12PlayList.sendCommand("Nicki")
+			case 4 : dSonosPLAY12PlayList.sendCommand("Yara")
+		}		
+	}
+	if (vSonosActivePlayer.state == "Wohnzimmer") {
+		switch(receivedCommand) {
+			case 1 : dSonosCONNECTPlayList.sendCommand("Andi")
+			case 2 : dSonosCONNECTPlayList.sendCommand("Mila")
+			case 3 : dSonosCONNECTPlayList.sendCommand("Nicki")
+			case 4 : dSonosCONNECTPlayList.sendCommand("Yara")
+		}		
+	}
+end	
+
+rule "vSonosPlayRadio"
+when
+	Item vSonosPlayRadio received command
+then
+	logDebug("Sonos","------ vSonosPlayRadio ----------")
+	if (vSonosActivePlayer.state == "Schlafzimmer") {
+		switch(receivedCommand) {
+			case 1 : dSonosPLAY11PlayRadio.sendCommand("NDR 2 (Pop)")
+			case 2 : dSonosPLAY11PlayRadio.sendCommand("NDR Info 98.5 (Community)")
+			case 3 : dSonosPLAY11PlayRadio.sendCommand("Deutschlandfunk 106.1 (Nationale Nachrichten)")
+			case 4 : dSonosPLAY11PlayRadio.sendCommand("radio ffn 101.9 (Hot AC)")
+			case 5 : dSonosPLAY11PlayRadio.sendCommand("N-JOY 92.6 (Top 40 Hits)")
+			case 6 : dSonosPLAY11PlayRadio.sendCommand("Radio 21 87.7 (Classic Rock)")
+			case 7 : dSonosPLAY11PlayRadio.sendCommand("Bayern 3 97.3 (Hot AC)")
+			case 8 : dSonosPLAY11PlayRadio.sendCommand("ARD Das Erste")
+			case 9 : dSonosPLAY11PlayRadio.sendCommand("Coolradio 1 (Classic Rock)")
+			case 10 : dSonosPLAY11PlayRadio.sendCommand("BBC Radio 5 live 909 (Sport Talk & Nachrichten)")		
+		}		
+	}
+	if (vSonosActivePlayer.state == "Bad") {
+		switch(receivedCommand) {
+			case 1 : dSonosPLAY12PlayRadio.sendCommand("NDR 2 (Pop)")
+			case 2 : dSonosPLAY12PlayRadio.sendCommand("NDR Info 98.5 (Community)")
+			case 3 : dSonosPLAY12PlayRadio.sendCommand("Deutschlandfunk 106.1 (Nationale Nachrichten)")
+			case 4 : dSonosPLAY12PlayRadio.sendCommand("radio ffn 101.9 (Hot AC)")
+			case 5 : dSonosPLAY12PlayRadio.sendCommand("N-JOY 92.6 (Top 40 Hits)")
+			case 6 : dSonosPLAY12PlayRadio.sendCommand("Radio 21 87.7 (Classic Rock)")
+			case 7 : dSonosPLAY12PlayRadio.sendCommand("Bayern 3 97.3 (Hot AC)")
+			case 8 : dSonosPLAY12PlayRadio.sendCommand("ARD Das Erste")
+			case 9 : dSonosPLAY12PlayRadio.sendCommand("Coolradio 1 (Classic Rock)")
+			case 10 : dSonosPLAY12PlayRadio.sendCommand("BBC Radio 5 live 909 (Sport Talk & Nachrichten)")		
+		}		
+	}
+	if (vSonosActivePlayer.state == "Wohnzimmer") {
+		switch(receivedCommand) {
+			case 1 : dSonosCONNECTPlayRadio.sendCommand("NDR 2 (Pop)")
+			case 2 : dSonosCONNECTPlayRadio.sendCommand("NDR Info 98.5 (Community)")
+			case 3 : dSonosCONNECTPlayRadio.sendCommand("Deutschlandfunk 106.1 (Nationale Nachrichten)")
+			case 4 : dSonosCONNECTPlayRadio.sendCommand("radio ffn 101.9 (Hot AC)")
+			case 5 : dSonosCONNECTPlayRadio.sendCommand("N-JOY 92.6 (Top 40 Hits)")
+			case 6 : dSonosCONNECTPlayRadio.sendCommand("Radio 21 87.7 (Classic Rock)")
+			case 7 : dSonosCONNECTPlayRadio.sendCommand("Bayern 3 97.3 (Hot AC)")
+			case 8 : dSonosCONNECTPlayRadio.sendCommand("ARD Das Erste")
+			case 9 : dSonosCONNECTPlayRadio.sendCommand("Coolradio 1 (Classic Rock)")
+			case 10 : dSonosCONNECTPlayRadio.sendCommand("BBC Radio 5 live 909 (Sport Talk & Nachrichten)")		
+		}		
+	}
+end
+
+rule "vSonosControlerNEXTPREV"
+when
+	Item vSonosControlerNEXTPREV received command
+then
+	logDebug("Sonos","------ vSonosControlerNEXTPREV  ----------")
+	var vControllerTmp = vSonosControlerNEXTPREV.state.toString
+	logDebug("Sonos",vControllerTmp)
+	if (vSonosActivePlayer.state == "Schlafzimmer") {
+		logDebug("Sonos","------ vSonosControlerNEXTPREV Schlafzimmer ----------")
+		dSonosPLAY11Controler.sendCommand(vControllerTmp)
+	}
+	if (vSonosActivePlayer.state == "Bad") {
+		logDebug("Sonos","------ vSonosControlerNEXTPREV Bad ----------")
+		dSonosPLAY12Controler.sendCommand(vControllerTmp)
+	}
+	if (vSonosActivePlayer.state == "Wohnzimmer") {
+		logDebug("Sonos","------ vSonosControlerNEXTPREV Wohnzimmer ----------")
+		dSonosCONNECTControler.sendCommand(vControllerTmp)
+	}
+end	
+
+rule "vSonosControler"
+when
+	Item vSonosControler received command
+then
+	logDebug("Sonos","------ vSonosControler  ----------")
+	var vControllerTmp = vSonosControler.state.toString
+	logDebug("Sonos",vControllerTmp)
+	if (vSonosActivePlayer.state == "Schlafzimmer") {
+		logDebug("Sonos","------ vSonosControler Schlafzimmer ----------")
+		dSonosPLAY11Controler.sendCommand(vControllerTmp)
+	}
+	if (vSonosActivePlayer.state == "Bad") {
+		logDebug("Sonos","------ vSonosControler Bad ----------")
+		dSonosPLAY12Controler.sendCommand(vControllerTmp)
+	}
+	if (vSonosActivePlayer.state == "Wohnzimmer") {
+		logDebug("Sonos","------ vSonosControler Wohnzimmer ----------")
+		dSonosCONNECTControler.sendCommand(vControllerTmp)
+	}
+end	
+
+rule "vSonosVolume"
+when
+	Item vSonosVolume received command
+then
+	var vControllerTmp = vSonosVolume.state.toString
+	if (vSonosActivePlayer.state == "Schlafzimmer") {
+		logDebug("Sonos","------ Sonos Volume Schlafzimmer ----------")
+		dSonosPLAY11Volume.sendCommand(vControllerTmp)
+	}
+	if (vSonosActivePlayer.state == "Bad") {
+		logDebug("Sonos","------ Sonos Volume Bad ----------")
+		dSonosPLAY12Volume.sendCommand(vControllerTmp)
+	}
+	if (vSonosActivePlayer.state == "Wohnzimmer") {
+		logDebug("Sonos","------ Sonos Volume Wohnzimmer ----------")
+		dSonosCONNECTVolume.sendCommand(vControllerTmp)
+	}
+end	
+
+rule "vSonosMute"
+when
+	Item vSonosMute received command
+then
+	var vMuteTmp = vSonosMute.state.toString
+	if (vSonosActivePlayer.state == "Schlafzimmer") {
+		logDebug("Sonos","------ Sonos Mute Schlafzimmer ----------")
+		dSonosPLAY11Mute.sendCommand(vMuteTmp)
+	}
+	if (vSonosActivePlayer.state == "Bad") {
+		logDebug("Sonos","------ Sonos Mute Bad ----------")
+		dSonosPLAY12Mute.sendCommand(vMuteTmp)
+	}
+	if (vSonosActivePlayer.state == "Wohnzimmer") {
+		logDebug("Sonos","------ Sonos Mute Wohnzimmer ----------")
+		dSonosCONNECTMute.sendCommand(vMuteTmp)
+	}
+end
+
+rule "dSonosPLAY11CurrentArtistTitle"
+when 
+	Item dSonosPLAY11CurrentTitle changed
+then
+	logDebug("Sonos","------ dSonosPLAY11CurrentArtistTitle ----------")
+	var vCurrentArtistTmp = dSonosPLAY11CurrentArtist.state.toString
+	vSonosCurrentArtist.postUpdate(vCurrentArtistTmp)
+	var vCurrentTitleTmp = dSonosPLAY11CurrentTitle.state.toString
+	vSonosCurrentTitle.postUpdate(vCurrentTitleTmp)
+end
+
+rule "dSonosPLAY12CurrentArtistTitle"
+when
+	Item dSonosPLAY12CurrentTitle changed
+then
+	logDebug("Sonos","------ dSonosPLAY12CurrentArtistTitle ----------")
+	var vCurrentArtistTmp = dSonosPLAY12CurrentArtist.state.toString
+	vSonosCurrentArtist.postUpdate(vCurrentArtistTmp)
+	var vCurrentTitleTmp = dSonosPLAY12CurrentTitle.state.toString
+	vSonosCurrentTitle.postUpdate(vCurrentTitleTmp)
+end
+
+rule "dSonosCONNECTCurrentArtistTitle"
+when
+	Item dSonosCONNECTCurrentTitle changed
+then
+	logDebug("Sonos","------ dSonosCONNECTCurrentArtistTitle ----------")
+	var vCurrentArtistTmp = dSonosCONNECTCurrentArtist.state.toString
+	vSonosCurrentArtist.postUpdate(vCurrentArtistTmp)
+	var vCurrentTitleTmp = dSonosCONNECTCurrentTitle.state.toString
+	vSonosCurrentTitle.postUpdate(vCurrentTitleTmp)
+end
+
+/* 
+ * rules
+ */  
+/*
+rule "vSonosSnoozeONE"
+when
+	// switch for WallMot and HabPanel
+	Item vSonosSnoozeONE received command
+then
+	if(receivedCommand == ON) {
+		logDebug("Sonos","------ Snooze Start ONE ----------")
+		if (dSonosONEMute.state == OFF) {
+			dSonosONEMute.sendCommand(ON)			
+		}
+		// first ON command, so create a timer to switch on sonos
+		logDebug("Sonos","------ Snooze Start Timer ONE ----------")
+		if(vTimerSonosSnoozeONE === null) {     									
+			vSnoozeTimeTmp = (vSonosSnoozeTimeONE.state as DecimalType).intValue
+			vTimerSonosSnoozeONE = createTimer(now.plusMinutes(vSnoozeTimeTmp)) [|
+				logDebug("Sonos","------ Snooze trigger execution ONE ----------")
+				dSonosONEMute.sendCommand(OFF)
+				vSonosMute.postUpdate(OFF)
+				vSonosSnoozeONE.postUpdate(OFF)
+			]
+		} 
+		else {
+			// log:set DEBUG org.eclipse.smarthome.model.script.Sonos
+			// subsequent ON command, so reschedule the existing timer
+			logDebug("Sonos","------ Snooze reschedule ONE ----------")
+			vTimerSonosSnoozeONE.reschedule(now.plusMinutes(vSnoozeTimeTmp)) 
+		}
+	}	
+	else if(receivedCommand == OFF) {
+		logDebug("Sonos","------ Snooze AUS ONE ----------")
+		// remove any previously scheduled timer
+		if(vTimerSonosSnoozeONE !== null) {
+			vTimerSonosSnoozeONE.cancel
+			vTimerSonosSnoozeONE = null
+		}
+		dSonosONEMute.sendCommand(OFF)
+		vSonosMute.postUpdate(OFF)
+		vSonosSnoozeONE.postUpdate(OFF)			
+	}
+	logDebug("Sonos","------ Snooze ONE rule finished ----------")
+end
+
+rule "vSonosSnoozePLAY11"
+when
+	// switch for WallMot and HabPanel
+	Item vSonosSnoozePLAY11 received command
+then
+	if(receivedCommand == ON) {
+		logDebug("Sonos","------ Snooze Start PLAY11 ----------")
+		if (dSonosPLAY11Mute.state == OFF) {
+			dSonosPLAY11Mute.sendCommand(ON)			
+		}
+		// first ON command, so create a timer to switch on sonos
+		if(vTimerSonosSnoozePLAY11 === null) {     									
+			vSnoozeTimeTmp = (vSonosSnoozeTimePLAY11.state as DecimalType).intValue
+			vTimerSonosSnoozePLAY11 = createTimer(now.plusMinutes(vSnoozeTimeTmp)) [|
+				logDebug("Sonos","------ Snooze trigger execution PLAY11 ----------")
+				dSonosPLAY11Mute.sendCommand(OFF)
+				vSonosMute.postUpdate(OFF)
+				vSonosSnoozePLAY11.postUpdate(OFF)
+			]
+		} 
+		else {
+			// log:set DEBUG org.eclipse.smarthome.model.script.Sonos
+			// subsequent ON command, so reschedule the existing timer
+			logDebug("Sonos","------ Snooze reschedule PLAY11 ----------")
+			vTimerSonosSnoozePLAY11.reschedule(now.plusMinutes(vSnoozeTimeTmp)) 
+		}
+	}	
+	else if(receivedCommand == OFF) {
+		logDebug("Sonos","------ Snooze AUS PLAY11 ----------")
+		// remove any previously scheduled timer
+		if(vTimerSonosSnoozePLAY11 !== null) {
+			vTimerSonosSnoozePLAY11.cancel
+			vTimerSonosSnoozePLAY11 = null
+		}
+		dSonosPLAY11Mute.sendCommand(OFF)
+		vSonosMute.postUpdate(OFF)
+		vSonosSnoozePLAY11.postUpdate(OFF)			
+	}
+	logDebug("Sonos","------ Snooze rule finished PLAY11 ----------")
+end
+
+rule "vSonosSnoozePLAY12"
+when
+	// switch for WallMot and HabPanel
+//	Item vSonosSnoozePLAY12 changed
+	Item vSonosSnoozePLAY12 received command
+then
+	if(receivedCommand == ON) {
+//	if (vSonosSnoozePLAY12.state == ON) {
+		logDebug("Sonos","------ Snooze Start PLAY12 ----------")
+		if (dSonosPLAY12Mute.state == OFF) {
+			dSonosPLAY12Mute.sendCommand(ON)			
+		}
+		// first ON command, so create a timer to switch on sonos
+		if(vTimerSonosSnoozePLAY12 === null) {     									
+			vSnoozeTimeTmp = (vSonosSnoozeTimePLAY12.state as DecimalType).intValue
+			vTimerSonosSnoozePLAY12 = createTimer(now.plusMinutes(vSnoozeTimeTmp)) [|
+				logDebug("Sonos","------ Snooze trigger execution PLAY12 ----------")
+				dSonosPLAY12Mute.sendCommand(OFF)
+				vSonosMute.postUpdate(OFF)
+				vSonosSnoozePLAY12.postUpdate(OFF)
+			]
+		} 
+		else {
+			// log:set DEBUG org.eclipse.smarthome.model.script.Sonos
+			// subsequent ON command, so reschedule the existing timer
+			logDebug("Sonos","------ Snooze reschedule PLAY12 ----------")
+			vTimerSonosSnoozePLAY12.reschedule(now.plusMinutes(vSnoozeTimeTmp)) 
+		}
+	}	
+	else if(receivedCommand == OFF) {
+//	else if (vSonosSnoozePLAY12.state == OFF) {
+		logDebug("Sonos","------ Snooze AUS PLAY12 ----------")
+		// remove any previously scheduled timer
+		if(vTimerSonosSnoozePLAY12 !== null) {
+			vTimerSonosSnoozePLAY12.cancel
+			vTimerSonosSnoozePLAY12 = null
+		}
+		dSonosPLAY12Mute.sendCommand(OFF)
+		vSonosMute.postUpdate(OFF)			
+		vSonosSnoozePLAY12.postUpdate(OFF)
+	}
+	logDebug("Sonos","------ Snooze rule finished PLAY12 ----------")
+end
+//
+// New alarm clock rule without CalDAV
+//
+rule "SonosONE-NodeRED Alarm Clock"
+when
+	Item vNRStartAlarmClockONE received command
+then
+if(receivedCommand == ON) {
+	logDebug("Sonos","------ Alarm Clock ONE via NodeRED ON ----------")
+	// first ON command, so create a timer to switch on sonos
+	if(vTimerSonosONEOnOff === null) {
+		dPlugSwitch_EZ.sendCommand(ON)
+		vSonosOnOff.postUpdate(ON)
+		vTimerSonosONEOnOff = createTimer(now.plusMinutes(2)) [|
+			logDebug("Sonos","------ONE Alarm Clock PLAY11 NodeRED Trigger execution ----------")
+			vRadioONEPlayListTmp = (vSonosONEWeckerPlayRadio2.state as StringType).toString
+			vRadioONEPlayListTmpNum = (vSonosONEWeckerPlayRadio.state as DecimalType).intValue
+			//dSonosONEVolume.sendCommand(5)
+			vSonosVolumeAC = (vSonosONEVolumeAC.state as DecimalType).intValue
+			dSonosONEVolume.sendCommand(vSonosVolumeAC)
+			dSonosONEPlayRadio.sendCommand(vRadioONEPlayListTmp)
+			//dSonosONEPlayRadio.sendCommand("NDR 2")
+			vSonosPlayRadio.postUpdate(vRadioONEPlayListTmpNum)
+		]
+	} 
+	else {
+		// log:set DEBUG org.eclipse.smarthome.model.script.Sonos
+		logDebug("Sonos","------ Alarm Clock PLAY11 NodeRED no reschedule ----------")
+	}			
+}	
+else if(receivedCommand == OFF) {
+	logDebug("Sonos","------ Alarm Clock PLAY11 NodeRED OFF ----------")
+	dSonosONEStop.sendCommand(ON)
+	// remove any previously scheduled timer
+	if(vTimerSonosONEOnOff !== null) {
+		vTimerSonosONEOnOff.cancel
+		vTimerSonosONEOnOff = null
+	}
+	if(vTimerSonosSnoozeONE !== null) {
+		vTimerSonosSnoozeONE.cancel
+		vTimerSonosSnoozeONE = null
+	}
+	dPlugSwitch_EZ.sendCommand(OFF)
+	vSonosOnOff.postUpdate(OFF)			
+}
+logDebug("Sonos","------ Alarm Clock NodeRED ONE rule finished ----------")
+end
+//
+rule "SonosPLAY11-NodeRED Alarm Clock"
+when
+	Item vNRStartAlarmClockPLAY11 received command
+then
+if(receivedCommand == ON) {
+	logDebug("Sonos","------ Alarm Clock via NodeRED PLAY11 ON ----------")
+	// first ON command, so create a timer to switch on sonos
+	if(vTimerSonosPLAY11OnOff === null) {
+		dPlugSwitch_SZ.sendCommand(ON)
+		vSonosOnOff.postUpdate(ON)
+		vTimerSonosPLAY11OnOff = createTimer(now.plusMinutes(2)) [|
+			logDebug("Sonos","------PLAY11 Alarm Clock Trigger execution ----------")
+			vRadioPLAY11PlayListTmp = (vSonosPLAY11WeckerPlayRadio2.state as StringType).toString
+			vRadioPLAY11PlayListTmpNum = (vSonosPLAY11WeckerPlayRadio.state as DecimalType).intValue
+			//dSonosPLAY11Volume.sendCommand(4)
+			vSonosVolumeAC = (vSonosPLAY11VolumeAC.state as DecimalType).intValue
+			dSonosPLAY11Volume.sendCommand(vSonosVolumeAC)
+			dSonosPLAY11PlayRadio.sendCommand(vRadioPLAY11PlayListTmp)
+			vSonosPlayRadio.postUpdate(vRadioPLAY11PlayListTmpNum)
+		]
+	} 
+	else {
+		// log:set DEBUG org.eclipse.smarthome.model.script.Sonos
+		logDebug("Sonos","------ Alarm Clock NodeRED PLAY11 no reschedule ----------")
+	}			
+}	
+else if(receivedCommand == OFF) {
+	logDebug("Sonos","------ Alarm Clock NodeRED PLAY11 OFF ----------")
+	dSonosPLAY11Stop.sendCommand(ON)
+	// remove any previously scheduled timer
+	if(vTimerSonosPLAY11OnOff !== null) {
+		vTimerSonosPLAY11OnOff.cancel
+		vTimerSonosPLAY11OnOff = null
+	}
+	if(vTimerSonosSnoozePLAY11 !== null) {
+		vTimerSonosSnoozePLAY11.cancel
+		vTimerSonosSnoozePLAY11 = null
+	}
+	dPlugSwitch_SZ.sendCommand(OFF)
+	vSonosOnOff.postUpdate(OFF)			
+}
+logDebug("Sonos","------ Alarm Clock NodeRED PLAY11 rule finished ----------")
+end
+// 
+rule "Sonos: Alarm Clock CalDav"
+when
+	Item vSonosCalDav_OnOff received command
+then
+	if(receivedCommand == ON && (vAlarmClockSonosPLAY11.state == ON || vAlarmClockSonosPLAY12.state == ON) ) {
+		logDebug("Sonos","------ Alarm Clock via CalDav AN ----------")
+		if (vAlarmClockSonosPLAY11.state == ON) {
+			// first ON command, so create a timer to switch on sonos
+			if(vTimerSonosPLAY11OnOff === null) {
+				dPlugSwitch_SZ.sendCommand(ON)
+				vSonosOnOff.postUpdate(ON)
+				vTimerSonosPLAY11OnOff = createTimer(now.plusMinutes(2)) [|
+					logDebug("Sonos","------PLAY:1-1 Alarm Clock Trigger execution ----------")
+					vRadioPLAY11PlayListTmp = (vSonosPLAY11WeckerPlayRadio2.state as StringType).toString
+					vRadioPLAY11PlayListTmpNum = (vSonosPLAY11WeckerPlayRadio.state as DecimalType).intValue
+					dSonosPLAY11Volume.sendCommand(5)
+		         dSonosPLAY11PlayRadio.sendCommand(vRadioPLAY11PlayListTmp)
+		         vSonosPlayRadio.postUpdate(vRadioPLAY11PlayListTmpNum)								
+				]
+			} 
+			else {
+				// log:set DEBUG org.eclipse.smarthome.model.script.Sonos
+				logDebug("Sonos","------ Alarm Clock no reschedule ----------")
+			}			
+		}
+		if (vAlarmClockSonosPLAY12.state == ON) {
+			// first ON command, so create a timer to switch on sonos
+			if(vTimerSonosPLAY12OnOff === null) {
+				dPlugSwitch_BZ.sendCommand(ON)
+				vSonosOnOff.postUpdate(ON)
+				vTimerSonosPLAY12OnOff = createTimer(now.plusMinutes(2)) [|
+					logDebug("Sonos","------PLAY:1-1 Alarm Clock Trigger execution ----------")
+					vRadioPLAY12PlayListTmp = (vSonosPLAY12WeckerPlayRadio2.state as StringType).toString
+					vRadioPLAY12PlayListTmpNum = (vSonosPLAY12WeckerPlayRadio.state as DecimalType).intValue
+					dSonosPLAY12Volume.sendCommand(5)
+		         dSonosPLAY12PlayRadio.sendCommand(vRadioPLAY12PlayListTmp)
+		         vSonosPlayRadio.postUpdate(vRadioPLAY12PlayListTmpNum)								
+				]
+			} 
+			else {
+				// log:set DEBUG org.eclipse.smarthome.model.script.Sonos
+				logDebug("Sonos","------ Alarm Clock no reschedule ----------")
+			}			
+		}
+	}	
+	else if(receivedCommand == OFF) {
+		logDebug("Sonos","------ Alarm Clock via CalDav AUS ----------")
+		if (vAlarmClockSonosPLAY11.state == ON) {
+			dSonosPLAY11Stop.sendCommand(ON)
+			// remove any previously scheduled timer
+			if(vTimerSonosSnoozePLAY12 !== null) {
+				vTimerSonosSnoozePLAY12.cancel
+				vTimerSonosSnoozePLAY12 = null
+			}
+			if(vTimerSonosPLAY11OnOff !== null) {
+				vTimerSonosPLAY11OnOff.cancel
+				vTimerSonosPLAY11OnOff = null
+			}
+		}
+		if (vAlarmClockSonosPLAY12.state == ON) {
+			dSonosPLAY12Stop.sendCommand(ON)
+			// remove any previously scheduled timer
+			if(vTimerSonosSnoozePLAY12 !== null) {
+				vTimerSonosSnoozePLAY12.cancel
+				vTimerSonosSnoozePLAY12 = null
+			}
+			if(vTimerSonosPLAY12OnOff !== null) {
+				vTimerSonosPLAY12OnOff.cancel
+				vTimerSonosPLAY12OnOff = null
+			}
+		}
+		dPlugSwitch_BZ.sendCommand(OFF)
+		dPlugSwitch_SZ.sendCommand(OFF)
+		vSonosOnOff.postUpdate(OFF)			
+	}
+	logDebug("Sonos","------ Alarm Clock rule finished ----------")
+end
+
+rule "vSonosONEWeckerPlayList"
+when
+	Item vSonosONEWeckerPlayList received command
+then
+	logDebug("Sonos","------ vSonosONEWeckerPlayList start ----------")
+	switch(receivedCommand) {
+		case 1 : vSonosONEWeckerPlayList2.sendCommand("Andi")
+		case 2 : vSonosONEWeckerPlayList2.sendCommand("Mila")
+		case 3 : vSonosONEWeckerPlayList2.sendCommand("Nicki")
+		case 4 : vSonosONEWeckerPlayList2.sendCommand("Yara")
+	}
+end
+
+rule "vSonosONEWeckerPlayRadio"
+when
+	Item vSonosONEWeckerPlayRadio received command
+then
+	logDebug("Sonos","------ vSonosONEWeckerPlayRadio start ----------")
+	switch(receivedCommand) {
+		case 1 : vSonosONEWeckerPlayRadio2.sendCommand("NDR 2 (Pop)")
+		case 2 : vSonosONEWeckerPlayRadio2.sendCommand("NDR Info 98.5 (Community)")
+		case 3 : vSonosONEWeckerPlayRadio2.sendCommand("Deutschlandfunk 106.1 (Nationale Nachrichten)")
+		case 4 : vSonosONEWeckerPlayRadio2.sendCommand("radio ffn 101.9 (Hot AC)")
+		case 5 : vSonosONEWeckerPlayRadio2.sendCommand("N-JOY 92.6 (Top 40 Hits)")
+		case 6 : vSonosONEWeckerPlayRadio2.sendCommand("Radio 21 87.7 (Classic Rock)")
+		case 7 : vSonosONEWeckerPlayRadio2.sendCommand("Bayern 3 97.3 (Hot AC)")
+		case 8 : vSonosONEWeckerPlayRadio2.sendCommand("ARD Das Erste")
+		case 9 : vSonosONEWeckerPlayRadio2.sendCommand("Coolradio 1 (Classic Rock)")
+		case 10 : vSonosONEWeckerPlayRadio2.sendCommand("BBC Radio 5 live 909 (Sport Talk & Nachrichten)")		
+	}
+end
+
+rule "vSonosPLAY11WeckerPlayList"
+when
+	Item vSonosPLAY11WeckerPlayList received command
+then
+	logDebug("Sonos","------ vSonosPLAY11WeckerPlayList start ----------")
+	switch(receivedCommand) {
+		case 1 : vSonosPLAY11WeckerPlayList2.sendCommand("Andi")
+		case 2 : vSonosPLAY11WeckerPlayList2.sendCommand("Mila")
+		case 3 : vSonosPLAY11WeckerPlayList2.sendCommand("Nicki")
+		case 4 : vSonosPLAY11WeckerPlayList2.sendCommand("Yara")
+	}
+end
+
+rule "vSonosPLAY11WeckerPlayRadio"
+when
+	Item vSonosPLAY11WeckerPlayRadio received command
+then
+	logDebug("Sonos","------ vSonosPLAY11WeckerPlayRadio start ----------")
+	switch(receivedCommand) {
+		case 1 : vSonosPLAY11WeckerPlayRadio2.sendCommand("NDR 2 (Pop)")
+		case 2 : vSonosPLAY11WeckerPlayRadio2.sendCommand("NDR Info 98.5 (Community)")
+		case 3 : vSonosPLAY11WeckerPlayRadio2.sendCommand("Deutschlandfunk 106.1 (Nationale Nachrichten)")
+		case 4 : vSonosPLAY11WeckerPlayRadio2.sendCommand("radio ffn 101.9 (Hot AC)")
+		case 5 : vSonosPLAY11WeckerPlayRadio2.sendCommand("N-JOY 92.6 (Top 40 Hits)")
+		case 6 : vSonosPLAY11WeckerPlayRadio2.sendCommand("Radio 21 87.7 (Classic Rock)")
+		case 7 : vSonosPLAY11WeckerPlayRadio2.sendCommand("Bayern 3 97.3 (Hot AC)")
+		case 8 : vSonosPLAY11WeckerPlayRadio2.sendCommand("ARD Das Erste")
+		case 9 : vSonosPLAY11WeckerPlayRadio2.sendCommand("Coolradio 1 (Classic Rock)")
+		case 10 : vSonosPLAY11WeckerPlayRadio2.sendCommand("BBC Radio 5 live 909 (Sport Talk & Nachrichten)")		
+	}
+end
+
+rule "vSonosPLAY12WeckerPlayList"
+when
+	Item vSonosPLAY12WeckerPlayList received command
+then
+	logDebug("Sonos","------ vSonosPLAY12WeckerPlayList start ----------")
+	switch(receivedCommand) {
+		case 1 : vSonosPLAY12WeckerPlayList2.sendCommand("Andi")
+		case 2 : vSonosPLAY12WeckerPlayList2.sendCommand("Mila")
+		case 3 : vSonosPLAY12WeckerPlayList2.sendCommand("Nicki")
+		case 4 : vSonosPLAY12WeckerPlayList2.sendCommand("Yara")
+	}
+end
+
+rule "vSonosPLAY12WeckerPlayRadio"
+when
+	Item vSonosPLAY12WeckerPlayRadio received command
+then
+	logDebug("Sonos","------ vSonosPLAY12WeckerPlayRadio start ----------")
+	switch(receivedCommand) {
+		case 1 : vSonosPLAY12WeckerPlayRadio2.sendCommand("NDR 2 (Pop)")
+		case 2 : vSonosPLAY12WeckerPlayRadio2.sendCommand("NDR Info 98.5 (Community)")
+		case 3 : vSonosPLAY12WeckerPlayRadio2.sendCommand("Deutschlandfunk 106.1 (Nationale Nachrichten)")
+		case 4 : vSonosPLAY12WeckerPlayRadio2.sendCommand("radio ffn 101.9 (Hot AC)")
+		case 5 : vSonosPLAY12WeckerPlayRadio2.sendCommand("N-JOY 92.6 (Top 40 Hits)")
+		case 6 : vSonosPLAY12WeckerPlayRadio2.sendCommand("Radio 21 87.7 (Classic Rock)")
+		case 7 : vSonosPLAY12WeckerPlayRadio2.sendCommand("Bayern 3 97.3 (Hot AC)")
+		case 8 : vSonosPLAY12WeckerPlayRadio2.sendCommand("ARD Das Erste")
+		case 9 : vSonosPLAY12WeckerPlayRadio2.sendCommand("Coolradio 1 (Classic Rock)")
+		case 10 : vSonosPLAY12WeckerPlayRadio2.sendCommand("BBC Radio 5 live 909 (Sport Talk & Nachrichten)")		
+	}
+end
+*/

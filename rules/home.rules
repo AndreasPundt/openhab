@@ -1,0 +1,131 @@
+/*
+var int vValueCurrent=1
+var int vValueCurrent2=1
+var Timer vTimerSonosCONNECT = null
+*/
+/* Seconds Minutes Hours  Day-of-Month Month   Day-of-Week  Year (optional field)
+ * 0-59,*  0-59,*  0-23,* 0-31,*,?     0-11,*  0-6,*,?           
+ * 0       0       16     ?            *       MON-FRI       *
+ * */
+/*
+rule "WallMote Quad 2"
+when
+  Item dWallMoteQuad2 changed
+then
+	if (dWallMoteQuad2.state == 1.0) {
+		logDebug("Sonos","------ Sonos CONNECT ON by WallMot ----------")
+		dPlugSwitch_EZ.sendCommand(ON)
+		dPlugSwitch_WZ.sendCommand(ON)
+		dPlugSwitch_BZ.sendCommand(ON)
+		// dPlugSwitch_SZ.sendCommand(ON)
+		vSonosOnOff.postUpdate(ON)
+	} else if (dWallMoteQuad2.state == 1.2) {
+		logDebug("Sonos","------ Sonos CONNECT OFF by WallMot ----------")
+		dSonosCONNECTStop.sendCommand(ON)
+		dPlugSwitch_EZ.sendCommand(OFF)
+		dPlugSwitch_WZ.sendCommand(OFF)
+		dPlugSwitch_BZ.sendCommand(OFF)
+		// dPlugSwitch_SZ.sendCommand(OFF)
+		vSonosOnOff.postUpdate(OFF)
+	} else if (dWallMoteQuad2.state == 2.0) {
+		logDebug("HUE","------ HUE bulb ON - 2.0 - by WallMot ----------")
+		dSwitch_HUE_EZ_L.sendCommand(ON)
+		dSwitch_HUE_EZ_M.sendCommand(ON)
+		dSwitch_HUE_EZ_R.sendCommand(ON)
+	} else if (dWallMoteQuad2.state == 2.2) {
+		logDebug("HUE","------ HUE bulb OFF - 2.2 -  by WallMot ----------")
+		dSwitch_HUE_EZ_L.sendCommand(OFF)
+		dSwitch_HUE_EZ_M.sendCommand(OFF)
+		dSwitch_HUE_EZ_R.sendCommand(OFF)
+	if (dWallMoteQuad2.state == 3.0) {
+		dSonosCONNECTControler.sendCommand(PLAY)
+	if (dWallMoteQuad2.state == 3.2) {
+		vValueCurrent = (dSonosCONNECTVolume.state as DecimalType).intValue
+		dSonosCONNECTVolume.sendCommand(vValueCurrent + 10)
+		vSonosVolume.postUpdate(vValueCurrent + 10)			
+	} else if (dWallMoteQuad2.state == 4.0) {
+		dSonosCONNECTControler.sendCommand(PAUSE)		
+	} else if (dWallMoteQuad2.state == 4.2) {
+		vValueCurrent2 = (dSonosCONNECTVolume.state as DecimalType).intValue
+		dSonosCONNECTVolume.sendCommand(vValueCurrent2 - 10)
+		vSonosVolume.postUpdate(vValueCurrent2 - 10)	
+	}
+end
+*/
+/*
+rule "KFOB Key Chain Controller"
+when
+  Item dKeyController changed
+then
+	if (dKeyController.state == 1.0) {
+		dDimmer_EZ.sendCommand(99)
+	}
+	if (dKeyController.state == 5.0) {
+		dDimmer_EZ.sendCommand(0)		
+	}
+	if (dKeyController.state == 2.0) {
+		dDimmer_WZ.sendCommand(99)
+	}
+	if (dKeyController.state == 6.0) {
+		dDimmer_WZ.sendCommand(0)		
+	}
+	if (dKeyController.state == 3.0) {
+		dDimmer_FL.sendCommand(99)
+	}
+	if (dKeyController.state == 7.0) {
+		dDimmer_FL.sendCommand(0)
+	}
+	if (dKeyController.state == 4.0) {
+		dPlugSwitch_EZ.sendCommand(ON)
+		dPlugSwitch_WZ.sendCommand(ON)
+		dPlugSwitch_BZ.sendCommand(ON)
+		dPlugSwitch_SZ.sendCommand(ON)
+		vSonosOnOff.postUpdate(ON)				
+	}
+	if (dKeyController.state == 8.0) {
+		dPlugSwitch_EZ.sendCommand(OFF)
+		dPlugSwitch_WZ.sendCommand(OFF)
+		dPlugSwitch_BZ.sendCommand(OFF)
+		dPlugSwitch_SZ.sendCommand(OFF)
+		vSonosOnOff.postUpdate(OFF)
+	}
+	if (dKeyController.state == 1.2) {
+		dDimmer_EZ.sendCommand(99)
+		dDimmer_WZ.sendCommand(99)
+		dDimmer_FL.sendCommand(99)
+	}
+	if (dKeyController.state == 2.2) {
+		dDimmer_EZ.sendCommand(0)
+		dDimmer_WZ.sendCommand(0)
+		dDimmer_FL.sendCommand(0)
+	}
+end
+*/
+/*
+rule "The Button"
+when
+  Item dTheButton changed
+then
+	// replaced by node red
+	if (dTheButton.state == 1.0) {
+		dSonosPLAY11Stop.sendCommand(ON)
+	}
+	if (dTheButton.state == 1.2) {
+		vSonosSnoozePLAY11.sendCommand(ON)
+	}
+	if (dTheButton.state == 1.3) {
+		dPlugSwitch_EZ.sendCommand(ON)
+		dPlugSwitch_WZ.sendCommand(ON)
+		dPlugSwitch_BZ.sendCommand(ON)
+		dPlugSwitch_SZ.sendCommand(ON)
+		vSonosOnOff.postUpdate(ON)				
+	}
+	if (dTheButton.state == 1.4) {
+		dPlugSwitch_EZ.sendCommand(OFF)
+		dPlugSwitch_WZ.sendCommand(OFF)
+		dPlugSwitch_BZ.sendCommand(OFF)
+		dPlugSwitch_SZ.sendCommand(OFF)
+		vSonosOnOff.postUpdate(OFF)
+	}
+end
+*/
