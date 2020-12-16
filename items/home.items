@@ -46,20 +46,6 @@ Group:Switch:OR(ON, OFF)			gSonos				"Sonos AN / AUS"								<switch>
  * --------
  */
 // Alarm Clock events
-/*
-Number vHUECalDav_WasteTyp	"Abfallart"				<switch>
-Switch vHUECaDav_GreenWaste "Biomuell"				<switch>
-String	dCalDav_Wecker_NextEvent      "W1[%s]"		   <calendar>	(gAC, gKL)				{caldavPersonal="calendar:Wecker type:EVENT eventNr:1 value:NAMEANDTIME" }
-String	dCalDav_Wecker_Event_Name     "Termin[%s]"   <calendar>	(gAC, gKL)				{caldavPersonal="calendar:Wecker type:EVENT eventNr:1 value:NAME" }
-DateTime	dCalDav_Wecker_Event_Start    "Begin[%s]"	   <calendar>	(gAC, gKL)				{caldavPersonal="calendar:Wecker type:EVENT eventNr:1 value:START" }
-// DateTime	dCalDav_Wecker_Event_End   "Ende[%s]"  	<calendar>	(gAC, gKL)				{caldavPersonal="calendar:Wecker type:EVENT eventNr:1 value:END" }
-String	dCalDav_Wecker_NextEvent2     "W2[%s]"		   <calendar>	(gAC, gKL)				{caldavPersonal="calendar:Wecker type:EVENT eventNr:2 value:NAMEANDTIME" }
-String	dCalDav_Wecker_Event2_Name    "Termin[%s]"   <calendar>	(gAC, gKL)				{caldavPersonal="calendar:Wecker type:EVENT eventNr:2 value:NAME" }
-DateTime	dCalDav_Wecker_Event2_Start   "Begin[%s]"	   <calendar>	(gAC, gKL)				{caldavPersonal="calendar:Wecker type:EVENT eventNr:2 value:START" }
-String	dCalDav_Wecker_NextEvent3     "W3[%s]"		   <calendar>	(gAC, gKL)				{caldavPersonal="calendar:Wecker type:EVENT eventNr:3 value:NAMEANDTIME" }
-String	dCalDav_Wecker_Event3_Name    "Termin[%s]"   <calendar>	(gAC, gKL)				{caldavPersonal="calendar:Wecker type:EVENT eventNr:3 value:NAME" }
-DateTime	dCalDav_Wecker_Event3_Start   "Begin[%s]"	   <calendar>	(gAC, gKL)				{caldavPersonal="calendar:Wecker type:EVENT eventNr:3 value:START" }
-*/
 /* 
  * -------
  * heating
@@ -71,25 +57,22 @@ DateTime	dCalDav_Wecker_Event3_Start   "Begin[%s]"	   <calendar>	(gAC, gKL)				{
  * ------
  */
 // HUE Esszimmer
-// HUE Küche - HUE Room
-Switch   KucheRoomSwitch             "Schalter"         {channel="hue:group:001788678799:7:switch"}
-Dimmer   KucheRoomColorTemperature   "Farbtemperatur"   {channel="hue:group:001788678799:7:color_temperature"}
-Dimmer   KucheRoomBrightness         "Helligkeit"       {channel="hue:group:001788678799:7:brightness"}
+// HUE Küche - HUE Room 
+Switch   rKucheRoomSwitch             "Schalter Küche"         (gLights, gWH)  {channel="hue:group:001788678799:7:switch"}            
+Dimmer   rKucheRoomColorTemperature   "Farbtemperatur"   {channel="hue:group:001788678799:7:color_temperature"}
+Dimmer   rKucheRoomBrightness         "Helligkeit"       {channel="hue:group:001788678799:7:brightness"}
 // HUE Mila
 // HUE Schlafzimmer
 // HUE Iris Wohnzimmer
 // HUE Flur HP - HUE Room
-Switch   FlurHPRoomSwitch             "Schalter"         {channel="hue:group:001788678799:1:switch"}
-Dimmer   FlurHPRoomColorTemperature   "Farbtemperatur"   {channel="hue:group:001788678799:1:color_temperature"}
-Dimmer   FlurHPRoomBrightness         "Helligkeit"       {channel="hue:group:001788678799:1:brightness"}
+Switch   rFlurHPRoomSwitch             "Schalter Flur HP"         (gLights, gWH) {channel="hue:group:001788678799:1:switch"}
+Dimmer   rFlurHPRoomColorTemperature   "Farbtemperatur"   {channel="hue:group:001788678799:1:color_temperature"}
+Dimmer   rFlurHPRoomBrightness         "Helligkeit"       {channel="hue:group:001788678799:1:brightness"}
 // HUE Flur ST
 // HUE Flur 1.OG - HUE Room
-Switch   Flur1OGRoomSwitch             "Schalter"         {channel="hue:group:001788678799:6:switch"}
-Dimmer   Flur1OGRoomColorTemperature   "Farbtemperatur"   {channel="hue:group:001788678799:6:color_temperature"}
-Dimmer   Flur1OGRoomBrightness         "Helligkeit"       {channel="hue:group:001788678799:6:brightness"}
-Color    Flur1OGRoomColor              "Farbe"            {channel="hue:group:001788678799:6:color"}
-String   Flur1OGRoomAlert              "Alarm"            {channel="hue:group:001788678799:6:alert"}
-String   Flur1OGRoomScene              "Scene"            {channel="hue:group:001788678799:6:scene"}
+Switch   rFlur1OGRoomSwitch             "Schalter Flur 1.OG"         (gLights, gWH)   {channel="hue:group:001788678799:6:switch"}
+Dimmer   rFlur1OGRoomColorTemperature   "Farbtemperatur"   {channel="hue:group:001788678799:6:color_temperature"}
+Dimmer   rFlur1OGRoomBrightness         "Helligkeit"       {channel="hue:group:001788678799:6:brightness"}
 // HUE Flur 2.OG
 //
 // HUE Flur (Decke)
@@ -104,11 +87,11 @@ String   Flur1OGRoomScene              "Scene"            {channel="hue:group:00
  * -------
  */
  // Motion Sensor
- Switch               ZWaveNode002FGMS001MotionSensorAlarmMotion         "Motion alarm"           {channel="zwave:device:b7ff901b:node2:alarm_motion"}
-Number:Temperature   ZWaveNode002FGMS001MotionSensorSensorTemperature   "Sensor (temperature)"   {channel="zwave:device:b7ff901b:node2:sensor_temperature"}
-Number               ZWaveNode002FGMS001MotionSensorSensorLuminance     "Sensor (luminance)"     {channel="zwave:device:b7ff901b:node2:sensor_luminance"}
-Number               ZWaveNode002FGMS001MotionSensorBatteryLevel        "Batterieladung"         {channel="zwave:device:b7ff901b:node2:battery-level"}
-Switch               ZWaveNode002FGMS001MotionSensorAlarmTamper         "Tamper alarm"           {channel="zwave:device:b7ff901b:node2:alarm_tamper"}
+Switch               dMotionSensorAlarmMotion         "Motion alarm"          {channel="zwave:device:b7ff901b:node2:alarm_motion"}
+Number:Temperature   dMotionSensorSensorTemperature   "Sensor (temperature)"   {channel="zwave:device:b7ff901b:node2:sensor_temperature"}
+Number               dMotionSensorSensorLuminance     "Sensor (luminance)"     {channel="zwave:device:b7ff901b:node2:sensor_luminance"}
+Number               dMotionSensorBatteryLevel        "Batterieladung"         {channel="zwave:device:b7ff901b:node2:battery-level"}
+Switch               dMotionSensorAlarmTamper         "Tamper alarm"           {channel="zwave:device:b7ff901b:node2:alarm_tamper"}
 /*
  * -----
  * SONOS PLAY:1-3
