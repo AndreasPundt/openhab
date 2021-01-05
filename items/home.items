@@ -81,6 +81,17 @@ Dimmer   rFlur1OGRoomBrightness         "Helligkeit"       {channel="hue:group:0
  * switches
  * --------
  */
+ Number   ZW130WallMoteQuadSceneNumber        "Scene number"     {channel="zwave:device:b7ff901b:node7:scene_number"}
+ Switch   ZW130WallMoteQuadAlarmPower         "Alarm (power)"    {channel="zwave:device:b7ff901b:node7:alarm_power"}
+ Number   ZW130WallMoteQuadBatteryLevel       "Batterieladung"   {channel="zwave:device:b7ff901b:node7:battery-level"}
+ String   ZW130WallMoteQuadSwitchStartstop1   "Swipe switch 1"   {channel="zwave:device:b7ff901b:node7:switch_startstop1"}
+ Number   ZW130WallMoteQuadSceneNumber1       "Scene number 1"   {channel="zwave:device:b7ff901b:node7:scene_number1"}
+ String   ZW130WallMoteQuadSwitchStartstop2   "Swipe switch 2"   {channel="zwave:device:b7ff901b:node7:switch_startstop2"}
+ Number   ZW130WallMoteQuadSceneNumber2       "Scene number 2"   {channel="zwave:device:b7ff901b:node7:scene_number2"}
+ String   ZW130WallMoteQuadSwitchStartstop3   "Swipe switch 3"   {channel="zwave:device:b7ff901b:node7:switch_startstop3"}
+ Number   ZW130WallMoteQuadSceneNumber3       "Scene number 3"   {channel="zwave:device:b7ff901b:node7:scene_number3"}
+ String   ZW130WallMoteQuadSwitchStartstop4   "Swipe switch 4"   {channel="zwave:device:b7ff901b:node7:switch_startstop4"}
+ Number   ZW130WallMoteQuadSceneNumber4       "Scene number 4"   {channel="zwave:device:b7ff901b:node7:scene_number4"}
 /* 
  * -------
  * sensors
@@ -112,6 +123,50 @@ Switch               dMotionSensorAlarmTamper         "Tamper alarm"           {
  * SONOS ONE
  * -----
  */
+ String   SonosOneKucheAdd                   "Hinzufügen"                   {channel="sonos:One:RINCON_7828CA073F1601400:add"}
+ Switch   SonosOneKucheAlarm                 "Alarm aktivieren"             {channel="sonos:One:RINCON_7828CA073F1601400:alarm"}
+ String   SonosOneKucheAlarmproperties       "Alarm einstellungen"          {channel="sonos:One:RINCON_7828CA073F1601400:alarmproperties"}
+ Switch   SonosOneKucheAlarmrunning          "Alarm aktiviert?"             {channel="sonos:One:RINCON_7828CA073F1601400:alarmrunning"}
+ Player   SonosOneKucheControl               "Fernbedienung"                {channel="sonos:One:RINCON_7828CA073F1601400:control"}
+ String   SonosOneKucheCurrentalbum          "Album"                        {channel="sonos:One:RINCON_7828CA073F1601400:currentalbum"}
+ Image    SonosOneKucheCurrentalbumart       "Coverbild"                    {channel="sonos:One:RINCON_7828CA073F1601400:currentalbumart"}
+ String   SonosOneKucheCurrentalbumarturl    "Coverbild url"                {channel="sonos:One:RINCON_7828CA073F1601400:currentalbumarturl"}
+ String   SonosOneKucheCurrentartist         "Künstler"                     {channel="sonos:One:RINCON_7828CA073F1601400:currentartist"}
+ String   SonosOneKucheCurrenttitle          "Titel"                        {channel="sonos:One:RINCON_7828CA073F1601400:currenttitle"}
+ String   SonosOneKucheCurrenttrack          "Track name"                   {channel="sonos:One:RINCON_7828CA073F1601400:currenttrack"}
+ Switch   SonosOneKucheShuffle               "Shuffle"                      {channel="sonos:One:RINCON_7828CA073F1601400:shuffle"}
+ String   SonosOneKucheRepeat                "Wiederholen"                  {channel="sonos:One:RINCON_7828CA073F1601400:repeat"}
+ String   SonosOneKucheFavorite              "Favorit"                      {channel="sonos:One:RINCON_7828CA073F1601400:favorite"}
+ Switch   SonosOneKucheLed                   "Led"                          {channel="sonos:One:RINCON_7828CA073F1601400:led"}
+ Switch   SonosOneKucheLocalcoordinator      "Lokaler master"               {channel="sonos:One:RINCON_7828CA073F1601400:localcoordinator"}
+ Switch   SonosOneKucheMute                  "Stumm schalten"               {channel="sonos:One:RINCON_7828CA073F1601400:mute"}
+ String   SonosOneKucheNotificationsound     "Benachrichtigung abspielen"   {channel="sonos:One:RINCON_7828CA073F1601400:notificationsound"}
+ String   SonosOneKuchePlaylist              "Playlist abspielen"           {channel="sonos:One:RINCON_7828CA073F1601400:playlist"}
+ Switch   SonosOneKucheClearqueue            "Wiedergabeliste leeren"       {channel="sonos:One:RINCON_7828CA073F1601400:clearqueue"}
+ String   SonosOneKuchePlaylinein            "Line in abspielen"            {channel="sonos:One:RINCON_7828CA073F1601400:playlinein"}
+ Switch   SonosOneKuchePlayqueue             "Wiedergabeliste abspielen"    {channel="sonos:One:RINCON_7828CA073F1601400:playqueue"}
+ Number   SonosOneKuchePlaytrack             "Track abspielen"              {channel="sonos:One:RINCON_7828CA073F1601400:playtrack"}
+ String   SonosOneKuchePlayuri               "Uri abspielen"                {channel="sonos:One:RINCON_7828CA073F1601400:playuri"}
+ Switch   SonosOneKuchePublicaddress         "Öffentliche adresse"          {channel="sonos:One:RINCON_7828CA073F1601400:publicaddress"}
+ String   SonosOneKucheRadio                 "Radiosender"                  {channel="sonos:One:RINCON_7828CA073F1601400:radio"}
+ String   SonosOneKucheRemove                "Entfernen"                    {channel="sonos:One:RINCON_7828CA073F1601400:remove"}
+ Switch   SonosOneKucheRestore               "Wiederherstellen"             {channel="sonos:One:RINCON_7828CA073F1601400:restore"}
+ Switch   SonosOneKucheRestoreall            "Alle wiederherstellen"        {channel="sonos:One:RINCON_7828CA073F1601400:restoreall"}
+ Switch   SonosOneKucheSave                  "Speichern"                    {channel="sonos:One:RINCON_7828CA073F1601400:save"}
+ Switch   SonosOneKucheSaveall               "Alle speichern"               {channel="sonos:One:RINCON_7828CA073F1601400:saveall"}
+ Number   SonosOneKucheSnooze                "Snooze"                       {channel="sonos:One:RINCON_7828CA073F1601400:snooze"}
+ Switch   SonosOneKucheStandalone            "Stand alone"                  {channel="sonos:One:RINCON_7828CA073F1601400:standalone"}
+ String   SonosOneKucheState                 "Status"                       {channel="sonos:One:RINCON_7828CA073F1601400:state"}
+ Switch   SonosOneKucheStop                  "Stop"                         {channel="sonos:One:RINCON_7828CA073F1601400:stop"}
+ String   SonosOneKucheTuneinstationid       "Tune in sender"               {channel="sonos:One:RINCON_7828CA073F1601400:tuneinstationid"}
+ Dimmer   SonosOneKucheVolume                "Lautstärke"                   {channel="sonos:One:RINCON_7828CA073F1601400:volume"}
+ String   SonosOneKucheZonegroupid           "Id der gruppe"                {channel="sonos:One:RINCON_7828CA073F1601400:zonegroupid"}
+ String   SonosOneKucheZonename              "Name der gruppe"              {channel="sonos:One:RINCON_7828CA073F1601400:zonename"}
+ String   SonosOneKucheCoordinator           "Master"                       {channel="sonos:One:RINCON_7828CA073F1601400:coordinator"}
+ Number   SonosOneKucheSleeptimer            "Sleep timer"                  {channel="sonos:One:RINCON_7828CA073F1601400:sleeptimer"}
+ String   SonosOneKucheCurrenttransporturi   "Av transport uri"             {channel="sonos:One:RINCON_7828CA073F1601400:currenttransporturi"}
+ String   SonosOneKucheCurrenttrackuri       "Track uri"                    {channel="sonos:One:RINCON_7828CA073F1601400:currenttrackuri"}
+ Switch   SonosOneKucheSpeechenhancement     "Sprachverbesserung"           {channel="sonos:One:RINCON_7828CA073F1601400:speechenhancement"}
 /*
  * -----
  * SONOS PLAY:1-1
