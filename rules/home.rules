@@ -2,7 +2,6 @@
  *
  */
 var int vValueCurrent=1
-var int vValueCurrent=1
 var int vValueCurrent2=1
 //var Timer vTimerSonosCONNECT = null
 //
@@ -13,30 +12,27 @@ var int vValueCurrent2=1
 //
 rule "WallMote Quad 2"
 when
-  Item dWallMoteQuad2 changed
+  Item dWallMoteQuad_SceneNumber changed
 then
-	if (ZW130WallMoteQuadSceneNumber.state == 1.0) {
-		logDebug("Sonos","------ Sonos CONNECT ON by WallMot ----------")
-		SonosOneKucheControl.sendCommand(PLAY)
-//	} else if (ZW130WallMoteQuadSceneNumber.state == 1.2) {
+	if (dWallMoteQuad_SceneNumber.state == 1.0)
+		//logDebug("Sonos","------ Sonos CONNECT ON by WallMot ----------")
+		HueIris1Color.sendCommand(ON)
+	if (dWallMoteQuad_SceneNumber.state == 1.1)
+		//logDebug("Sonos","------ Sonos CONNECT ON by WallMot ----------")
+		HueIris1Color.sendCommand(OFF)
+//	} else if (dWallMoteQuad_SceneNumber.state == 1.2) {
 //		logDebug("Sonos","------ Sonos CONNECT OFF by WallMot ----------")
-//		SonosOneKucheControl.sendCommand(PAUSE)
-	} else if (ZW130WallMoteQuadSceneNumber.state == 2.0) {
-		logDebug("Sonos","------ Sonos CONNECT OFF by WallMot ----------")
-		SonosOneKucheControl.sendCommand(PAUSE)
-//	} else if (ZW130WallMoteQuadSceneNumber.state == 2.2) {
-//		logDebug("HUE","------ HUE bulb OFF - 2.2 -  by WallMot ----------")
-//		dSwitch_HUE_EZ_L.sendCommand(OFF)
-	}
-	if (ZW130WallMoteQuadSceneNumber.state == 3.0)
-		SonosOneKucheRadio.sendCommand("NDR 2 (Pop)")
-	if (ZW130WallMoteQuadSceneNumber.state == 3.2) {
-		vValueCurrent = (SonosOneKucheVolume.state as DecimalType).intValue
-		SonosOneKucheVolume.sendCommand(vValueCurrent + 10)
-	} else if (ZW130WallMoteQuadSceneNumber.state == 4.0) {
-		SonosOneKucheStop.sendCommand(ON)		
-	} else if (ZW130WallMoteQuadSceneNumber.state == 4.2) {
-		vValueCurrent2 = (SonosOneKucheVolume.state as DecimalType).intValue
-		SonosOneKucheVolume.sendCommand(vValueCurrent2 - 10)
-	}
+//		SonosOneKucheControl.sendCommand(PAUSE) }
+	if (dWallMoteQuad_SceneNumber.state == 2.0)
+		rKucheRoomSwitch.sendCommand(ON)
+	if (dWallMoteQuad_SceneNumber.state == 2.1)
+		rKucheRoomSwitch.sendCommand(OFF)
+	if (dWallMoteQuad_SceneNumber.state == 3.0)
+		rEssbereichRoom_Schalter.sendCommand(ON)
+	if (dWallMoteQuad_SceneNumber.state == 3.1)
+		rEssbereichRoom_Schalter.sendCommand(OFF)		
+	if (dWallMoteQuad_SceneNumber.state == 4.0)
+		rFlurHPRoom_Schalter.sendCommand(ON)
+	if (dWallMoteQuad_SceneNumber.state == 4.2)
+		rFlurHPRoom_Schalter.sendCommand(OFF)
 end

@@ -56,6 +56,11 @@ Group:Switch:OR(ON, OFF)			gSonos				"Sonos AN / AUS"								<switch>
  * HUE lights
  * ------
  */
+// HUE Essbereich - HUE Room
+Switch rEssbereichRoom_Schalter         "Schalter Essbereich"       {channel="hue:group:001788678799:5:switch"}
+Dimmer rEssbereichRoom_Farbtemperatur   "Farbtemperatur Essbereich" {channel="hue:group:001788678799:5:color_temperature"}
+Dimmer rEssbereichRoom_Helligkeit       "Helligkeit Essbereich"     {channel="hue:group:001788678799:5:brightness"}
+
 // HUE Küche - HUE Room 
 Switch   rKucheRoomSwitch             "Schalter Küche"         (gLights, gWH)  {channel="hue:group:001788678799:7:switch"}            
 Dimmer   rKucheRoomColorTemperature   "Farbtemperatur"   {channel="hue:group:001788678799:7:color_temperature"}
@@ -67,6 +72,9 @@ Switch   rFlurHPRoomSwitch             "Schalter Flur HP"         (gLights, gWH)
 Dimmer   rFlurHPRoomColorTemperature   "Farbtemperatur"   {channel="hue:group:001788678799:1:color_temperature"}
 Dimmer   rFlurHPRoomBrightness         "Helligkeit"       {channel="hue:group:001788678799:1:brightness"}
 // HUE Iris Wohnzimmer
+Color    HueIris1Color    "Farbe"        {channel="hue:0200:001788678799:16:color"}
+String   HueIris1Alert    "Alarm"        {channel="hue:0200:001788678799:16:alert"}
+Switch   HueIris1Effect   "Farbeffekt"   {channel="hue:0200:001788678799:16:effect"}
 //
 // HUE Flur 1.OG - HUE Room
 Switch   rFlur1OGRoomSwitch             "Schalter Flur 1.OG"         (gLights, gWH)   {channel="hue:group:001788678799:6:switch"}
@@ -81,38 +89,37 @@ Dimmer   rFlur1OGRoomBrightness         "Helligkeit"       {channel="hue:group:0
  * switches
  * --------
  */
- Number   ZW130WallMoteQuadSceneNumber        "Scene number"     {channel="zwave:device:b7ff901b:node7:scene_number"}
- Switch   ZW130WallMoteQuadAlarmPower         "Alarm (power)"    {channel="zwave:device:b7ff901b:node7:alarm_power"}
- Number   ZW130WallMoteQuadBatteryLevel       "Batterieladung"   {channel="zwave:device:b7ff901b:node7:battery-level"}
- String   ZW130WallMoteQuadSwitchStartstop1   "Swipe switch 1"   {channel="zwave:device:b7ff901b:node7:switch_startstop1"}
- Number   ZW130WallMoteQuadSceneNumber1       "Scene number 1"   {channel="zwave:device:b7ff901b:node7:scene_number1"}
- String   ZW130WallMoteQuadSwitchStartstop2   "Swipe switch 2"   {channel="zwave:device:b7ff901b:node7:switch_startstop2"}
- Number   ZW130WallMoteQuadSceneNumber2       "Scene number 2"   {channel="zwave:device:b7ff901b:node7:scene_number2"}
- String   ZW130WallMoteQuadSwitchStartstop3   "Swipe switch 3"   {channel="zwave:device:b7ff901b:node7:switch_startstop3"}
- Number   ZW130WallMoteQuadSceneNumber3       "Scene number 3"   {channel="zwave:device:b7ff901b:node7:scene_number3"}
- String   ZW130WallMoteQuadSwitchStartstop4   "Swipe switch 4"   {channel="zwave:device:b7ff901b:node7:switch_startstop4"}
- Number   ZW130WallMoteQuadSceneNumber4       "Scene number 4"   {channel="zwave:device:b7ff901b:node7:scene_number4"}
+Number   dWallMoteQuad_SceneNumber        "Scene number"     {channel="zwave:device:b7ff901b:node7:scene_number"}
+Switch   ZW130WallMoteQuadAlarmPower      "Alarm (power)"    {channel="zwave:device:b7ff901b:node7:alarm_power"}
+Number   dWallMoteQuad_Batterieladung     "Batterieladung"   {channel="zwave:device:b7ff901b:node7:battery-level"}
+String   dWallMoteQuad_SwipeSwitch1       "Swipe switch 1"   {channel="zwave:device:b7ff901b:node7:switch_startstop1"}
+Number   dWallMoteQuad_SceneNumber1       "Scene number 1"   {channel="zwave:device:b7ff901b:node7:scene_number1"}
+String   dWallMoteQuad_SwipeSwitch2       "Swipe switch 2"   {channel="zwave:device:b7ff901b:node7:switch_startstop2"}
+Number   dWallMoteQuad_SceneNumber2       "Scene number 2"   {channel="zwave:device:b7ff901b:node7:scene_number2"}
 /* 
  * -------
  * sensors
  * -------
  */
+ // Flood Sensor
+ Number:Temperature   dFloodSensor_TemperatureSensor   "Temperature sensor"   {channel="zwave:device:b7ff901b:node3:sensor_temperature"}
+ Switch               dFloodSensor_TamperAlarm         "Tamper alarm"         {channel="zwave:device:b7ff901b:node3:alarm_tamper"}
+ Switch               dFloodSensor_FloodAlarm          "Flood alarm"          {channel="zwave:device:b7ff901b:node3:alarm_flood"}
+ Number               dFloodSensor_Batterieladung      "Batterieladung"       {channel="zwave:device:b7ff901b:node3:battery-level"}
  // Smoke Detector Flur 2. OG
-Number:Temperature   dSmokeDetectorSensorTemperature   "Temperature sensor"       {channel="zwave:device:b7ff901b:node11:sensor_temperature"}
-Switch               dSmokeDetectorAlarmHeat           "Heat alarm"               {channel="zwave:device:b7ff901b:node11:alarm_heat"}
-Switch               dSmokeDetectorAlarmSmoke          "Smoke alarm"              {channel="zwave:device:b7ff901b:node11:alarm_smoke"}
-Switch               dSmokeDetectorAlarmSystem         "Hardware failure alarm"   {channel="zwave:device:b7ff901b:node11:alarm_system"}
-Switch               dSmokeDetectorAlarmTamper         "Tamper alarm"             {channel="zwave:device:b7ff901b:node11:alarm_tamper"}
-Switch               dSmokeDetectorAlarmBattery        "Low battery alarm"        {channel="zwave:device:b7ff901b:node11:alarm_battery"}
-Number               dSmokeDetectorBatteryLevel        "Batterieladung"           {channel="zwave:device:b7ff901b:node11:battery-level"}
- // Smoke Detector Wohnzimmer
-
- // Motion Sensor
-Switch               dMotionSensorAlarmMotion         "Motion alarm"          {channel="zwave:device:b7ff901b:node2:alarm_motion"}
-Number:Temperature   dMotionSensorSensorTemperature   "Sensor (temperature)"   {channel="zwave:device:b7ff901b:node2:sensor_temperature"}
-Number               dMotionSensorSensorLuminance     "Sensor (luminance)"     {channel="zwave:device:b7ff901b:node2:sensor_luminance"}
-Number               dMotionSensorBatteryLevel        "Batterieladung"         {channel="zwave:device:b7ff901b:node2:battery-level"}
-Switch               dMotionSensorAlarmTamper         "Tamper alarm"           {channel="zwave:device:b7ff901b:node2:alarm_tamper"}
+Number:Temperature   d2SmokeDetector_TemperatureSensor   "Temperature sensor"       {channel="zwave:device:b7ff901b:node11:sensor_temperature"}
+Switch               d2SmokeDetector_HeatAlarm           "Heat alarm"               {channel="zwave:device:b7ff901b:node11:alarm_heat"}
+Switch               d2SmokeDetector_SmokeAlarm          "Smoke alarm"              {channel="zwave:device:b7ff901b:node11:alarm_smoke"}
+Switch               d2SmokeDetector_LowBatteryAlarm     "Low battery alarm"        {channel="zwave:device:b7ff901b:node11:alarm_battery"}
+Number               d2SmokeDetector_Batterieladung      "Batterieladung"           {channel="zwave:device:b7ff901b:node11:battery-level"}
+// Smoke Detector Wohnzimmer
+//
+// Motion Sensor
+Switch               dMotionSensor_MotionAlarm         "Motion alarm"           {channel="zwave:device:b7ff901b:node2:alarm_motion"}
+Number:Temperature   dMotionSensor_SensorTemperature   "Sensor (temperature)"   {channel="zwave:device:b7ff901b:node2:sensor_temperature"}
+Number               dMotionSensor_SensorLuminance     "Sensor (luminance)"     {channel="zwave:device:b7ff901b:node2:sensor_luminance"}
+Number               dMotionSensor_Batterieladung      "Batterieladung"         {channel="zwave:device:b7ff901b:node2:battery-level"}
+Switch               dMotionSensor_TamperAlarm         "Tamper alarm"           {channel="zwave:device:b7ff901b:node2:alarm_tamper"}
 /*
  * -----
  * SONOS PLAY:1-3
@@ -187,14 +194,27 @@ Switch               dMotionSensorAlarmTamper         "Tamper alarm"           {
  * date and time
  * -------------
  */
+DateTime   LokaleZeitDateTime   "Datum und zeit"   {channel="ntp:ntp:local:dateTime"}
+String     LokaleZeitString     "Datum und zeit"   {channel="ntp:ntp:local:string"}
 //DateTime dCurrentDate		"Aktuelles Datum  [%1$tA, %1$td.%1$tm.%1$tY]"   <calendar> {channel="ntp:ntp:local:dateTime" }
 //DateTime dCurrentTime		"Aktuelle Uhrzeit"								<clock>		// {channel="npd:}
-
 /*
  * ---------
  * astronomy
  * ---------
  */
+ DateTime RiseStart "Startzeit" {channel="astro:sun:local:rise#start"}
+ DateTime RiseEnd "Endzeit" {channel="astro:sun:local:rise#end"}
+ String SeasonName "Jahreszeit" {channel="astro:sun:local:season#name"}
+ DateTime RiseStart "Startzeit" {channel="astro:moon:local:rise#start"}
+ DateTime RiseEnd "Endzeit" {channel="astro:moon:local:rise#end"}
+ DateTime PhaseFirstQuarter "Erstes viertel" {channel="astro:moon:local:phase#firstQuarter"}
+ DateTime PhaseThirdQuarter "Drittes viertel" {channel="astro:moon:local:phase#thirdQuarter"}
+ DateTime PhaseFull "Vollmond" {channel="astro:moon:local:phase#full"}
+ DateTime PhaseNew "Neumond" {channel="astro:moon:local:phase#new"}
+ String PhaseName "Mondphase" {channel="astro:moon:local:phase#name"}
+ String ZodiacSign "Sternzeichen" {channel="astro:moon:local:zodiac#sign"}
+ 
 /*
  * ------
  * weather
