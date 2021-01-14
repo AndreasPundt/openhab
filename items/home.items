@@ -86,7 +86,13 @@ Dimmer   rFlur1OGRoomBrightness         "Helligkeit"       {channel="hue:group:0
 //
 /* 
  * --------
- * switches
+ * switches for virtuell items (without a Thing)
+ * --------
+ */
+Switch	vSwitch_MotionSensor            "Motion Sensor AN / AUS [MAP(on-off.map):%s]"
+/* 
+ * --------
+ * switches for physical items
  * --------
  */
 Number   dWallMoteQuad_SceneNumber        "Scene number"     {channel="zwave:device:b7ff901b:node7:scene_number"}
@@ -127,7 +133,7 @@ Switch               dMotionSensor_TamperAlarm         "Tamper alarm"           
  */
 /*
  * -----
- * SONOS ONE
+ * SONOS ONE Kueche
  * -----
  */
  String   SonosOneKucheAdd                   "Hinzufügen"                   {channel="sonos:One:RINCON_7828CA073F1601400:add"}
@@ -206,8 +212,6 @@ String     LokaleZeitString     "Datum und zeit"   {channel="ntp:ntp:local:strin
  DateTime RiseStart "Startzeit" {channel="astro:sun:local:rise#start"}
  DateTime RiseEnd "Endzeit" {channel="astro:sun:local:rise#end"}
  String SeasonName "Jahreszeit" {channel="astro:sun:local:season#name"}
- DateTime RiseStart "Startzeit" {channel="astro:moon:local:rise#start"}
- DateTime RiseEnd "Endzeit" {channel="astro:moon:local:rise#end"}
  DateTime PhaseFirstQuarter "Erstes viertel" {channel="astro:moon:local:phase#firstQuarter"}
  DateTime PhaseThirdQuarter "Drittes viertel" {channel="astro:moon:local:phase#thirdQuarter"}
  DateTime PhaseFull "Vollmond" {channel="astro:moon:local:phase#full"}

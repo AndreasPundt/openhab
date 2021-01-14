@@ -17,6 +17,32 @@ var HSBType yellow = new HSBType("60,100,50")
 var HSBType green = new HSBType("120,100,50")
 var HSBType blue = new HSBType("240,100,50")
 var HSBType red = new HSBType("360,100,50")
+
+/* ------------------
+ * initialization
+ * ------------------
+ */
+rule "init"
+when
+	System started
+then
+	vSwitch_MotionSensor.sendCommand(ON)
+end
+//
+rule "React on Motion Alarm (dMotionSensor_MotionAlarm) change/update"
+when
+	 Item dMotionSensor_MotionAlarm changed
+then
+	// 
+	if(dMotionSensor_MotionAlarm.state == ON && vSwitch_MotionSensor.state == ON)  {
+		rEingangRoom_Schalter.sendCommand(ON)
+		rFlur2OGRoom_Schalter.sendCommand(ON)
+	}
+	else if(dMotionSensor_MotionAlarm.state == OFF && vSwitch_MotionSensor.state == ON) {
+		rEingangRoom_Schalter.sendCommand(OFF)
+		rFlur2OGRoom_Schalter.sendCommand(OFF)
+	}
+end
 /*
  * Controlling lights via CalDav
  */

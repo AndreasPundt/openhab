@@ -16,7 +16,7 @@ when
 then
 	if (dWallMoteQuad_SceneNumber.state == 1.0)
 		//logDebug("Sonos","------ Sonos CONNECT ON by WallMot ----------")
-		HueIris1Color.sendCommand(ON)
+		vSwitch_MotionSensor.sendCommand(ON)
 	if (dWallMoteQuad_SceneNumber.state == 1.1)
 		//logDebug("Sonos","------ Sonos CONNECT ON by WallMot ----------")
 		HueIris1Color.sendCommand(OFF)
