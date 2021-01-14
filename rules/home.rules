@@ -14,6 +14,13 @@ rule "WallMote Quad 2"
 when
   Item dWallMoteQuad_SceneNumber changed
 then
+	switch (dWallMoteQuad_SceneNumber.state) {
+		case 1.0 : vSwitch_MotionSensor.sendCommand(ON)
+		case 2.0 : vSwitch_MotionSensor.sendCommand(OFF)
+	}
+end
+
+/*
 	if (dWallMoteQuad_SceneNumber.state == 1.0)
 		//logDebug("Sonos","------ Sonos CONNECT ON by WallMot ----------")
 		vSwitch_MotionSensor.sendCommand(ON)
@@ -35,4 +42,4 @@ then
 		rFlurHPRoom_Schalter.sendCommand(ON)
 	if (dWallMoteQuad_SceneNumber.state == 4.2)
 		rFlurHPRoom_Schalter.sendCommand(OFF)
-end
+*/
